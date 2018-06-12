@@ -1,0 +1,40 @@
+{
+  "name": "resinos-jetson-flash",
+  "version": "1.0.0",
+  "description": "This tool allows the user to flash resinOS on the Jetson device using Nvidia flashing tools.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "bin/cmd.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/resin-os/resin-jetson-flash.git"
+  },
+  "keywords": [
+    "flash",
+    "resinOS",
+    "USB"
+  ],
+  "author": "Theodor Gherzan",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/resin-os/resin-jetson-flash/issues"
+  },
+  "homepage": "https://github.com/resin-os/resin-jetson-flash#readme",
+  "dependencies": {
+    "ext2fs": "^1.0.7",
+    "file-disk": "^4.1.3",
+    "lodash": "^4.17.10",
+    "make-dir": "^1.3.0",
+    "partitioninfo": "^4.0.1",
+    "progress-stream": "^2.0.0",
+    "request": "^2.87.0",
+    "resin-cli-visuals": "^1.4.2",
+    "resin-image-fs": "^5.0.4",
+    "string-to-stream": "^1.1.1",
+    "tar-stream": "^1.6.1",
+    "unbzip2-stream": "^1.2.5",
+    "xml-js": "^1.6.4",
+    "yargs": "^11.0.0"
+  }
+}
