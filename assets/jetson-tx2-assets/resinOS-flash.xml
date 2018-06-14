@@ -20,15 +20,6 @@
             <percent_reserved> 0 </percent_reserved>
             <filename> MB1FILE </filename>
         </partition>
-        <partition name="mb1_b" type="mb1_bootloader">
-            <allocation_policy> sequential </allocation_policy>
-            <filesystem_type> basic </filesystem_type>
-            <size> 262144 </size>
-            <file_system_attribute> 0 </file_system_attribute>
-            <allocation_attribute> 8 </allocation_attribute>
-            <percent_reserved> 0 </percent_reserved>
-            <filename> MB1FILE </filename>
-        </partition>
         <partition name="MB1_BCT" type="mb1_boot_config_table">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
@@ -37,24 +28,7 @@
             <allocation_attribute> 8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
         </partition>
-        <partition name="MB1_BCT_b" type="mb1_boot_config_table">
-            <allocation_policy> sequential </allocation_policy>
-            <filesystem_type> basic </filesystem_type>
-            <size> 65536 </size>
-            <file_system_attribute> 0 </file_system_attribute>
-            <allocation_attribute> 8 </allocation_attribute>
-            <percent_reserved> 0 </percent_reserved>
-        </partition>
         <partition name="spe-fw" type="spe_fw" oem_sign="true">
-            <allocation_policy> sequential </allocation_policy>
-            <filesystem_type> basic </filesystem_type>
-            <size> 131072 </size>
-            <file_system_attribute> 0 </file_system_attribute>
-            <allocation_attribute> 8 </allocation_attribute>
-            <percent_reserved> 0 </percent_reserved>
-            <filename> SPEFILE </filename>
-        </partition>
-        <partition name="spe-fw_b" type="spe_fw" oem_sign="true">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
             <size> 131072 </size>
@@ -72,15 +46,6 @@
             <percent_reserved> 0 </percent_reserved>
             <filename> MB2FILE </filename>
         </partition>
-        <partition name="mb2_b" type="mb2_bootloader" oem_sign="true">
-            <allocation_policy> sequential </allocation_policy>
-            <filesystem_type> basic </filesystem_type>
-            <size> 262144 </size>
-            <file_system_attribute> 0 </file_system_attribute>
-            <allocation_attribute> 8 </allocation_attribute>
-            <percent_reserved> 0 </percent_reserved>
-            <filename> MB2FILE </filename>
-        </partition>
         <partition name="mts-preboot" type="mts_preboot" oem_sign="true">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
@@ -90,25 +55,7 @@
             <percent_reserved> 0 </percent_reserved>
             <filename> MPBFILE </filename>
         </partition>
-        <partition name="mts-preboot_b" type="mts_preboot" oem_sign="true">
-            <allocation_policy> sequential </allocation_policy>
-            <filesystem_type> basic </filesystem_type>
-            <size> 262144 </size>
-            <file_system_attribute> 0 </file_system_attribute>
-            <allocation_attribute> 8 </allocation_attribute>
-            <percent_reserved> 0 </percent_reserved>
-            <filename> MPBFILE </filename>
-        </partition>
         <partition name="SMD" type="smd">
-            <allocation_policy> sequential </allocation_policy>
-            <filesystem_type> basic </filesystem_type>
-            <size> 4096 </size>
-            <file_system_attribute> 0 </file_system_attribute>
-            <allocation_attribute> 0x8 </allocation_attribute>
-            <percent_reserved> 0 </percent_reserved>
-            <filename> slot_metadata.bin </filename>
-        </partition>
-        <partition name="SMD_b" type="smd">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
             <size> 4096 </size>
@@ -140,7 +87,7 @@
         <partition name="primary_gpt" type="data">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
-            <size> 4194304 </size>
+            <size> 4193792 </size>
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
