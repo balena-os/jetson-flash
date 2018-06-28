@@ -19,6 +19,7 @@
 'use strict'
 
 const Bluebird = require('bluebird')
+const path  = require('path')
 const yargs = require('yargs')
 const {
   statAsync,
@@ -26,25 +27,31 @@ const {
 const {
   tmpdir
 } = require('os')
-const {
-  join
-} = require('path')
 
-const {
-  unwrapResinImageFlasher
-} = require('../scripts/resin-image-flasher-unwrap.js')
 const utils = require('../lib/utils.js')
 const ResinJetsonFlash = require('../lib/resin-jetson-flash.js')
 
-const run = async (image) => {
-  const stat = await statAsync(image)
-  const outputPath = join(tmpdir(), process.pid.toString())
+const run = async (options) => {
   const deviceType = 'jetson-tx2'
+  const stat = await statAsync(options.file)
 
-  await utils.outputRegister(outputPath)
+  if (!path.isAbsolute(options.output)) {
+    options.output = path.join(process.cwd(), options.output)
+  }
+
+  const outputPath = options.persistent ?
+    path.join(options.output, 'jetson-flash-artifacts') :
+    path.join(options.output || tmpdir(), process.pid.toString())
+
+  if (outputPath === '/') {
+    throw new Error('Output directory cannot be the root of the fs')
+  }
+
+  await utils.outputRegister(outputPath, options.persistent)
 
   const Flasher = new ResinJetsonFlash(
     deviceType,
+    options.file,
     `${__dirname}/../assets/${deviceType}-assets`,
     'http://developer.download.nvidia.com/embedded/L4T/r28_Release_v2.0/GA/BSP/Tegra186_Linux_R28.2.0_aarch64.tbz2',
     outputPath
@@ -54,8 +61,14 @@ const run = async (image) => {
     throw new Error('Specified image is not a file')
   }
 
-  const unwrappedImage = await unwrapResinImageFlasher(image, join(outputPath, 'resin.img'))
-  await Flasher.flash(unwrappedImage)
+  if (!await utils.cached(outputPath, options.file)) {
+    await Flasher.generateArtifacts()
+    await utils.generateStamps(outputPath, options.file)
+  } else {
+    console.log('Using cached artifacts')
+  }
+
+  await Flasher.flash()
 }
 
 const argv = yargs
@@ -64,10 +77,17 @@ const argv = yargs
   .nargs('f', 1)
   .describe('f', 'ResinOS image to use')
   .demandOption(['f'])
-  .example('$0 -f resin.img', '')
+  .alias('o', 'output')
+  .nargs('o', 1)
+  .describe('o', 'Output directory')
+  .alias('p', 'persistent')
+  .boolean('p')
+  .describe('p', 'Persist work')
+  .implies('p', 'o')
+  .example('$0 -f resin.img -p -o ./workdir', '')
   .help('h')
   .alias('h', 'help')
   .epilog('Copyright 2018')
   .argv
 
-run(argv.file)
+run(argv)
