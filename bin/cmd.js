@@ -35,7 +35,7 @@ const run = async (options) => {
   const deviceType = 'jetson-tx2'
   const stat = await statAsync(options.file)
 
-  if (!path.isAbsolute(options.output)) {
+  if (options.output && !path.isAbsolute(options.output)) {
     options.output = path.join(process.cwd(), options.output)
   }
 
