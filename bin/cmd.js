@@ -35,17 +35,19 @@ const run = async (options) => {
   const deviceType = 'jetson-tx2'
   const stat = await statAsync(options.file)
 
-  if (options.output && !path.isAbsolute(options.output)) {
+  if (!stat.isFile()) {
+    throw new Error('Specified image is not a file')
+  }
+
+  options.output = options.output || tmpdir()
+
+  if (!path.isAbsolute(options.output)) {
     options.output = path.join(process.cwd(), options.output)
   }
 
   const outputPath = options.persistent ?
     path.join(options.output, 'jetson-flash-artifacts') :
-    path.join(options.output || tmpdir(), process.pid.toString())
-
-  if (outputPath === '/') {
-    throw new Error('Output directory cannot be the root of the fs')
-  }
+    path.join(options.output, process.pid.toString())
 
   await utils.outputRegister(outputPath, options.persistent)
 
@@ -57,18 +59,7 @@ const run = async (options) => {
     outputPath
   )
 
-  if (!stat.isFile()) {
-    throw new Error('Specified image is not a file')
-  }
-
-  if (!await utils.cached(outputPath, options.file)) {
-    await Flasher.generateArtifacts()
-    await utils.generateStamps(outputPath, options.file)
-  } else {
-    console.log('Using cached artifacts')
-  }
-
-  await Flasher.flash()
+  await Flasher.run()
 }
 
 const argv = yargs
