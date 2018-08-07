@@ -47,6 +47,11 @@ Clone this repository
 $ git clone https://github.com/resin-os/jetson-flash.git
 ```
 
+Install the library
+```
+$ cd jetson-flash && npm install
+```
+
 Run the cli
 ```sh
 $ ./bin/cmd.js -f resin.img
