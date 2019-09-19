@@ -16,69 +16,69 @@
  * limitations under the License.
  */
 
-'use strict'
+'use strict';
 
-const Bluebird = require('bluebird')
-const path  = require('path')
-const yargs = require('yargs')
-const {
-  statAsync,
-} = Bluebird.promisifyAll(require('fs'))
-const {
-  tmpdir
-} = require('os')
+const Bluebird = require('bluebird');
+const path = require('path');
+const yargs = require('yargs');
+const { statAsync } = Bluebird.promisifyAll(require('fs'));
+const { tmpdir } = require('os');
 
-const utils = require('../lib/utils.js')
-const ResinJetsonFlash = require('../lib/resin-jetson-flash.js')
+const utils = require('../lib/utils.js');
+const ResinJetsonFlash = require('../lib/resin-jetson-flash.js');
 
-const run = async (options) => {
-  const deviceType = 'jetson-tx2'
-  const stat = await statAsync(options.file)
+const run = async options => {
+	const stat = await statAsync(options.file);
 
-  if (!stat.isFile()) {
-    throw new Error('Specified image is not a file')
-  }
+	if (!stat.isFile()) {
+		throw new Error('Specified image is not a file');
+	}
 
-  options.output = options.output || tmpdir()
+	options.output = options.output || tmpdir();
 
-  if (!path.isAbsolute(options.output)) {
-    options.output = path.join(process.cwd(), options.output)
-  }
+	if (!path.isAbsolute(options.output)) {
+		options.output = path.join(process.cwd(), options.output);
+	}
 
-  const outputPath = options.persistent ?
-    path.join(options.output, 'jetson-flash-artifacts') :
-    path.join(options.output, process.pid.toString())
+	const outputPath = options.persistent
+		? path.join(options.output, 'jetson-flash-artifacts')
+		: path.join(options.output, process.pid.toString());
 
-  await utils.outputRegister(outputPath, options.persistent)
+	await utils.outputRegister(outputPath, options.persistent);
 
-  const Flasher = new ResinJetsonFlash(
-    deviceType,
-    options.file,
-    `${__dirname}/../assets/${deviceType}-assets`,
-    'http://developer.download.nvidia.com/embedded/L4T/r28_Release_v2.0/GA/BSP/Tegra186_Linux_R28.2.0_aarch64.tbz2',
-    outputPath
-  )
+	const Flasher = new ResinJetsonFlash(
+		options.machine,
+		options.file,
+		`${__dirname}/../assets/${options.machine}-assets`,
+		outputPath,
+	);
 
-  await Flasher.run()
-}
+	await Flasher.run();
+};
 
 const argv = yargs
-  .usage('Usage: $0 [options]')
-  .alias('f', 'file')
-  .nargs('f', 1)
-  .describe('f', 'ResinOS image to use')
-  .demandOption(['f'])
-  .alias('o', 'output')
-  .nargs('o', 1)
-  .describe('o', 'Output directory')
-  .alias('p', 'persistent')
-  .boolean('p')
-  .describe('p', 'Persist work')
-  .implies('p', 'o')
-  .example('$0 -f resin.img -p -o ./workdir', '')
-  .help('h')
-  .alias('h', 'help')
-  .epilog('Copyright 2018')
-  .argv
+	.usage('Usage: $0 [options]')
+	.option('m', {
+		alias: 'machine',
+		description: 'Machine to flash',
+		choices: ['jetson-tx2', 'jetson-nano-emmc'],
+		required: true,
+		type: 'string',
+	})
+	.alias('f', 'file')
+	.nargs('f', 1)
+	.describe('f', 'ResinOS image to use')
+	.demandOption(['f'])
+	.alias('o', 'output')
+	.nargs('o', 1)
+	.describe('o', 'Output directory')
+	.alias('p', 'persistent')
+	.boolean('p')
+	.describe('p', 'Persist work')
+	.implies('p', 'o')
+	.example('$0 -f resin.img -p -o ./workdir', '')
+	.help('h')
+	.alias('h', 'help')
+	.epilog('Copyright 2018').argv;
 
-run(argv)
+run(argv);
