@@ -32,7 +32,7 @@ Prerequisites
 Tool dependencies
 -----------------
 
-- [NodeJS](https://nodejs.org) (>= v6)
+- [NodeJS](https://nodejs.org) (>= v10)
 - This tool runs internally the Linux_for_Tegra package that Nvidia provides, so we assume you have all the dependencies for this tool installed.
 
 Getting Started
