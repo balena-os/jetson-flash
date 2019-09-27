@@ -1,6 +1,6 @@
 {
   "name": "resinos-jetson-flash",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "This tool allows the user to flash resinOS on the Jetson device using Nvidia flashing tools.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
