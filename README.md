@@ -47,10 +47,12 @@ Clone this repository
 $ git clone https://github.com/resin-os/jetson-flash.git
 ```
 
-Run the cli
+Run the cli, specifying desired device type:
 ```sh
-$ ./bin/cmd.js -f resin.img
+$ ./bin/cmd.js -f resin.img -m <device_type>
 ```
+
+Current supported device types are: jetson-nano-emmc, jetson-nano-qspi-sd, jetson-tx2, jetson-xavier
 
 Support
 -------
