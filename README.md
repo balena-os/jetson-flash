@@ -12,6 +12,7 @@ Balena devices support
 * Nvidia Jetson TX2
 * NVidia Jetson NANO (both sd-card and emmc versions)
 * NVidia Jetson Xavier
+* NVidia Jetson NX
 
 WARNINGS
 --------
@@ -44,7 +45,9 @@ NOTES:
  - Make sure that the Jetson board is pluged to your host via USB and is in recovery mode
  - Running the Nvidia flash tool requires sudo priviliges
  - This tool will produce all intermidiate steps in `/tmp/${pid_of_process}` and will require sudo priviliges to delete
- - If flashing Jetson TX2 with a BalenaOS image older than 2.47, please checkout tag 'v0.3.0'. BalenaOS 2.47 updated L4T version from 28.3 to 32.2.
+ - If flashing Jetson TX2 with a BalenaOS image older than 2.47, please checkout tag 'v0.3.0'. BalenaOS 2.47 updated L4T version from 28.3 to 32.4.2.
+ - Current BSP version used for flashing is L4T 32.4.2. Please ensure the BalenaOS version you are flashing uses the same L4T, by consulting the changelog
+   available in the [BalenaOS Jetson](https://github.com/balena-os/balena-jetson/commits/master) repository.
 
 Clone this repository
 ```sh
