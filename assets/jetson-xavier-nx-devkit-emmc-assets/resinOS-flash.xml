@@ -597,7 +597,7 @@
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
-            <description> **Required.** Slot B; contains boot control data. </description>
+            <description> Ensures space for adding newer tegra partitions before resin-boot, in future L4T updates. </description>
         </partition>
         <partition name="resin-boot" type="data">
             <allocation_policy> sequential </allocation_policy>
@@ -611,7 +611,7 @@
         <partition name="resin-rootA" type="data">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
-            <size> 499122176 </size>
+            <size> 750780416 </size>
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 0x8 </allocation_attribute>
             <filename> FILENAME </filename>
@@ -620,7 +620,7 @@
         <partition name="resin-rootB" type="data">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
-            <size> 499122176 </size>
+            <size> 750780416 </size>
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 0x8 </allocation_attribute>
             <filename> FILENAME </filename>

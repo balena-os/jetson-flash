@@ -59,7 +59,7 @@ Run the cli, specifying desired device type:
 $ ./bin/cmd.js -f balena.img -m <device_type>
 ```
 
-Current supported device types are: jetson-nano-emmc, jetson-nano-qspi-sd, jetson-tx2, jetson-xavier
+Current supported device types are: jetson-nano-emmc, jetson-nano-qspi-sd, jetson-tx2, jetson-xavier, jetson-xavier-nx-devkit-emmc
 
 Support
 -------
