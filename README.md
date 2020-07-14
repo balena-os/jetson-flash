@@ -51,6 +51,12 @@ Clone this repository
 $ git clone https://github.com/balena-os/jetson-flash.git
 ```
 
+Install node dependencies
+```sh
+$ cd ./jetson-flash
+$ npm install
+```
+
 Run the cli, specifying desired device type:
 ```sh
 $ ./bin/cmd.js -f balena.img -m <device_type>
