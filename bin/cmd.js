@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /*
- * Copyright 2018 resin.io
+ * Copyright 2018 - 2020 Balena.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -67,7 +67,7 @@ const argv = yargs
 	})
 	.alias('f', 'file')
 	.nargs('f', 1)
-	.describe('f', 'ResinOS image to use')
+	.describe('f', 'BalenaOS image to use')
 	.demandOption(['f'])
 	.alias('o', 'output')
 	.nargs('o', 1)
@@ -76,9 +76,9 @@ const argv = yargs
 	.boolean('p')
 	.describe('p', 'Persist work')
 	.implies('p', 'o')
-	.example('$0 -f resin.img -p -o ./workdir', '')
+	.example('$0 -f balena.img -p -o ./workdir', '')
 	.help('h')
 	.alias('h', 'help')
-	.epilog('Copyright 2018').argv;
+	.epilog('Copyright 2020').argv;
 
 run(argv);
