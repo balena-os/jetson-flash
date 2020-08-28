@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 resin.io
+ * Copyright 2018 - 2020 Balena.io
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,7 +41,7 @@ const EFI_CODES = {
 const getResinImageFromFlasher = async (image, output) => {
 	const RESIN_IMAGE_REGEX = /^resin-image.*\.resinos-img/;
 
-	console.log(`Retrieve resin-image from ${image}`);
+	console.log(`Retrieve BalenaOS image from ${image}`);
 	await Bluebird.using(
 		resinfs.interact(image, RESIN_FLASHER.rootfsID),
 		async fs => {

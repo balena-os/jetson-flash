@@ -3,8 +3,8 @@
 > This tool allows users to flash BalenaOS on Jetson supported devices
 
 This tool is separate into two parts:
-- Extract resin-image from a resin-image-flasher (this will be moved to [etcher](https://github.com/resin-io/etcher) once the fatfs issues are fixed)
-- Flash resin-image via USB on a Jetson board (this will be moved to [etcher](https://github.com/resin-io/etcher))
+- Extract BalenaOS image from a BalenaOS flasher image (this will be moved to [etcher](https://github.com/balena-io/etcher) once the fatfs issues are fixed)
+- Flash BalenaOS via USB on a Jetson board (this will be moved to [etcher](https://github.com/balena-io/etcher))
 
 Balena devices support
 ---------------------
@@ -24,13 +24,14 @@ Due to issues with the fatfs node module, which does not support some operations
 Assumptions
 -----------
 
-- Linux based host
+- Linux based host - we test this tool with Ubuntu
 - Sudo privileges
 
 Prerequisites
 -------------
 
--  A Jetson BalenaOS image
+- A Jetson BalenaOS image.
+- Please unzip the image downloaded from the dashboard before passing it to the flashing tool.
 
 Tool dependencies
 -----------------
