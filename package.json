@@ -3,7 +3,7 @@
   "version": "0.5.1",
   "description": "This tool allows users to flash BalenaOS on specific Jetson devices using Nvidia flashing tools.",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "bin/cmd.js --version",
     "start": "bin/cmd.js"
   },
   "repository": {
