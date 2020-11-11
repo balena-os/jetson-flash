@@ -9,10 +9,12 @@ This tool is separate into two parts:
 Balena devices support
 ---------------------
 
-* Nvidia Jetson TX2
-* NVidia Jetson NANO (both sd-card and emmc versions)
-* NVidia Jetson Xavier
-* NVidia Jetson NX
+* NVidia Jetson NANO eMMC
+* NVidia Jetson Nano SD-CARD
+* NVidia Jetson TX2
+* NVidia Jetson Xavier AGX
+* NVidia Jetson Xavier NX Devkit eMMC
+* NVidia Jetson Xavier NX Devkit SD-CARD
 
 WARNINGS
 --------
@@ -60,7 +62,7 @@ Run the cli, specifying desired device type:
 $ ./bin/cmd.js -f balena.img -m <device_type>
 ```
 
-Current supported device types are: jetson-nano-emmc, jetson-nano-qspi-sd, jetson-tx2, jetson-xavier, jetson-xavier-nx-devkit-emmc
+Current supported device types are: jetson-nano-emmc, jetson-nano-qspi-sd, jetson-tx2, jetson-xavier, jetson-xavier-nx-devkit-emmc, jetson-xavier-nx-devkit
 
 Support
 -------
