@@ -39,7 +39,7 @@ const EFI_CODES = {
 };
 
 const getResinImageFromFlasher = async (image, output) => {
-	const RESIN_IMAGE_REGEX = /^resin-image.*\.resinos-img/;
+	const RESIN_IMAGE_REGEX = new RegExp('^(resin|balena)-image.*\.(resin|balena)os-img');
 
 	console.log(`Retrieve BalenaOS image from ${image}`);
 	await Bluebird.using(
@@ -197,7 +197,7 @@ exports.unwrapResinImageFlasher = async (image, output) => {
 		path: '/',
 	});
 
-	if (files.includes('resin-image-flasher')) {
+	if (files.includes('resin-image-flasher') || files.includes('balena-image-flasher')) {
 		await getResinImageFromFlasher(image, output);
 		await copyResinConfigurationOver(image, output);
 	} else {
