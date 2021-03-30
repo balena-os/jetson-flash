@@ -58,7 +58,7 @@ const getResinImageFromFlasher = async (image, output) => {
 				const bar = new Progress(`Writing to ${output}`);
 				const str = progressStream({
 					length: size,
-					time: 100,
+					time: 1000,
 				});
 				const out = createWriteStream(output);
 
