@@ -84,7 +84,7 @@
             <filename> DTBFILE </filename>
         </partition>
 
-        <partition name="EBT" id="10" type="bootloader">
+        <partition name="EBT" id="11" type="bootloader">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
             <size> 589824 </size>
@@ -94,7 +94,7 @@
             <filename> EBTFILE </filename>
         </partition>
 
-        <partition name="WB0" id="11" type="WB0TYPE">
+        <partition name="WB0" id="12" type="WB0TYPE">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
             <size> 65536 </size>
@@ -104,7 +104,7 @@
             <filename> WB0FILE </filename>
         </partition>
 
-        <partition name="BPF" id="12" type="data">
+        <partition name="BPF" id="13" type="data">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
             <size> 196608 </size>
@@ -115,29 +115,7 @@
             <filename> BPFFILE </filename>
         </partition>
 
-        <!-- When balenaOS fixes the partition table
-        <partition name="BPF-DTB" id="13" type="data">
-            <allocation_policy> sequential </allocation_policy>
-            <filesystem_type> basic </filesystem_type>
-            <size> 393216 </size>
-            <file_system_attribute> 0 </file_system_attribute>
-            <allocation_attribute> 8 </allocation_attribute>
-            <percent_reserved> 0 </percent_reserved>
-            <filename> BPFDTB-FILE </filename>
-        </partition>
-
-        <partition name="FX" id="14" type="FBTYPE">
-            <allocation_policy> sequential </allocation_policy>
-            <filesystem_type> basic </filesystem_type>
-            <size> 65536 </size>
-            <file_system_attribute> 0 </file_system_attribute>
-            <allocation_attribute> 0x8 </allocation_attribute>
-            <percent_reserved> 0 </percent_reserved>
-            <filename> FBFILE </filename>
-        </partition>
-        -->
-
-        <partition name="TOS" id="15" type="data">
+        <partition name="TOS" id="14" type="data">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
             <size> 458752 </size>
@@ -147,28 +125,7 @@
             <percent_reserved> 0 </percent_reserved>
             <filename> TOSFILE </filename>
         </partition>
-
-        <partition name="DTB" id="16" type="data">
-            <allocation_policy> sequential </allocation_policy>
-            <filesystem_type> basic </filesystem_type>
-            <size> 458752 </size>
-            <file_system_attribute> 0 </file_system_attribute>
-            <allocation_attribute> 0x8 </allocation_attribute>
-            <percent_reserved> 0 </percent_reserved>
-            <filename> FILENAME </filename>
-        </partition>
-
-        <partition name="LNX" id="17" type="data">
-            <allocation_policy> sequential </allocation_policy>
-            <filesystem_type> basic </filesystem_type>
-            <size> 786432 </size>
-            <file_system_attribute> 0 </file_system_attribute>
-            <allocation_attribute> 0x8 </allocation_attribute>
-            <percent_reserved> 0 </percent_reserved>
-            <filename> FILENAME </filename>
-        </partition>
-
-        <partition name="EXS" id="18" type="data">
+        <partition name="EXS" id="15" type="data">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
             <size> 65536 </size>
@@ -178,7 +135,26 @@
             <percent_reserved> 0 </percent_reserved>
             <filename> EKSFILE </filename>
         </partition>
-        <partition name="RP4" id="19" type="data">
+        <partition name="LNX" id="16" type="data">
+            <allocation_policy> sequential </allocation_policy>
+            <filesystem_type> basic </filesystem_type>
+            <size> 786432 </size>
+            <file_system_attribute> 0 </file_system_attribute>
+            <allocation_attribute> 0x8 </allocation_attribute>
+            <percent_reserved> 0 </percent_reserved>
+            <filename> FILENAME </filename>
+        </partition>
+        <partition name="DTB" id="17" type="data">
+            <allocation_policy> sequential </allocation_policy>
+            <filesystem_type> basic </filesystem_type>
+            <size> 458752 </size>
+            <file_system_attribute> 0 </file_system_attribute>
+            <allocation_attribute> 0x8 </allocation_attribute>
+            <percent_reserved> 0 </percent_reserved>
+            <filename> FILENAME </filename>
+        </partition>
+
+        <partition name="RP4" id="18" type="data">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
             <size> 131072 </size>
@@ -190,7 +166,7 @@
         <!-- Size is calculated so that it matches
              the resin device specific space
         -->
-        <partition name="BMP" id="20" type="data">
+        <partition name="BMP" id="19" type="data">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
             <size> 46971904 </size>
@@ -199,7 +175,7 @@
             <percent_reserved> 0 </percent_reserved>
             <filename> bmp.blob </filename>
         </partition>
-        <partition id="21" name="resin-boot" type="data">
+        <partition id="20" name="resin-boot" type="data">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
             <size> 83886080 </size>
@@ -208,7 +184,7 @@
             <percent_reserved> 0 </percent_reserved>
             <filename> FILENAME </filename>
         </partition>
-        <partition id="22" name="resin-rootA" type="data">
+        <partition id="21" name="resin-rootA" type="data">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
             <size> 499122176 </size>
@@ -217,7 +193,7 @@
             <percent_reserved> 0 </percent_reserved>
             <filename> FILENAME </filename>
         </partition>
-        <partition id="23" name="resin-rootB" type="data">
+        <partition id="22" name="resin-rootB" type="data">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
             <size> 499122176 </size>
@@ -226,7 +202,7 @@
             <percent_reserved> 0 </percent_reserved>
             <filename> FILENAME </filename>
         </partition>
-        <partition id="24" name="resin-state" type="data">
+        <partition id="23" name="resin-state" type="data">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
             <size> 20971520 </size>
@@ -235,7 +211,7 @@
             <percent_reserved> 0 </percent_reserved>
             <filename> FILENAME </filename>
         </partition>
-        <partition id="25" name="resin-data" type="data">
+        <partition id="24" name="resin-data" type="data">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
             <size> FILESIZE </size>
@@ -244,7 +220,7 @@
             <percent_reserved> 0 </percent_reserved>
             <filename> FILENAME </filename>
         </partition>
-        <partition id="26" name="GPT" type="GPT">
+        <partition  name="GPT" id="25" type="GPT">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
             <size> 2097152 </size>

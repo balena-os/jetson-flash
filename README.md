@@ -49,7 +49,7 @@ NOTES:
  - Running the Nvidia flash tool requires sudo priviliges
  - This tool will produce all intermidiate steps in `/tmp/${pid_of_process}` and will require sudo priviliges to delete
  - If flashing Jetson TX2 with a BalenaOS image older than 2.47, please checkout tag 'v0.3.0'. BalenaOS 2.47 updated L4T version from 28.3 to 32.4.2.
- - Current BSP version used for flashing is L4T 32.4.4 for all boards. Please ensure the BalenaOS version you are flashing uses the same L4T, by consulting the changelog
+ - Current BSP version used for flashing is L4T 32.5.1 for jetson-nano, jetson-nano-emmc and jetson-nano-2gb-devkit. Other devices are based on 32.4.4, please ensure the BalenaOS version you are flashing uses the same L4T, by consulting the changelog. v0.5.10 should be used for flashing devices on L4T 32.4.4.
    available in the [BalenaOS Jetson](https://github.com/balena-os/balena-jetson/commits/master) repository.
 
 Clone this repository
