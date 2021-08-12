@@ -12,6 +12,7 @@ Balena devices support
 * NVidia Jetson NANO eMMC
 * NVidia Jetson Nano SD-CARD
 * NVidia Jetson TX2
+* NVidia Jetson TX2 (in Jetson Xavier NX Devkit)
 * NVidia Jetson Xavier AGX
 * NVidia Jetson Xavier NX Devkit eMMC
 * NVidia Jetson Xavier NX Devkit SD-CARD
