@@ -140,7 +140,7 @@
         <partition name="TOS" type="data">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
-            <size> 458752 </size>
+            <size> 589824 </size>
             <file_system_attribute> 0 </file_system_attribute>
             <partition_attribute> 0 </partition_attribute>
             <allocation_attribute> 8 </allocation_attribute>
@@ -193,7 +193,7 @@
         <partition name="BMP"  type="data">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
-            <size> 46971904 </size>
+            <size> 46840832 </size>
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 0x8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
