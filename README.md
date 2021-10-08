@@ -9,13 +9,14 @@ This tool is separate into two parts:
 Balena devices support
 ---------------------
 
-* NVidia Jetson NANO eMMC
-* NVidia Jetson Nano SD-CARD
-* NVidia Jetson TX2
-* NVidia Jetson TX2 (in Jetson Xavier NX Devkit)
-* NVidia Jetson Xavier AGX
-* NVidia Jetson Xavier NX Devkit eMMC
-* NVidia Jetson Xavier NX Devkit SD-CARD
+* Jetson NANO eMMC
+* Jetson Nano SD-CARD Devkit
+* Jetson Nano 2GB Devkit
+* Jetson TX2
+* Jetson TX2 NX (in Jetson Xavier NX Devkit)
+* Jetson Xavier AGX
+* Jetson Xavier NX Devkit eMMC
+* Jetson Xavier NX Devkit SD-CARD
 
 WARNINGS
 --------
@@ -40,14 +41,14 @@ Tool dependencies
 -----------------
 
 - [NodeJS](https://nodejs.org) (v10 or v12. Currently versions newer than v12 are incompatible, see issue #48)
-- This tool runs internally the Linux_for_Tegra package that Nvidia provides, so we assume you have all the dependencies for this tool installed.
+- This tool runs internally the Linux_for_Tegra package, so we assume you have all the dependencies for this tool installed.
 
 Getting Started
 ---------------
 
 NOTES:
  - Make sure that the Jetson board is pluged to your host via USB and is in recovery mode
- - Running the Nvidia flash tool requires sudo priviliges
+ - Running the Tegra flash tool requires sudo priviliges
  - This tool will produce all intermidiate steps in `/tmp/${pid_of_process}` and will require sudo priviliges to delete
  - If flashing Jetson TX2 with a BalenaOS image older than 2.47, please checkout tag 'v0.3.0'. BalenaOS 2.47 updated L4T version from 28.3 to 32.4.2.
  - Current BSP version used for flashing is L4T 32.5.1 for jetson-nano, jetson-nano-emmc and jetson-nano-2gb-devkit. Other devices are based on 32.4.4, please ensure the BalenaOS version you are flashing uses the same L4T, by consulting the changelog. v0.5.10 should be used for flashing devices on L4T 32.4.4.
