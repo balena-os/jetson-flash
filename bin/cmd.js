@@ -61,7 +61,7 @@ const argv = yargs
 	.option('m', {
 		alias: 'machine',
 		description: 'Machine to flash',
-		choices: ['jetson-tx2', 'jetson-tx2-4GB', 'jetson-xavier-nx-devkit-tx2-nx', 'jetson-nano-emmc', 'jetson-nano-qspi-sd', 'jetson-xavier', 'jetson-xavier-nx-devkit-emmc', "jetson-xavier-nx-devkit"],
+		choices: ['jetson-tx2', 'jetson-tx2-4GB', 'jetson-xavier-nx-devkit-tx2-nx', 'jetson-nano-emmc', 'jetson-nano-qspi-sd', 'jetson-nano-2gb-devkit', 'jetson-xavier', 'jetson-xavier-nx-devkit-emmc', "jetson-xavier-nx-devkit"],
 		required: true,
 		type: 'string',
 	})
