@@ -61,8 +61,8 @@
             <size> 4608 </size>
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 8 </allocation_attribute>
-            <percent_reserved> 0 </percent_reserved>
-            <filename> BADPAGEFILE </filename>
+	    <percent_reserved> 0 </percent_reserved>
+	    <filename> BADPAGEFILE </filename>
         </partition>
         <partition name="badpage-fw_b" type="BADPAGETYPE" oem_sign="true">
             <allocation_policy> sequential </allocation_policy>
@@ -70,8 +70,8 @@
             <size> 4608 </size>
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 8 </allocation_attribute>
-            <percent_reserved> 0 </percent_reserved>
-            <filename> BADPAGEFILE </filename>
+	    <percent_reserved> 0 </percent_reserved>
+	    <filename> BADPAGEFILE </filename>
         </partition>
         <partition name="spe-fw" type="spe_fw" oem_sign="true">
             <allocation_policy> sequential </allocation_policy>
