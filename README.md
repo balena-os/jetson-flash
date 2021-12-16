@@ -9,14 +9,14 @@ This tool is separate into two parts:
 Balena devices support
 ---------------------
 
-* Jetson NANO eMMC
-* Jetson Nano SD-CARD Devkit
-* Jetson Nano 2GB Devkit
-* Jetson TX2
-* Jetson TX2 NX (in Jetson Xavier NX Devkit)
-* Jetson Xavier AGX
-* Jetson Xavier NX Devkit eMMC
-* Jetson Xavier NX Devkit SD-CARD
+* Jetson NANO eMMC (L4T 32.6.1)
+* Jetson Nano SD-CARD Devkit (L4T 32.6.1)
+* Jetson Nano 2GB Devkit (L4T 32.5.1)
+* Jetson TX2 (L4T 32.5.1)
+* Jetson TX2 NX (in Jetson Xavier NX Devkit, L4T 32.6.1)
+* Jetson Xavier AGX (L4T 32.5.1)
+* Jetson Xavier NX Devkit eMMC (L4T 32.5.1)
+* Jetson Xavier NX Devkit SD-CARD (L4T 32.5.1)
 
 WARNINGS
 --------
@@ -51,7 +51,7 @@ NOTES:
  - Running the Tegra flash tool requires sudo priviliges
  - This tool will produce all intermidiate steps in `/tmp/${pid_of_process}` and will require sudo priviliges to delete
  - If flashing Jetson TX2 with a BalenaOS image older than 2.47, please checkout tag 'v0.3.0'. BalenaOS 2.47 updated L4T version from 28.3 to 32.4.2.
- - Current BSP version used for flashing is L4T 32.5.1 for jetson-nano, jetson-nano-emmc and jetson-nano-2gb-devkit. Other devices are based on 32.4.4, please ensure the BalenaOS version you are flashing uses the same L4T, by consulting the changelog. v0.5.10 should be used for flashing devices on L4T 32.4.4.
+ - Current BSP version used for flashing is L4T 32.6.1 for jetson-nano, jetson-nano-emmc and jetson-xavier-nx-devkit-tx2-nx - for the TX2 NX. Other devices are based on 32.5.1, please ensure the BalenaOS version you are flashing uses the same L4T, by consulting the changelog. v0.5.10 should be used for flashing devices on L4T 32.4.4.
    available in the [BalenaOS Jetson](https://github.com/balena-os/balena-jetson/commits/master) repository.
 
 Clone this repository
@@ -64,7 +64,7 @@ Run the cli, specifying desired device type:
 $ ./bin/cmd.js -f balena.img -m <device_type>
 ```
 
-Current supported device types are: jetson-nano-emmc, jetson-nano-qspi-sd, jetson-tx2, jetson-xavier, jetson-xavier-nx-devkit-emmc, jetson-xavier-nx-devkit
+Current supported device types are: jetson-nano-emmc, jetson-nano-qspi-sd, jetson-tx2, jetson-xavier-nx-devkit-tx2-nx, jetson-xavier, jetson-xavier-nx-devkit-emmc, jetson-xavier-nx-devkit
 
 Support
 -------
