@@ -289,7 +289,7 @@
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
-            <filename> BPFDTB_FILE </filename>
+            <filename> FILENAME </filename>
         </partition>
         <partition name="bpmp-fw-dtb_b" type="data" oem_sign="true">
             <allocation_policy> sequential </allocation_policy>
@@ -298,7 +298,7 @@
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
-            <filename> BPFDTB_FILE </filename>
+            <filename> FILENAME </filename>
         </partition>
         <partition name="xusb-fw" type="data">
             <allocation_policy> sequential </allocation_policy>
