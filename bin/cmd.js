@@ -46,9 +46,12 @@ const run = async options => {
 
 	await utils.outputRegister(outputPath, options.persistent);
 
+	const odmdata = options.odmdata ? options.odmdata : 'default';
+
 	const Flasher = new ResinJetsonFlash(
 		options.machine,
 		options.file,
+		odmdata,
 		`${__dirname}/../assets/${options.machine}-assets`,
 		outputPath,
 	);
@@ -68,7 +71,13 @@ const argv = yargs
 	.alias('f', 'file')
 	.nargs('f', 1)
 	.describe('f', 'BalenaOS image to use')
-	.demandOption(['f'])
+	.option('d', {
+		alias: 'odmdata',
+		description: 'ODMDATA value, currently available for Jetson TX2 only',
+		choices: ['0x1090000', '0x90000', '0x6090000', '0x7090000', '0x2090000', '0x3090000'],
+		required: false,
+		type: 'string',
+	})
 	.alias('o', 'output')
 	.nargs('o', 1)
 	.describe('o', 'Output directory')
