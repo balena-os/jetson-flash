@@ -53,9 +53,15 @@ NOTES:
  - If flashing Jetson TX2 with a BalenaOS image older than 2.47, please checkout tag 'v0.3.0'. BalenaOS 2.47 updated L4T version from 28.3 to 32.4.2.
  - Current BSP version used for flashing is L4T 32.6.1. Please ensure the BalenaOS version you are flashing uses the same L4T, by consulting the changelog available in the [BalenaOS Jetson repository](https://github.com/balena-os/balena-jetson/commits/master). Jetson Flash v0.5.10 should be used for flashing devices on L4T 32.4.4.
 
-Clone this repository
+Clone this repository and enter directory
 ```sh
 $ git clone https://github.com/balena-os/jetson-flash.git
+$ cd jetson-flash
+```
+
+Install dependencies
+```sh
+$ npm install
 ```
 
 Run the cli, specifying desired device type:
