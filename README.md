@@ -9,14 +9,14 @@ This tool is separate into two parts:
 Balena devices support
 ---------------------
 
-* Jetson NANO eMMC (L4T 32.6.1)
-* Jetson Nano SD-CARD Devkit (L4T 32.6.1)
-* Jetson Nano 2GB Devkit (L4T 32.5.1)
-* Jetson TX2 (L4T 32.5.1)
-* Jetson TX2 NX (in Jetson Xavier NX Devkit, L4T 32.6.1)
-* Jetson Xavier AGX (L4T 32.5.1)
-* Jetson Xavier NX Devkit eMMC (L4T 32.5.1)
-* Jetson Xavier NX Devkit SD-CARD (L4T 32.5.1)
+* Jetson Nano eMMC - L4T 32.7.1
+* Jetson Nano SD-CARD Devkit - L4T 32.7.1
+* Jetson Nano 2GB Devkit - L4T 32.7.1
+* Jetson TX2 - L4T 32.6.1
+* Jetson TX2 NX (in Jetson Xavier NX Devkit) - L4T 32.7.1
+* Jetson Xavier AGX - L4T 32.6.1
+* Jetson Xavier NX Devkit eMMC - L4T 32.6.1
+* Jetson Xavier NX Devkit SD-CARD - L4T 32.6.1
 
 WARNINGS
 --------
@@ -51,7 +51,7 @@ NOTES:
  - Running the Tegra flash tool requires sudo priviliges
  - This tool will produce all intermidiate steps in `/tmp/${pid_of_process}` and will require sudo priviliges to delete
  - If flashing Jetson TX2 with a BalenaOS image older than 2.47, please checkout tag 'v0.3.0'. BalenaOS 2.47 updated L4T version from 28.3 to 32.4.2.
- - Current BSP version used for flashing is L4T 32.6.1. Please ensure the BalenaOS version you are flashing uses the same L4T, by consulting the changelog available in the [BalenaOS Jetson repository](https://github.com/balena-os/balena-jetson/commits/master). Jetson Flash v0.5.10 should be used for flashing devices on L4T 32.4.4.
+ - Current BSP version used for flashing each device type is mentioned in the "Balena devices support" section above. Devices that are listed for L4T 32.6.1 are currently in progress of having their images updated to 32.7.1 in balena-cloud. Please ensure the BalenaOS version you are flashing uses the same L4T, by consulting the changelog available in the [BalenaOS Jetson repository](https://github.com/balena-os/balena-jetson/commits/master). Jetson Flash v0.5.10 should be used for flashing devices on L4T 32.4.4.
 
 Clone this repository
 ```sh
