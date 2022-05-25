@@ -296,7 +296,7 @@
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
-            <filename> tegra186-bpmp-p3636-0001-a00-00.dtb </filename>
+            <filename> BPFDTB-FILE </filename>
         </partition>
         <partition name="bpmp-fw-dtb_b" type="data" oem_sign="true">
             <allocation_policy> sequential </allocation_policy>
@@ -305,7 +305,7 @@
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
-            <filename> tegra186-bpmp-p3636-0001-a00-00.dtb </filename>
+            <filename> BPFDTB-FILE </filename>
         </partition>
         <partition name="sce-fw" type="data" oem_sign="true">
             <allocation_policy> sequential </allocation_policy>
