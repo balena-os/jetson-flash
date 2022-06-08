@@ -70,6 +70,30 @@ Support
 
 If you're having any problems, please [raise an issue](https://github.com/balena-os/jetson-flash/issues/new) on GitHub and the balena.io team will be happy to help.
 
+Submitting changes
+------------------
+
+Changes can be submitted in form of PRs to this repository, each PR may include multiple commits.
+
+The header of each commit must not exceed 72 characters in length and must be in 1 line only.
+
+The header and the subject of each commit must be separated by an empty line.
+
+The subject of each commit must not exceed 72 characters per line and can be wrapped to several lines.
+
+The subject and the footer of each commit must be separated by an empty line.
+
+Every pull request must contain at least one commit annotated with the Change-type footer, and all commits should include a Signed-off-by.
+
+An example of a valid commit is:
+
+```
+Update Xavier AGX to L4T 32.7.1
+
+Change-type: patch
+Signed-off-by: Name <user@email.com>
+```
+
 License
 -------
 
