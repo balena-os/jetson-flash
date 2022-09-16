@@ -28,7 +28,7 @@ Due to issues with the fatfs node module, which does not support some operations
 Assumptions
 -----------
 
-- Linux based host - we test this tool with Ubuntu
+- Linux based host - this tool has been tested with Ubuntu 20.04
 - Sudo privileges
 
 Prerequisites
@@ -41,29 +41,50 @@ Tool dependencies
 -----------------
 
 - [NodeJS](https://nodejs.org) (v10 or v12. Currently versions newer than v12 are incompatible, see issue #48)
-- This tool runs internally the Linux_for_Tegra package, so we assume you have all the dependencies for this tool installed.
+- This tool runs internally the Linux_for_Tegra package, so we assume you have all the dependencies (libxml2, python3, etc) for this tool installed.
 
 Getting Started
 ---------------
 
 NOTES:
- - Make sure that the Jetson board is pluged to your host via USB and is in recovery mode
+ - Make sure that the Jetson board is pluged to your host via USB and is in recovery mode before issuing the flashing command
+ - Make sure that the Node.js used is between 10 and 12
  - Running the Tegra flash tool requires sudo priviliges
  - This tool will produce all intermidiate steps in `/tmp/${pid_of_process}` and will require sudo priviliges to delete
  - If flashing Jetson TX2 with a BalenaOS image older than 2.47, please checkout tag 'v0.3.0'. BalenaOS 2.47 updated L4T version from 28.3 to 32.4.2.
  - Current BSP version used for flashing each device type is mentioned in the "Balena devices support" section above. Please ensure the balenaOS version you are flashing uses the same L4T, by consulting the changelog available in the [BalenaOS Jetson repository](https://github.com/balena-os/balena-jetson/commits/master). Jetson Flash v0.5.10 should be used for flashing devices on L4T 32.4.4.
+ - The L4T BSP archive is automatically downloaded by the tool during flashing and the L4T version is already updated to match the latest balena-cloud image version.
+ - If running this tool from a container, the Docker image should be run as privileged and /dev/bus/usb needs to be bind-mounted for the Tegra BSP tools to communicate with the device:
+```sh
+    docker run --rm -it --privileged -v /dev/bus/usb:/dev/bus/usb <dockerimage>
+```
 
-Clone this repository
+Clone this repository:
 ```sh
 $ git clone https://github.com/balena-os/jetson-flash.git
 ```
 
-Run the cli, specifying desired device type:
+Install Node.js dependencies by issuing the following command in the jetson-flash directory:
+```sh
+$ npm install
+```
+
+Put the device in recovery mode and connect the device's micro-USB port to your PC (USB-C for the Xavier AGX). Recovery mode can be entered by performing the following steps:
+ - For Xavier AGX and Jetson TX2: Power the device then press and hold RST, press and hold REC. Release RST then release REC.
+ - For Jetson Nano (2GB, SD-CARD, eMMC), Jetson Xavier NX and Jetson TX2 NX: Connect the FC REC and GND pins located under the module with a jumper cable, then power the device. Once the device has been flashed, the jumper cable should be removed for the board to boot normally.
+
+Use lsusb to ensure that the device is in recovery mode and is properly connected to your PC, for example:
+```sh
+$ lsusb | grep NVIDIA
+Bus 001 Device 019: ID 0955:7c18 NVIDIA Corp. T186 [TX2 Tegra Parker] recovery mode
+```
+
+Run the cli, specifying the path to the unzipped image and the desired device type:
 ```sh
 $ ./bin/cmd.js -f balena.img -m <device_type>
 ```
 
-Current supported device types are: jetson-nano-emmc, jetson-nano-qspi-sd, jetson-tx2, jetson-xavier-nx-devkit-tx2-nx, jetson-xavier, jetson-xavier-nx-devkit-emmc, jetson-xavier-nx-devkit
+Current supported device types are: jetson-nano-emmc, jetson-nano-qspi-sd, jetson-nano-2gb-devkit, jetson-tx2, jetson-xavier-nx-devkit-tx2-nx, jetson-xavier, jetson-xavier-nx-devkit-emmc, jetson-xavier-nx-devkit
 
 Support
 -------
@@ -91,7 +112,7 @@ An example of a valid commit is:
 Update Xavier AGX to L4T 32.7.1
 
 Change-type: patch
-Signed-off-by: Name <user@email.com>
+Signed-off-by: Your Name <user@email.com>
 ```
 
 License
