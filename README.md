@@ -9,7 +9,7 @@ This tool is separate into two parts:
 Balena devices support
 ---------------------
 
-* Jetson Nano eMMC - L4T 32.7.1
+* Jetson Nano eMMC - L4T 32.7.2
 * Jetson Nano SD-CARD Devkit - L4T 32.7.1
 * Jetson Nano 2GB Devkit - L4T 32.7.1
 * Jetson TX2 - L4T 32.7.1
