@@ -41,7 +41,7 @@ Tool dependencies
 -----------------
 
 - [NodeJS](https://nodejs.org) (v10 or v12. Currently versions newer than v12 are incompatible, see issue #48)
-- This tool runs internally the Linux_for_Tegra package, so we assume you have all the dependencies (libxml2, python3, etc) for this tool installed.
+- This tool runs internally the Linux_for_Tegra package, so we assume you have all the dependencies (libxml2, python2, etc) for this tool installed.
 
 Getting Started
 ---------------
@@ -49,6 +49,7 @@ Getting Started
 NOTES:
  - Make sure that the Jetson board is pluged to your host via USB and is in recovery mode before issuing the flashing command
  - Make sure that the Node.js used is between 10 and 12
+ - Make sure you have python2 installed and that the `python` binary points to python2.
  - Running the Tegra flash tool requires sudo priviliges
  - This tool will produce all intermidiate steps in `/tmp/${pid_of_process}` and will require sudo priviliges to delete
  - If flashing Jetson TX2 with a BalenaOS image older than 2.47, please checkout tag 'v0.3.0'. BalenaOS 2.47 updated L4T version from 28.3 to 32.4.2.
