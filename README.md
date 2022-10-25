@@ -17,6 +17,7 @@ Balena devices support
 * Jetson Xavier AGX - L4T 32.7.1
 * Jetson Xavier NX Devkit eMMC - L4T 32.7.1
 * Jetson Xavier NX Devkit SD-CARD - L4T 32.7.1
+* Jetson AGX Orin Devkit - L4T 35.1.0
 
 WARNINGS
 --------
@@ -71,7 +72,7 @@ $ npm install
 ```
 
 Put the device in recovery mode and connect the device's micro-USB port to your PC (USB-C for the Xavier AGX). Recovery mode can be entered by performing the following steps:
- - For Xavier AGX and Jetson TX2: Power the device then press and hold RST, press and hold REC. Release RST then release REC.
+ - For Xavier AGX, AGX Orin Devkit and Jetson TX2: Power the device then press and hold RST, press and hold REC. Release RST then release REC.
  - For Jetson Nano (2GB, SD-CARD, eMMC), Jetson Xavier NX and Jetson TX2 NX: Connect the FC REC and GND pins located under the module with a jumper cable, then power the device. Once the device has been flashed, the jumper cable should be removed for the board to boot normally.
 
 Use lsusb to ensure that the device is in recovery mode and is properly connected to your PC, for example:
@@ -85,7 +86,7 @@ Run the cli, specifying the path to the unzipped image and the desired device ty
 $ ./bin/cmd.js -f balena.img -m <device_type>
 ```
 
-Current supported device types are: jetson-nano-emmc, jetson-nano-qspi-sd, jetson-nano-2gb-devkit, jetson-tx2, jetson-xavier-nx-devkit-tx2-nx, jetson-xavier, jetson-xavier-nx-devkit-emmc, jetson-xavier-nx-devkit
+Current supported device types are: jetson-nano-emmc, jetson-nano-qspi-sd, jetson-nano-2gb-devkit, jetson-tx2, jetson-xavier-nx-devkit-tx2-nx, jetson-xavier, jetson-xavier-nx-devkit-emmc, jetson-xavier-nx-devkit, jetson-agx-orin-devkit
 
 Support
 -------
