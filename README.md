@@ -88,6 +88,14 @@ $ ./bin/cmd.js -f balena.img -m <device_type>
 
 Current supported device types are: jetson-nano-emmc, jetson-nano-qspi-sd, jetson-nano-2gb-devkit, jetson-tx2, jetson-xavier-nx-devkit-tx2-nx, jetson-xavier, jetson-xavier-nx-devkit-emmc, jetson-xavier-nx-devkit, jetson-agx-orin-devkit
 
+Supported emulated devices: jetson-agx-orin-devkit-as-nx-8gb, jetson-agx-orin-devkit-as-nx-16gb
+
+Important notes on Orin NX emulation:
+ - This branch supports flashing a Jetson AGX Orin Devkit with the emulated configurations for the Jetson Orin NX 16GB and the Jetson Orin NX 8GB.
+ - The same Balena AGX Orin Devkit image is used while flashing an emulated Orin NX, thus the cloud will report a Jetson AGX Orin Devkit device type. However, lscpu will report different configurations for the emulated devices.
+ - For the Orin NX 8GB emulation, after flashing is completed, it's necessary to edit the file /mnt/sysroot/active/current/boot/extlinux/extlinux.conf and add "mem=8G" (unquoted) to the APPEND element, for example: " ... sdhci_tegra.en_boot_part_access=1 rootwait mem=8G". Once the extlinux.conf file is modified and saved, the device should be rebooted for the available RAM configuration to take effect.
+ - The emulated configuration is used only during provisioning and is not preserved after a host operating system OTA update.
+
 Support
 -------
 
