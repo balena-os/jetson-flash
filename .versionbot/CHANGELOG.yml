@@ -1,0 +1,1099 @@
+- commits:
+    - subject: Switch from balenaCI to flowzone
+      hash: 2c37b00862b16e1fa0e927111abfbda31542d7bf
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+    - subject: "lib: Update Jetson Xavier NX Devkit and NX Devkit eMMC to L4T 32.7.2"
+      hash: 48a26e3777255d5a434fdac005a0c85a3eb73fdb
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.34
+  title: ""
+  date: 2022-12-22T16:53:43.969Z
+- version: 0.5.33
+  date: 2022-11-17T14:49:54Z
+  commits:
+    - hash: 14b7429037443cec66ad56a76bc7237aab8299b8
+      author: Alexandru Costache
+      footers:
+        change-type: patch
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      subject: "lib: Update Jetson TX2 to L4T 32.7.2"
+      body: |-
+        This corresponds to balenaOS v2.106.7
+        and newer
+- version: 0.5.32
+- date: 2022-11-09T19:10:45Z
+- commits:
+    - hash: a4990bd8c6483c819803ebf080925f575860638d
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "assets: Set AGX Orin device specific size and partition sizes"
+- commits:
+    - body: |-
+        ... to match the cloud production release.
+        The staging device specific offset and root partition
+        size are set for the pre-production, (staging) release.
+        In this commit we set the production device specific size, where
+        the nvidia partitions are located, as well as the balena
+        root file sysitem partition size to match the ones
+        in a cloud image.
+- version: 0.5.31
+- date: 2022-10-25T13:20:52Z
+- commits:
+    - hash: aab962bb8bad5adc15e5d1319b4613f07dd60525
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "agx-orin: Add support for flashing Jetson AGX Orin Devkit"
+- commits:
+    - body: null
+- version: 0.5.30
+- date: 2022-10-20T22:06:50Z
+- commits:
+    - hash: f62c3ae896cd38ebabd0946ee4b91ca2da030c40
+- commits:
+    - author: Felipe Lalanne
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        closes: "#90"
+- commits:
+    - subject: Document that Tegra flash requires python2
+- commits:
+    - body: Trying to use the flasher with python3 may run into encoding issues as
+        described by
+        https://forums.developer.nvidia.com/t/flashing-xavier-nx-emmc/187379
+- version: 0.5.29
+- date: 2022-09-29T11:48:44Z
+- commits:
+    - hash: 8565a50509cb1824e5b2562494b516eed36a6cb8
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "lib: Update TX2 NX Devkit to 32.7.2"
+- commits:
+    - body: null
+- commits:
+    - hash: 0ab2c7a23b509a5391cd27140e18a77e902ae15a
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "lib: Update Jetson Nano eMMC to L4T 32.7.2"
+- commits:
+    - body: null
+- commits:
+    - hash: fc030e3e77825104af5f360be0852b6c59f049ce
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "lib: Update Jetson Nano SD-CARD to L4T 32.7.2"
+- commits:
+    - body: null
+- version: 0.5.28
+- date: 2022-09-16T15:48:44Z
+- commits:
+    - hash: c0eadf4fea54207b5d4655183d3e8f8e0ed3752d
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "README: Improve provisioning instructions and details"
+- commits:
+    - body: null
+- version: 0.5.27
+- date: 2022-07-06T08:12:08Z
+- commits:
+    - hash: 5b3cb2f7c66b76fbd34006f5968df6d960fdbec5
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "lib: Update TX2 to L4T 32.7.1"
+- commits:
+    - body: null
+- commits:
+    - hash: bc23c3f640a16bfa37e82505614181e9e4f9eb12
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "README: Update L4T version info for TX2"
+- commits:
+    - body: null
+- version: 0.5.26
+- date: 2022-06-14T08:40:08Z
+- commits:
+    - hash: 641609f095228a23a62b04edf47dc7085f95a631
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "lib/resin-jetson-flash: Always boot from balenaOS supported mediums"
+- commits:
+    - body: |-
+        BalenaOS can be flashed only on SD-CARD or eMMC of the Jetson
+        devices, and boot priority should reflect that. Cboot from
+        the balenaOS image already switches priority to sd and emmc,
+        however, during flashing this needs to be set by the tegra
+        flashing tools.
+        Since these tools do not automatically compile cbo.dts during
+        flashing, we include it pre-compiled to avoid adding an extra
+        dependency to dtc.
+- version: 0.5.25
+- date: 2022-06-08T09:20:46Z
+- commits:
+    - hash: a3a957da66fca89d5b492e6b4af48cf0f2647f63
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "lib: Fix typo in Xavier AGX BSP link"
+- commits:
+    - body: null
+- commits:
+    - hash: 79a7f6182620bd27e80b624477da684d617a7447
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "README: Improve contributing documentation for PRs"
+- commits:
+    - body: null
+- version: 0.5.24
+- date: 2022-06-05T13:07:34Z
+- commits:
+    - hash: 901666c71371ef1961607d1408dfe06f64761dad
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "lib: Update Xavier NX SD-CARD and Xavier NX eMMC to L4T 32.7.1"
+- commits:
+    - body: null
+- version: 0.5.23
+- date: 2022-05-21T11:13:09Z
+- commits:
+    - hash: ec3cfc19c2a32184526e314a6ee073dfd32d4f05
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: Update Xavier AGX to L4T 32.7.1
+- commits:
+    - body: null
+- version: 0.5.22
+- date: 2022-05-10T15:58:22Z
+- commits:
+    - hash: 3df0d2b574b140c4d1b05cb7b9d61eb2aa79fb2a
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "README: Update flashing notes for 32.7.1"
+- commits:
+    - body: null
+- commits:
+    - hash: 317c1daac99fbc88cea27dcde3bd51e4be79e5cc
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "lib/resin-jetson-flash: Update BSP to 32.7.1 for current released
+        boards"
+- commits:
+    - body: null
+- version: 0.5.21
+- date: 2022-03-22T08:02:11Z
+- commits:
+    - hash: b2d033e3bbc757733f49e161abf5984461c30a0d
+- commits:
+    - author: rmorillo24
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: Update list of devices using L4T 32.6.1
+- commits:
+    - body: All supported devices are now updated to L4T 32.6.1
+- commits:
+    - hash: b6614ea48b93cbd09252cd6457310f23e370bebe
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "lib: Cleanup device that has not been maintained"
+- commits:
+    - body: |-
+        The TX2 4GB has not been maintained by the
+        community contributor and thus no image could
+        be released for it. Removing it from here
+        to avoid confusion.
+- version: 0.5.20
+- date: 2022-02-17T11:21:51Z
+- commits:
+    - hash: 0205411269e02dff407bde10288471d5bded4814
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "lib: Update BSP for TX2 32.6.1"
+- commits:
+    - body: null
+- version: 0.5.19
+- date: 2022-02-11T11:07:58Z
+- commits:
+    - hash: 71911f5e83ab0cdaff5848a1159759f82b7ac2b5
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "lib: Update Xavier AGX BSP to 32.6.1"
+- commits:
+    - body: null
+- version: 0.5.18
+- date: 2022-02-07T12:03:44Z
+- commits:
+    - hash: f8967c8dd394cb2f681d38c0bfe99df9ba2eaacf
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "jetson-xavier-nx: Update assets for 32.6.1"
+- commits:
+    - body: null
+- commits:
+    - hash: 79051138b92a8ea39c31653e1ab7866ebac2639a
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "lib: Update Xavier NX SD and eMMC to L4T 32.6.1"
+- commits:
+    - body: null
+- version: 0.5.17
+- date: 2022-01-25T15:42:11Z
+- commits:
+    - hash: 60e72b851855ff79330b1c050378a722345b3e49
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "jetson-tx2: Allow specifying odmdata value"
+- commits:
+    - body: |-
+        The BSP's flash.sh specified the -o
+        option for setting odmdata, however,
+        the value provided is ignored.
+        We therefore edit the common conf
+        file for the TX2 and replace the
+        default ODMDATA value in it with
+        the one provided to jetson-flash
+        via the -d cmdline argument.
+- version: 0.5.16
+- date: 2022-01-19T09:25:04Z
+- commits:
+    - hash: 80f9d4cd7bc08cc60f9c3e4485c416cde9633d97
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "Xavier AGX: Use bpmp-fw-dtb from the image instead of the default one"
+- commits:
+    - body: |-
+        The image might contain a custom bpmp-fw-dtb
+        that changes parent clocks in can related nodes,
+        let's use this one instead of the default dtb
+        provided by the BSP.
+- version: 0.5.15
+- date: 2021-12-17T17:27:03Z
+- commits:
+    - hash: 274e495b86780953e8642478c00ae4c70f60eb17
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: Update Nano 2GB Devkit to L4T 32.6.1
+- commits:
+    - body: null
+- version: 0.5.14
+- date: 2021-12-16T14:15:05Z
+- commits:
+    - hash: 7b2a06f4c8797682466dd7588372d4924f22f3f0
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: Update Nano SD, Nano eMMC and TX2 NX to L4T 32.6.1
+- commits:
+    - body: null
+- version: 0.5.13
+- date: 2021-10-08T11:52:08Z
+- commits:
+    - hash: d3fbed7e92c342f9d26007e4b06c16661d39e61b
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "jetson-nano-qspi-sd: Fix flashing Nano SD-CARD"
+- commits:
+    - body: |-
+        Jetson Nano had bootloaders and firmwares relocated
+        to the qspi flash starting with L4T 32.5.1. We need
+        to keep the same layout and offsets for the SD-CARD,
+        and make sure all bootloaders and firmware go to
+        the boot flash.
+        From this commit on, only L4T 32.5.1 or newer
+        can be flashed. This corresponds to BalenaOS
+        v2.83.11 and newer.
+- commits:
+    - hash: 0d8fb8c4cc4f1e18143f184f54b688cd27547a12
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costche <alexandru@balena.io>
+- commits:
+    - subject: "README: Update devices list"
+- commits:
+    - body: null
+- commits:
+    - hash: cb438a0cf58644296f14a6c5229fc88241c31a05
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "Nano 2GB Devkit: Add support for writing cloud image to this device
+        type"
+- commits:
+    - body: null
+- version: 0.5.12
+- date: 2021-08-12T07:19:57Z
+- commits:
+    - hash: cb3395462183c83787db34b237d4abae249c5544
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: Update README
+- commits:
+    - body: null
+- version: 0.5.11
+- date: 2021-08-05T15:12:04Z
+- commits:
+    - hash: 101a76e2411d4bd10bb57bdd5cc226e116b28676
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: Add support for flashing L4T 32.5.1
+- commits:
+    - body: null
+- commits:
+    - hash: 28a80749ebcb45f0567f889bf777e16bb7fa54b4
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "README: Add note for L4T 32.5.1"
+- commits:
+    - body: |-
+        This version should be used for flashing BalenaOS
+        images based L4T 32.5.1.
+- version: 0.5.10
+- date: 2021-06-01T08:06:23Z
+- commits:
+    - hash: 2c04c9ec7937d68c038387416685415137531404
+- commits:
+    - author: Andrew C. Smith
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Andrew C. Smith <andrew.smith@altium.com>
+- commits:
+    - subject: Add support for TX2 4GB device.
+- commits:
+    - body: null
+- commits:
+    - hash: f7bdbe383b068a527a6cf2447f66ea3ff45a707f
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "README: Add note regarding Node version"
+- commits:
+    - body: null
+- version: 0.5.9
+- date: 2021-04-26T14:51:25Z
+- commits:
+    - hash: eb7068d4bb5034eabbbbd3555543b6814f785515
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "package: Update versions for dependencies"
+- commits:
+    - body: null
+- version: 0.5.8
+- date: 2021-03-30T10:44:50Z
+- commits:
+    - hash: 0b0e7dbf61fc47e46ce618daaec19d99ab474ae1
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "scripts: Adapt to renamed flasher images"
+- commits:
+    - body: |-
+        Starting with the 2.72.x release in meta-balena
+        images and flasher flags have been renamed and thus
+        the embedded image was no longer properly located.
+- commits:
+    - hash: dabcb830549bda4d82e4c2852c57bc6a9efe2e42
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        signed-of-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "flasher-unwrap: Increase progress events timeout"
+- commits:
+    - body: null
+- version: 0.5.7
+- date: 2021-03-16T12:45:40Z
+- commits:
+    - hash: 8e5f4883014b949b4668dfd3ddd98ec9ac4f1d7b
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: Allow flashing preloaded images
+- commits:
+    - body: |-
+        flash.xml is now updated with the
+        actual size of the data partition.
+        This is done only for this partition,
+        no other partitions sizes should be
+        modified.
+- version: 0.5.6
+- date: 2021-03-05T12:11:37Z
+- commits:
+    - hash: 1572109f0ea1562c4e15bb1bbbbc6d3540faa82f
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: Update TX2 based devices to L4T 32.4.4
+- commits:
+    - body: null
+- version: 0.5.5
+- date: 2021-02-22T14:46:37Z
+- commits:
+    - hash: dbe896967ac714cf6c3ab7c19f62ff3e95c5d4b5
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "assets: don't extend last partition"
+- commits:
+    - body: |-
+        The script for data partition
+        expansion expects that no partition
+        resize was done previously. If the
+        data partition is already expanded,
+        the filesystem will not be resized
+        anymore.
+        Let's leave the partition sizes
+        match the filesistem.
+- version: 0.5.4
+- date: 2021-02-08T11:55:49Z
+- commits:
+    - hash: 0f5ac90f3ac056bc17dd838abbb195d8a47ed0ce
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: Update Xavier based devices to L4T 32.4.4
+- commits:
+    - body: null
+- version: 0.5.3
+- date: 2021-01-28T16:57:08Z
+- commits:
+    - hash: 151c735db6b6d217781cdc2adfed86723d5e9a7d
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "lib: Update BSP archive fo nano sd and emmc variants to 32.4.4"
+- commits:
+    - body: null
+- commits:
+    - hash: 632519eac5e554eb969e6294d4d89c1c049c5610
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "assets: Update Nano eMMC XML to fix failures in flashing 32.4.4"
+- commits:
+    - body: null
+- version: 0.5.2
+- date: 2020-11-11T17:18:41Z
+- commits:
+    - hash: 0b9b7572da8890c76b8953900e3119ec105c3227
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "resin-jetson-flash: Update Xavier to 32.4.3, fix flash.sh failure"
+- commits:
+    - body: |-
+        flash.sh fails when creating system.img if extlinx.conf is
+        not present in the rootfs directory. Create an emtpy one
+        since it's not being used anyway.
+- commits:
+    - hash: 7e9460521b0dd3bd7cdf6f37e90504ca388a90a8
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "resin-jetson-flash: Update BSP for rest of the boards"
+- commits:
+    - body: null
+- commits:
+    - hash: 66eae5737e00b1c1b06d92baaea302ee6faf70fe
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "resin-jetson-flash: Add Xavier NX Devkit SD-CARD flashing support"
+- commits:
+    - body: |-
+        Xavier NX Devkit SD-CARD machine name is: jetson-xavier-nx-devkit
+        Xavier NX Devkit eMMC machine name is: jetson-xavier-nx-devkit-emmc
+- commits:
+    - hash: b854daa8440f6a2913c7267aef8a669f3f1fd24b
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "README: Update devices list"
+- commits:
+    - body: |-
+        Also check if app can run in the test
+        script, as it's not possible to do a dry run
+        for flashing without a device attached.
+- version: 0.5.1
+- date: 2020-08-28T09:29:45Z
+- commits:
+    - hash: ae2cc60930bc54f8e7dc1c6a911bcef1efc64cb1
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "balena: Remove resin to balena in README, copyright and console logs"
+- commits:
+    - body: null
+- version: 0.5.0
+- date: 2020-08-07T12:05:10Z
+- commits:
+    - hash: 473954bd2c87f3f6662437fe73ad704034b100b7
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: minor
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "jetson: Add flashing support for L4T 32.4.2"
+- commits:
+    - body: |-
+        Update flashing to L4T 32.4.2, add support for
+        flashing NX.
+- commits:
+    - hash: 96261aa34cd88fe1a6ba7737eb80c0be835d7408
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "jetson-xavier-nx-emmc: Add padding details, increase rootfs size"
+- commits:
+    - body: |-
+        Padding is necessary to ensure enough space for adding
+        tegra partitions in future L4T updates.
+        Using a larger rootfs from the beginning ensures enough space
+        for the boot blob.
+- version: 0.4.1
+- date: 2020-03-03T07:40:52Z
+- commits:
+    - hash: d32bc3b2b58cc561ab7e2ba96d8301e2b7bdaa32
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "README: Update with TX2 L4T version notice"
+- commits:
+    - body: |-
+        Update readme file to mention tags that
+        can be used with older L4T releases, like 28.x.
+        BalenaOS 2.47 uses L4T 32.2, which has a
+        partition layout that is incompatible with
+        previous L4T releases.
+- version: 0.4.0
+- date: 2020-02-03T13:12:05Z
+- commits:
+    - hash: cdf0d9a2451c52952e9b0de29868a982f846a13a
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: minor
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "jetson-tx2: Add flashing support for L4T 32.2"
+- commits:
+    - body: |-
+        Add partitioning file for L4T 32.2 and
+        specify partition to be extracted from
+        the balenaOS image.
+- commits:
+    - hash: 2c0c4d4ee456518376ee54182afd5d3d9a290dfd
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: minor
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "jetson-tx2: Remove GPTs from assets"
+- commits:
+    - body: |-
+        Remove old GPTs from assets and let flashing
+        tools construct them as specified in the partition
+        xml files, just like we now do for jetson-nano and
+        jetson-xavier.
+        Due to the above, kernel-dtb and kernel-dtb_b partitions
+        are being increased in size in this tool. This way
+        resin-boot starts at the sd-card image DEVICE_SPECIFIC_SPACE
+        whithout having to add another padding partition.
+- commits:
+    - hash: 14b95dfee026c83c97fd7ee7169a1644d3b52672
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: minor
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "README: Specify supported device types"
+- commits:
+    - body: null
+- version: 0.3.0
+- date: 2019-11-15T16:01:22Z
+- commits:
+    - hash: c9e87bbcbc449edbceed64a8c28664541f07b16f
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: minor
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "jetson-nano: Use image RP1 dtb and BMP"
+- commits:
+    - body: |-
+        Signed devicetree blob is being written to RP1
+        partition too, and will differ from one basebard
+        to another.
+        The BMP blob should come from the image too,
+        to prevent the BSP logo from being displayed.
+- version: 0.2.0
+- date: 2019-10-03T14:50:05Z
+- commits:
+    - hash: 025af1c43c25d5360fa49198c29c5f7ad0e67d8e
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: minor
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: Support Jetson Xavier
+- commits:
+    - body: |-
+        This adds suport for flashing Jetson Xavier.
+        This particular device does not support flashing
+        with sd-cards or usb keys.
+        Machine name: jetson-xavier
+- commits:
+    - hash: e5fa823f4871cd4ae63048284c8023365052b4e0
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: minor
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: "jetson-xavier: Use image BMP partitions"
+- commits:
+    - body: |-
+        This is needed in order to prevent the default
+        vendor logo from being displayed by cboot at
+        startup.
+- version: 0.1.0
+- date: 2019-09-27T07:48:18Z
+- commits:
+    - hash: 7356a43aed3002691d84de025dc648ecd54c3f29
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        change-type: minor
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: Replicate jetson-nano sd-card layout offsets
+- commits:
+    - body: |-
+        Partition offsets and sizes need to be the same,
+        both when using the flash tool and when writing the
+        sd-card with Etcher.
+        Also, boot partition offset needs to be the same as
+        the corresponding RESIN_DEVICE_SPECIFIC_SPACE,
+        should sizes increase in future L4T versions.
+- commits:
+    - hash: f4c5149bf1354c0106c848d6db74480276e1b4b7
+- commits:
+    - author: Theodor Gherzan
+- commits:
+    - footers:
+        signed-off-by: Theodor Gherzan <theodor@balena.io>
+- commits:
+    - subject: Require node version 10 or above
+- commits:
+    - body: null
+- commits:
+    - hash: 0f5ab5898718a0d2cf8ef9371f661ff65f221697
+- commits:
+    - author: Theodor Gherzan
+- commits:
+    - footers:
+        change-type: minor
+- commits:
+    - footers:
+        signed-off-by: Theodor Gherzan <theodor@balena.io>
+- commits:
+    - subject: Support the Nano machine
+- commits:
+    - body: null
+- commits:
+    - hash: b0e701c388a257fb50f0011e3393df83b869b5dc
+- commits:
+    - author: Alexandru Costache
+- commits:
+    - footers:
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+- commits:
+    - subject: Support Jetson Nano with SD-CARD
+- commits:
+    - body: |-
+        This adds support for the Jetson Nano
+        machine with SD-CARD and no EMMC
+        Machine name: jetson-nano-qspi-sd
+- commits:
+    - hash: 3efed0c1a1de3d5aaf590f59a25df0c8241ce43e
+- commits:
+    - author: Theodor Gherzan
+- commits:
+    - footers:
+        signed-off-by: Theodor Gherzan <theodor@resin.io>
+- commits:
+    - subject: Rework the caching to be more efficient
+- commits:
+    - body: |-
+        Be more verbose with logging
+        A bit of mandatory refactoring
+- commits:
+    - hash: 842c2f9d4070df881c00ef4792ae4d11a26745af
+- commits:
+    - author: Florin Sarbu
+- commits:
+    - footers:
+        signed-off-by: Florin Sarbu <florin@resin.io>
+- commits:
+    - subject: "package.json: Update ext2fs tpo version 1.0.13"
+- commits:
+    - body: This fixes reading large files (over 4 GiB) from an ext filesystem
+- commits:
+    - hash: 8863580d686615a769e188497fdbcd40e2f2ea71
+- commits:
+    - author: Gergely Imreh
+- commits:
+    - footers:
+        change-type: patch
+- commits:
+    - footers:
+        signed-off-by: Gergely Imreh <imrehg@gmail.com>
+- commits:
+    - subject: only adjust runtime flag's value if it is actually passed to script
+- commits:
+    - body: |-
+        If the `--output <OUTPUT>` flag is not passed, that previous version
+        freaks out working on an undefined value of that flag.
+- commits:
+    - hash: da355a1c2961068685438ff1ceb7a011d0ea8a3e
+- commits:
+    - author: Theodor Gherzan
+- commits:
+    - footers:
+        signed-off-by: Theodor Gherzan <theodor@resin.io>
+- commits:
+    - subject: Implement artifact cache
+- commits:
+    - body: null
+- commits:
+    - hash: c83cff73a57b49adb76380abc092b410d4cf95bc
+- commits:
+    - author: Theodor Gherzan
+- commits:
+    - footers:
+        signed-off-by: Theodor Gherzan <theodor@resin.io>
+- commits:
+    - subject: Make sure we mimic the exact partition table that resin-image-flasher
+        would flash
+- commits:
+    - body: null
+- commits:
+    - hash: 66fb2b5c39ade29ca25154ff01ac7251ffdea681
+- commits:
+    - author: Theodor Gherzan
+- commits:
+    - footers:
+        signed-off-by: Theodor Gherzan <theodor@resin.io>
+- commits:
+    - subject: Initial tool release
+- commits:
+    - body: null
