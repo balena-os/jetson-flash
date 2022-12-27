@@ -15,7 +15,7 @@ Balena devices support
 * Jetson TX2 - L4T 32.7.2
 * Jetson TX2 NX (in Jetson Xavier NX Devkit) - L4T 32.7.2
 * Jetson Xavier AGX - L4T 32.7.1
-* Jetson Xavier NX Devkit eMMC - L4T 32.7.2
+* Jetson Xavier NX Devkit eMMC - L4T 35.1 - Used for Forecr DSBOARD NX2
 * Jetson Xavier NX Devkit SD-CARD - L4T 32.7.2
 * Jetson AGX Orin Devkit - L4T 35.1.0
 
