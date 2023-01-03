@@ -1,4 +1,17 @@
 - commits:
+    - subject: "jetson-tx2: Update to L4T 32.7.3"
+      hash: 745f11e6b7d49013ba5c14f58c0678f0e72cbe92
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.35
+  title: ""
+  date: 2023-01-03T15:26:35.488Z
+- commits:
     - subject: Switch from balenaCI to flowzone
       hash: 2c37b00862b16e1fa0e927111abfbda31542d7bf
       body: ""
