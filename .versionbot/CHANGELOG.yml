@@ -1,4 +1,17 @@
 - commits:
+    - subject: "lib: Update Jetson Xavier NX Devkit SD-CARD to L4T 32.7.3"
+      hash: 017fc79759491a609cac6b99140595c7413c1eca
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.36
+  title: ""
+  date: 2023-01-13T15:01:07.878Z
+- commits:
     - subject: "jetson-tx2: Update to L4T 32.7.3"
       hash: 745f11e6b7d49013ba5c14f58c0678f0e72cbe92
       body: ""
