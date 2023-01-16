@@ -500,10 +500,10 @@
               partitions defined after this entry are configured in the kernel, and are
               accessible by standard partition tools such as gdisk and parted. </description>
         </partition>
-        <partition name="kernel" id="2" type="kernel" oem_sign="true">
+        <partition name="kernel" id="2" type="kernel">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
-            <size> 67112960 </size>
+            <size> 67108864 </size>
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
@@ -512,20 +512,20 @@
               which is loaded in when cpu-bootloader failes to launch the kernel
               from the rootfs at `/boot`. </description>
         </partition>
-        <partition name="kernel-dtb" type="kernel_dtb" oem_sign="true">
+        <partition name="kernel-dtb" type="kernel_dtb" >
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
-            <size> 528384 </size>
+            <size> 524288 </size>
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
-            <filename> DTB_FILE </filename>
+            <filename> DTB_NAME </filename>
             <description> **Required.** Chain A; contains kernel device tree blob. </description>
         </partition>
         <partition name="reserved_for_chain_A_user" type="data">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
-            <size> 34123776 </size>
+            <size> 163010560 </size>
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
@@ -603,10 +603,10 @@
             <description> **Required.** Chain B; contains BPMP firmware device tree blob
               (DTB). </description>
         </partition>
-        <partition name="kernel_b" type="kernel" oem_sign="true">
+        <partition name="kernel_b" type="kernel">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
-            <size> 67112960 </size>
+            <size> 67108864 </size>
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
@@ -615,10 +615,10 @@
               which is loaded in when cpu-bootloader failes to launch the kernel
               from the rootfs at `/boot`. </description>
         </partition>
-        <partition name="kernel-dtb_b" type="kernel_dtb" oem_sign="true">
+        <partition name="kernel-dtb_b" type="kernel_dtb">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
-            <size> 528384 </size>
+            <size> 524288 </size>
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
@@ -628,20 +628,11 @@
         <partition name="reserved_for_chain_B_user" type="data">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
-            <size> 34078720 </size>
+            <size> 163010560 </size>
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
             <description> **Required.** Reserved space for chain B on user device. </description>
-        </partition>
-	<partition name="PADDING" type="data">
-            <allocation_policy> sequential </allocation_policy>
-            <filesystem_type> basic </filesystem_type>
-            <size> 333426688 </size>
-            <file_system_attribute> 0 </file_system_attribute>
-            <allocation_attribute> 8 </allocation_attribute>
-            <percent_reserved> 0 </percent_reserved>
-            <description> Allows for adding new partitions before resin-boot in the future. </description>
         </partition>
         <partition name="resin-boot" type="data">
             <allocation_policy> sequential </allocation_policy>
@@ -684,7 +675,7 @@
             <filesystem_type> basic </filesystem_type>
             <size> FILESIZE </size>
             <file_system_attribute> 0 </file_system_attribute>
-            <allocation_attribute> 0x8 </allocation_attribute>
+            <allocation_attribute> 0x808 </allocation_attribute>
             <filename> FILENAME </filename>
             <percent_reserved> 0 </percent_reserved>
         </partition>
