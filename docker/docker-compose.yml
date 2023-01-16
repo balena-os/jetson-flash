@@ -1,0 +1,13 @@
+version: '2'
+services:
+  jetson-flash:
+    restart: always
+    build: ./
+    privileged: true
+    volumes:
+      - '/dev:/dev'
+      - '/run/udev/control:/run/udev/control'
+      - '/sys:/sys'
+      - '~/images:/data/images'
+
+
