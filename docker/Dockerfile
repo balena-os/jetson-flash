@@ -18,4 +18,7 @@ RUN \
     cd jetson-flash && \
     npm install
 
+WORKDIR /usr/src/app/jetson-flash
+
+
 CMD ["sleep", "infinity"]
