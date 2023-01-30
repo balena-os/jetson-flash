@@ -1,4 +1,17 @@
 - commits:
+    - subject: Updated README, added Docker folder
+      hash: 69e466db5e13821e639a1ea39a6a251d1c5a910f
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alan Boris <alan@balena.io>
+        signed-off-by: Alan Boris <alan@balena.io>
+      author: alanb128
+  version: 0.5.37
+  title: ""
+  date: 2023-01-30T10:13:21.746Z
+- commits:
     - subject: "lib: Update Jetson Xavier NX Devkit SD-CARD to L4T 32.7.3"
       hash: 017fc79759491a609cac6b99140595c7413c1eca
       body: ""
