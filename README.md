@@ -4,7 +4,7 @@ This tool allows users to flash balenaOS on supported Jetson devices:
 
 |Device | balena machine name | L4T version |
 |-------|---------------------|-------------|
-|Jetson Nano eMMC | jetson-nano-emmc |  L4T 32.7.2 |
+|Jetson Nano eMMC | jetson-nano-emmc |  L4T 32.7.3 |
 |Jetson Nano SD-CARD Devkit | jetson-nano | L4T 32.7.2 |
 |Jetson Nano 2GB Devkit | jetson-nano-2gb-devkit | L4T 32.7.1 |
 |Jetson TX2 | jetson-tx2 | L4T 32.7.3 |
