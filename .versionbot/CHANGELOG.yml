@@ -1,4 +1,17 @@
 - commits:
+    - subject: "lib: Update Jetson Nano eMMC to L4T 32.7.3"
+      hash: 2b91b64c859b0d459c92c146c65bb74615278104
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.38
+  title: ""
+  date: 2023-03-17T18:02:08.702Z
+- commits:
     - subject: Updated README, added Docker folder
       hash: 69e466db5e13821e639a1ea39a6a251d1c5a910f
       body: ""
