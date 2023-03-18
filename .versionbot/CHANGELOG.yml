@@ -1,4 +1,17 @@
 - commits:
+    - subject: "lib: Update TX2 NX Devkit to L4T 32.7.3"
+      hash: 317597031c37576f8e92a7e1596a379fbb7ffbf1
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.39
+  title: ""
+  date: 2023-03-18T18:26:34.619Z
+- commits:
     - subject: "lib: Update Jetson Nano eMMC to L4T 32.7.3"
       hash: 2b91b64c859b0d459c92c146c65bb74615278104
       body: ""
