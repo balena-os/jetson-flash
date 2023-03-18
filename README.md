@@ -8,7 +8,7 @@ This tool allows users to flash balenaOS on supported Jetson devices:
 |Jetson Nano SD-CARD Devkit | jetson-nano | L4T 32.7.2 |
 |Jetson Nano 2GB Devkit | jetson-nano-2gb-devkit | L4T 32.7.1 |
 |Jetson TX2 | jetson-tx2 | L4T 32.7.3 |
-|Jetson TX2 NX (in Jetson Xavier NX Devkit) | jetson-tx2-nx-devkit | L4T 32.7.2 |
+|Jetson TX2 NX (in Jetson Xavier NX Devkit) | jetson-tx2-nx-devkit | L4T 32.7.3 |
 |Jetson AGX Xavier | jetson-xavier | L4T 32.7.1 |
 |Jetson Xavier NX Devkit eMMC | jetson-xavier-nx-devkit-emmc | L4T 32.7.2 |
 |Jetson Xavier NX Devkit SD-CARD | jetson-xavier-nx-devkit | L4T 32.7.3 |
