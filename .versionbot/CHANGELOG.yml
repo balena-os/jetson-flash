@@ -1,4 +1,35 @@
 - commits:
+    - subject: use local repo content in dockerfile
+      hash: 95c57b55867e70ffb28e2e2b1912af53dd414342
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+    - subject: add node 16+ as supported engines in package.json
+      hash: 00cfe3b3161edda2ba63c3131d73c7507b85b9e6
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+    - subject: make compatible with node 18
+      hash: a5edc5f1d6a0674315760e214f489ce31132e564
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+  version: 0.5.40
+  title: ""
+  date: 2023-03-24T16:20:06.675Z
+- commits:
     - subject: "lib: Update TX2 NX Devkit to L4T 32.7.3"
       hash: 317597031c37576f8e92a7e1596a379fbb7ffbf1
       body: ""
