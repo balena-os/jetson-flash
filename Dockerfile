@@ -10,18 +10,13 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 
 RUN pip3 install pyyaml
 
-WORKDIR /usr/src/app
+WORKDIR /usr/src/app/jetson-flash
 
 RUN \
     apt-get update && apt-get install -y lbzip2 git wget unzip e2fsprogs dosfstools libxml2-utils nodejs
     
-RUN node --version && npm --version
-RUN \
-    git clone https://github.com/balena-os/jetson-flash.git && \
-    cd jetson-flash && \
-    npm install
+COPY . /usr/src/app/jetson-flash
 
-WORKDIR /usr/src/app/jetson-flash
-
+RUN npm install
 
 CMD ["sleep", "infinity"]
