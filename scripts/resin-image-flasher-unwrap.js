@@ -19,7 +19,7 @@
 const _ = require('lodash');
 const Bluebird = require('bluebird');
 const progressStream = require('progress-stream');
-const resinfs = require('resin-image-fs');
+const balenafs = require('balena-image-fs');
 
 const { createReadStream, createWriteStream } = require('fs');
 const { getPartitions } = require('partitioninfo');
@@ -42,40 +42,37 @@ const getResinImageFromFlasher = async (image, output) => {
 	const RESIN_IMAGE_REGEX = new RegExp('^(resin|balena)-image.*\.(resin|balena)os-img');
 
 	console.log(`Retrieve BalenaOS image from ${image}`);
-	await Bluebird.using(
-		resinfs.interact(image, RESIN_FLASHER.rootfsID),
-		async fs => {
-			const path = join(
-				RESIN_FLASHER.resinImagePath,
-				(await fs.readdirAsync(RESIN_FLASHER.resinImagePath)).find(value => {
-					return RESIN_IMAGE_REGEX.test(value);
-				}),
-			);
-			const size = (await fs.statAsync(path)).size;
-			const stream = fs.createReadStream(path);
+	await balenafs.interact(image, RESIN_FLASHER.rootfsID, async fs => {
+		const path = join(
+			RESIN_FLASHER.resinImagePath,
+			(await Bluebird.promisify(fs.readdir)(RESIN_FLASHER.resinImagePath)).find(value => {
+				return RESIN_IMAGE_REGEX.test(value);
+			}),
+		);
+		const size = (await Bluebird.promisify(fs.stat)(path)).size;
+		const stream = fs.createReadStream(path);
 
-			return new Bluebird((resolve, reject) => {
-				const bar = new Progress(`Writing to ${output}`);
-				const str = progressStream({
-					length: size,
-					time: 1000,
-				});
-				const out = createWriteStream(output);
+		return new Bluebird((resolve, reject) => {
+			const bar = new Progress(`Writing to ${output}`);
+			const str = progressStream({
+				length: size,
+				time: 1000,
+			});
+			const out = createWriteStream(output);
 
-				stream.pipe(str).pipe(out);
+			stream.pipe(str).pipe(out);
 
-				stream.on('error', reject);
-				stream.on('end', resolve);
+			stream.on('error', reject);
+			stream.on('end', resolve);
 
-				str.on('progress', update => {
-					bar.update({
-						percentage: update.percentage,
-						eta: update.eta,
-					});
+			str.on('progress', update => {
+				bar.update({
+					percentage: update.percentage,
+					eta: update.eta,
 				});
 			});
-		},
-	);
+		});
+	});
 };
 
 // FIXME This function needs to be reimplemented once the fatfs module is fixed
@@ -91,7 +88,7 @@ const copyResinConfigurationOver = async (flasherImage, resinImage) => {
 
 	const createFSH = options => {
 		const recurse = async (fs, path) => {
-			const stat = await fs.statAsync(path).catch(
+			const stat = await Bluebird.promisify(fs.stat)(path).catch(
 				{
 					code: 'ISDIR',
 				},
@@ -104,7 +101,7 @@ const copyResinConfigurationOver = async (flasherImage, resinImage) => {
 			};
 
 			if (stat === null || stat.isDirectory()) {
-				const subpaths = await fs.readdirAsync(path);
+				const subpaths = await Bluebird.promisify(fs.readdir)(path);
 				node.type = 'directory';
 				node.mode = stat ? stat.mode : null;
 				node.children = await Bluebird.map(subpaths, async p => {
@@ -119,40 +116,30 @@ const copyResinConfigurationOver = async (flasherImage, resinImage) => {
 			return node;
 		};
 
-		return Bluebird.using(
-			resinfs.interact(options.image, options.partition),
-			fs => {
-				return recurse(fs, options.path);
-			},
-		);
+		return balenafs.interact(options.image, options.partition, fs => {
+			return recurse(fs, options.path);
+		});
 	};
 
 	const resinImageBootPartID = (await findResinBootPart(resinImage)).index;
 	const performCopy = async paths => {
 		await Bluebird.each(paths, async path => {
-			await Bluebird.using(
-				resinfs.interact(resinImage, resinImageBootPartID),
-				async fs => {
-					if (path.type === 'directory') {
-						//We cannot create directories at the moment, so we skip this action
-						await performCopy(path.children);
-					}
-				},
-			);
+			await balenafs.interact(resinImage, resinImageBootPartID, async fs => {
+				if (path.type === 'directory') {
+					//We cannot create directories at the moment, so we skip this action
+					await performCopy(path.children);
+				}
+			})
 
 			if (path.type === 'file') {
-				await resinfs.copy(
-					{
-						image: flasherImage,
-						partition: RESIN_FLASHER.bootID,
-						path: path.path,
-					},
-					{
-						image: resinImage,
-						partition: resinImageBootPartID,
-						path: path.path,
-					},
-				);
+				await balenafs.interact(flasherImage,  RESIN_FLASHER.bootID, async fsFlasher => {
+					await balenafs.interact(resinImage,  resinImageBootPartID, async fsImage => {
+						await pipeline(
+							fsFlasher.createReadStream(path.path),
+							fsImage.createWriteStream(path.path)
+						)
+					})
+				})
 			}
 		});
 	};
@@ -189,13 +176,15 @@ const copyResinConfigurationOver = async (flasherImage, resinImage) => {
 exports.unwrapResinImageFlasher = async (image, output) => {
 	const table = await getPartitions(image);
 
-	const files = await resinfs.listDirectory({
+	const files = await balenafs.interact(
 		image,
-		partition: table.partitions.find(value => {
+		table.partitions.find(value => {
 			return value.type === EFI_CODES[table.type];
 		}).index,
-		path: '/',
-	});
+		async fs => {
+			return await Bluebird.promisify(fs.readdir)('/')
+		}
+	)
 
 	if (files.includes('resin-image-flasher') || files.includes('balena-image-flasher')) {
 		await getResinImageFromFlasher(image, output);
