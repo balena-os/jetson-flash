@@ -1,4 +1,26 @@
 - commits:
+    - subject: post-test cleanup of artifacts
+      hash: bad82dd9bbaac415573ae6d8619593bd54efbbad
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+    - subject: add simple test for artifact generation
+      hash: 082baa22a6fcca478a70e41bbf2eff349cba6914
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+  version: 0.5.41
+  title: ""
+  date: 2023-03-27T09:15:10.592Z
+- commits:
     - subject: use local repo content in dockerfile
       hash: 95c57b55867e70ffb28e2e2b1912af53dd414342
       body: ""
