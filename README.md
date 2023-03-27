@@ -37,7 +37,7 @@ You can either install all the prerequisites listed below or run the provided Do
 Prerequisites:
 
 - Sudo privileges (required by Tegra Flash and to delete intermediate steps created by the tool in `/tmp/${pid_of_process}`)
-- [NodeJS](https://nodejs.org) v10 or v12. Currently versions newer than v12 are incompatible, see issue #48
+- [NodeJS](https://nodejs.org)
 - Make sure you have python2 installed and that the `python` binary points to python2.
 - Dependencies required for the the L4T package, including: lbzip2, e2fsprogs, dosfstools, libxml2-utils
 
