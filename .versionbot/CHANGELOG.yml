@@ -1,4 +1,19 @@
 - commits:
+    - subject: "README: Remove node 12 references"
+      hash: 6c4a68d3d53fb12e45184c614734506b08084220
+      body: |
+        The tool has been updated in the master branch to work with newer
+        NodeJS versions - see https://github.com/balena-os/jetson-flash/pull/106
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.42
+  title: ""
+  date: 2023-03-27T11:55:02.615Z
+- commits:
     - subject: post-test cleanup of artifacts
       hash: bad82dd9bbaac415573ae6d8619593bd54efbbad
       body: ""
