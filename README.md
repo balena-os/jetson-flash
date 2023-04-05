@@ -14,6 +14,8 @@ This tool allows users to flash balenaOS on supported Jetson devices:
 |Jetson Xavier NX Devkit SD-CARD | jetson-xavier-nx-devkit | L4T 32.7.3 |
 |Jetson AGX Orin Devkit | jetson-agx-orin-devkit | L4T 35.1.0 |
 
+NOTE: The Jetson Orin NX cannot be flashed trough Jetson-Flash, instead a separate container image is used as detaled below in the [Orin NX Flashing](#orin-nx-flashing) section.
+
 ## About
 Jetson Flash will extract the balenaOS image from a downloaded provisioned image (such as from balenaCloud) and then flashes that image to a Jetson board connected to a host PC via USB.
 
@@ -89,14 +91,14 @@ Then power on the device.
 - While depressing the RECOVERY FORCE button, press and release the RESET button.
 - Wait 2 seconds and release the RECOVERY FORCE button.
 
-**Jetson AGX Xavier**
+**Jetson AGX Xavier:**
 
 1. Connect the developer kit as described above. It should be powered off.
 2. Press and hold down the Force Recovery button.
 3. Press and hold down the Power button.
 4. Release both buttons.
 
-**Jetson Xavier NX**
+**Jetson Xavier NX:**
 
 1. Ensure the device is powered off and the power adapter disconnected.
 2. Place a jumper across the Force Recovery Mode pins. These are pins 9 ("GND") and 10 ("FC REC") of the Button Header (J14).
@@ -110,6 +112,14 @@ Then power on the device.
 - While holding the middle Force Recovery button, insert the USB Type-C power supply plug into the USB Type-C port above the DC jack.
 - This will turn on the Jetson dev kit in Force Recovery Mode.
 - HOLD DOWN UNTIL you hear the fan and get a usb connection popup on your connected PC
+
+**Jetson Orin NX in Xavier NX Devkit:**
+
+1. Ensure the device is powered off and the power adapter disconnected.
+2. Place a jumper across the Force Recovery Mode pins. These are pins 9 ("GND") and 10 ("FC REC") of the Button Header (J14).
+3. Connect your host computer to the device's USB Micro-B connector.
+4. Connect the power adapter to the Power Jack [J16].
+5. The device will automatically power on in Force Recovery Mode.
 
 **Confirmation**
 
@@ -182,6 +192,38 @@ Important notes on Orin NX emulation:
 - These configurations should be used for testing purposes only, and they should never be used to provision production devices
 - Cloud support for Orin NX machines can only be evaluated after the hardware is available and the upstream Yocto BSP (meta-tegra) adds support for them.
 
+## Orin NX Flashing:
+
+Important notes on Orin NX provisioning:
+
+- The Docker image and the associated scripts have been validated on Ubuntu 22.04
+- The current Orin NX image is based on L4T 35.2.1
+- Flashing of the Orin NX module in a Xavier NX Devkit carrier board with a NVME attached can be done solely by using the Docker image inside the Orin_Nx_NVME folder. The Dockerfile and the scripts inside this folder are not used by jetson-flash and should be used as a stand-alone means for flashing BalenaOS on the Orin NX and the attached NVME.
+- Docker needs to be installed on the Host PC and the Docker image needs to be run as privileged
+- The balenaOS image downloaded from balena-cloud needs to be unpacked and copied on your Host PC inside the `~/images/` folder. This location will be bind mounted inside the running container.
+
+### Orin NX Flashing steps:
+
+- Attach a NVME drive to the Xavier NX Devkit
+- Download your balenaOS image from balena-cloud, unpack and write it to a USB stick. We recommend using <a href="https://www.balena.io/etcher">Etcher</a>.
+- Place the balenaOS unpacked image inside the folder ~/images on your HOST PC. This location will be automatically bind-mounted in the container image in the `/data/images/` folder
+- Put the Jetson Orin NX in Force Recovery mode
+- Insert the USB stick created above in any of the 4 USB ports of the Xavier NX Devkit
+- Navigate to the `Orin_Nx_NVME` folder and run the Docker image by executing the `build_and_run.sh` script:
+
+```
+~/jetson-flash$ cd Orin_Nx_NVME/
+~/jetson-flash/Orin_Nx_NVME$ ./build_and_run.sh
+```
+
+- Once the docker image has been built and starts running, the balenaOS kernel and flasher image can be booted by executing the `flash_orin_nx.sh` script:
+
+```
+root@03ce5cbcbb0d:/usr/src/app/orin-nx-flash# ./flash_orin_nx.sh -f /data/images/balena.img
+```
+
+- The flashing process takes around 10-15 minutes and once it completes, the board will power-off. The device can be taken out of recovery mode and the USB flasher stick can be unplugged.
+- Remove and reconnect power to the device.
 
 ## Support
 
