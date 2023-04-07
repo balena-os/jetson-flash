@@ -1,4 +1,18 @@
 - commits:
+    - subject: "Orin NX: Add Dockerfile and scripts for provisioning the Orin NX in
+        Xavier NX Devkit NVME"
+      hash: e44e6ef1fa1ebbb3e8e67417bae14bcc00e7f850
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.43
+  title: ""
+  date: 2023-04-07T12:27:00.565Z
+- commits:
     - subject: "README: Remove node 12 references"
       hash: 6c4a68d3d53fb12e45184c614734506b08084220
       body: |
