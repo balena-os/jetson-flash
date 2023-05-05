@@ -1,4 +1,17 @@
 - commits:
+    - subject: "jetson-agx-orin-devkit: Update to L4T 35.2.1"
+      hash: 42bd94c92515ec384b61c7b5db7691f2fdd3ace3
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.44
+  title: ""
+  date: 2023-05-05T08:30:00.120Z
+- commits:
     - subject: "Orin NX: Add Dockerfile and scripts for provisioning the Orin NX in
         Xavier NX Devkit NVME"
       hash: e44e6ef1fa1ebbb3e8e67417bae14bcc00e7f850
