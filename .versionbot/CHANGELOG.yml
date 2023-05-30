@@ -1,4 +1,30 @@
 - commits:
+    - subject: "Orin NX NVME: Print Tegra BSP License Agreement before entering
+        rcm-boot mode"
+      hash: 0b540f4cf06095f5bcd807a32bb9d961bf0d36db
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+    - subject: "bin/cmd: Include Software License Agreement"
+      hash: 16182ea77f5d4141016373f5cb42cf8ba8569f5e
+      body: |
+        The Tegra Software License Agreement can be accepted
+        either by passing yes to the command line -l option or by typing
+        yes on the console prompt at runtime.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.45
+  title: ""
+  date: 2023-05-30T15:03:48.817Z
+- commits:
     - subject: "jetson-agx-orin-devkit: Update to L4T 35.2.1"
       hash: 42bd94c92515ec384b61c7b5db7691f2fdd3ace3
       body: ""
