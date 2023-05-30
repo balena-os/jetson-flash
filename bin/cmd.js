@@ -26,10 +26,29 @@ const { tmpdir } = require('os');
 
 const utils = require('../lib/utils.js');
 const ResinJetsonFlash = require('../lib/resin-jetson-flash.js');
+const fileSys = require('fs');
+const filePath = require('path');
+const readline = require("readline");
 
 const run = async options => {
 	const stat = await statAsync(options.file);
+	console.log(filePath.resolve(__dirname, '../Tegra_Software_License_Agreement-Tegra-Linux.txt'));
+	var tegraLicenseText = fileSys.readFileSync(path.resolve(__dirname, '../Tegra_Software_License_Agreement-Tegra-Linux.txt'), 'utf8');
+	console.log(tegraLicenseText);
+	console.log("The above License Agreement can be consulted at https://developer.download.nvidia.com/embedded/L4T/r35_Release_v2.1/release/Tegra_Software_License_Agreement-Tegra-Linux.txt");
+	if (options.acceptLicense != 'yes') {
+		const rl = readline.createInterface({
+		    input: process.stdin,
+		    output: process.stdout,
+		});
 
+		const response = await new Promise(resolve => { rl.question('Accept the Tegra Software License Agreement above? Type yes/no:', resolve)});
+		rl.close();
+		if (response != 'yes') {
+			console.log('Tegra Software License Agreement for Tegra Linux needs to be accepted to use this tool.');
+			process.exit(0);
+		}
+	}
 	if (!stat.isFile()) {
 		throw new Error('Specified image is not a file');
 	}
@@ -78,6 +97,13 @@ const argv = yargs
 		required: false,
 		type: 'string',
 	})
+        .option('l', {
+                alias: 'acceptLicense',
+                description: 'Accept Tegra Software License Agreement for Linux Tegra? License agreement needs to be accepted to use this tool.',
+                choices: ['yes', 'no'],
+                required: false,
+                type: 'string',
+        })
 	.alias('o', 'output')
 	.nargs('o', 1)
 	.describe('o', 'Output directory')
@@ -85,7 +111,7 @@ const argv = yargs
 	.boolean('p')
 	.describe('p', 'Persist work')
 	.implies('p', 'o')
-	.example('$0 -f balena.img -p -o ./workdir', '')
+	.example('$0 -f balena.img -p -o ./workdir --acceptLicense yes', '')
 	.help('h')
 	.alias('h', 'help')
 	.epilog('Copyright 2020').argv;
