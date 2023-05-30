@@ -6,6 +6,7 @@ balena_image_flasher_root_mnt="/tmp/flash-bootA"
 balena_image_loop_dev=""
 lt_dir="Linux_for_Tegra"
 work_dir="/usr/src/app/orin-nx-flash/"
+accept_license=""
 
 function log {
 	case $1 in
@@ -28,7 +29,7 @@ function log {
 }
 
 function help() {
-    echo "Provisioning can be started by typing:\n $ ./flash_orin_nx.sh -f /data/images/<balenaOS.img>"
+    echo "Provisioning can be started by typing:\n $ ./flash_orin_nx.sh -f /data/images/<balenaOS.img> --accept-license yes"
 }
 
 # Parse arguments
@@ -44,6 +45,13 @@ while [[ $# -gt 0 ]]; do
 				log ERROR "\"$1\" argument needs a value."
 			fi
 			balena_image_flasher=$2
+			shift
+			;;
+		-l|--accept-license)
+                        if [ -z "$2" ]; then
+                                log ERROR "\"$1\" argument needs a value, which can be 'yes' or 'no'"
+                        fi
+			accept_license=$2
 			shift
 			;;
 		*)
@@ -82,6 +90,17 @@ trap cleanup EXIT SIGHUP SIGINT SIGTERM
 # Unpack BSP archive if the Linux_for_Tegra has been removed
 if [ ! -d $work_dir/$lt_dir ]; then
     tar xf *.tbz2
+fi
+
+cat Linux_for_Tegra/nv_tegra/LICENSE
+log "Above license agreement can be consulted at https://developer.download.nvidia.com/embedded/L4T/r35_Release_v2.1/release/Tegra_Software_License_Agreement-Tegra-Linux.txt"
+
+if [ "$accept_license" != "yes" ]; then
+   echo "Accept the above License Agreement? Type yes/no:"
+   read accept_license
+   if [ "$accept_license" != "yes" ]; then
+       log ERROR "License agreement must be accepted to use this tool"
+   fi
 fi
 
 # Extract balenaOS kernel from the flasher image and place it inside the BSP folder to be loaded by tegra rcmboot
