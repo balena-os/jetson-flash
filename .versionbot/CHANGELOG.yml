@@ -1,4 +1,22 @@
 - commits:
+    - subject: Update Dockerfile
+      hash: 639e744376b3e86d9599d1c1ede81c6e51bd0617
+      body: |
+        * Set DEBIAN_FRONTEND variable during build time only
+        * Add xxd package (required by L4T)
+        * Remove curl from package list (already present in base image)
+        * nodejs installer run apt-get update automatically, no need to do it
+        again
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Eugeny Shcheglov <e.shcheglov@eslua.com>
+        signed-off-by: Eugeny Shcheglov <e.shcheglov@eslua.com>
+      author: Eugeny Shcheglov
+  version: 0.5.47
+  title: ""
+  date: 2023-06-02T12:23:33.839Z
+- commits:
     - subject: "flowzone: Update flowzone.yml"
       hash: 6b7d15d210a34f6eddd78fc6634b97396db27bdf
       body: |
