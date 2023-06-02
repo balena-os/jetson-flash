@@ -1,4 +1,18 @@
 - commits:
+    - subject: "flowzone: Update flowzone.yml"
+      hash: 6b7d15d210a34f6eddd78fc6634b97396db27bdf
+      body: |
+        Use the same version used in balena-raspberrypi
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.46
+  title: ""
+  date: 2023-06-02T12:13:27.004Z
+- commits:
     - subject: "Orin NX NVME: Print Tegra BSP License Agreement before entering
         rcm-boot mode"
       hash: 0b540f4cf06095f5bcd807a32bb9d961bf0d36db
