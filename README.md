@@ -13,7 +13,7 @@ This tool allows users to flash balenaOS on supported Jetson devices:
 |Jetson Xavier NX Devkit eMMC | jetson-xavier-nx-devkit-emmc | L4T 32.7.2 |
 |Jetson Xavier NX Devkit SD-CARD | jetson-xavier-nx-devkit | L4T 32.7.3 |
 |Jetson AGX Orin Devkit | jetson-agx-orin-devkit | L4T 35.2.1 |
-|Kobra Motherboard Jetson Xavier NX eMMc | dv-kbr-motherboard-xavier-nx-emmc | L4T 35.2.1 |
+|Kobra Motherboard Jetson Xavier NX eMMc | dv-kbr-xavier-nx-emmc | L4T 35.2.1 |
 
 NOTE: The Jetson Orin NX cannot be flashed trough Jetson-Flash, instead a separate container image is used as detaled below in the [Orin NX Flashing](#orin-nx-flashing) section.
 
