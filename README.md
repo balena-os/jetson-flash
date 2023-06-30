@@ -13,8 +13,10 @@ This tool allows users to flash balenaOS on supported Jetson devices:
 |Jetson Xavier NX Devkit eMMC | jetson-xavier-nx-devkit-emmc | L4T 32.7.2 |
 |Jetson Xavier NX Devkit SD-CARD | jetson-xavier-nx-devkit | L4T 32.7.3 |
 |Jetson AGX Orin Devkit | jetson-agx-orin-devkit | L4T 35.2.1 |
+|Jetson Orin Nano 8GB (SD) Devkit NVME | jetson-orin-nano-devkit-nvme | L4T 35.3.1 |
 
 NOTE: The Jetson Orin NX cannot be flashed trough Jetson-Flash, instead a separate container image is used as detaled below in the [Orin NX Flashing](#orin-nx-flashing) section.
+The same applies for the Orin Nano Devkit NVME and associated device-types.
 
 ## About
 Jetson Flash will extract the balenaOS image from a downloaded provisioned image (such as from balenaCloud) and then flashes that image to a Jetson board connected to a host PC via USB.
@@ -80,6 +82,13 @@ With power off, enable Force Recovery mode by placing a jumper across the "FRC" 
 - For carrier board revision B01, (and the Nano 2GB) these are pins 9 ("GND") and 10 ("FC REC") of Button Header J12, which is located on the edge of the carrier board under the Jetson module.
 
 Then power on the device.
+
+**Jetson Orin Nano Devkit NVME :**
+
+1. Ensure the device is powered off and the power adapter disconnected. Enable Force Recovery mode by placing a jumper across the "FC REC" and "GND" pins located on the edge of the carrier board, under the Jetson Orin Nano module.
+2. Connect your host computer to the device's USB-C connector.
+3. Connect the power adapter to the Power Jack.
+4. The device will automatically power on in Force Recovery Mode.
 
 **Jetson TX2:**
 
@@ -198,7 +207,7 @@ Important notes on Orin NX provisioning:
 
 - The Docker image and the associated scripts have been validated on Ubuntu 22.04
 - The current Orin NX image is based on L4T 35.2.1
-- Flashing of the Orin NX module in a Xavier NX Devkit carrier board with a NVME attached can be done solely by using the Docker image inside the Orin_Nx_NVME folder. The Dockerfile and the scripts inside this folder are not used by jetson-flash and should be used as a stand-alone means for flashing BalenaOS on the Orin NX and the attached NVME.
+- Flashing of the Orin NX module in a Xavier NX Devkit carrier board with a NVME attached can be done solely by using the Docker image inside the Orin_Nx_Nano_NVME folder. The Dockerfile and the scripts inside this folder are not used by jetson-flash and should be used as a stand-alone means for flashing BalenaOS on the Orin NX and the attached NVME.
 - Docker needs to be installed on the Host PC and the Docker image needs to be run as privileged
 - The balenaOS image downloaded from balena-cloud needs to be unpacked and copied on your Host PC inside the `~/images/` folder. This location will be bind mounted inside the running container.
 
@@ -209,19 +218,45 @@ Important notes on Orin NX provisioning:
 - Place the balenaOS unpacked image inside the folder ~/images on your HOST PC. This location will be automatically bind-mounted in the container image in the `/data/images/` folder
 - Put the Jetson Orin NX in Force Recovery mode
 - Insert the USB stick created above in any of the 4 USB ports of the Xavier NX Devkit
-- Navigate to the `Orin_Nx_NVME` folder and run the Docker image by executing the `build_and_run.sh` script:
+- Navigate to the `Orin_Nx_Nano_NVME` folder and run the Docker image by executing the `build_and_run.sh` script:
+
+## Orin Nano Flashing:
+
+Important notes on Orin Nano provisioning:
+
+- The Docker image and the associated scripts have been validated on Ubuntu 22.04
+- The current Orin Nano image is based on L4T 35.3.1
+- Flashing of the Orin Nano Devkit with a NVME attached can be done solely by using the Docker image inside the Orin_Nx_Nano_NVME folder. The Dockerfile and the scripts inside this folder are not used by jetson-flash and should be used as a stand-alone means for flashing BalenaOS on the Orin NX and the attached NVME.
+- Docker needs to be installed on the Host PC and the Docker image needs to be run as privileged
+- The balenaOS image downloaded from balena-cloud needs to be unpacked and copied on your Host PC inside the `~/images/` folder. This location will be bind mounted inside the running container.
+
+### Orin Nano Flashing steps:
+
+- Attach a NVME drive to the Xavier NX Devkit
+- Download your balenaOS image from balena-cloud, unpack and write it to a USB stick. We recommend using <a href="https://www.balena.io/etcher">Etcher</a>.
+- Place the balenaOS unpacked image inside the folder ~/images on your HOST PC. This location will be automatically bind-mounted in the container image in the `/data/images/` folder
+- Put the Jetson Orin Nano in Force Recovery mode
+- Insert the USB stick created above in the upper USB port located near the the display port of the Orin Nano Devkit
+- Navigate to the `Orin_Nx_Nano_NVME` folder and run the Docker image by executing the `build_and_run.sh` script:
+
 
 ```
-~/jetson-flash$ cd Orin_Nx_NVME/
-~/jetson-flash/Orin_Nx_NVME$ ./build_and_run.sh
+~/jetson-flash$ cd Orin_Nx_Nano_NVME/
+~/jetson-flash/Orin_Nx_Nano_NVME$ ./build_and_run.sh
 ```
 
 - Once the docker image has been built and starts running, the balenaOS kernel and flasher image can be booted by executing the `flash_orin_nx.sh` script:
 
 ```
-root@03ce5cbcbb0d:/usr/src/app/orin-nx-flash# ./flash_orin_nx.sh -f /data/images/balena.img
+root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/balena.img -m <machine>
 ```
 
+Depending on the device used, the machine used will be one of the two supported:
+- jetson-orin-nx-xavier-nx-devkit
+- jetson-orin-nano-devkit-nvme
+
+
+Other considerations:
 - The flashing process takes around 10-15 minutes and once it completes, the board will power-off. The device can be taken out of recovery mode and the USB flasher stick can be unplugged.
 - Remove and reconnect power to the device.
 
