@@ -1,4 +1,17 @@
 - commits:
+    - subject: "README: Update and add Jetson Orin Nano Devkit NVME instructions"
+      hash: 641b5bc9520ef819637cf45a2c0be698986ced8d
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.48
+  title: ""
+  date: 2023-07-12T14:31:33.060Z
+- commits:
     - subject: Update Dockerfile
       hash: 639e744376b3e86d9599d1c1ede81c6e51bd0617
       body: |
