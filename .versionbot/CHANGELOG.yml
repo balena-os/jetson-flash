@@ -1,4 +1,17 @@
 - commits:
+    - subject: "README: Update Xavier AGX to L4T 32.7.3"
+      hash: 4411bf3a58f5a63d6ed8aa2e6a0c00b79505d554
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.49
+  title: ""
+  date: 2023-07-31T11:08:11.587Z
+- commits:
     - subject: "README: Update and add Jetson Orin Nano Devkit NVME instructions"
       hash: 641b5bc9520ef819637cf45a2c0be698986ced8d
       body: ""
