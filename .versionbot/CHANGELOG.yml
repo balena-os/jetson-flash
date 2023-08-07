@@ -1,4 +1,17 @@
 - commits:
+    - subject: "Orin: Update Orin NX in Xavier NX Devkit to L4T 35.3.1"
+      hash: 05b517bd62419fd6ef41f90888c6634c07837903
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.50
+  title: ""
+  date: 2023-08-07T10:08:51.046Z
+- commits:
     - subject: "README: Update Xavier AGX to L4T 32.7.3"
       hash: 4411bf3a58f5a63d6ed8aa2e6a0c00b79505d554
       body: ""
