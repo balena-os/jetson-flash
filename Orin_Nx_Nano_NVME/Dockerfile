@@ -10,9 +10,9 @@ RUN \
     pip3 install pyyaml
 
 # Unpack BSP archive used for balenaOS kernel rcmboot
-RUN mkdir orin_nx && wget https://developer.nvidia.com/downloads/jetson-linux-r3521-aarch64tbz2 -O orin_nx/jetson-linux-r3521-aarch64.tbz2 && cd orin_nx && tar xf jetson-linux-r3521-aarch64.tbz2 && \
-    cd ../ && mkdir orin_nano && wget https://developer.nvidia.com/downloads/embedded/l4t/r35_release_v3.1/release/jetson_linux_r35.3.1_aarch64.tbz2 -O orin_nano/jetson-linux-r3531-aarch64.tbz2 && \
-    cd orin_nano && tar xf jetson-linux-r3531-aarch64.tbz2 && cd Linux_for_Tegra/ && ./tools/l4t_flash_prerequisites.sh
+RUN mkdir orin_nx && wget https://developer.nvidia.com/downloads/embedded/l4t/r35_release_v3.1/release/jetson_linux_r35.3.1_aarch64.tbz2 -O orin_nx/jetson_linux_r35.3.1_aarch64.tbz2 && cd orin_nx && tar xf jetson_linux_r35.3.1_aarch64.tbz2 && \
+    cd ../ && mkdir orin_nano && cp -r orin_nx/* orin_nano/ && \
+    cd orin_nano/Linux_for_Tegra/ && ./tools/l4t_flash_prerequisites.sh
 
 # Copy rcmboot script inside the Docker image
 COPY ./flash_orin.sh /usr/src/app/orin-flash/
