@@ -12,7 +12,7 @@ This tool allows users to flash balenaOS on supported Jetson devices:
 |Jetson AGX Xavier | jetson-xavier | L4T 32.7.3 |
 |Jetson Xavier NX Devkit eMMC | jetson-xavier-nx-devkit-emmc | L4T 32.7.2 |
 |Jetson Xavier NX Devkit SD-CARD | jetson-xavier-nx-devkit | L4T 32.7.3 |
-|Jetson AGX Orin Devkit | jetson-agx-orin-devkit | L4T 35.2.1 |
+|Jetson AGX Orin Devkit | jetson-agx-orin-devkit | L4T 35.3.1 |
 |Jetson Orin Nano 8GB (SD) Devkit NVME | jetson-orin-nano-devkit-nvme | L4T 35.3.1 |
 |Jetson Orin NX in Xavier NX Devkit NVME | jetson-orin-nx-xavier-nx-devkit | L4T 35.3.1 |
 
