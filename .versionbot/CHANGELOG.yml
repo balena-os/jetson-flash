@@ -1,4 +1,17 @@
 - commits:
+    - subject: "agx-orin-devkit: Set boot,esp flags for resin-boot partition"
+      hash: c5b8674f285a7fe6388e054d77b250d66c681e03
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.51
+  title: ""
+  date: 2023-08-14T14:45:21.447Z
+- commits:
     - subject: "Orin: Update Orin NX in Xavier NX Devkit to L4T 35.3.1"
       hash: 05b517bd62419fd6ef41f90888c6634c07837903
       body: ""
