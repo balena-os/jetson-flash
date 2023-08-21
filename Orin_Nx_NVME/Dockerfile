@@ -11,8 +11,8 @@ RUN \
 
 # Unpack BSP archive used for balenaOS kernel rcmboot
 RUN mkdir orin_nx && wget https://developer.nvidia.com/downloads/jetson-linux-r3521-aarch64tbz2 -O orin_nx/jetson-linux-r3521-aarch64tbz2 && cd orin_nx && tar xf jetson-linux-r3521-aarch64tbz2 && \
-    cd ../ && mkdir orin_nano && cp -r orin_nx/* orin_nano/ && mkdir xavier_nx && cp -r orin_nx/* xavier_nx/ && \
-    cd orin_nano/Linux_for_Tegra/ && ./tools/l4t_flash_prerequisites.sh
+    cd ../ && ln -s orin_nx orin_nano && ln -s orin_nx xavier_nx && \
+    cd xavier_nx/Linux_for_Tegra/ && ./tools/l4t_flash_prerequisites.sh
 
 # Copy rcmboot script inside the Docker image
 COPY ./flash_orin_nx.sh /usr/src/app/orin-nx-flash
