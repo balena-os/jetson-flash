@@ -134,7 +134,7 @@ fi
 # Extract balenaOS kernel from the flasher image and place it inside the BSP folder to be loaded by tegra rcmboot
 balena_image_flasher_loop_dev="$(losetup -fP --show "$balena_image_flasher")"
 mkdir -p $balena_image_flasher_root_mnt > /dev/null 2>&1 || true
-mount "${balena_image_flasher_loop_dev}p22" "$balena_image_flasher_root_mnt" #> /dev/null 2>&1
+mount "${balena_image_flasher_loop_dev}p2" "$balena_image_flasher_root_mnt" #> /dev/null 2>&1
 rm "${work_dir}/${device_dir}${lt_dir}/bootloader/boot0.img" || true
 cp "${balena_image_flasher_root_mnt}/boot/Image" "${device_dir}/${lt_dir}/kernel/Image"
 log "Kernel image has been extracted and the BSP kernel has been replaced with the one in balenaOS"
