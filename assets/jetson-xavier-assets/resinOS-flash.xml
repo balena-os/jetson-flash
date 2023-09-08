@@ -209,6 +209,7 @@
               device. </description>
         </partition>
     </device>
+
     <device type="sdmmc_user" instance="3" sector_size="512" num_sectors="61079552">
         <partition name="master_boot_record" type="protective_master_boot_record">
             <allocation_policy> sequential </allocation_policy>
@@ -252,7 +253,6 @@
             <description> **Required.** Chain A; contains microcode associated with execution
               and optimization of ARM code. </description>
         </partition>
-
         <partition name="cpu-bootloader" type="bootloader_stage2" oem_sign="true">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
@@ -264,11 +264,10 @@
             <description> **Required.** Chain A; contains UEFI, the final boot stage CPU Bootloader
               binary that loads the binary in the kernel partition.  </description>
         </partition>
-
         <partition name="bootloader-dtb" type="bl_dtb" oem_sign="true">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
-            <size> 1048576 </size>
+            <size> 1067356 </size>
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
@@ -276,7 +275,6 @@
             <description> **Required.** Chain A; contains Bootloader device tree blob
               (DTB). </description>
         </partition>
-
         <partition name="secure-os" type="tos" oem_sign="true">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
@@ -287,7 +285,6 @@
             <filename> TOSFILE </filename>
             <description> **Required.** Chain A; contains the trusted OS. </description>
         </partition>
-
         <partition name="eks" type="eks" oem_sign="true">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
@@ -298,7 +295,6 @@
             <filename> EKSFILE </filename>
             <description> **Required.** Chain A; contains the encrypted keys. </description>
         </partition>
-
         <partition name="bpmp-fw" type="bpmp_fw" oem_sign="true">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
@@ -309,7 +305,6 @@
             <filename> BPFFILE </filename>
             <description> **Required.** Chain A; contains BPMP firmware. </description>
         </partition>
-
         <partition name="bpmp-fw-dtb" type="bpmp_fw_dtb" oem_sign="true">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
@@ -321,8 +316,7 @@
             <description> **Required.** Chain A; contains BPMP firmware device tree blob
               (DTB). </description>
         </partition>
-
-        <partition name="xusb-fw" type="xusb_fw" oem_sign="true">
+        <partition name="xusb-fw" type="xusb_fw">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
             <size> 262144 </size>
@@ -333,7 +327,6 @@
             <description> **Required.** Chain A; contains XUSB firmware file, making XUSB
               a true USB 3.0 compliant host controller. </description>
         </partition>
-
         <partition name="rce-fw" type="rce_fw" oem_sign="true">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
@@ -344,7 +337,6 @@
             <filename> CAMERAFW </filename>
             <description> **Required.** Chain A; contains `camera-rtcpu-rce` firmware. </description>
         </partition>
-
         <partition name="adsp-fw" type="ape_fw" oem_sign="true">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
@@ -355,7 +347,6 @@
             <filename> adsp-fw.bin </filename>
             <description> **Required.** Chain A; contains ADSP software. </description>
         </partition>
-
         <partition name="sce-fw" type="sce_fw" oem_sign="true">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
@@ -365,7 +356,6 @@
             <percent_reserved> 0 </percent_reserved>
             <description> **Required.** Chain A; contains `camera-rtcpu-sce` firmware. </description>
         </partition>
-
         <partition name="sc7" type="WB0" oem_sign="true">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
@@ -376,31 +366,30 @@
             <filename> WB0BOOT </filename>
             <description> **Required.** Chain A; contains warm boot firmware. </description>
         </partition>
-
         <partition name="kernel" type="kernel">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
-            <size> 67112960 </size>
+            <size> 83886080 </size>
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
-            <filename> FILENAME </filename>
+            <!--<filename> LNXFILE </filename>-->
             <description> **Required.** Chain A; contains the Linux kernel. </description>
         </partition>
         <partition name="kernel-dtb" type="kernel_dtb">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
-            <size> 524288 </size>
+            <size> 1067356 </size>
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
-            <filename> DTB_FILE </filename>
-            <description> **Required.** Chain A; contains kernel device tree blob. As of right now nvidia dtb has 376766 bytes</description>
+            <!-- <filename> DTB_FILE </filename> -->
+            <description> **Required.** Chain A; contains kernel device tree blob. </description>
         </partition>
         <partition name="reserved_for_chain_A_user" type="data">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
-            <size> 144570368 </size>
+            <size> 33554432 </size>
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
@@ -409,6 +398,7 @@
         <partition name="mts-mce_b" type="mts_mce" oem_sign="true">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
+            <!-- <start_location> 0x708400000 </start_location> aligned to 0x100000 -->
             <size> 512000 </size>
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 8 </allocation_attribute>
@@ -438,18 +428,18 @@
             <filename> TBCFILE </filename>
             <description> **Required.** Chain B; contains UEFI, the final boot stage CPU Bootloader
               binary that loads the binary in the kernel partition.  </description>
-        </partition>        
+        </partition>
         <partition name="bootloader-dtb_b" type="bl_dtb" oem_sign="true">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
-            <size> 1048576 </size>
+            <size> 1067356 </size>
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
             <filename> TBCDTB-FILE </filename>
             <description> **Required.** Chain B; contains Bootloader device tree blob
               (DTB). </description>
-        </partition>        
+        </partition>
         <partition name="secure-os_b" type="tos" oem_sign="true">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
@@ -459,7 +449,7 @@
             <percent_reserved> 0 </percent_reserved>
             <filename> TOSFILE </filename>
             <description> **Required.** Chain B; contains the trusted OS. </description>
-        </partition>        
+        </partition>
         <partition name="eks_b" type="eks" oem_sign="true">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
@@ -469,7 +459,7 @@
             <percent_reserved> 0 </percent_reserved>
             <filename> EKSFILE </filename>
             <description> **Required.** Chain B; contains the encrypted keys. </description>
-        </partition>        
+        </partition>
         <partition name="bpmp-fw_b" type="bpmp_fw" oem_sign="true">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
@@ -479,7 +469,7 @@
             <percent_reserved> 0 </percent_reserved>
             <filename> BPFFILE </filename>
             <description> **Required.** Chain B; contains BPMP firmware. </description>
-        </partition>        
+        </partition>
         <partition name="bpmp-fw-dtb_b" type="bpmp_fw_dtb" oem_sign="true">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
@@ -490,8 +480,8 @@
             <filename> BPFDTB_FILE </filename>
             <description> **Required.** Chain B; contains BPMP firmware device tree blob
               (DTB). </description>
-        </partition>        
-        <partition name="xusb-fw_b" type="xusb_fw" oem_sign="true">
+        </partition>
+        <partition name="xusb-fw_b" type="xusb_fw">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
             <size> 262144 </size>
@@ -501,7 +491,7 @@
             <filename> xusb_sil_rel_fw </filename>
             <description> **Required.** Chain B; contains XUSB firmware file, making XUSB
               a true USB 3.0 compliant host controller. </description>
-        </partition>        
+        </partition>
         <partition name="rce-fw_b" type="rce_fw" oem_sign="true">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
@@ -511,7 +501,7 @@
             <percent_reserved> 0 </percent_reserved>
             <filename> CAMERAFW </filename>
             <description> **Required.** Chain B; contains `camera-rtcpu-rce` firmware. </description>
-        </partition>        
+        </partition>
         <partition name="adsp-fw_b" type="ape_fw" oem_sign="true">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
@@ -521,7 +511,7 @@
             <percent_reserved> 0 </percent_reserved>
             <filename> adsp-fw.bin </filename>
             <description> **Required.** Chain B; contains ADSP software. </description>
-        </partition>        
+        </partition>
         <partition name="sce-fw_b" type="sce_fw" oem_sign="true">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
@@ -540,35 +530,86 @@
             <percent_reserved> 0 </percent_reserved>
             <filename> WB0BOOT </filename>
             <description> **Required.** Chain B; contains warm boot firmware. </description>
-        </partition>        
-        <partition name="kernel_b" type="kernel" >
+        </partition>
+        <partition name="kernel_b" type="kernel">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
-            <size> 67112960 </size>
+            <size> 83886080 </size>
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
-            <filename> FILENAME </filename>
+            <!--<filename> LNXFILE </filename>-->
             <description> **Required.** Chain B; contains the Linux kernel. </description>
         </partition>
         <partition name="kernel-dtb_b" type="kernel_dtb">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
-            <size> 524288 </size>
+            <size> 1067356 </size>
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
-            <filename> DTB_FILE </filename>
+            <!--<filename> DTB_FILE </filename>-->
             <description> **Required.** Chain B; contains kernel device tree blob. </description>
         </partition>
         <partition name="reserved_for_chain_B_user" type="data">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
-            <size> 144570368 </size>
+            <size> 34078720 </size>
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
             <description> **Required.** Reserved space for chain B on user device. </description>
+        </partition>
+        <partition name="RECNAME" type="kernel">
+            <allocation_policy> sequential </allocation_policy>
+            <filesystem_type> basic </filesystem_type>
+            <!-- <start_location> 0x710800000 </start_location>  aligned to 0x100000 -->
+            <size> 83886080 </size>
+            <file_system_attribute> 0 </file_system_attribute>
+            <allocation_attribute> 8 </allocation_attribute>
+            <percent_reserved> 0 </percent_reserved>
+            <!-- <filename> RECFILE </filename> -->
+            <description> **Required.** Contains recovery image; removable </description>
+        </partition>
+        <partition name="RECDTB-NAME" type="kernel_dtb">
+            <allocation_policy> sequential </allocation_policy>
+            <filesystem_type> basic </filesystem_type>
+            <size> 1067356 </size>
+            <file_system_attribute> 0 </file_system_attribute>
+            <allocation_attribute> 8 </allocation_attribute>
+            <percent_reserved> 0 </percent_reserved>
+            <filename> RECDTB-FILE </filename>
+            <description> **Required.** Contains recovery DTB image; removable </description>
+        </partition>
+        <partition name="RP1" type="data">
+            <allocation_policy> sequential </allocation_policy>
+            <filesystem_type> basic </filesystem_type>
+            <size> 8388608 </size>
+            <file_system_attribute> 0 </file_system_attribute>
+            <allocation_attribute> 0x8 </allocation_attribute>
+            <percent_reserved> 0 </percent_reserved>
+            <description> **Optional.** A reserved partition. May be mounted and used to store user
+              data. </description>
+        </partition>
+        <partition name="RP2" type="data">
+            <allocation_policy> sequential </allocation_policy>
+            <filesystem_type> basic </filesystem_type>
+            <size> 8388608 </size>
+            <file_system_attribute> 0 </file_system_attribute>
+            <allocation_attribute> 0x8 </allocation_attribute>
+            <percent_reserved> 0 </percent_reserved>
+            <description> **Optional.** A reserved partition. May be mounted and used to store user
+              data. </description>
+        </partition>
+        <partition name="RECROOTFS" type="data">
+            <allocation_policy> sequential </allocation_policy>
+            <filesystem_type> basic </filesystem_type>
+            <size> RECROOTFSSIZE </size>
+            <file_system_attribute> 0 </file_system_attribute>
+            <allocation_attribute> 0x8 </allocation_attribute>
+            <percent_reserved> 0 </percent_reserved>
+            <description> **Optional.** Reserved for future use by the recovery filesystem;
+              removable. </description>
         </partition>
         <partition name="uefi_variables" type="data">
             <allocation_policy> sequential </allocation_policy>
@@ -579,6 +620,44 @@
             <percent_reserved> 0 </percent_reserved>
             <description> **Required.** Contains UEFI variable store with configuration data.
               </description>
+        </partition>
+        <partition name="esp" type="data">
+            <allocation_policy> sequential </allocation_policy>
+            <filesystem_type> basic </filesystem_type>
+            <size> 67108864 </size>
+            <file_system_attribute> 0 </file_system_attribute>
+            <allocation_attribute> 0x8 </allocation_attribute>
+            <percent_reserved> 0 </percent_reserved>
+            <filename> FILENAME </filename> 
+            <partition_type_guid> C12A7328-F81F-11D2-BA4B-00A0C93EC93B </partition_type_guid>
+            <description> **Required.** EFI system partition with L4T Launcher. </description>
+        </partition>
+        <partition name="RECNAME_alt" type="kernel">
+            <allocation_policy> sequential </allocation_policy>
+            <filesystem_type> basic </filesystem_type>
+            <size> 83886080 </size>
+            <file_system_attribute> 0 </file_system_attribute>
+            <allocation_attribute> 8 </allocation_attribute>
+            <percent_reserved> 0 </percent_reserved>
+            <description> **Required.** For fail-safe recovery update; removable </description>
+        </partition>
+        <partition name="RECDTB-NAME_alt" type="kernel_dtb">
+            <allocation_policy> sequential </allocation_policy>
+            <filesystem_type> basic </filesystem_type>
+            <size> 1067356 </size>
+            <file_system_attribute> 0 </file_system_attribute>
+            <allocation_attribute> 8 </allocation_attribute>
+            <percent_reserved> 0 </percent_reserved>
+            <description> **Required.** For fail-safe recovery DTB update; removable </description>
+        </partition>
+        <partition name="esp_alt" type="data">
+            <allocation_policy> sequential </allocation_policy>
+            <filesystem_type> basic </filesystem_type>
+            <size> 67108864 </size>
+            <file_system_attribute> 0 </file_system_attribute>
+            <allocation_attribute> 0x8 </allocation_attribute>
+            <percent_reserved> 0 </percent_reserved>
+            <description> **Required.** EFI system partition for fail-safe ESP update. </description>
         </partition>
        <partition name="resin-boot" type="data">
             <allocation_policy> sequential </allocation_policy>
@@ -593,7 +672,7 @@
         <partition name="resin-rootA" type="data">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
-            <size> 499122176 </size>
+            <size> 750780416B </size>
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 0x8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
@@ -603,7 +682,7 @@
         <partition name="resin-rootB" type="data">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
-            <size> 499122176 </size>
+            <size> 750780416B </size>
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 0x8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
