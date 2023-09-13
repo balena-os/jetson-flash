@@ -35,7 +35,7 @@ const run = async options => {
 	console.log(filePath.resolve(__dirname, '../Tegra_Software_License_Agreement-Tegra-Linux.txt'));
 	var tegraLicenseText = fileSys.readFileSync(path.resolve(__dirname, '../Tegra_Software_License_Agreement-Tegra-Linux.txt'), 'utf8');
 	console.log(tegraLicenseText);
-	console.log("The above License Agreement can be consulted at https://developer.download.nvidia.com/embedded/L4T/r35_Release_v2.1/release/Tegra_Software_License_Agreement-Tegra-Linux.txt");
+	console.log("The above License Agreement can be consulted at https://developer.download.nvidia.com/embedded/L4T/r35_Release_v4.1/release/Tegra_Software_License_Agreement-Tegra-Linux.txt?t=eyJscyI6ImdzZW8iLCJsc2QiOiJodHRwczovL3d3dy5nb29nbGUuY29tLyJ9");
 	if (options.acceptLicense != 'yes') {
 		const rl = readline.createInterface({
 		    input: process.stdin,
