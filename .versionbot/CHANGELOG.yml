@@ -1,4 +1,18 @@
 - commits:
+    - subject: "assets: enable pre expansion of resin-data partition on Nano DTs"
+      hash: 1f1b76c434cd170e5cb3ad3861074576d40a4c42
+      body: |
+        .. by the BSP flasing tools.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.52
+  title: ""
+  date: 2023-09-19T14:23:18.360Z
+- commits:
     - subject: "agx-orin-devkit: Set boot,esp flags for resin-boot partition"
       hash: c5b8674f285a7fe6388e054d77b250d66c681e03
       body: ""
