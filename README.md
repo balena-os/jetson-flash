@@ -1,5 +1,9 @@
 # jetson-flash
 
+IMPORTANT NOTE: As of Sep 19 2023 the Jetson Nano and Jetson Xavier L4T 32.7.2 and 32.7.1 BSP archive links are broken on Nvidia's website.
+Thus, provisioning L4T 32.7.2 or older on devices is currently not possible. We are working on releasing L4T 32.7.3 balenaOS images for the
+affected devices.
+
 This tool allows users to flash balenaOS on supported Jetson devices:
 
 |Device | balena machine name | L4T version |
