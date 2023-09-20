@@ -1,4 +1,17 @@
 - commits:
+    - subject: "jetson-nano: Update SD-CARD module to L4T 32.7.3"
+      hash: 0f403ec744071fa2cc0288f5c587e69510c27812
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.53
+  title: ""
+  date: 2023-09-20T11:09:53.412Z
+- commits:
     - subject: "assets: enable pre expansion of resin-data partition on Nano DTs"
       hash: 1f1b76c434cd170e5cb3ad3861074576d40a4c42
       body: |
