@@ -1,15 +1,11 @@
 # jetson-flash
 
-IMPORTANT NOTE: As of Sep 19 2023 the Jetson Nano and Jetson Xavier L4T 32.7.2 and 32.7.1 BSP archive links are broken on Nvidia's website.
-Thus, provisioning L4T 32.7.2 or older on devices is currently not possible. We are working on releasing L4T 32.7.3 balenaOS images for the
-affected devices.
-
 This tool allows users to flash balenaOS on supported Jetson devices:
 
 |Device | balena machine name | L4T version |
 |-------|---------------------|-------------|
 |Jetson Nano eMMC | jetson-nano-emmc |  L4T 32.7.3 |
-|Jetson Nano SD-CARD Devkit | jetson-nano | L4T 32.7.2 |
+|Jetson Nano SD-CARD Devkit | jetson-nano | L4T 32.7.3 |
 |Jetson Nano 2GB Devkit | jetson-nano-2gb-devkit | L4T 32.7.1 |
 |Jetson TX2 | jetson-tx2 | L4T 32.7.3 |
 |Jetson TX2 NX (in Jetson Xavier NX Devkit) | jetson-tx2-nx-devkit | L4T 32.7.3 |
