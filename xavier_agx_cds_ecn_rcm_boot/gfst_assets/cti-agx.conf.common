@@ -1,0 +1,261 @@
+#!/bin/bash
+
+sub_var_token()
+{
+	local var="$1";
+	local from="$2";
+	local to="$3";
+	if [ "${var}" != "" -a "${!var}" != "" ]; then
+		if [[ "${!var}" =~ "${from}" ]]; then
+			local val=`echo "${!var}" | sed -e s/${from}/${to}/`;
+			eval "${var}=${val}";
+		fi;
+	fi;
+}
+
+process_board_version()
+{
+	local board_id="${1}";
+	local board_FAB="${2}";
+	local board_sku="${3}";
+	local board_revision="${4}";
+	local chiprev="${5}";
+	local bdv=${board_FAB^^};
+	local bid=${board_id^^};
+	local fromfab="-a01";
+	local frombpfab="${fromfab}.dtb";
+	local tofab="-a01";		# default = A01
+	local pmicfab="-a01";		# default = A01
+	local bpfdtbfab="-a01.dtb";	# default = A01
+	local tbcdtbfab="-a01";		# default = A01
+	local kerndtbfab="-a01";	# default = A01
+	local fromchip="a01-bpmp";	# default = A01
+	local tochip="";
+
+	# If no chip revision is passed default = A02
+	# Only place this won't be passed as arg is --noflash option from
+	# flash.sh where you can't probe the board.
+	if [ "${chiprev}" = "0" ]; then
+		chiprev="2";
+		hwchiprev="${chiprev}";
+	fi
+
+	#
+	# Board FAB is Alpha-Numeric value.
+	#
+	echo "Board ID(${board_id}) FAB(${board_FAB}) sku(${board_sku}) revision(${board_revision})" >/dev/stderr;
+	if ! [[ "${bdv}" =~ ^[A-Z0-9][0-9][0-9]$ ]]; then
+		bdv="${DEFAULT_FAB:-Z99}";
+	fi;
+
+	if [ "${bid}" \= "2888" ]; then
+		if [ "${bdv}" \< "200" ]; then
+			pmicfab="-a01";
+		elif [ "${bdv}" \< "300" ]; then
+			tofab="-a02";
+			pmicfab="-a02";
+			bpfdtbfab="-a02.dtb";
+		elif [ "${bdv}" \< "500" ]; then
+			tofab="-a02";
+			pmicfab="-a04";
+			bpfdtbfab="-a02.dtb";
+			if [ "${board_sku}" = "0004" ] \
+				|| [ "${board_sku}" \> "0004" ] \
+				|| [ "${bdv}" \> "300" -a "${board_revision}" \> "D.0" ]; then
+				pmicfab="-a04-E-0";
+				bpfdtbfab="-a04.dtb";
+			fi;
+		fi;
+	elif [ "${bid}" \= "3360" ]; then
+		if [ "${bdv}" \< "200" ]; then
+			tofab="-a02";
+			pmicfab="-a02";
+		fi;
+	fi
+
+	#
+	# BPFDTB_FILE	- chip, fab dependant
+	# PINMUX_CONFIG	- no dependancy yet.
+	# PMIC_CONFIG	- fab dependant
+	# PMC_CONFIG	- no dependancy yet.
+	# PROD_CONFIG	- no dependancy yet.
+	# BOOTROM_CONFIG - no dependancy yet.
+	# TBCDTB_FILE	- no dependancy yet.
+	# DTB_FILE	- no dependancy yet.
+	#
+	sub_var_token "BPFDTB_FILE"    "${frombpfab}" "${bpfdtbfab}";
+	sub_var_token "PINMUX_CONFIG"  "${fromfab}" "${tofab}";
+	sub_var_token "PMIC_CONFIG"    "${fromfab}" "${pmicfab}";
+	sub_var_token "PMC_CONFIG"     "${fromfab}" "${tofab}";
+	sub_var_token "PROD_CONFIG"    "${fromfab}" "${tofab}";
+	sub_var_token "BOOTROM_CONFIG" "${fromfab}" "${tofab}";
+	sub_var_token "TBCDTB_FILE"    "${fromfab}" "${tbcdtbfab}";
+	sub_var_token "DTB_FILE"       "${fromfab}" "${kerndtbfab}";
+
+	if [ "${chiprev}" != "0" ]; then
+		tochip="a0${chiprev}-bpmp";
+		sub_var_token "BPFDTB_FILE"    "${fromchip}" "${tochip}";
+	fi;
+
+	# Update BPFDTB_FILE for 64GB AGX Xavier
+	if [ "${bid}" = "2888" ] && [ "${board_sku}" = "0005" ]; then
+		BPFDTB_FILE="${BPFDTB_SKU5_FILE}"
+	fi;
+}
+
+# Process fuse version:
+#
+# Non-fused BS vs Production Fused BD
+#
+# preboot_c10_dev_cr.bin vs. preboot_c10_prod_cr.bin
+# mts_c10_dev_cr.bin     vs. mts_c10_prod_cr.bin
+# mce_c10_dev_cr.bin     vs. mce_c10_prod_cr.bin
+# mb1_t194_dev.bin       vs. mb1_t194_prod.bin
+# warmboot_t194_dev.bin  vs. warmboot_t194_prod.bin
+#
+process_fuse_level()
+{
+	local fuselevel="${1}";
+	local srctoken="_dev";
+	local trgtoken="_prod";
+
+	# fuselevel:
+	#	"fuselevel_unknown"
+	#	"fuselevel_nofuse"
+	#	"fuselevel_production"
+	#
+	if [ "${fuselevel}" = "fuselevel_unknown" ]; then
+		return;
+	fi;
+	if [ "${fuselevel}" = "fuselevel_nofuse" ]; then
+		srctoken="_prod";
+		trgtoken="_dev";
+		sub_var_token "MTSPREBOOT" "preboot_c10_cr.bin" "preboot_c10_cr.bin";
+		sub_var_token "MTS_MCE"    "mce_c10_cr.bin" "mce_c10_cr.bin";
+		sub_var_token "MTSPROPER"  "mts_c10_cr.bin" "mts_c10_cr.bin";
+		sub_var_token "IST_UCODE"  "ist_ucode_dev.bin" "ist_ucode_dev.bin";
+	else
+		sub_var_token "MTSPREBOOT" "preboot_c10_cr.bin" "preboot_c10_prod_cr.bin";
+		sub_var_token "MTS_MCE"    "mce_c10_cr.bin" "mce_c10_prod_cr.bin";
+		sub_var_token "MTSPROPER"  "mts_c10_cr.bin" "mts_c10_prod_cr.bin";
+		sub_var_token "IST_UCODE"  "ist_ucode_dev.bin" "ist_ucode_prod.bin";
+	fi;
+	sub_var_token "MB1FILE"    "${srctoken}" "${trgtoken}";
+	sub_var_token "SOSFILE"    "${srctoken}" "${trgtoken}";
+	sub_var_token "WB0BOOT"    "${srctoken}" "${trgtoken}";
+}
+
+# Common values and/or defaults across p2972-0000*.conf:
+
+ODMDATA=0x9190000;
+CHIPID=0x19;
+EMMC_CFG=flash_t194_sdmmc.xml;
+BOOTPARTSIZE=8388608;
+EMMCSIZE=31276924928;
+ITS_FILE=;
+#BPFDTB_FILE=tegra194-a01-bpmp-p2888-a01.dtb;
+#DTB_FILE=tegra194-p2888-0001-p2822-0000.dtb;
+#TBCDTB_FILE=tegra194-p2888-0001-p2822-0000.dtb;
+ROOTFSSIZE=28GiB;
+CMDLINE_ADD="mminit_loglevel=4 console=ttyTCU0,115200n8 console=tty0 fbcon=map:0 net.ifnames=0 rootfstype=ext4 sdhci_tegra.en_boot_part_access=1 video=efifb:off";
+target_board="t186ref";
+ROOT_DEV="mmcblk0p12 ------------ internal eMMC.
+        sda1 ----------------- external USB devices. (USB memory stick, HDD)
+        eth0 ----------------- nfsroot via RJ45 Ethernet port.
+        eth1 ----------------- nfsroot via USB Ethernet interface.";
+TEGRABOOT="bootloader/nvtboot_t194.bin";
+WB0BOOT="bootloader/warmboot_t194_dev.bin";
+FLASHER="bootloader/nvtboot_recovery_cpu_t194.bin";
+BOOTLOADER="bootloader/nvtboot_cpu_t194.bin";
+INITRD="bootloader/l4t_initrd.img";
+TBCFILE="bootloader/nvdisp-init.bin";
+UEFIFILE="bootloader/uefi_jetson.bin";
+BPFFILE="bootloader/bpmp-2_t194.bin";
+TOSFILE="bootloader/tos_t194.img";
+EKSFILE="bootloader/eks_t194.img";
+MTSPREBOOT="bootloader/preboot_c10_cr.bin";
+MTS_MCE="bootloader/mce_c10_cr.bin";
+MTSPROPER="bootloader/mts_c10_cr.bin";
+MB1FILE="bootloader/mb1_t194_dev.bin";
+SOSFILE="bootloader/mb1_t194_dev.bin";
+MB2BLFILE="bootloader/nvtboot_recovery_t194.bin";
+IST_UCODE="bootloader/ist_ucode_dev.bin";
+SPEFILE="bootloader/spe_t194.bin";
+CAMERAFW="bootloader/camera-rtcpu-t194-rce.img";
+MB2APPLET="nvtboot_applet_t194.bin"
+FBFILE="fuse_bypass_t194.xml";
+CBOOTOPTION_FILE="bootloader/cbo.dtb";
+UEFI_OS_LAUNCHER=1;
+
+# BCT args:
+#
+BCT="--sdram_config";
+BINSARGS="--bin \"";
+EMMC_BCT1="tegra194-memcfg-sw-override.cfg";
+EMMC_BCT="tegra194-mb1-bct-memcfg-p2888.cfg";
+MISC_CONFIG="tegra194-mb1-bct-misc-flash.cfg";
+MISC_COLD_BOOT_CONFIG="tegra194-mb1-bct-misc-l4t.cfg";
+BOOTROM_CONFIG="tegra194-mb1-bct-reset-p2888-0000-p2822-0000.cfg";
+DEV_PARAMS="tegra194-br-bct-sdmmc.cfg";
+# Booting from chain B
+DEV_PARAMS_B="tegra194-br-bct_b-sdmmc.cfg";
+SCR_COLD_BOOT_CONFIG="tegra194-mb1-bct-scr-cbb-mini.cfg";
+SCR_CONFIG="tegra194-mb1-bct-scr-cbb-mini.cfg";
+PINMUX_CONFIG="tegra19x-mb1-pinmux-agx-cti.cfg";
+PMIC_CONFIG="tegra194-mb1-bct-pmic-p2888-0001-a01-p2822-0000.cfg";
+PMC_CONFIG="tegra19x-mb1-padvoltage-p2888-0000-a00-p2822-0000-a00.cfg";
+PROD_CONFIG="tegra19x-mb1-prod-p2888-0000-p2822-0000.cfg";
+BR_CMD_CONFIG="tegra194-mb1-bct-reset-p2888-0000-p2822-0000.cfg";
+DEVICE_CONFIG="tegra19x-mb1-bct-device-sdmmc.cfg";
+UPHY_CONFIG="tegra194-mb1-uphy-lane-p2888-0000-p2822-0000.cfg";
+MINRATCHET_CONFIG="tegra194-mb1-bct-ratchet-p2888-0000-p2822-0000.cfg";
+GPIOINT_CONFIG="tegra194-mb1-bct-gpioint-p2888-0000-p2822-0000.cfg";
+SOFT_FUSES="tegra194-mb1-soft-fuses-l4t.cfg";
+NVKEY_FILE="t194_rsa_dev.key";
+NVENCRYPTKEY_FILE="t194_sbk_dev.key";
+
+# Default FAB: Force Galen boards without properly programmed EEPROM.
+# Values: A01 ->
+#
+DEFAULT_FAB="A01";
+
+VERFILENAME="emmc_bootblob_ver.txt";
+
+rootfs_ab=0;
+disk_enc_enable=0;
+# Rootfs A/B:
+if [[ "${ROOTFS_AB}" == 1 && "${ROOTFS_ENC}" == "" ]]; then
+	rootfs_ab=1;
+	EMMC_CFG=flash_t194_sdmmc_rootfs_ab.xml;
+	ROOTFSSIZE=14GiB;
+# Disk encryption support:
+elif [[ "${ROOTFS_AB}" == "" && "${ROOTFS_ENC}" == 1 ]]; then
+	disk_enc_enable=1;
+	EMMC_CFG=flash_t194_sdmmc_enc_rfs.xml;
+# Rootfs A/B + Disk encryption support:
+elif [[ "${ROOTFS_AB}" == 1 && "${ROOTFS_ENC}" == 1 ]]; then
+	rootfs_ab=1;
+	disk_enc_enable=1;
+	EMMC_CFG=flash_t194_sdmmc_enc_rootfs_ab.xml;
+	ROOTFSSIZE=14GiB;
+fi;
+
+
+# Enable bpmp-fw-dtb compression
+COMP_BPMP_FW_DTB=1;
+
+#CTI FILES
+#ext_target_board=`echo "${ext_target_board}" | sed "s|\(cti/xavier[^/]*/\)\([^/]*\)\(/\)|cti-\2-|g"`;
+
+#BPFDTB_FILE=tegra194-agx-cti-a01-bpmp-p2888-a01.dtb;
+#BPFDTB_SKU5_FILE=tegra194-agx-cti-a02-bpmp-p2888-0005-a04.dtb;
+
+# For 64GB AGX Xavier
+BPFDTB_SKU5_FILE=tegra194-a02-bpmp-p2888-0005-a04.dtb;
+
+BPFDTB_FILE=tegra194-a01-bpmp-p2888-a01.dtb;
+
+PINMUX_CONFIG="tegra19x-mb1-pinmux-agx-cti.cfg";
+#OVERLAY_DTB_FILE="${OVERLAY_DTB_FILE},tegra194-p2822-camera-dual-imx274-overlay.dtbo,tegra194-p2822-camera-e3331-overlay.dtbo,tegra194-p2822-camera-e3333-overlay.dtbo,tegra194-p2822-camera-imx185-overlay.dtbo,tegra194-p2822-camera-imx390-overlay.dtbo,tegra194-p2888-0005-overlay.dtbo,tegra194-p2888-0001-p2822-0000-overlay.dtbo";
+
+
