@@ -77,7 +77,7 @@ const getResinImageFromFlasher = async (image, output) => {
 
 // FIXME This function needs to be reimplemented once the fatfs module is fixed
 const copyResinConfigurationOver = async (flasherImage, resinImage) => {
-	const paths = ['/config.json', '/system-connections', '/splash'];
+	const paths = ['/config.json', '/system-connections', '/dispatcher.d', '/splash'];
 
 	const findResinBootPart = async image => {
 		const table = await getPartitions(image);
