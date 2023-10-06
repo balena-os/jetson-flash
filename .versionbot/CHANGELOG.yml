@@ -1,4 +1,17 @@
 - commits:
+    - subject: "scripts: Copy dispatcher.d scripts for flasher types"
+      hash: b8f43444df50801b58c70d7bc284ac2e64021577
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.55
+  title: ""
+  date: 2023-10-06T13:31:04.483Z
+- commits:
     - subject: "lib/resin-jetson-flash: Update Xavier NX eMMC to L4T 32.7.3"
       hash: 0a3d020724a3521a71551d26934289f9cf18302b
       body: ""
