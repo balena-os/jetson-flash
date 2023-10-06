@@ -2,19 +2,19 @@
 
 This tool allows users to flash balenaOS on supported Jetson devices:
 
-|Device | balena machine name | L4T version |
-|-------|---------------------|-------------|
-|Jetson Nano eMMC | jetson-nano-emmc |  L4T 32.7.3 |
-|Jetson Nano SD-CARD Devkit | jetson-nano | L4T 32.7.3 |
-|Jetson Nano 2GB Devkit | jetson-nano-2gb-devkit | L4T 32.7.1 |
-|Jetson TX2 | jetson-tx2 | L4T 32.7.3 |
-|Jetson TX2 NX (in Jetson Xavier NX Devkit) | jetson-tx2-nx-devkit | L4T 32.7.3 |
-|Jetson AGX Xavier | jetson-xavier | L4T 32.7.3 |
-|Jetson Xavier NX Devkit eMMC | jetson-xavier-nx-devkit-emmc | L4T 32.7.3 |
-|Jetson Xavier NX Devkit SD-CARD | jetson-xavier-nx-devkit | L4T 32.7.3 |
-|Jetson AGX Orin Devkit | jetson-agx-orin-devkit | L4T 35.3.1 |
-|Jetson Orin Nano 8GB (SD) Devkit NVME | jetson-orin-nano-devkit-nvme | L4T 35.3.1 |
-|Jetson Orin NX in Xavier NX Devkit NVME | jetson-orin-nx-xavier-nx-devkit | L4T 35.3.1 |
+|Device | balena machine name | L4T version | Provisioning method |
+|-------|---------------------|-------------|---------------------|
+|Jetson Nano eMMC | jetson-nano-emmc |  L4T 32.7.3 | jetson-flash |
+|Jetson Nano SD-CARD Devkit | jetson-nano | L4T 32.7.3 | jetson-flash |
+|Jetson Nano 2GB Devkit | jetson-nano-2gb-devkit | L4T 32.7.1 | jetson-flash |
+|Jetson TX2 | jetson-tx2 | L4T 32.7.3 | jetson-flash |
+|Jetson TX2 NX (in Jetson Xavier NX Devkit) | jetson-tx2-nx-devkit | L4T 32.7.3 | jetson-flash |
+|Jetson AGX Xavier | jetson-xavier | L4T 32.7.3 | jetson-flash |
+|Jetson Xavier NX Devkit eMMC | jetson-xavier-nx-devkit-emmc | L4T 32.7.3 | jetson-flash |
+|Jetson Xavier NX Devkit SD-CARD | jetson-xavier-nx-devkit | L4T 32.7.3 | jetson-flash |
+|Jetson AGX Orin Devkit | jetson-agx-orin-devkit | L4T 35.3.1 | jetson-flash |
+|Jetson Orin Nano 8GB (SD) Devkit NVME | jetson-orin-nano-devkit-nvme | L4T 35.3.1 | [USB Key](#orin-nx-flashing) |
+|Jetson Orin NX in Xavier NX Devkit NVME | jetson-orin-nx-xavier-nx-devkit | L4T 35.3.1 | [USB Key](#orin-nano-flashing) |
 
 NOTE: The Jetson Orin NX cannot be flashed trough Jetson-Flash, instead a separate container image is used as detaled below in the [Orin NX Flashing](#orin-nx-flashing) section.
 The same applies for the Orin Nano Devkit NVME and associated device-types.

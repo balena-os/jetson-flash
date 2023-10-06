@@ -105,7 +105,7 @@ function setup_orin_rcmboot() {
     echo " " > "${device_dir}${lt_dir}/bootloader/recovery.img"
     mkdir -p "${device_dir}${lt_dir}/rootfs/boot/extlinux/"
     echo " " > "${device_dir}${lt_dir}/rootfs/boot/extlinux/extlinux.conf"
-    sed -i 's/console=ttyAMA0,115200/root=LABEL=flash-rootA flasher /g' "${device_dir}${lt_dir}/p3767.conf.common"
+    sed -i 's/console=ttyAMA0,115200/root=LABEL=flash-rootA flasher rootdelay=1 roottimeout=120 /g' "${device_dir}${lt_dir}/p3767.conf.common"
 }
 
 trap cleanup EXIT SIGHUP SIGINT SIGTERM
