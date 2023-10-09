@@ -14,6 +14,7 @@ RUN mkdir orin_nx && wget https://developer.nvidia.com/downloads/embedded/l4t/r3
     cd ../ && mkdir orin_nano && cp -r orin_nx/* orin_nano/ && \
     cd orin_nano/Linux_for_Tegra/ && ./tools/l4t_flash_prerequisites.sh
 
+COPY ./uefi/jetson-orin-nano-devkit-nvme/uefi_jetson.bin /usr/src/app/orin-flash/orin_nano/Linux_for_Tegra/bootloader/uefi_jetson.bin
 # Copy rcmboot script inside the Docker image
 COPY ./flash_orin.sh /usr/src/app/orin-flash/
 RUN chmod +x /usr/src/app/orin-flash/flash_orin.sh
