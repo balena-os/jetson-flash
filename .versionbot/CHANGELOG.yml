@@ -1,4 +1,20 @@
 - commits:
+    - subject: "Orin_Nx_Nano_NVME: Use yocto built uefi firmware for Orin Nano"
+      hash: 07dba2bc1bd0d2868c1ff3791f059d1981d675bc
+      body: |
+        this firmware is a debug build and it allows loading
+        the kernel in rcm-boot mode if the power has been cut
+        during provisioning.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.56
+  title: ""
+  date: 2023-10-09T13:23:24.003Z
+- commits:
     - subject: "scripts: Copy dispatcher.d scripts for flasher types"
       hash: b8f43444df50801b58c70d7bc284ac2e64021577
       body: ""
