@@ -20,7 +20,7 @@ COPY gfst_assets/tegra194-agx-cti-AGX101-HEXCUXVR-ECON-AR1335-6CAM.dtb /usr/src/
 COPY gfst_assets/tegra194-agx-cti-AGX101-HEXCUXVR-ECON-AR1335-6CAM.dtb /usr/src/app/agx-flash/Linux_for_Tegra/bootloader/tegra194-agx-cti-AGX101-HEXCUXVR-ECON-AR1335-6CAM.dtb.rec
 COPY gfst_assets/hexcuxvr-econ-ar1335.conf /usr/src/app/agx-flash/Linux_for_Tegra/jetson-xavier.conf
 COPY gfst_assets/cti-agx.conf.common /usr/src/app/agx-flash/Linux_for_Tegra/
-
+COPY gfst_assets/uefi_jetson.bin /usr/src/app/agx-flash/Linux_for_Tegra/bootloader/uefi_jetson.bin
 RUN chmod +x /usr/src/app/agx-flash/flash_agx.sh
 
 CMD ["sleep", "infinity"]
