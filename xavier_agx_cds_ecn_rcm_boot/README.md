@@ -1,12 +1,13 @@
 ## AGX Flashing
 
-Important notes on the AGX device provisioning:
+Important notes on the custom AGX device provisioning:
 
 - The Docker image and the associated scripts require a Linux-based host and have been validated on a PC running Ubuntu 22.04. Other host operating systems or virtualised environments may also work, provided that the Nvidia BSP flashing tools are able to communicate with the Jetson device successfuly over USB.
 - The current device image is based on `L4T 35.3.1`.
-- Flashing of the device with a NVME attached to the carrier board can be done solely by using the Docker image inside the `xavier_agx_cds_ecn_rcm_boot` folder. The Dockerfile and the scripts inside this folder are not used by jetson-flash and should be used as a stand-alone means for flashing BalenaOS on the AGX device and the attached NVME.
+- Flashing of the device with a NVME attached to the carrier board can be done solely by using the Docker image inside the `xavier_agx_cds_ecn_rcm_boot` folder. This folder is available only on the `xavier_cds_ecn_rcm` branch of this github repository. The Dockerfile and the scripts inside this folder are not used by jetson-flash and should be used as a stand-alone means for flashing BalenaOS on the AGX device and the attached NVME.
 - Docker needs to be installed on the Host PC and the Docker image needs to be run as privileged.
 - The balenaOS image downloaded from balena-cloud needs to be unpacked and copied on your Host PC inside the `~/images/` folder. This location will be bind mounted inside the running container.
+- The `flash_agx.sh` script used in the `Flashing steps` listed below unpacks the balenaOS image provided trough command line and bindmounted in the containter in `/data/images`, and extracts the balenaOS kernel from it. The balenaOS kernel is then passed to the NVidia flashing tools to be run in recovery mode - rcm boot. Once the balenaOS kernel is booted, it waits for a maximum of 20 minutes for a USB stick containing the balenaOS image obtained from balena-cloud (same image as the one present in `/data/images/` in container) to be plugged into the device. Once the USB stick is connected and the image is detected by the kernel, it will start provisioning the on-board NVME with balenaOS. As soon as provisioning is completed, the device will reboot into the newly flashed balenaOS image.
 
 ### Flashing steps:
 

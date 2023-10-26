@@ -9,7 +9,7 @@ This tool allows users to flash balenaOS on supported Jetson devices:
 |Jetson Nano 2GB Devkit | jetson-nano-2gb-devkit | L4T 32.7.1 |
 |Jetson TX2 | jetson-tx2 | L4T 32.7.3 |
 |Jetson TX2 NX (in Jetson Xavier NX Devkit) | jetson-tx2-nx-devkit | L4T 32.7.3 |
-|Jetson AGX Xavier | jetson-xavier | L4T 32.7.3 |
+|Jetson AGX Xavier (custom)| jetson-xavier | L4T 35.3.1 |
 |Jetson Xavier NX Devkit eMMC | jetson-xavier-nx-devkit-emmc | L4T 32.7.3 |
 |Jetson Xavier NX Devkit SD-CARD | jetson-xavier-nx-devkit | L4T 32.7.3 |
 |Jetson AGX Orin Devkit | jetson-agx-orin-devkit | L4T 35.3.1 |
@@ -18,6 +18,8 @@ This tool allows users to flash balenaOS on supported Jetson devices:
 
 NOTE: The Jetson Orin NX cannot be flashed trough Jetson-Flash, instead a separate container image is used as detaled below in the [Orin NX Flashing](#orin-nx-flashing) section.
 The same applies for the Orin Nano Devkit NVME and associated device-types.
+
+See README.md in the `xavier_agx_cds_ecn_rcm_boot` folder for provisioning steps on the custom Xavier AGX module.
 
 ## About
 Jetson Flash will extract the balenaOS image from a downloaded provisioned image (such as from balenaCloud) and then flashes that image to a Jetson board connected to a host PC via USB.
