@@ -26,7 +26,7 @@ Important notes on the custom AGX device provisioning:
 - Once the docker image has been built and starts running, the balenaOS kernel can be booted by executing the `flash_agx.sh` script:
 
 ```
-root@03ce5cbcbb0d:/usr/src/app/agx-flash# ./flash_agx.sh -f /data/images/<balena.img> -m jetson-xavier --accept-license yes
+root@03ce5cbcbb0d:/usr/src/app/agx-flash# ./flash_agx.sh -f /data/images/<balena.img> --accept-license yes
 ```
 
 while ensuring `balena.img` is replaced with the actual file name of the unzipped image downloaded from balena-cloud.

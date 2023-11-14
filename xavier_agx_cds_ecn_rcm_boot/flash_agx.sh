@@ -40,13 +40,9 @@ while [[ $# -gt 0 ]]; do
 			help
 			exit 0
 			;;
-		-m|--machine)
-			if [ -z "$2" ]; then
-				log ERROR "\"$1\" argument needs a value."
-			fi
-			balena_device_name=$2
-			shift
-			;;
+               -m|--machine)
+                       shift
+                       ;;
 		-f|--balena-image-flasher)
 			if [ -z "$2" ]; then
 				log ERROR "\"$1\" argument needs a value."
@@ -70,12 +66,9 @@ while [[ $# -gt 0 ]]; do
 	shift
 done
 
-if [[ $balena_device_name = "jetson-xavier" ]]; then
-	device_type="jetson-xavier"
-	device_dtb="tegra194-agx-cti-AGX101-HEXCUXVR-ECON-AR1335-6CAM.dtb"
-else
-	log ERROR "Unknown or unspecified device-type!"
-fi
+
+device_type="jetson-xavier"
+device_dtb="tegra194-agx-cti-AGX101-HEXCUXVR-ECON-AR1335-6CAM.dtb"
 
 cleanup () {
 	exit_code=$?
