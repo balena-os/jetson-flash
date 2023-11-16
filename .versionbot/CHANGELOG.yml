@@ -1,4 +1,17 @@
 - commits:
+    - subject: "AGX Orin Devkit: Update to L4T 35.4.1"
+      hash: f96f9002a14f4dee932af2eca40203de1168daa1
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.57
+  title: ""
+  date: 2023-11-16T14:29:26.376Z
+- commits:
     - subject: "Orin_Nx_Nano_NVME: Use yocto built uefi firmware for Orin Nano"
       hash: 07dba2bc1bd0d2868c1ff3791f059d1981d675bc
       body: |
