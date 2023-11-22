@@ -115,8 +115,8 @@ if [ ! -d ${work_dir}/${device_dir}/${lt_dir} ]; then
     tar xf *.tbz2
 fi
 
-cat "${work_dir}/${device_dir}/${lt_dir}/nv_tegra/LICENSE"
-log "Above license agreement can be consulted at https://developer.download.nvidia.com/embedded/L4T/r35_Release_v2.1/release/Tegra_Software_License_Agreement-Tegra-Linux.txt"
+cat "${work_dir}/${device_dir}/${lt_dir}/Tegra_Software_License_Agreement-Tegra-Linux.txt"
+log "Above license agreement can be consulted at https://developer.download.nvidia.com/embedded/L4T/r35_Release_v4.1/release/Tegra_Software_License_Agreement-Tegra-Linux.txt"
 
 if [ "$accept_license" != "yes" ]; then
    echo "Accept the above License Agreement? Type yes/no:"
