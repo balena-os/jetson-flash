@@ -1,4 +1,17 @@
 - commits:
+    - subject: "Orin NX/Nano: Update to L4T 35.4.1"
+      hash: 29df7a00bbd06696af189d1b0e20332ea8074967
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.58
+  title: ""
+  date: 2023-11-22T15:45:53.679Z
+- commits:
     - subject: "AGX Orin Devkit: Update to L4T 35.4.1"
       hash: f96f9002a14f4dee932af2eca40203de1168daa1
       body: ""
