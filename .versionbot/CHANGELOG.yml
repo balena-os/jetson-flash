@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update README.md
+      hash: 0da5851d2ab9b89f0f885341c5996e93ae040b98
+      body: |
+        To include license accept example
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.59
+  title: ""
+  date: 2023-11-24T12:55:53.660Z
+- commits:
     - subject: "Orin NX/Nano: Update to L4T 35.4.1"
       hash: 29df7a00bbd06696af189d1b0e20332ea8074967
       body: ""
