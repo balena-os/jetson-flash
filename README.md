@@ -163,8 +163,7 @@ $ ./bin/cmd.js -f <balena.img> -m <device_type>
 For **Docker**, issue the following commands in the folder that has the Dockerfile to build and ssh into it (building may take a while and appear to hang, so be patient.) Create a folder named `images` in your home directory and place your balena image file there so it's available inside the container.
 
 ```sh
-docker build -t jf-image .
-docker container run --rm -it --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/images:/data/images jf-image /bin/bash
+./build_and_run.sh [-m <devce_type]
 ```
 
 Alternatively, run the provided docker-compose file with `docker-compose up` and ssh into the container with `docker exec -it <container name> /bin/bash` 
