@@ -73,7 +73,3 @@ esac
 
 # Build Dockerfile
 docker build --build-arg bsp_url="${JETSON_FLASH_BSP_URL}" --build-arg device_type="${DEVICE_TYPE}" -t jetson-flash-image .
-
-# Run resulting Docker image. The balenaOS image downloaded from balena-cloud is expected to exist in the HOST, inside ~/images. That directory will be bind-mounted inside the running container in /data/images/
-docker container run --rm -it --privileged -v /dev/:/dev/ -v ~/images:/data/images jetson-flash-image 
-
