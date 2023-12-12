@@ -160,10 +160,15 @@ For **non - Docker**, run the tool by specifying the path to the unzipped image 
 $ ./bin/cmd.js -f <balena.img> -m <device_type>
 ```
 
-For **Docker**, issue the following commands in the folder that has the Dockerfile to build and ssh into it (building may take a while and appear to hang, so be patient.) Create a folder named `images` in your home directory and place your balena image file there so it's available inside the container.
+For **Docker**, issue the following commands in the folder that has the Dockerfile to build the container(building may take a while and appear to hang, so be patient.) Create a folder named `images` in your home directory and place your balena image file there so it's available inside the container.
 
 ```sh
-docker build -t jf-image .
+./build.sh [-m <device_type]
+```
+
+You can then enter the container using:
+
+```sh
 docker container run --rm -it --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/images:/data/images jf-image /bin/bash
 ```
 
@@ -174,6 +179,14 @@ Once in the container, you can run jetson-flash by specifying the balena image i
 ```sh
 ./bin/cmd.js -f /data/images/<balena.img> -m <device_type> --accept-license=yes
 ```
+
+You can alternatively just run the jetson-flash tool in a single command by running the container with this command:
+
+```sh
+docker container run --rm -it --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/images:/data/images jf-image ./bin/cmd.js -f /data/images/<balena.img> -m <device_type> --accept-license=yes
+```
+
+It will exit upon completion. 
 
 ---
 
