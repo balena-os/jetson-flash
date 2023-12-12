@@ -1,4 +1,26 @@
 - commits:
+    - subject: remove run command from build script
+      hash: f76a8e48f6247fb3b83f14fb4b0622614be88db7
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+    - subject: "jetson-flash: Pre-fetch BSP archive based on device-type"
+      hash: 978b9638b2f2b4c142cdc20ed71169a37c0ec312
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.60
+  title: ""
+  date: 2023-12-12T11:32:12.754Z
+- commits:
     - subject: Update README.md
       hash: 0da5851d2ab9b89f0f885341c5996e93ae040b98
       body: |
