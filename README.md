@@ -250,6 +250,14 @@ Important notes on Orin NX provisioning:
 - Put the Jetson Orin NX in Force Recovery mode
 - Insert the USB stick created above in any of the 4 USB ports of the Xavier NX Devkit
 - Navigate to the `Orin_Nx_Nano_NVME` folder and run the Docker image by executing the `build_and_run.sh` script:
+```
+~/jetson-flash$ cd Orin_Nx_Nano_NVME/
+~/jetson-flash/Orin_Nx_Nano_NVME$ ./build_and_run.sh
+```
+- Once the docker image has been built and starts running, the balenaOS kernel and flasher image can be booted by executing the `flash_orin_nx.sh` script:
+```
+root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<balena.img> -m jetson-orin-nx-xavier-nx-devkit
+```
 
 ## Orin Nano Flashing:
 
@@ -269,7 +277,14 @@ Important notes on Orin Nano provisioning:
 - Put the Jetson Orin Nano in Force Recovery mode
 - Insert the USB stick created above in the upper USB port located near the the display port of the Orin Nano Devkit
 - Navigate to the `Orin_Nx_Nano_NVME` folder and run the Docker image by executing the `build_and_run.sh` script:
-
+```
+~/jetson-flash$ cd Orin_Nx_Nano_NVME/
+~/jetson-flash/Orin_Nx_Nano_NVME$ ./build_and_run.sh
+```
+- Once the docker image has been built and starts running, the balenaOS kernel and flasher image can be booted by executing the `flash_orin_nx.sh` script:
+```
+root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<balena.img> -m jetson-orin-nano-devkit-nvme
+```
 
 ## Seeed reComputer J4012 Flashing:
 
@@ -291,12 +306,12 @@ Important notes on Orin Nano provisioning:
 ~/jetson-flash$ cd Orin_Nx_Nano_NVME/
 ~/jetson-flash/Orin_Nx_Nano_NVME$ ./build_and_run.sh
 ```
-
 - Once the docker image has been built and starts running, the balenaOS kernel and flasher image can be booted by executing the `flash_orin_nx.sh` script:
+```
+root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<balena.img> -m jetson-orin-nx-seeed-j4012
+```
 
-```
-root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/balena.img -m <machine>
-```
+
 
 Depending on the device used, the machine used will be one of:
 - jetson-orin-nx-xavier-nx-devkit
