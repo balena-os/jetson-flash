@@ -1,4 +1,17 @@
 - commits:
+    - subject: "README: Clarify provisioning command line for Orin Devices"
+      hash: c8b231d22d8b7781445ff19220aae3fb98f4f42e
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.62
+  title: ""
+  date: 2024-01-10T10:11:12.553Z
+- commits:
     - subject: Add Seeed reComputer J4012 provisioning support and instruction
       hash: 8bd191bffddba63859741686bd4677d3ecb80a2a
       body: ""
