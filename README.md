@@ -15,6 +15,7 @@ This tool allows users to flash balenaOS on supported Jetson devices:
 |Jetson AGX Orin Devkit 32GB | jetson-agx-orin-devkit | L4T 35.4.1 | jetson-flash |
 |Jetson Orin Nano 8GB (SD) Devkit NVME | jetson-orin-nano-devkit-nvme | L4T 35.4.1 | [USB Key](#orin-nx-flashing) |
 |Jetson Orin NX in Xavier NX Devkit NVME | jetson-orin-nx-xavier-nx-devkit | L4T 35.4.1 | [USB Key](#orin-nano-flashing) |
+|Seeed reComputer J4012 16GB | jetson-orin-nx-seeed-j4012 | L4T 35.4.1 | [USB Key](#seeed-recomputer-j4012-flashing) |
 
 NOTE: The Jetson Orin NX cannot be flashed trough Jetson-Flash, instead a separate container image is used as detaled below in the [Orin NX Flashing](#orin-nx-flashing) section.
 The same applies for the Orin Nano Devkit NVME and associated device-types.
@@ -131,6 +132,22 @@ Then power on the device.
 4. Connect the power adapter to the Power Jack [J16].
 5. The device will automatically power on in Force Recovery Mode.
 
+**Jetson Orin Nano 8GB (SD) Devkit NVME:**
+
+1. Ensure the device is powered off and the power adapter disconnected.
+2. Place a jumper across the Force Recovery Mode pins. These are pins ("GND") and ("FC REC") and are located on the carrier board, under the Orin Nano module.
+3. Connect your host computer to the device's USB-C connector.
+4. Connect the power adapter to the Power Jack.
+5. The device will automatically power on in Force Recovery Mode.
+
+**Seeed reComputer J4012 16GB:**
+
+1. Ensure the device is powered off and the power adapter disconnected.
+2. Open the top lid of the reComputer and place a jumper across the Force Recovery Mode pins. These are pins ("GND") and ("FC REC") and are located on the carrier board, under the Orin NX module.
+3. Connect your host computer to the device's USB-C connector.
+4. Connect the power adapter to the Power Jack [J2].
+5. The device will automatically power on in Force Recovery Mode.
+
 **Confirmation**
 
 You can confirm your device is running in recovery mode by issuing the command `lsusb | grep NVIDIA` and examining the output.
@@ -240,13 +257,13 @@ Important notes on Orin Nano provisioning:
 
 - The Docker image and the associated scripts require a Linux-based host and have been validated on a PC running Ubuntu 22.04. Other host operating systems or virtualised environments may also work, provided that the Nvidia BSP flashing tools are able to communicate with the Jetson device successfuly over USB
 - The current Orin Nano image is based on L4T 35.3.1
-- Flashing of the Orin Nano Devkit with a NVME attached can be done solely by using the Docker image inside the Orin_Nx_Nano_NVME folder. The Dockerfile and the scripts inside this folder are not used by jetson-flash and should be used as a stand-alone means for flashing BalenaOS on the Orin NX and the attached NVME.
+- Flashing of the Orin Nano Devkit with a NVME attached can be done solely by using the Docker image inside the Orin_Nx_Nano_NVME folder. The Dockerfile and the scripts inside this folder are not used by jetson-flash and should be used as a stand-alone means for flashing BalenaOS on the Orin Nano and the attached NVME.
 - Docker needs to be installed on the Host PC and the Docker image needs to be run as privileged
 - The balenaOS image downloaded from balena-cloud needs to be unpacked and copied on your Host PC inside the `~/images/` folder. This location will be bind mounted inside the running container.
 
 ### Orin Nano Flashing steps:
 
-- Attach a NVME drive to the Xavier NX Devkit
+- Attach a NVME drive to the Orin Nano Devkit
 - Download your balenaOS image from balena-cloud, unpack and write it to a USB stick. We recommend using <a href="https://www.balena.io/etcher">Etcher</a>.
 - Place the balenaOS unpacked image inside the folder ~/images on your HOST PC. This location will be automatically bind-mounted in the container image in the `/data/images/` folder
 - Put the Jetson Orin Nano in Force Recovery mode
@@ -254,6 +271,22 @@ Important notes on Orin Nano provisioning:
 - Navigate to the `Orin_Nx_Nano_NVME` folder and run the Docker image by executing the `build_and_run.sh` script:
 
 
+## Seeed reComputer J4012 Flashing:
+
+- The Docker image and the associated scripts require a Linux-based host and have been validated on a PC running Ubuntu 22.04. Other host operating systems or virtualised environments may also work, provided that the Nvidia BSP flashing tools are able to communicate with the Jetson module successfuly over USB
+- The current Seeed reComputer J4012 image is based on L4T 35.3.1
+- Flashing of the Seeed reComputer J4012 with a NVME attached can be done solely by using the Docker image inside the Orin_Nx_Nano_NVME folder. The Dockerfile and the scripts inside this folder are not used by jetson-flash and should be used as a stand-alone means for flashing BalenaOS on the Seeed reComputer J4012 and the NVME attached to the carrier board.
+- Docker needs to be installed on the Host PC and the Docker image needs to be run as privileged
+- The balenaOS image downloaded from balena-cloud needs to be unpacked and copied on your Host PC inside the `~/images/` folder. This location will be bind mounted inside the running container.
+
+### Seeed reComputer J4012 Flashing steps:
+
+- Ensure a NVME drive is attached to the Seeed reComputer J4012
+- Download your balenaOS image from balena-cloud, unpack and write it to a USB stick. We recommend using <a href="https://www.balena.io/etcher">Etcher</a>.
+- Place the balenaOS unpacked image inside the folder ~/images on your HOST PC. This location will be automatically bind-mounted in the container image in the `/data/images/` folder
+- Put the Seeed reComputer J4012 in Force Recovery mode by connecting the FC REC and GND pins with a jumper cable. The pins are located on the carrier board, under the Jetson Orin NX module
+- Insert the USB stick created above in any of the USB ports of the Seeed reComputer J4012 Flashing
+- Navigate to the `Orin_Nx_Nano_NVME` folder and run the Docker image by executing the `build_and_run.sh` script:
 ```
 ~/jetson-flash$ cd Orin_Nx_Nano_NVME/
 ~/jetson-flash/Orin_Nx_Nano_NVME$ ./build_and_run.sh
@@ -265,13 +298,14 @@ Important notes on Orin Nano provisioning:
 root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/balena.img -m <machine>
 ```
 
-Depending on the device used, the machine used will be one of the two supported:
+Depending on the device used, the machine used will be one of:
 - jetson-orin-nx-xavier-nx-devkit
 - jetson-orin-nano-devkit-nvme
+- jetson-orin-nx-seeed-j4012
 
 
 Other considerations:
-- The flashing process takes around 10-15 minutes and once it completes, the board will power-off. The device can be taken out of recovery mode and the USB flasher stick can be unplugged.
+- The flashing process takes around 15 minutes and once it completes, the board will power-off. The device can be taken out of recovery mode and the USB flasher stick can be unplugged.
 - Remove and reconnect power to the device.
 
 ## Support
