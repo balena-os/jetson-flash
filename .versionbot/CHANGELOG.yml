@@ -1,4 +1,17 @@
 - commits:
+    - subject: Add Seeed reComputer J4012 provisioning support and instruction
+      hash: 8bd191bffddba63859741686bd4677d3ecb80a2a
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.61
+  title: ""
+  date: 2024-01-10T09:43:06.621Z
+- commits:
     - subject: remove run command from build script
       hash: f76a8e48f6247fb3b83f14fb4b0622614be88db7
       body: ""
