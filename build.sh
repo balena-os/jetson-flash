@@ -57,6 +57,9 @@ case "${DEVICE_TYPE}" in
         jetson-agx-orin-devkit)
             JETSON_FLASH_BSP_URL="https://developer.nvidia.com/downloads/embedded/l4t/r35_release_v4.1/release/jetson_linux_r35.4.1_aarch64.tbz2"
             ;;
+	jetson-orin-nx-seeed-j4012)
+            JETSON_FLASH_BSP_URL="https://developer.nvidia.com/downloads/embedded/l4t/r35_release_v4.1/release/jetson_linux_r35.4.1_aarch64.tbz2"
+            ;;
         jetson-nano-qspi-sd)
             JETSON_FLASH_BSP_URL="https://developer.nvidia.com/downloads/remetpack-463r32releasev73t210jetson-210linur3273aarch64tbz2"
             ;;
