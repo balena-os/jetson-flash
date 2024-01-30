@@ -186,7 +186,7 @@ For **Docker**, issue the following commands in the folder that has the Dockerfi
 You can then enter the container using:
 
 ```sh
-docker container run --rm -it --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/images:/data/images jf-image /bin/bash
+docker container run --rm -it --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/images:/data/images jf-image /usr/src/app/jetson-flash/run_http_server.sh
 ```
 
 Alternatively, run the provided docker-compose file with `docker-compose up` and ssh into the container with `docker exec -it <container name> /bin/bash` 
