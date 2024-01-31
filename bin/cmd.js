@@ -60,7 +60,7 @@ const run = async options => {
 	}
 
 	const outputPath = options.persistent
-		? path.join(options.output, 'jetson-flash-artifacts')
+		? path.join(options.output, 'jetson-flash-artifacts') //  '/tmp/jetson-flash-artifacts'
 		: path.join(options.output, process.pid.toString());
 
 	await utils.outputRegister(outputPath, options.persistent);
@@ -73,6 +73,7 @@ const run = async options => {
 		odmdata,
 		`${__dirname}/../assets/${options.machine}-assets`,
 		outputPath,
+		options.cache
 	);
 
 	await Flasher.run();
@@ -112,6 +113,9 @@ const argv = yargs
 	.describe('p', 'Persist work')
 	.implies('p', 'o')
 	.example('$0 -f balena.img -p -o ./workdir --acceptLicense yes', '')
+	.alias('c', 'cache')
+	.boolean('c')
+	.describe('c', 'use cached bsp from dockerfile')
 	.help('h')
 	.alias('h', 'help')
 	.epilog('Copyright 2020').argv;
