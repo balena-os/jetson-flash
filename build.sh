@@ -70,6 +70,7 @@ case "${DEVICE_TYPE}" in
             echo $"Using default L4T 32.7.3 BSP ${JETSON_FLASH_BSP_URL}"
 esac
 
+sed -i "s|${JETSON_FLASH_BSP_URL}|http:\/\/127.0.0.1/L4T_BSP_${DEVICE_TYPE}.tbz2|g" lib/resin-jetson-flash.js
 
 # Build Dockerfile
-docker build --build-arg bsp_url="${JETSON_FLASH_BSP_URL}" --build-arg device_type="${DEVICE_TYPE}" -t jetson-flash-image .
+docker build --build-arg bsp_url="${JETSON_FLASH_BSP_URL}" --build-arg device_type="${DEVICE_TYPE}" -t jf-image .
