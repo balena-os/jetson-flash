@@ -27,6 +27,6 @@ COPY .  /usr/src/app/jetson-flash
 
 RUN npm install
 
-RUN wget "$bsp_url" -O "/tmp/L4T_BSP_$device_type.tbz2"  && echo "BSP archive for $device_type saved in /tmp/L4T_BSP_$device_type.tbz2, can be downloaded from http://127.0.0.1/L4T_BSP_$device_type.tbz2"
+RUN wget "$bsp_url" -O "/tmp/Linux_for_Tegra.tbz2"  && tar -xvf "/tmp/Linux_for_Tegra.tbz2" -C "/tmp/" && rm /tmp/Linux_for_Tegra.tbz2
 
 CMD ["./run_http_server.sh"]
