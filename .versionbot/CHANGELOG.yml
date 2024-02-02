@@ -1,4 +1,17 @@
 - commits:
+    - subject: add cache flag to node app
+      hash: f479f05cf4a21e4999b9b2b7cc9ced570cc4d1e6
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: rcooke-warwick
+  version: 0.5.63
+  title: ""
+  date: 2024-02-02T11:52:28.861Z
+- commits:
     - subject: "README: Clarify provisioning command line for Orin Devices"
       hash: c8b231d22d8b7781445ff19220aae3fb98f4f42e
       body: ""
