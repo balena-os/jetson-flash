@@ -516,7 +516,6 @@
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
-            <filename> FILENAME </filename>
             <description> **Required.** Chain A; contains kernel device tree blob. </description>
         </partition>
         <partition name="reserved_for_chain_A_user" type="data">
@@ -617,7 +616,6 @@
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
-             <filename> FILENAME </filename>
             <description> **Required.** Chain B; contains kernel device tree blob. </description>
         </partition>
         <partition name="reserved_for_chain_B_user" type="data">
