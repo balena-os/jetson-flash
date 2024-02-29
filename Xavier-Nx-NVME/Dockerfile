@@ -1,5 +1,4 @@
 FROM balenalib/amd64-ubuntu:focal-run-20221210
-ARG IMAGE_ZIP_FILE=dv-xavier-nx-nvme.zip
 
 ENV DEBIAN_FRONTEND noninteractive
 WORKDIR /usr/src/app/xavier-nx-flash
@@ -18,9 +17,10 @@ RUN mkdir xavier_nx && wget https://developer.nvidia.com/downloads/jetson-linux-
 COPY ./flash_xavier_nx.sh /usr/src/app/xavier-nx-flash
 RUN chmod +x /usr/src/app/xavier-nx-flash/flash_xavier_nx.sh
 
-COPY ${IMAGE_ZIP_FILE} /usr/src/app/xavier-nx-flash/
-
-ENV BALENA_IMAGE_ZIP=${IMAGE_ZIP_FILE}
 COPY ./start.sh /usr/src/app/xavier-nx-flash
 
 CMD ["bash", "/usr/src/app/xavier-nx-flash/start.sh"]
+
+ARG IMAGE_ZIP_FILE=dv-xavier-nx-nvme.zip
+COPY ${IMAGE_ZIP_FILE} /usr/src/app/xavier-nx-flash/
+ENV BALENA_IMAGE_ZIP=${IMAGE_ZIP_FILE}
