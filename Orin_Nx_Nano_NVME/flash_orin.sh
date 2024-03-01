@@ -30,7 +30,7 @@ function log {
 }
 
 function help() {
-    echo "Provisioning can be started by typing:\n $ ./flash_orin.sh -f /data/images/<balenaOS.img> -m [jetson-orin-nx-xavier-nx-devkit|jetson-orin-nano-devkit-nvme|jetson-orin-nx-seeed-j4012] --accept-license yes"
+    echo "Provisioning can be started by typing:\n $ ./flash_orin.sh -f /data/images/<balenaOS.img> -m [jetson-orin-nx-antmicro-job|jetson-orin-nx-xavier-nx-devkit|jetson-orin-nano-devkit-nvme|jetson-orin-nx-seeed-j4012] --accept-license yes"
 }
 
 # Parse arguments
@@ -79,6 +79,10 @@ elif [[ $balena_device_name = "jetson-orin-nx-xavier-nx-devkit" ]] || [[ $balena
 	device_type="p3509-a02+p3767-0000"
 	device_dir="orin_nx/"
 	device_dtb="tegra234-p3767-0000-p3509-a02.dtb"
+elif [[ $balena_device_name = "jetson-orin-nx-antmicro-job" ]]; then
+	device_type="p3509-a02+p3767-0000"
+	device_dir="orin_nx/"
+	device_dtb="tegra234-p3767-0000-antmicro-job.dtb"
 else
 	log ERROR "Unknown or unspecified device-type!"
 fi
@@ -89,9 +93,9 @@ cleanup () {
 	losetup -d $balena_image_flasher_loop_dev > /dev/null 2>&1 || true
 	losetup -D
 	if [[ $exit_code -eq 0 ]]; then
-		log "Once the device's fan starts spinning USB provisioning is started."
-		log "The internal flashing process takes around 10-15 minutes as the internal QSPI memory is flashed, please wait for the device to finish provisioning and to power itself off."
-		log "Once power LED turns off, remove the force recovery jumper and the provisioning USB KEY, then power on the device."
+		log "Wait for the log 'Sleeping for 1 second(s) to wait root to settle...' to appear in the UART console before removing the programming cable and replacing it with the USB key."
+		log "The internal flashing process takes around 10 minutes as the internal QSPI memory is flashed, please wait for the device to finish provisioning and to power itself off."
+		log "Once the device has powered off, remove the USB key and power the device back on."
 	fi
 }
 
@@ -105,7 +109,7 @@ function setup_orin_rcmboot() {
     echo " " > "${device_dir}${lt_dir}/bootloader/recovery.img"
     mkdir -p "${device_dir}${lt_dir}/rootfs/boot/extlinux/"
     echo " " > "${device_dir}${lt_dir}/rootfs/boot/extlinux/extlinux.conf"
-    sed -i 's/console=ttyAMA0,115200/root=LABEL=flash-rootA flasher rootdelay=1 debug loglevel=7 roottimeout=120 /g' "${device_dir}${lt_dir}/p3767.conf.common"
+    sed -i 's/console=ttyAMA0,115200/ root=LABEL=flash-rootA flasher rootdelay=1 debug loglevel=7 roottimeout=120 debug loglevel=7 /g' "${device_dir}${lt_dir}/p3767.conf.common"
 }
 
 trap cleanup EXIT SIGHUP SIGINT SIGTERM
@@ -115,7 +119,7 @@ if [ ! -d ${work_dir}/${device_dir}/${lt_dir} ]; then
     tar xf *.tbz2
 fi
 
-cat "${work_dir}/${device_dir}/${lt_dir}/Tegra_Software_License_Agreement-Tegra-Linux.txt"
+cat "${work_dir}/${device_dir}/${lt_dir}/nv_tegra/LICENSE"
 log "Above license agreement can be consulted at https://developer.download.nvidia.com/embedded/L4T/r35_Release_v4.1/release/Tegra_Software_License_Agreement-Tegra-Linux.txt"
 
 if [ "$accept_license" != "yes" ]; then
@@ -132,6 +136,7 @@ mkdir -p $balena_image_flasher_root_mnt > /dev/null 2>&1 || true
 mount "${balena_image_flasher_loop_dev}p2" "$balena_image_flasher_root_mnt" #> /dev/null 2>&1
 rm "${work_dir}/${device_dir}${lt_dir}/bootloader/boot0.img" || true
 cp "${balena_image_flasher_root_mnt}/boot/Image" "${device_dir}/${lt_dir}/kernel/Image"
+cp "${balena_image_flasher_root_mnt}/boot/${device_dtb}" "${device_dir}/${lt_dir}/kernel/dtb/${device_dtb}"
 log "Kernel image has been extracted and the BSP kernel has been replaced with the one in balenaOS"
 
 setup_orin_rcmboot

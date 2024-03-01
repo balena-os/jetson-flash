@@ -76,6 +76,17 @@ Follow the steps below to flash your Jetson board
 
 Make sure that the Jetson board is plugged into your host via USB and is in recovery mode before issuing the flashing command. 
 
+**Antmicro JOB:**
+
+1. Ensure the device is powered off and the power adapter disconnected
+2. Connect the device to the power source, and connect the device's programming port to your Host PC
+3. Press and release the power button
+4. Press and hold the RESET button
+5. Press and hold the RECOV button for one second
+6. Release the RECOV button
+7. Release the RESET button
+8. Issuing `lsusb` on the device should show an output similar to `0955:7323 NVIDIA Corp. APX`
+
 **Jetson Nano:**
 
 With power off, enable Force Recovery mode by placing a jumper across the "FRC" pins of the Button Header on the carrier board.
@@ -112,7 +123,7 @@ Then power on the device.
 **Jetson Xavier NX:**
 
 1. Ensure the device is powered off and the power adapter disconnected.
-2. Place a jumper across the Force Recovery Mode pins. These are pins 9 ("GND") and 10 ("FC REC") of the Button Header (J14).
+2. Place a jumper across the Force Recovery Mode pins. These are pins 9 ("GND") and 10 (https://github.com/balena-os/jetson-flash/tree/antmicro_job?tab=readme-ov-file#recovery-mode"FC REC") of the Button Header (J14).
 3. Connect your host computer to the device's USB Micro-B connector.
 4. Connect the power adapter to the Power Jack [J16].
 5. The device will automatically power on in Force Recovery Mode.
@@ -254,10 +265,42 @@ Important notes on Orin NX provisioning:
 ~/jetson-flash$ cd Orin_Nx_Nano_NVME/
 ~/jetson-flash/Orin_Nx_Nano_NVME$ ./build_and_run.sh
 ```
-- Once the docker image has been built and starts running, the balenaOS kernel and flasher image can be booted by executing the `flash_orin_nx.sh` script:
+- Once the docker image has been built and starts running, the balenaOS kernel and flasher image can be booted by executing the `flash_orin.sh` script:
 ```
 root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<balena.img> -m jetson-orin-nx-xavier-nx-devkit
 ```
+
+### Antmicro JOB Flashing steps
+
+- Download your balenaOS image from balena-cloud, unpack and write it to a USB stick. We recommend using <a href="https://www.balena.io/etcher">Etcher</a>.
+- Place the balenaOS unpacked image inside the folder ~/images on your HOST PC. This location will be automatically bind-mounted in the container image in the `/data/images/` folder.
+- Connect the USB-C programming port of the device to your host PC.
+- Put the Antmicro JOB in Force Recovery mode.
+- Navigate to the `Orin_Nx_Nano_NVME` folder and run the Docker image by executing the `build_and_run.sh` script:
+```
+~/jetson-flash$ cd Orin_Nx_Nano_NVME/
+~/jetson-flash/Orin_Nx_Nano_NVME$ ./build_and_run.sh
+```
+- Once the docker image has been built and starts running, the balenaOS kernel can be booted by executing the `flash_orin.sh` script:
+```
+root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<unzipped_balena-cloud_image.img> -m jetson-orin-nx-antmicro-job
+```
+
+- As soon as the flash script exists, monitor the debug console of the device for the following log:
+
+```
+Sleeping for 1 second(s) to wait root to settle...
+```
+
+- At this point the USB programming cable can be removed from the device, and replaced with the USB stick on which the OS image was written earlier. The same USB stick can be used for provisioning multiple devices.
+
+- Wait for the device to complete provisioning and power itself off.
+```
+Shutting down system ...
+��: Power down
+```
+
+- Once provisioning is completed, the USB stick can be removed from the programming port and the board can be powered back on.
 
 ## Orin Nano Flashing:
 
