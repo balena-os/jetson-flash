@@ -1,4 +1,19 @@
 - commits:
+    - subject: "Dockerfile: Install lz4"
+      hash: 2d7279dfd5389cf5f75b1ab51f869ee978479e34
+      body: |
+        This fixes the following error in the Autokit setup:
+            error: lz4c not found
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.64
+  title: ""
+  date: 2024-04-02T07:33:19.967Z
+- commits:
     - subject: add cache flag to node app
       hash: f479f05cf4a21e4999b9b2b7cc9ced570cc4d1e6
       body: ""
