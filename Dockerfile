@@ -17,7 +17,8 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -       && \
                          dosfstools                                            \
                          libxml2-utils                                         \
                          nodejs                                                \
-                         xxd                                                && \
+                         xxd                                                   \
+                         lz4                                                && \
     update-alternatives --install /usr/bin/python python /usr/bin/python2 1 && \
     pip3 install pyyaml
 
