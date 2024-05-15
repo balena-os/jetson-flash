@@ -74,7 +74,7 @@ done
 if [[ $balena_device_name = "jetson-orin-nano-devkit-nvme" ]]; then
 	device_type="jetson-orin-nano-devkit"
 	device_dir="orin_nano/"
-	device_dtb="tegra234-p3768-0000+p3767-0003-nv.dtb"
+	device_dtb="tegra234-p3768-0000+p3767-0005-nv.dtb"
 elif [[ $balena_device_name = "jetson-orin-nx-xavier-nx-devkit" ]] || [[ $balena_device_name = "jetson-orin-nx-seeed-j4012" ]]; then
 	device_type="p3509-a02+p3767-0000"
 	device_dir="orin_nx/"
