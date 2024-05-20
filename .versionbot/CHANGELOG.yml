@@ -1,4 +1,17 @@
 - commits:
+    - subject: "README.md: Fix typo and add VMWare notes"
+      hash: cda129a7f94df9d26e24d52eafad158b2445ff00
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru
+  version: 0.5.66
+  title: ""
+  date: 2024-05-20T12:30:48.279Z
+- commits:
     - subject: "AGX Orin: Disable network boot in uefi_jetson.bin"
       hash: f498ab7aaab7d89bd98403c8c1a8c26fe0e6054a
       body: ""
