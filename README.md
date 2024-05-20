@@ -291,6 +291,7 @@ root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<bale
 ## Seeed reComputer J4012 Flashing:
 
 - The Docker image and the associated scripts require a Linux-based host and have been validated on a PC running Ubuntu 22.04. Other host operating systems or virtualised environments may also work, provided that the Nvidia BSP flashing tools are able to communicate with the Jetson module successfully over USB
+- We don't formally test Ubuntu 22.04 in VMWare virtual machines, but it seem to work. More specifically, with VMWare Fusion for Mac and VMWare Workstation for Windows. Note: when prompted by VMWare choose to automatically connect the NVIDIA Corp. APX USB device (i.e. the Orin device) to the VM rather than to the host.
 - The current Seeed reComputer J4012 image is based on L4T 35.3.1
 - Flashing of the Seeed reComputer J4012 with a NVME attached can be done solely by using the Docker image inside the Orin_Nx_Nano_NVME folder. The Dockerfile and the scripts inside this folder are not used by jetson-flash and should be used as a stand-alone means for flashing BalenaOS on the Seeed reComputer J4012 and the NVME attached to the carrier board.
 - Docker needs to be installed on the Host PC and the Docker image needs to be run as privileged
