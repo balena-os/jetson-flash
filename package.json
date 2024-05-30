@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/balena-os/jetson-flash#readme",
   "dependencies": {
+    "apply-patch": "^0.1.2",
     "balena-image-fs": "^7.2.0",
     "balena-sdk": "^16.38.0",
     "bluebird": "^3.7.2",
