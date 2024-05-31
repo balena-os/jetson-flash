@@ -15,6 +15,7 @@ This tool allows users to flash balenaOS on supported Jetson devices:
 |Jetson AGX Orin Devkit 32GB | jetson-agx-orin-devkit | L4T 35.4.1 | jetson-flash |
 |Jetson Orin Nano 8GB (SD) Devkit NVME | jetson-orin-nano-devkit-nvme | L4T 35.4.1 | [USB Key](#orin-nx-flashing) |
 |Jetson Orin NX in Xavier NX Devkit NVME | jetson-orin-nx-xavier-nx-devkit | L4T 35.4.1 | [USB Key](#orin-nano-flashing) |
+|Seeed reComputer J3010 | jetson-orin-nano-seeed-j3010 | L4T 35.4.1 | [USB Key](#seeed-recomputer-j3010-flashing) |
 |Seeed reComputer J4012 16GB | jetson-orin-nx-seeed-j4012 | L4T 35.4.1 | [USB Key](#seeed-recomputer-j4012-flashing) |
 
 NOTE: The Jetson Orin NX cannot be flashed trough Jetson-Flash, instead a separate container image is used as detaled below in the [Orin NX Flashing](#orin-nx-flashing) section.
@@ -138,6 +139,14 @@ Then power on the device.
 2. Place a jumper across the Force Recovery Mode pins. These are pins ("GND") and ("FC REC") and are located on the carrier board, under the Orin Nano module.
 3. Connect your host computer to the device's USB-C connector.
 4. Connect the power adapter to the Power Jack.
+5. The device will automatically power on in Force Recovery Mode.
+
+**Seeed reComputer J3010:**
+
+1. Ensure the device is powered off and the power adapter disconnected.
+2. Open the top lid of the reComputer and place a jumper across the Force Recovery Mode pins. These are pins ("GND") and ("FC REC") and are located on the carrier board, under the Orin Nano module.
+3. Connect your host computer to the device's USB-C connector.
+4. Connect the power adapter to the Power Jack [J2].
 5. The device will automatically power on in Force Recovery Mode.
 
 **Seeed reComputer J4012 16GB:**
@@ -286,6 +295,31 @@ Important notes on Orin Nano provisioning:
 - Once the docker image has been built and starts running, the balenaOS kernel and flasher image can be booted by executing the `flash_orin_nx.sh` script:
 ```
 root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<balena.img> -m jetson-orin-nano-devkit-nvme
+```
+
+## Seeed reComputer J3010 Flashing:
+
+- The Docker image and the associated scripts require a Linux-based host and have been validated on a PC running Ubuntu 24.04. Other host operating systems or virtualised environments may also work, provided that the Nvidia BSP flashing tools are able to communicate with the Jetson module successfuly over USB
+- The current Seeed reComputer J3010 image is based on L4T 35.3.1
+- Flashing of the Seeed reComputer J3010 with a NVME attached can be done solely by using the Docker image inside the Orin_Nx_Nano_NVME folder. The Dockerfile and the scripts inside this folder are not used by jetson-flash and should be used as a stand-alone means for flashing BalenaOS on the Seeed reComputer J3010 and the NVME attached to the carrier board.
+- Docker needs to be installed on the Host PC and the Docker image needs to be run as privileged
+- The balenaOS image downloaded from balena-cloud needs to be unpacked and copied on your Host PC inside the `~/images/` folder. This location will be bind mounted inside the running container.
+
+### Seeed reComputer J3010 Flashing steps:
+
+- Ensure a NVME drive is attached to the Seeed reComputer J3010
+- Download your balenaOS image from balena-cloud, unpack and write it to a USB stick. We recommend using <a href="https://www.balena.io/etcher">Etcher</a>.
+- Place the balenaOS unpacked image inside the folder ~/images on your HOST PC. This location will be automatically bind-mounted in the container image in the `/data/images/` folder
+- Put the Seeed reComputer J3010 in Force Recovery mode by connecting the FC REC and GND pins with a jumper cable. The pins are located on the carrier board, under the Jetson Orin NX module
+- Insert the USB stick created above in any of the USB ports of the Seeed reComputer J3010 Flashing
+- Navigate to the `Orin_Nx_Nano_NVME` folder and run the Docker image by executing the `build_and_run.sh` script:
+```
+~/jetson-flash$ cd Orin_Nx_Nano_NVME/
+~/jetson-flash/Orin_Nx_Nano_NVME$ ./build_and_run.sh
+```
+- Once the docker image has been built and starts running, the balenaOS kernel and flasher image can be booted by executing the `flash_orin.sh` script:
+```
+root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<balena.img> -m jetson-orin-nx-seeed-j3010
 ```
 
 ## Seeed reComputer J4012 Flashing:
