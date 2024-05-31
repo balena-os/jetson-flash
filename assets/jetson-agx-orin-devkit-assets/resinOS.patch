@@ -24,7 +24,7 @@
              <align_boundary> 65536 </align_boundary>
          </partition>
 -        <partition name="A_cpu-bootloader" type="bootloader_stage2" oem_sign="true" compress="true" comp_algo="lz4">
-+        <partition name="A_cpu-bootloader" type="bootloader_stage2" oem_sign="true">
++        <partition name="A_cpu-bootloader" type="bootloader_stage2" oem_sign="true" compress="true" comp_algo="lz4">
              <allocation_policy> sequential </allocation_policy>
              <filesystem_type> basic </filesystem_type>
              <size> 3670016 </size>
@@ -33,7 +33,7 @@
              <align_boundary> 65536 </align_boundary>
          </partition>
 -        <partition name="B_cpu-bootloader" type="bootloader_stage2" oem_sign="true" compress="true" comp_algo="lz4">
-+        <partition name="B_cpu-bootloader" type="bootloader_stage2" oem_sign="true">
++        <partition name="B_cpu-bootloader" type="bootloader_stage2" oem_sign="true" compress="true" comp_algo="lz4">
              <allocation_policy> sequential </allocation_policy>
              <filesystem_type> basic </filesystem_type>
              <size> 3670016 </size>
@@ -42,7 +42,7 @@
              <percent_reserved> 0 </percent_reserved>
          </partition>
 -        <partition name="secondary_gpt_backup" type="backup_secondary_gpt">
-+        <partition name="secondary_gpt_backup" type="data">
++        <partition name="secondary_gpt_backup" type="backup_secondary_gpt">
              <allocation_policy> sequential </allocation_policy>
              <filesystem_type> basic </filesystem_type>
              <size> 65536 </size>
