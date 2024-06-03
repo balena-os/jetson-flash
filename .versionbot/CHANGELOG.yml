@@ -1,4 +1,17 @@
 - commits:
+    - subject: Add Seeed reComputer J3010 provisioning support and instruction
+      hash: dc8e26370c684bb0f4b01c9aef578f10d4e8bb1c
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alex Suykov <alex.suykov@sirinsoftware.com>
+        signed-off-by: Alex Suykov <alex.suykov@sirinsoftware.com>
+      author: Alex Suykov
+  version: 0.5.67
+  title: ""
+  date: 2024-06-03T07:21:57.021Z
+- commits:
     - subject: "README.md: Fix typo and add VMWare notes"
       hash: cda129a7f94df9d26e24d52eafad158b2445ff00
       body: ""
