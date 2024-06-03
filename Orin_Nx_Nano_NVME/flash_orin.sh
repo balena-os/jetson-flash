@@ -30,7 +30,13 @@ function log {
 }
 
 function help() {
-    echo "Provisioning can be started by typing:\n $ ./flash_orin.sh -f /data/images/<balenaOS.img> -m [jetson-orin-nx-xavier-nx-devkit|jetson-orin-nano-devkit-nvme|jetson-orin-nx-seeed-j4012] --accept-license yes"
+    echo "Provisioning can be started by typing:"
+    echo " $ ./flash_orin.sh -f /data/images/<balenaOS.img> -m <device-type> --accept-license yes"
+    echo "where <device-type> can be one of"
+    echo "    jetson-orin-nx-xavier-nx-devkit"
+    echo "    jetson-orin-nano-devkit-nvme"
+    echo "    jetson-orin-nano-seeed-j3010"
+    echo "    jetson-orin-nx-seeed-j4012"
 }
 
 # Parse arguments
@@ -75,6 +81,10 @@ if [[ $balena_device_name = "jetson-orin-nano-devkit-nvme" ]]; then
 	device_type="jetson-orin-nano-devkit"
 	device_dir="orin_nano/"
 	device_dtb="tegra234-p3767-0003-p3768-0000-a0.dtb"
+elif [[ $balena_device_name = "jetson-orin-nano-seeed-j3010" ]]; then
+	device_type="jetson-orin-nano-devkit"
+	device_dir="orin_nano/"
+	device_dtb="tegra234-p3767-0004-p3768-0000-a0.dtb"
 elif [[ $balena_device_name = "jetson-orin-nx-xavier-nx-devkit" ]] || [[ $balena_device_name = "jetson-orin-nx-seeed-j4012" ]]; then
 	device_type="p3509-a02+p3767-0000"
 	device_dir="orin_nx/"
