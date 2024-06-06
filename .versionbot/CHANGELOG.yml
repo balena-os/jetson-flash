@@ -1,4 +1,44 @@
 - commits:
+    - subject: "README: Update L4T version to 35.5.0 in documentation"
+      hash: 36d6e953dac35ddc2a5e20898e77cc15ee27e569
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+    - subject: "AGX Orin: Use updated QSPI portion of XML"
+      hash: e84ad7aa1cecf65010955b684741ec6ddec518e1
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io
+        signed-off-by: Alexandru Costache <alexandru@balena.io
+      author: Alexandru Costache
+    - subject: "lib/resin-jetson-flash: Update AGX Orin 32GB to L4T 35.5.0"
+      hash: 2ac7d0b48f4da1a359dbaa6ba4999598353a2db5
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+    - subject: "Orin Nano/NX: Update BSP to L4T 35.5.0 for flashing"
+      hash: 20a274dffc260eb268789bb6f5ee4fb3806b6fc3
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.68
+  title: ""
+  date: 2024-06-06T12:41:37.558Z
+- commits:
     - subject: Add Seeed reComputer J3010 provisioning support and instruction
       hash: dc8e26370c684bb0f4b01c9aef578f10d4e8bb1c
       body: ""
