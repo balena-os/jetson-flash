@@ -160,7 +160,7 @@
             <filename> MB2RF_IMAGE </filename>
             <align_boundary> 65536 </align_boundary>
         </partition>
-        <partition name="A_cpu-bootloader" type="bootloader_stage2" oem_sign="true">
+        <partition name="A_cpu-bootloader" type="bootloader_stage2" oem_sign="true" comp_algo="lz4">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
             <size> 3670016 </size>
@@ -396,7 +396,7 @@
             <filename> MB2RF_IMAGE </filename>
             <align_boundary> 65536 </align_boundary>
         </partition>
-        <partition name="B_cpu-bootloader" type="bootloader_stage2" oem_sign="true">
+        <partition name="B_cpu-bootloader" type="bootloader_stage2" oem_sign="true" comp_algo="lz4">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
             <size> 3670016 </size>
@@ -531,7 +531,7 @@
             <allocation_attribute> 8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
         </partition>
-        <partition name="secondary_gpt_backup" type="data">
+        <partition name="secondary_gpt_backup" type="backup_secondary_gpt">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
             <size> 65536 </size>
