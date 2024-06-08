@@ -1,4 +1,17 @@
 - commits:
+    - subject: "build.sh: Update AGX Orin Devkit BSP URL"
+      hash: d846716f8837afa343bb96a31c6bd5322d482e1d
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.69
+  title: ""
+  date: 2024-06-08T10:54:08.910Z
+- commits:
     - subject: "README: Update L4T version to 35.5.0 in documentation"
       hash: 36d6e953dac35ddc2a5e20898e77cc15ee27e569
       body: ""
