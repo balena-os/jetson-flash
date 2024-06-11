@@ -13,10 +13,10 @@ This tool allows users to flash balenaOS on supported Jetson devices:
 |Jetson Xavier NX Devkit eMMC | jetson-xavier-nx-devkit-emmc | L4T 32.7.3 | jetson-flash |
 |Jetson Xavier NX Devkit SD-CARD | jetson-xavier-nx-devkit | L4T 32.7.3 | jetson-flash |
 |Jetson AGX Orin Devkit 32GB | jetson-agx-orin-devkit | L4T 35.5.0 | jetson-flash |
-|Jetson Orin Nano 8GB (SD) Devkit NVME | jetson-orin-nano-devkit-nvme | L4T 35.5.0 | [USB Key](#orin-nx-flashing) |
-|Jetson Orin NX in Xavier NX Devkit NVME | jetson-orin-nx-xavier-nx-devkit | L4T 35.5.0 | [USB Key](#orin-nano-flashing) |
-|Seeed reComputer J3010 | jetson-orin-nano-seeed-j3010 | L4T 35.5.0 | [USB Key](#seeed-recomputer-j3010-flashing) |
-|Seeed reComputer J4012 16GB | jetson-orin-nx-seeed-j4012 | L4T 35.5.0 | [USB Key](#seeed-recomputer-j4012-flashing) |
+|Jetson Orin Nano 8GB (SD) Devkit NVME | jetson-orin-nano-devkit-nvme | L4T 35.5.0 | [RCM-Boot script + USB Key](#orin-nano-flashing) |
+|Jetson Orin NX in Xavier NX Devkit NVME | jetson-orin-nx-xavier-nx-devkit | L4T 35.5.0 | [RCM-Boot script + USB Key](#orin-nx-flashing) |
+|Seeed reComputer J3010 | jetson-orin-nano-seeed-j3010 | L4T 35.5.0 | [RCM-Boot script + USB Key](#seeed-recomputer-j3010-flashing) |
+|Seeed reComputer J4012 16GB | jetson-orin-nx-seeed-j4012 | L4T 35.5.0 | [RCM-Boot script + USB Key](#seeed-recomputer-j4012-flashing) |
 
 NOTE: The Jetson Orin NX cannot be flashed trough Jetson-Flash, instead a separate container image is used as detaled below in the [Orin NX Flashing](#orin-nx-flashing) section.
 The same applies for the Orin Nano Devkit NVME and associated device-types.
