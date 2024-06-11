@@ -1,4 +1,17 @@
 - commits:
+    - subject: "README: Improve description for Orin Nano/Orin NX flashing"
+      hash: a2a0d2b58b33e778c9d1ebac2e666d9179b499f0
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru
+  version: 0.5.71
+  title: ""
+  date: 2024-06-11T16:05:18.158Z
+- commits:
     - subject: "README: Clarify USB provisioning method on Jetson TX2"
       hash: 03b91c27e1d3a433f6c7a56aae338732318fa08a
       body: ""
