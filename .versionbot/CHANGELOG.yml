@@ -1,4 +1,17 @@
 - commits:
+    - subject: "README: Clarify USB provisioning method on Jetson TX2"
+      hash: 03b91c27e1d3a433f6c7a56aae338732318fa08a
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru
+  version: 0.5.70
+  title: ""
+  date: 2024-06-11T08:56:17.486Z
+- commits:
     - subject: "build.sh: Update AGX Orin Devkit BSP URL"
       hash: d846716f8837afa343bb96a31c6bd5322d482e1d
       body: ""
