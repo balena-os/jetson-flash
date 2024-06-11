@@ -27,7 +27,7 @@ Jetson Flash will extract the balenaOS image from a downloaded provisioned image
 This tool invokes NVIDIA’s proprietary software to properly partition the eMMC and place the required balenaOS software in the necessary location to make it bootable. Even on Jetson boards without eMMC, this tool may be necessary to initially flash balenaOS because of the way JetPack uses onboard QSPI flash memory for the bootloader. (In those cases, this tool can write to the QSPI so the device will be able to boot balenaOS from the SD card.)
 
 NOTES:
-- The usb flashing method for the Jetson TX2 is an alternative to SD-CARD provisioning, and can also be used to re-flash TX2s that cannot boot normally due to corrupt QSPI firmware.
+- The USB flashing method for the Jetson TX2 is an alternative to SD-CARD provisioning, and can also be used to re-flash TX2s that cannot boot normally due to corrupt QSPI firmware.
 - For the Jetson-TX2 flasher image only, the system-proxy directory entries are not copied over by jetson-flash.
 - If flashing Jetson TX2 with a BalenaOS image older than 2.47, please checkout tag 'v0.3.0'. BalenaOS 2.47 updated L4T version from 28.3 to 32.4.2.
 - Current BSP version used for flashing each device type is listed above. Please ensure the balenaOS version you are flashing uses the same L4T, by consulting the changelog available in the [BalenaOS Jetson repository](https://github.com/balena-os/balena-jetson/commits/master). 
