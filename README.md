@@ -196,7 +196,7 @@ For **Docker**, issue the following commands in the folder that has the Dockerfi
 You can then enter the container using:
 
 ```sh
-docker container run --rm -it --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/images:/data/images jf-image /bin/bash
+docker container run --rm -it --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/images:/data/images jetson-flash-image /bin/bash
 ```
 
 Alternatively, run the provided docker-compose file with `docker-compose up` and ssh into the container with `docker exec -it <container name> /bin/bash` 
@@ -210,7 +210,7 @@ Once in the container, you can run jetson-flash by specifying the balena image i
 You can alternatively just run the jetson-flash tool in a single command by running the container with this command:
 
 ```sh
-docker container run --rm -it --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/images:/data/images jf-image ./bin/cmd.js -f /data/images/<balena.img> -m <device_type> --accept-license=yes
+docker container run --rm -it --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/images:/data/images jetson-flash-image ./bin/cmd.js -f /data/images/<balena.img> -m <device_type> --accept-license=yes
 ```
 
 It will exit upon completion. 
