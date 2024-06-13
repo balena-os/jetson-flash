@@ -1,4 +1,18 @@
 - commits:
+    - subject: "README: Use jetson-flash-image for container tag"
+      hash: 82965c0d7a8227fe6b16ed9ba5fa0128c7a8c3d6
+      body: |
+        so it matches the tag created by build.sh
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru
+  version: 0.5.72
+  title: ""
+  date: 2024-06-13T06:32:21.818Z
+- commits:
     - subject: "README: Improve description for Orin Nano/Orin NX flashing"
       hash: a2a0d2b58b33e778c9d1ebac2e666d9179b499f0
       body: ""
