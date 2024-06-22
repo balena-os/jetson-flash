@@ -1,23 +1,15 @@
---- deviceAssetsPath/flash_t234_qspi_sdmmc.xml	2024-04-23 13:32:56.291876224 +0300
-+++ deviceAssetsPath/resinOS-flash.xml	2024-04-23 14:42:12.027897340 +0300
-@@ -14,7 +14,6 @@
- -->
- 
- <!-- Nvidia Tegra Partition Layout Version 1.0.0 -->
--
- <partition_layout version="01.00.0000">
-     <device type="spi" instance="0" sector_size="512" num_sectors="131072" >
-         <partition name="BCT" type="boot_config_table">
-@@ -615,7 +614,7 @@
+--- flash_t234_qspi_sdmmc.xml	2024-06-22 10:29:48.651223772 +0300
++++ resinOS-flash.xml	2024-06-22 10:35:29.517076263 +0300
+@@ -615,7 +615,7 @@
              <percent_reserved> 0 </percent_reserved>
          </partition>
      </device>
 -    <device type="sdmmc_user" instance="3" sector_size="512" num_sectors="INT_NUM_SECTORS" >
-+    <device type="sdmmc_user" instance="3" sector_size="512" num_sectors="INT_NUM_SECTORS">
++    <device type="sdmmc_user" instance="3" sector_size="512" num_sectors="124321792">
          <partition name="master_boot_record" type="protective_master_boot_record">
              <allocation_policy> sequential </allocation_policy>
              <filesystem_type> basic </filesystem_type>
-@@ -632,148 +631,93 @@
+@@ -632,148 +632,93 @@
              <allocation_attribute> 8 </allocation_attribute>
              <percent_reserved> 0 </percent_reserved>
          </partition>
@@ -106,50 +98,51 @@
              <allocation_attribute> 0x8 </allocation_attribute>
              <percent_reserved> 0 </percent_reserved>
 -            <filename> ESP_FILE </filename>
-             <partition_type_guid> C12A7328-F81F-11D2-BA4B-00A0C93EC93B </partition_type_guid>
+-            <partition_type_guid> C12A7328-F81F-11D2-BA4B-00A0C93EC93B </partition_type_guid>
              <description> **Required.** EFI system partition with L4T Launcher. </description>
          </partition>
 -        <partition name="RECNAME_alt" type="kernel">
+-            <allocation_policy> sequential </allocation_policy>
+-            <filesystem_type> basic </filesystem_type>
+-            <size> RECSIZE </size>
+-            <file_system_attribute> 0 </file_system_attribute>
+-            <allocation_attribute> 8 </allocation_attribute>
+-            <percent_reserved> 0 </percent_reserved>
+-        </partition>
+-        <partition name="RECDTB-NAME_alt" type="kernel_dtb">
 +        <partition name="resin-boot" type="data">
              <allocation_policy> sequential </allocation_policy>
              <filesystem_type> basic </filesystem_type>
--            <size> RECSIZE </size>
+-            <size> 524288 </size>
 +            <size> 41943040 </size>
              <file_system_attribute> 0 </file_system_attribute>
 -            <allocation_attribute> 8 </allocation_attribute>
 +	    <allocation_attribute> 0x8 </allocation_attribute>
 +	    <filename> FILENAME </filename>
++	    <partition_type_guid> C12A7328-F81F-11D2-BA4B-00A0C93EC93B </partition_type_guid>
              <percent_reserved> 0 </percent_reserved>
          </partition>
--        <partition name="RECDTB-NAME_alt" type="kernel_dtb">
-+        <partition name="resin-rootA" type="data">
-             <allocation_policy> sequential </allocation_policy>
-             <filesystem_type> basic </filesystem_type>
--            <size> 524288 </size>
-+            <size> 1027604480 </size>
-             <file_system_attribute> 0 </file_system_attribute>
--            <allocation_attribute> 8 </allocation_attribute>
-+	    <allocation_attribute> 0x8 </allocation_attribute>
-+	    <filename> FILENAME </filename>
-             <percent_reserved> 0 </percent_reserved>
--        </partition>
 -        <partition name="esp_alt" type="data">
-+    	</partition>
-+        <partition name="resin-rootB" type="data">
++        <partition name="resin-rootA" type="data">
              <allocation_policy> sequential </allocation_policy>
              <filesystem_type> basic </filesystem_type>
 -            <size> 67108864 </size>
 +            <size> 1027604480 </size>
              <file_system_attribute> 0 </file_system_attribute>
 -            <allocation_attribute> 0x8 </allocation_attribute>
--            <percent_reserved> 0 </percent_reserved>
++	    <allocation_attribute> 0x8 </allocation_attribute>
++	    <filename> FILENAME </filename>
+             <percent_reserved> 0 </percent_reserved>
 -            <description> **Required.** EFI system partition for fail-safe ESP update. </description>
 -        </partition>
 -        <partition name="UDA" type="data">
--            <allocation_policy> sequential </allocation_policy>
--            <filesystem_type> basic </filesystem_type>
++    	</partition>
++        <partition name="resin-rootB" type="data">
+             <allocation_policy> sequential </allocation_policy>
+             <filesystem_type> basic </filesystem_type>
 -            <size> 419430400 </size>
--            <file_system_attribute> 0 </file_system_attribute>
++            <size> 1027604480 </size>
+             <file_system_attribute> 0 </file_system_attribute>
 -            <allocation_attribute> 8 </allocation_attribute>
 +	    <allocation_attribute> 0x8 </allocation_attribute>
 +	    <filename> FILENAME </filename>
