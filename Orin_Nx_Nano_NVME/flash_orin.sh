@@ -76,13 +76,9 @@ if [[ $balena_device_name = "jetson-orin-nano-devkit-nvme" ]]; then
 	device_dir="orin_nano/"
 	device_dtb="tegra234-p3768-0000+p3767-0005-nv.dtb"
 elif [[ $balena_device_name = "jetson-orin-nx-xavier-nx-devkit" ]] || [[ $balena_device_name = "jetson-orin-nx-seeed-j4012" ]]; then
-	device_type="p3509-a02+p3767-0000"
+	device_type="p3509-a02-p3767-0000"
 	device_dir="orin_nx/"
 	device_dtb="tegra234-p3768-0000+p3767-0000-nv.dtb"
-elif [[ $balena_device_name = "jetson-agx-orin-devkit" ]]; then
-	device_type="jetson-agx-orin-devkit"
-	device_dir="orin_nano/"
-	device_dtb="tegra234-p3737-0000+p3701-0000-nv.dtb"
 else
 	log ERROR "Unknown or unspecified device-type!"
 fi
@@ -109,8 +105,8 @@ function setup_orin_rcmboot() {
     echo " " > "${device_dir}${lt_dir}/bootloader/recovery.img"
     mkdir -p "${device_dir}${lt_dir}/rootfs/boot/extlinux/"
     echo " " > "${device_dir}${lt_dir}/rootfs/boot/extlinux/extlinux.conf"
-    sed -i 's/console=tty0/root=LABEL=flash-rootA flasher rootdelay=1 loglevel=7 roottimeout=120 /g' "${device_dir}${lt_dir}/p3767.conf.common"
-    sed -i 's/console=tty0/root=LABEL=flash-rootA flasher rootdelay=1 loglevel=7 roottimeout=120 /g' "${device_dir}${lt_dir}/p3701.conf.common"
+    sed -i 's/console=tty0/root=LABEL=flash-rootA flasher rootdelay=1 debug loglevel=7 roottimeout=360 /g' "${device_dir}${lt_dir}/p3767.conf.common"
+    sed -i 's/console=tty0/root=LABEL=flash-rootA flasher rootdelay=1 debug loglevel=7 roottimeout=360 /g' "${device_dir}${lt_dir}/p3701.conf.common"
 }
 
 trap cleanup EXIT SIGHUP SIGINT SIGTERM
