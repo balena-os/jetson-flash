@@ -1,61 +1,15 @@
---- /deviceAssetsPath/flash_t234_qspi_sdmmc.xml	2024-02-20 06:38:14.312589327 +0200
-+++ /deviceAssetsPath/resinOS-flash.xml	2024-05-30 11:45:47.697263009 +0300
-@@ -1,18 +1,5 @@
- <?xml version="1.0"?>
- 
--<!--
--# SPDX-FileCopyrightText: Copyright (c) 2022 NVIDIA CORPORATION & AFFILIATES.
--#                         All rights reserved.
--# SPDX-License-Identifier: LicenseRef-NvidiaProprietary
--#
--# NVIDIA CORPORATION, its affiliates and licensors retain all intellectual
--# property and proprietary rights in and to this material, related
--# documentation and any modifications thereto. Any use, reproduction,
--# disclosure or distribution of this material and related documentation
--# without an express license agreement from NVIDIA CORPORATION or
--# its affiliates is strictly prohibited.
---->
--
- <!-- Nvidia Tegra Partition Layout Version 1.0.0 -->
- 
- <partition_layout version="01.00.0000">
-@@ -173,7 +160,7 @@
-             <filename> MB2RF_IMAGE </filename>
-             <align_boundary> 65536 </align_boundary>
-         </partition>
--        <partition name="A_cpu-bootloader" type="bootloader_stage2" oem_sign="true" compress="true" comp_algo="lz4">
-+        <partition name="A_cpu-bootloader" type="bootloader_stage2" oem_sign="true" compress="true" comp_algo="lz4">
-             <allocation_policy> sequential </allocation_policy>
-             <filesystem_type> basic </filesystem_type>
-             <size> 3670016 </size>
-@@ -409,7 +396,7 @@
-             <filename> MB2RF_IMAGE </filename>
-             <align_boundary> 65536 </align_boundary>
-         </partition>
--        <partition name="B_cpu-bootloader" type="bootloader_stage2" oem_sign="true" compress="true" comp_algo="lz4">
-+        <partition name="B_cpu-bootloader" type="bootloader_stage2" oem_sign="true" compress="true" comp_algo="lz4">
-             <allocation_policy> sequential </allocation_policy>
-             <filesystem_type> basic </filesystem_type>
-             <size> 3670016 </size>
-@@ -544,7 +531,7 @@
-             <allocation_attribute> 8 </allocation_attribute>
-             <percent_reserved> 0 </percent_reserved>
-         </partition>
--        <partition name="secondary_gpt_backup" type="backup_secondary_gpt">
-+        <partition name="secondary_gpt_backup" type="backup_secondary_gpt">
-             <allocation_policy> sequential </allocation_policy>
-             <filesystem_type> basic </filesystem_type>
-             <size> 65536 </size>
-@@ -585,7 +572,7 @@
+--- deviceAssetsPath/flash_t234_qspi_sdmmc.xml	2024-06-22 10:29:48.651223772 +0300
++++ deviceAssetsPath/resinOS-flash.xml	2024-06-22 10:35:29.517076263 +0300
+@@ -615,7 +615,7 @@
              <percent_reserved> 0 </percent_reserved>
          </partition>
      </device>
--    <device type="sdmmc_user" instance="3" sector_size="512" num_sectors="124321792" >
+-    <device type="sdmmc_user" instance="3" sector_size="512" num_sectors="INT_NUM_SECTORS" >
 +    <device type="sdmmc_user" instance="3" sector_size="512" num_sectors="124321792">
          <partition name="master_boot_record" type="protective_master_boot_record">
              <allocation_policy> sequential </allocation_policy>
              <filesystem_type> basic </filesystem_type>
-@@ -602,148 +589,93 @@
+@@ -632,148 +632,93 @@
              <allocation_attribute> 8 </allocation_attribute>
              <percent_reserved> 0 </percent_reserved>
          </partition>
