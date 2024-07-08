@@ -18,8 +18,11 @@ This tool allows users to flash balenaOS on supported Jetson devices:
 |Seeed reComputer J3010 | jetson-orin-nano-seeed-j3010 | L4T 35.5.0 | [RCM-Boot script + USB Key](#seeed-recomputer-j3010-flashing) |
 |Seeed reComputer J4012 16GB | jetson-orin-nx-seeed-j4012 | L4T 35.5.0 | [RCM-Boot script + USB Key](#seeed-recomputer-j4012-flashing) |
 
-NOTE: The Jetson Orin NX cannot be flashed trough Jetson-Flash, instead a separate container image is used as detaled below in the [Orin NX Flashing](#orin-nx-flashing) section.
+## IMPORTANT
+- The Jetson Orin NX cannot be flashed trough Jetson-Flash, instead a separate container image is used as detaled below in the [Orin NX Flashing](#orin-nx-flashing) section.
 The same applies for the Orin Nano Devkit NVME and associated device-types.
+- For the latest production images downloaded from balena-cloud, please use [v0.5.72](https://github.com/balena-os/jetson-flash/commit/fc1904907391f4bb1a8599a477910bcaea932e5e) for provisioning.
+  Production OS images are currently based on L4T 35.5.0, while draft releases are based on L4T 36.3 and should be flashed using [v0.5.73](https://github.com/balena-os/jetson-flash) or newer.
 
 ## About
 Jetson Flash will extract the balenaOS image from a downloaded provisioned image (such as from balenaCloud) and then flashes that image to a Jetson board connected to a host PC via USB.
