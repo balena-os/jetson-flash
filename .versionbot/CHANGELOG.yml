@@ -1,4 +1,28 @@
 - commits:
+    - subject: "README: Add important note on versions used for production vs draft
+        releases"
+      hash: 3f0f9ff4564272a185d3e56fdd707924bd86f1fa
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+    - subject: "Orin provisioning container: Update Orin NX Devkit and Orin Nano
+        devkit to L4T 36.3"
+      hash: f6dabae810483abac0344cde5fdfd2d71128cbe1
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.73
+  title: ""
+  date: 2024-07-08T12:58:09.486Z
+- commits:
     - subject: "README: Use jetson-flash-image for container tag"
       hash: 82965c0d7a8227fe6b16ed9ba5fa0128c7a8c3d6
       body: |
