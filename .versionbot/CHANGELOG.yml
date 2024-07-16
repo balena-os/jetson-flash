@@ -1,4 +1,17 @@
 - commits:
+    - subject: "README: Mention extracted BSP cache path"
+      hash: 431ecc2e0584536a40d3d33726466fb400e14cb8
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru
+  version: 0.5.74
+  title: ""
+  date: 2024-07-16T13:43:07.847Z
+- commits:
     - subject: "README: Add important note on versions used for production vs draft
         releases"
       hash: 3f0f9ff4564272a185d3e56fdd707924bd86f1fa

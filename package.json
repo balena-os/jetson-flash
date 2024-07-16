@@ -1,6 +1,6 @@
 {
   "name": "jetson-flash",
-  "version": "0.5.73",
+  "version": "0.5.74",
   "description": "This tool allows users to flash BalenaOS on specific Jetson devices using Nvidia flashing tools.",
   "scripts": {
     "test": "tap --timeout=0 --no-coverage --after=tests/cleanup.js",
@@ -46,7 +46,7 @@
     "yargs": "^16.2.0"
   },
   "versionist": {
-    "publishedAt": "2024-07-08T12:58:09.689Z"
+    "publishedAt": "2024-07-16T13:43:08.012Z"
   },
   "engines": {
     "node": ">=16"
