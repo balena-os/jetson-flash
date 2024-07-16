@@ -209,13 +209,13 @@ Alternatively, run the provided docker-compose file with `docker-compose up` and
 Once in the container, you can run jetson-flash by specifying the balena image in your host's `~/images/` folder (in place of "<balena.img>") and the desired device type (from the "balena machine name" in the table above, in place of "<device_type>")::
 
 ```sh
-./bin/cmd.js -f /data/images/<balena.img> -m <device_type> --accept-license=yes
+./bin/cmd.js -f /data/images/<balena.img> -m <device_type> --accept-license=yes -c /tmp/Linux_for_Tegra
 ```
 
 You can alternatively just run the jetson-flash tool in a single command by running the container with this command:
 
 ```sh
-docker container run --rm -it --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/images:/data/images jetson-flash-image ./bin/cmd.js -f /data/images/<balena.img> -m <device_type> --accept-license=yes
+docker container run --rm -it --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/images:/data/images jetson-flash-image ./bin/cmd.js -f /data/images/<balena.img> -m <device_type> --accept-license=yes -c /tmp/Linux_for_Tegra
 ```
 
 It will exit upon completion. 
