@@ -5,7 +5,7 @@ set -e
 balena_image_flasher_root_mnt="/tmp/flash-rootA"
 balena_image_loop_dev=""
 lt_dir="Linux_for_Tegra"
-device_dir=""
+device_dir="orin/"
 work_dir="/usr/src/app/orin-flash/"
 accept_license=""
 
@@ -33,6 +33,7 @@ function help() {
     echo "Provisioning can be started by typing:"
     echo " $ ./flash_orin.sh -f /data/images/<balenaOS.img> -m <device-type> --accept-license yes"
     echo "where <device-type> can be one of"
+    echo "    jetson-agx-orin-devkit-64gb"
     echo "    jetson-orin-nx-xavier-nx-devkit"
     echo "    jetson-orin-nano-devkit-nvme"
     echo "    jetson-orin-nano-seeed-j3010"
@@ -77,18 +78,19 @@ while [[ $# -gt 0 ]]; do
 	shift
 done
 
+
 if [[ $balena_device_name = "jetson-orin-nano-devkit-nvme" ]]; then
 	device_type="jetson-orin-nano-devkit"
-	device_dir="orin_nano/"
 	device_dtb="tegra234-p3768-0000+p3767-0005-nv.dtb"
 elif [[ $balena_device_name = "jetson-orin-nano-seeed-j3010" ]]; then
 	device_type="jetson-orin-nano-devkit"
-	device_dir="orin_nano/"
 	device_dtb="tegra234-p3768-0000+p3767-0004-nv.dtb"
 elif [[ $balena_device_name = "jetson-orin-nx-xavier-nx-devkit" ]] || [[ $balena_device_name = "jetson-orin-nx-seeed-j4012" ]]; then
 	device_type="p3509-a02-p3767-0000"
-	device_dir="orin_nx/"
 	device_dtb="tegra234-p3768-0000+p3767-0000-nv.dtb"
+elif [[ $balena_device_name = "jetson-agx-orin-devkit-64gb" ]]; then
+	device_type="jetson-agx-orin-devkit"
+	device_dtb="tegra234-p3737-0000+p3701-0005.dtb"
 else
 	log ERROR "Unknown or unspecified device-type!"
 fi
@@ -100,8 +102,8 @@ cleanup () {
 	losetup -D
 	if [[ $exit_code -eq 0 ]]; then
 		log "Once the device's fan starts spinning USB provisioning is started."
-		log "The internal flashing process takes around 10-15 minutes as the internal QSPI memory is flashed, please wait for the device to finish provisioning and to power itself off."
-		log "Once power LED turns off, remove the force recovery jumper and the provisioning USB KEY, then power on the device."
+		log "The internal flashing process takes around 5-10 minutes as the internal QSPI memory is flashed, please wait for the device to finish provisioning and to power itself off."
+		log "Once power LED turns off, remove the force recovery jumper if applicable as well as the provisioning USB KEY, then power on the device."
 	fi
 }
 
@@ -127,7 +129,7 @@ if [ ! -d ${work_dir}/${device_dir}/${lt_dir} ]; then
 fi
 
 cat "${work_dir}/${device_dir}/${lt_dir}/Tegra_Software_License_Agreement-Tegra-Linux.txt"
-log "Above license agreement can be consulted at https://developer.download.nvidia.com/embedded/L4T/r35_Release_v4.1/release/Tegra_Software_License_Agreement-Tegra-Linux.txt"
+log "Above license agreement can be consulted at https://developer.download.nvidia.com/embedded/L4T/r36_Release_v3.0/release/Tegra_Software_License_Agreement-Tegra-Linux.txt?t=eyJscyI6ImdzZW8iLCJsc2QiOiJodHRwczovL3d3dy5nb29nbGUuY29tLyJ9"
 
 if [ "$accept_license" != "yes" ]; then
    echo "Accept the above License Agreement? Type yes/no:"

@@ -13,6 +13,7 @@ This tool allows users to flash balenaOS on supported Jetson devices:
 |Jetson Xavier NX Devkit eMMC | jetson-xavier-nx-devkit-emmc | L4T 32.7.3 | jetson-flash |
 |Jetson Xavier NX Devkit SD-CARD | jetson-xavier-nx-devkit | L4T 32.7.3 | jetson-flash |
 |Jetson AGX Orin Devkit 32GB | jetson-agx-orin-devkit | L4T 36.3 | jetson-flash |
+|Jetson AGX Orin Devkit 64GB | jetson-agx-orin-devkit-64 | L4T 36.3 | [RCM-Boot script + USB Key](#agx-orin-devkit-64gb-flashing) |
 |Jetson Orin Nano 8GB (SD) Devkit NVME | jetson-orin-nano-devkit-nvme | L4T 36.3 | [RCM-Boot script + USB Key](#orin-nano-flashing) |
 |Jetson Orin NX in Xavier NX Devkit NVME | jetson-orin-nx-xavier-nx-devkit | L4T 36.3 | [RCM-Boot script + USB Key](#orin-nx-flashing) |
 |Seeed reComputer J3010 | jetson-orin-nano-seeed-j3010 | L4T 36.3 | [RCM-Boot script + USB Key](#seeed-recomputer-j3010-flashing) |
@@ -124,12 +125,20 @@ Then power on the device.
 4. Connect the power adapter to the Power Jack [J16].
 5. The device will automatically power on in Force Recovery Mode.
 
-**Jetson AGX Orin:**
+**Jetson AGX Orin 32GB Devkit:**
 
 - Make sure you put the Type-C plug of the cable into the USB Type-C port next to 40-pin connector for flashing.
 - While holding the middle Force Recovery button, insert the USB Type-C power supply plug into the USB Type-C port above the DC jack.
 - This will turn on the Jetson dev kit in Force Recovery Mode.
 - HOLD DOWN UNTIL you hear the fan and get a usb connection popup on your connected PC
+
+**Jetson AGX Orin 64GB Devkit:**
+
+- Make sure you put the Type-C plug of the cable into the USB Type-C port next to 40-pin connector for flashing.
+- While holding the middle Force Recovery button, insert the USB Type-C power supply plug into the USB Type-C port above the DC jack.
+- This will turn on the Jetson dev kit in Force Recovery Mode.
+- Release the middle Force Recovery button
+- Issuing `lsusb` on your PC should show the device in recovery mode, for example: `ID 0955:7023 NVIDIA Corp. APX`
 
 **Jetson Orin NX in Xavier NX Devkit:**
 
@@ -276,6 +285,36 @@ Important notes on Orin NX provisioning:
 root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<balena.img> -m jetson-orin-nx-xavier-nx-devkit
 ```
 
+## AGX Orin Devkit 64GB Flashing:
+
+Important notes on AGX Orin Devkit 64GB provisioning:
+
+- Flashing this device type requires a NVME drive to be inserted in the devkit before the provisioning process is started
+- IMPORTANT! During provisioning the on-board eMMC will be erased and the NVME will be overwritten by the balenaOS image. Make sure to back-up your eMMC and NVME drive to avoid any potential data loss
+- The Docker image and the associated scripts require a Linux-based host and have been validated on a PC running Ubuntu 22.04. Other host operating systems or virtualised environments may also work, provided that the Nvidia BSP flashing tools are able to communicate with the Jetson device successfully over USB
+- We don't formally test Ubuntu 22.04 in VMWare virtual machines, but it seem to work. More specifically, with VMWare Fusion for Mac and VMWare Workstation for Windows. Note: when prompted by VMWare choose to automatically connect the NVIDIA Corp. APX USB device (i.e. the Orin device) to the VM rather than to the host.
+- balenaOS releases for this device type are based on L4T 36.3 - Jetpack 6
+- Flashing of the AGX Orin Devkit 64GB with a NVME attached can be done solely by using the Docker image inside the Orin_Nx_Nano_NVME folder. The Dockerfile and the scripts inside this folder are not used by jetson-flash and should be used as a stand-alone means for flashing BalenaOS on the AGX Orin Devkit 64GB and the attached NVME.
+- Docker needs to be installed on the Host PC and the Docker image needs to be run as privileged
+- The balenaOS image downloaded from balena-cloud needs to be unpacked and copied on your Host PC inside the `~/images/` folder. This location will be bind mounted inside the running container.
+
+### AGX Orin Devkit 64GB flashing steps:
+
+- Attach a NVME drive to the AGX Orin Devkit 64GB
+- Download your balenaOS image from balena-cloud, unpack and write it to a USB stick. We recommend using <a href="https://www.balena.io/etcher">Etcher</a>.
+- Place the balenaOS unpacked image inside the folder ~/images on your HOST PC. This location will be automatically bind-mounted in the container image in the `/data/images/` folder
+- Put the AGX Orin Devkit 64GB in Force Recovery mode
+- Insert the USB stick created above in the upper USB port located near the the display port of the AGX Orin Devkit 64GB
+- Navigate to the `Orin_Nx_Nano_NVME` folder and run the Docker image by executing the `build_and_run.sh` script:
+```
+~/jetson-flash$ cd Orin_Nx_Nano_NVME/
+~/jetson-flash/Orin_Nx_Nano_NVME$ ./build_and_run.sh
+```
+- Once the docker image has been built and starts running, the balenaOS kernel and flasher image can be booted by executing the `flash_orin_nx.sh` script:
+```
+root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<balena.img> -m jetson-agx-orin-devkit-64gb
+```
+
 ## Orin Nano Flashing:
 
 Important notes on Orin Nano provisioning:
@@ -327,7 +366,7 @@ root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<bale
 ```
 - Once the docker image has been built and starts running, the balenaOS kernel and flasher image can be booted by executing the `flash_orin.sh` script:
 ```
-root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<balena.img> -m jetson-orin-nx-seeed-j3010
+root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<balena.img> -m jetson-orin-nano-seeed-j3010
 ```
 
 ## Seeed reComputer J4012 Flashing:
@@ -359,13 +398,15 @@ root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<bale
 
 
 Depending on the device used, the machine used will be one of:
+- jetson-agx-orin-devkit-64-nvme
 - jetson-orin-nx-xavier-nx-devkit
 - jetson-orin-nano-devkit-nvme
 - jetson-orin-nx-seeed-j4012
+- jetson-orin-nano-seeed-j3010
 
 
 Other considerations:
-- The flashing process takes around 15 minutes and once it completes, the board will power-off. The device can be taken out of recovery mode and the USB flasher stick can be unplugged.
+- The flashing process takes around 5-10 minutes and once it completes, the board will power-off. The device can be taken out of recovery mode and the USB flasher stick can be unplugged.
 - Remove and reconnect power to the device.
 
 ## Support
