@@ -40,7 +40,7 @@
     "resin-cli-visuals": "^1.8.0",
     "stream-to-string": "^1.2.0",
     "string-to-stream": "^3.0.1",
-    "tar-fs": "^2.1.1",
+    "tar-fs": "^3.0.0",
     "unbzip2-stream": "^1.4.3",
     "xml-js": "^1.6.11",
     "yargs": "^16.2.0"
