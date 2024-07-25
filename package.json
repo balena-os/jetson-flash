@@ -37,7 +37,7 @@
     "partitioninfo": "^6.0.2",
     "progress-stream": "^2.0.0",
     "request": "^2.88.2",
-    "resin-cli-visuals": "^1.8.0",
+    "resin-cli-visuals": "^2.0.0",
     "stream-to-string": "^1.2.0",
     "string-to-stream": "^3.0.1",
     "tar-fs": "^2.1.1",
