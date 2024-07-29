@@ -21,9 +21,10 @@ This tool allows users to flash balenaOS on supported Jetson devices:
 
 ## IMPORTANT
 - The Jetson Orin NX cannot be flashed trough Jetson-Flash, instead a separate container image is used as detaled below in the [Orin NX Flashing](#orin-nx-flashing) section.
-The same applies for the Orin Nano Devkit NVME and associated device-types.
+  The same applies for the Orin Nano Devkit NVME, Seeed reComputer J3010 and J4012 as well as for the AGX Orin 64GB Devkit
 - For the latest Jetson Orin and Seeed reComputer production images older than balenaOS v6.0 downloaded from balena-cloud, please use [v0.5.72](https://github.com/balena-os/jetson-flash/commit/fc1904907391f4bb1a8599a477910bcaea932e5e) for provisioning.
 - Production OS images for Jetson Orin and Seeed reComputer devices on versions lower than balenaOS v6.0 are based on L4T 35.5.0 - Jetpack 5. OS versions newer than v6.0 as well as draft releases starting with v5.3.23 are based on L4T 36.3 and should be flashed using this repository at [v0.5.73](https://github.com/balena-os/jetson-flash) or newer.
+
 
 ## About
 Jetson Flash will extract the balenaOS image from a downloaded provisioned image (such as from balenaCloud) and then flashes that image to a Jetson board connected to a host PC via USB.
@@ -127,14 +128,14 @@ Then power on the device.
 
 **Jetson AGX Orin 32GB Devkit:**
 
-- Make sure you put the Type-C plug of the cable into the USB Type-C port next to 40-pin connector for flashing.
+- Make sure you connect the Type-C plug of the data cable to the USB Type-C port used for flashing, which is located next to 40-pin connector.
 - While holding the middle Force Recovery button, insert the USB Type-C power supply plug into the USB Type-C port above the DC jack.
 - This will turn on the Jetson dev kit in Force Recovery Mode.
 - HOLD DOWN UNTIL you hear the fan and get a usb connection popup on your connected PC
 
 **Jetson AGX Orin 64GB Devkit:**
 
-- Make sure you put the Type-C plug of the cable into the USB Type-C port next to 40-pin connector for flashing.
+- Make sure you connect the Type-C plug of the data cable to the USB Type-C port used for flashing, which is located next to 40-pin connector.
 - While holding the middle Force Recovery button, insert the USB Type-C power supply plug into the USB Type-C port above the DC jack.
 - This will turn on the Jetson dev kit in Force Recovery Mode.
 - Release the middle Force Recovery button
@@ -289,8 +290,7 @@ root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<bale
 
 Important notes on AGX Orin Devkit 64GB provisioning:
 
-- Flashing this device type requires a NVME drive to be inserted in the devkit before the provisioning process is started
-- IMPORTANT! During provisioning the on-board eMMC will be erased and the NVME will be overwritten by the balenaOS image. Make sure to back-up your eMMC and NVME drive to avoid any potential data loss
+- By default, balenaOS is flashed on the Jetson AGX Orin 64GB Devkit's eMMC
 - The Docker image and the associated scripts require a Linux-based host and have been validated on a PC running Ubuntu 22.04. Other host operating systems or virtualised environments may also work, provided that the Nvidia BSP flashing tools are able to communicate with the Jetson device successfully over USB
 - We don't formally test Ubuntu 22.04 in VMWare virtual machines, but it seem to work. More specifically, with VMWare Fusion for Mac and VMWare Workstation for Windows. Note: when prompted by VMWare choose to automatically connect the NVIDIA Corp. APX USB device (i.e. the Orin device) to the VM rather than to the host.
 - balenaOS releases for this device type are based on L4T 36.3 - Jetpack 6
@@ -300,8 +300,12 @@ Important notes on AGX Orin Devkit 64GB provisioning:
 
 ### AGX Orin Devkit 64GB flashing steps:
 
-- Attach a NVME drive to the AGX Orin Devkit 64GB
 - Download your balenaOS image from balena-cloud, unpack and write it to a USB stick. We recommend using <a href="https://www.balena.io/etcher">Etcher</a>.
+- If you would like to flash and boot from a NVME drive instead of the eMMC, please follow these steps:
+  - After writing your balenaOS image to the USB key, mount the flash-rootA partition of the USB stick and open the file `etc/resin-init-flasher.conf` located in it
+  - The first line of this file is `INTERNAL_DEVICE_KERNEL="mmcblk0"`. Replace `mmcblk0` with `nvme0n1`, save and close the file
+  - Ensure the flash-rootA partition is unmounted before removing the USB key from your PC
+  - IMPORTANT: Flashing balenaOS on the NVME will erase the contents of the device's eMMC as well. Please make sure to back-up your data
 - Place the balenaOS unpacked image inside the folder ~/images on your HOST PC. This location will be automatically bind-mounted in the container image in the `/data/images/` folder
 - Put the AGX Orin Devkit 64GB in Force Recovery mode
 - Insert the USB stick created above in the upper USB port located near the the display port of the AGX Orin Devkit 64GB
