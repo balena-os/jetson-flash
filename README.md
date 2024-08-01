@@ -15,8 +15,8 @@ This tool allows users to flash balenaOS on supported Jetson devices:
 |Jetson AGX Orin Devkit 32GB | jetson-agx-orin-devkit | L4T 36.3 | jetson-flash |
 |Jetson Orin Nano 8GB (SD) Devkit NVME | jetson-orin-nano-devkit-nvme | L4T 36.3 | [RCM-Boot script + USB Key](#orin-nano-flashing) |
 |Jetson Orin NX in Xavier NX Devkit NVME | jetson-orin-nx-xavier-nx-devkit | L4T 36.3 | [RCM-Boot script + USB Key](#orin-nx-flashing) |
-|Seeed reComputer J3010 | jetson-orin-nano-seeed-j3010 | L4T 35.5.0 | [RCM-Boot script + USB Key](#seeed-recomputer-j3010-flashing) |
-|Seeed reComputer J4012 16GB | jetson-orin-nx-seeed-j4012 | L4T 35.5.0 | [RCM-Boot script + USB Key](#seeed-recomputer-j4012-flashing) |
+|Seeed reComputer J3010 | jetson-orin-nano-seeed-j3010 | L4T 36.3.0 | [RCM-Boot script + USB Key](#seeed-recomputer-j3010-flashing) |
+|Seeed reComputer J4012 16GB | jetson-orin-nx-seeed-j4012 | L4T 36.3.0 | [RCM-Boot script + USB Key](#seeed-recomputer-j4012-flashing) |
 
 ## IMPORTANT
 - The Jetson Orin NX cannot be flashed trough Jetson-Flash, instead a separate container image is used as detaled below in the [Orin NX Flashing](#orin-nx-flashing) section.
@@ -308,7 +308,7 @@ root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<bale
 ## Seeed reComputer J3010 Flashing:
 
 - The Docker image and the associated scripts require a Linux-based host and have been validated on a PC running Ubuntu 24.04. Other host operating systems or virtualised environments may also work, provided that the Nvidia BSP flashing tools are able to communicate with the Jetson module successfuly over USB
-- The current Seeed reComputer J3010 image is based on L4T 35.5.0
+- The latest Seeed reComputer J3010 balena-cloud image is based on L4T 36.3.0
 - Flashing of the Seeed reComputer J3010 with a NVME attached can be done solely by using the Docker image inside the Orin_Nx_Nano_NVME folder. The Dockerfile and the scripts inside this folder are not used by jetson-flash and should be used as a stand-alone means for flashing BalenaOS on the Seeed reComputer J3010 and the NVME attached to the carrier board.
 - Docker needs to be installed on the Host PC and the Docker image needs to be run as privileged
 - The balenaOS image downloaded from balena-cloud needs to be unpacked and copied on your Host PC inside the `~/images/` folder. This location will be bind mounted inside the running container.
