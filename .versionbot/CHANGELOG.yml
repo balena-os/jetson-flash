@@ -1,4 +1,18 @@
 - commits:
+    - subject: "README: Update L4T version for Seeed reComputer J3010 and J4012"
+      hash: d3c253a7ec7d81031cc967be773aea0dcc1e58e0
+      body: |
+        and update info for L4T releases.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.75
+  title: ""
+  date: 2024-08-06T10:11:33.875Z
+- commits:
     - subject: "README: Mention extracted BSP cache path"
       hash: 431ecc2e0584536a40d3d33726466fb400e14cb8
       body: ""
