@@ -15,14 +15,14 @@ This tool allows users to flash balenaOS on supported Jetson devices:
 |Jetson AGX Orin Devkit 32GB | jetson-agx-orin-devkit | L4T 36.3 | jetson-flash |
 |Jetson Orin Nano 8GB (SD) Devkit NVME | jetson-orin-nano-devkit-nvme | L4T 36.3 | [RCM-Boot script + USB Key](#orin-nano-flashing) |
 |Jetson Orin NX in Xavier NX Devkit NVME | jetson-orin-nx-xavier-nx-devkit | L4T 36.3 | [RCM-Boot script + USB Key](#orin-nx-flashing) |
-|Seeed reComputer J3010 | jetson-orin-nano-seeed-j3010 | L4T 35.5.0 | [RCM-Boot script + USB Key](#seeed-recomputer-j3010-flashing) |
-|Seeed reComputer J4012 16GB | jetson-orin-nx-seeed-j4012 | L4T 35.5.0 | [RCM-Boot script + USB Key](#seeed-recomputer-j4012-flashing) |
+|Seeed reComputer J3010 | jetson-orin-nano-seeed-j3010 | L4T 36.3 | [RCM-Boot script + USB Key](#seeed-recomputer-j3010-flashing) |
+|Seeed reComputer J4012 16GB | jetson-orin-nx-seeed-j4012 | L4T 36.3 | [RCM-Boot script + USB Key](#seeed-recomputer-j4012-flashing) |
 
 ## IMPORTANT
 - The Jetson Orin NX cannot be flashed trough Jetson-Flash, instead a separate container image is used as detaled below in the [Orin NX Flashing](#orin-nx-flashing) section.
 The same applies for the Orin Nano Devkit NVME and associated device-types.
-- For the latest production images downloaded from balena-cloud, please use [v0.5.72](https://github.com/balena-os/jetson-flash/commit/fc1904907391f4bb1a8599a477910bcaea932e5e) for provisioning.
-  Production OS images are currently based on L4T 35.5.0, while draft releases are based on L4T 36.3 and should be flashed using [v0.5.73](https://github.com/balena-os/jetson-flash) or newer.
+- For the latest Jetson Orin and Seeed reComputer production images older than balenaOS v6.0 downloaded from balena-cloud, please use [v0.5.72](https://github.com/balena-os/jetson-flash/commit/fc1904907391f4bb1a8599a477910bcaea932e5e) for provisioning.
+- Production OS images for Jetson Orin and Seeed reComputer devices on versions lower than balenaOS v6.0 are based on L4T 35.5.0 - Jetpack 5. OS versions newer than v6.0 as well as draft releases starting with v5.3.23 are based on L4T 36.3 and should be flashed using this repository at [v0.5.73](https://github.com/balena-os/jetson-flash) or newer.
 
 ## About
 Jetson Flash will extract the balenaOS image from a downloaded provisioned image (such as from balenaCloud) and then flashes that image to a Jetson board connected to a host PC via USB.
@@ -36,8 +36,8 @@ NOTES:
 - Current BSP version used for flashing each device type is listed above. Please ensure the balenaOS version you are flashing uses the same L4T, by consulting the changelog available in the [BalenaOS Jetson repository](https://github.com/balena-os/balena-jetson/commits/master). 
 - Jetson Flash v0.5.10 should be used for flashing devices on L4T 32.4.4.
 - The L4T BSP archive is automatically downloaded by the tool during flashing and the L4T version is already updated to match the latest balena-cloud image version.
-- AGX Orin 32GB Devkit balenaOS images v5.3.21, v5.3.21+rev1, v5.3.21+rev2 and v5.3.21+rev3 are based on L4T 35.5.0
-- AGX Orin 32GB Devkit draft releases v5.3.21+rev4 and newer are based on L4T 36.3 - Jetpack 6
+- balenaOS images for Jetson Orin devices at v5.3.21, v5.3.21+rev1, v5.3.21+rev2 and v5.3.21+rev3 are based on L4T 35.5.0.
+- balenaOS images for Jetson Orin devices at versions greater than v5.3.23 are based on L4T 36.3 - Jetpack 6.
  
  
 ## Software required
