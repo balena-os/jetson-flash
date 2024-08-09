@@ -13,7 +13,7 @@ This tool allows users to flash balenaOS on supported Jetson devices:
 |Jetson Xavier NX Devkit eMMC | jetson-xavier-nx-devkit-emmc | L4T 32.7.3 | jetson-flash |
 |Jetson Xavier NX Devkit SD-CARD | jetson-xavier-nx-devkit | L4T 32.7.3 | jetson-flash |
 |Jetson AGX Orin Devkit 32GB | jetson-agx-orin-devkit | L4T 36.3 | jetson-flash |
-|Jetson AGX Orin Devkit 64GB | jetson-agx-orin-devkit-64 | L4T 36.3 | [RCM-Boot script + USB Key](#agx-orin-devkit-64gb-flashing) |
+|Jetson AGX Orin Devkit 64GB | jetson-agx-orin-devkit-64gb | L4T 36.3 | [RCM-Boot script + USB Key](#agx-orin-devkit-64gb-flashing) |
 |Jetson Orin Nano 8GB (SD) Devkit NVME | jetson-orin-nano-devkit-nvme | L4T 36.3 | [RCM-Boot script + USB Key](#orin-nano-flashing) |
 |Jetson Orin NX in Xavier NX Devkit NVME | jetson-orin-nx-xavier-nx-devkit | L4T 36.3 | [RCM-Boot script + USB Key](#orin-nx-flashing) |
 |Seeed reComputer J3010 | jetson-orin-nano-seeed-j3010 | L4T 36.3 | [RCM-Boot script + USB Key](#seeed-recomputer-j3010-flashing) |
@@ -115,7 +115,7 @@ Then power on the device.
 
 1. Connect the developer kit as described above. It should be powered off.
 2. Press and hold down the Force Recovery button.
-3. Press and hold down the Power button.
+3. Press and hold down the Power button.Signed-off-by: Alexandru Costache <alexandru@balena.io
 4. Release both buttons.
 
 **Jetson Xavier NX:**
