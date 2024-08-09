@@ -1,4 +1,17 @@
 - commits:
+    - subject: "README: Update AGX Orin 64GB machine name"
+      hash: afc1c62821334b774535776f37724bf38f885720
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io
+        signed-off-by: Alexandru Costache <alexandru@balena.io
+      author: Alexandru
+  version: 0.5.77
+  title: ""
+  date: 2024-08-09T08:41:22.906Z
+- commits:
     - subject: Add Jetson AGX Orin 64GB Devkit provisioning support
       hash: a3388aedf18f5cb44a3dc7d60d68bdcf973c483c
       body: ""
