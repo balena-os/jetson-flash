@@ -1,4 +1,17 @@
 - commits:
+    - subject: Add Jetson AGX Orin 64GB Devkit provisioning support
+      hash: a3388aedf18f5cb44a3dc7d60d68bdcf973c483c
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.76
+  title: ""
+  date: 2024-08-09T08:00:36.061Z
+- commits:
     - subject: "README: Update L4T version for Seeed reComputer J3010 and J4012"
       hash: d3c253a7ec7d81031cc967be773aea0dcc1e58e0
       body: |
