@@ -2,7 +2,7 @@
 
 This tool allows users to flash balenaOS on supported Jetson devices:
 
-For the Jetson AGX Orin Devkit 64GB, Jetson AGX Orin Devkit 64GB, Jetson Orin Nano 8GB (SD) Devkit NVME, Jetson Orin NX in Xavier NX Devkit NVME, Seeed reComputer J3010, and Seeed reComputer J4012 16GB, see these instructions.
+For the Jetson AGX Orin Devkit 64GB, Jetson AGX Orin Devkit 64GB, Jetson Orin Nano 8GB (SD) Devkit NVME, Jetson Orin NX in Xavier NX Devkit NVME, Seeed reComputer J3010, and Seeed reComputer J4012 16GB, see [these instructions](https://github.com/balena-os/jetson-flash/blob/alanb-documentation/Orin_Flash/README.md).
 
 For the Jetson Nano, TX2, and Xavier, see below...
 
