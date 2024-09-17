@@ -20,7 +20,8 @@ NOTES:
 - The L4T BSP archive is automatically downloaded by the tool during flashing and the L4T version is already updated to match the latest balena-cloud image version.
 - balenaOS images for Jetson Orin devices at v5.3.21, v5.3.21+rev1, v5.3.21+rev2 and v5.3.21+rev3 are based on L4T 35.5.0.
 - balenaOS images for Jetson Orin devices at versions greater than v5.3.23 are based on L4T 36.3 - Jetpack 6.
- 
+
+
 |Device | balena machine name | L4T version |
 |-------|---------------------|-------------|---------------------|
 |Jetson AGX Orin Devkit 32GB | jetson-agx-orin-devkit | L4T 36.3 |
