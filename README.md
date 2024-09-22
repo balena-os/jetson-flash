@@ -207,3 +207,6 @@ License
 -------
 
 The project is licensed under the Apache 2.0 license.
+
+Photo by <a href="https://unsplash.com/@melodyp?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Mélody P</a> on <a href="https://unsplash.com/photos/thunder-through-field-wFN9B3s_iik?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
+
