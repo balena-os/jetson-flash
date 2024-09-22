@@ -1,5 +1,5 @@
 # jetson-flash
-
+<img src="flash.jpg">
 This tool allows users to flash balenaOS on supported Jetson devices:
 
 For the Jetson AGX Orin Devkit 64GB, Jetson AGX Orin Devkit 64GB, Jetson Orin Nano 8GB (SD) Devkit NVME, Jetson Orin NX in Xavier NX Devkit NVME, Seeed reComputer J3010, and Seeed reComputer J4012 16GB, see [these instructions](https://github.com/balena-os/jetson-flash/blob/alanb-documentation/Orin_Flash/README.md).
@@ -18,8 +18,6 @@ NOTES:
 - Current BSP version used for flashing each device type is listed below. Please ensure the balenaOS version you are flashing uses the same L4T, by consulting the changelog available in the [BalenaOS Jetson repository](https://github.com/balena-os/balena-jetson/commits/master). 
 - Jetson Flash v0.5.10 should be used for flashing devices on L4T 32.4.4.
 - The L4T BSP archive is automatically downloaded by the tool during flashing and the L4T version is already updated to match the latest balena-cloud image version.
-- balenaOS images for Jetson Orin devices at v5.3.21, v5.3.21+rev1, v5.3.21+rev2 and v5.3.21+rev3 are based on L4T 35.5.0.
-- balenaOS images for Jetson Orin devices at versions greater than v5.3.23 are based on L4T 36.3 - Jetpack 6.
  
 |Device | balena machine name | L4T version |
 |-------|---------------------|-------------|
@@ -31,7 +29,9 @@ NOTES:
 |Jetson AGX Xavier | jetson-xavier | L4T 32.7.3 |
 |Jetson Xavier NX Devkit eMMC | jetson-xavier-nx-devkit-emmc | L4T 32.7.3 |
 |Jetson Xavier NX Devkit SD-CARD | jetson-xavier-nx-devkit | L4T 32.7.3 |
- 
+
+(For Jetson Orin devices, see [this page](https://github.com/balena-os/jetson-flash/blob/alanb-documentation/Orin_Flash/README.md).
+
 ## Software required
 Jetson Flash requires a Linux-based host (or virtual machine) and has been tested on Ubuntu 22.04 (Focal).
 
