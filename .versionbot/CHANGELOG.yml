@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update README for non-Docker lz4 package requirement
+      hash: b43a65a737cec7e62e66d7b82fb527dc0bf5a4b1
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ken Bannister <kb2ma@runbox.com>
+        signed-off-by: Ken Bannister <kb2ma@runbox.com>
+      author: Ken Bannister
+  version: 0.5.78
+  title: ""
+  date: 2024-09-23T07:56:13.605Z
+- commits:
     - subject: "README: Update AGX Orin 64GB machine name"
       hash: afc1c62821334b774535776f37724bf38f885720
       body: ""
