@@ -54,7 +54,7 @@ Prerequisites:
 - Sudo privileges (required by Tegra Flash and to delete intermediate steps created by the tool in `/tmp/${pid_of_process}`)
 - [NodeJS](https://nodejs.org)
 - Make sure you have python2 installed and that the `python` binary points to python2.
-- Dependencies required for the the L4T package, including: lbzip2, e2fsprogs, dosfstools, libxml2-utils
+- Dependencies required for the the L4T package, including: lbzip2, e2fsprogs, dosfstools, libxml2-utils, lz4
 
 Installation:
 
