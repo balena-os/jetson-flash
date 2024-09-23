@@ -11,7 +11,7 @@ These instructions are for the Jetson Orin devices only. For other Jetson device
 ## About
 Jetson Flash will extract the balenaOS image from a downloaded provisioned image (such as from balenaCloud) and then flashes that image to a Jetson board connected to a host PC via USB.
 
-This tool invokes NVIDIA’s proprietary software to properly partition the eMMC and place the required balenaOS software in the necessary location to make it bootable. Even on Jetson boards without eMMC, this tool may be necessary to initially flash balenaOS because of the way JetPack uses onboard QSPI flash memory for the bootloader. (In those cases, this tool can write to the QSPI so the device will be able to boot balenaOS from the SD card.)
+This tool invokes NVIDIA’s proprietary software to properly partition the boot media (such as eMMC) and place the required balenaOS software in the necessary location to make it bootable. Even on Jetson boards without eMMC, this tool may be necessary to initially flash balenaOS because of the way JetPack uses onboard QSPI flash memory for the bootloader. (In those cases, this tool can write to the QSPI so the device will be able to boot balenaOS from the SD card.)
 
 NOTES:
 - Current BSP version used for flashing each device type is listed below. Please ensure the balenaOS version you are flashing uses the same L4T, by consulting the changelog available in the [BalenaOS Jetson repository](https://github.com/balena-os/balena-jetson/commits/master). 
@@ -32,8 +32,12 @@ NOTES:
 
 (For non-Orin devices, [see here](https://github.com/balena-os/jetson-flash/new/alanb-documentation)
 
-## Software required
-Jetson Orin Flash requires a Linux-based host (or virtual machine) with Docker installed and has been tested on Ubuntu 22.04 (Focal).
+## Requirements
+- Docker needs to be installed on the Host PC and the Docker image needs to be run as privileged
+- The balenaOS image downloaded from balena-cloud needs to be unpacked and copied on your Host PC inside the `~/images/` folder. This location will be bind mounted inside the running container.
+- The Docker image and the associated scripts require a Linux-based host and have been validated on a PC running Ubuntu 22.04. Other host operating systems or virtualised environments may also work, provided that the Nvidia BSP flashing tools are able to communicate with the Jetson device successfully over USB
+- We don't formally test Ubuntu 22.04 in VMWare virtual machines, but it seem to work. More specifically, with VMWare Fusion for Mac and VMWare Workstation for Windows. Note: when prompted by VMWare choose to automatically connect the NVIDIA Corp. APX USB device (i.e. the Orin device) to the VM rather than to the host.
+- Flashing of Orin devices can be done solely by using the Docker image inside this folder (Orin_Flash). The Dockerfile and the scripts inside this folder are not used by jetson-flash and should be used as a stand-alone means for flashing BalenaOS on Orin devices.
 
 ## How to use
 
@@ -121,13 +125,9 @@ Bus 001 Device 019: ID 0955:7c18 NVIDIA Corp. T186 [TX2 Tegra Parker] recovery m
 
 Important notes on Orin NX provisioning:
 
-- The Docker image and the associated scripts require a Linux-based host and have been validated on a PC running Ubuntu 22.04. Other host operating systems or virtualised environments may also work, provided that the Nvidia BSP flashing tools are able to communicate with the Jetson device successfully over USB
-- We don't formally test Ubuntu 22.04 in VMWare virtual machines, but it seem to work. More specifically, with VMWare Fusion for Mac and VMWare Workstation for Windows. Note: when prompted by VMWare choose to automatically connect the NVIDIA Corp. APX USB device (i.e. the Orin device) to the VM rather than to the host.
 - The current Orin NX balenaOS images v5.3.21, v5.3.21+rev1, v5.3.21+rev2 and v5.3.21+rev3 are based on L4T 35.5.0
 - Draft balenaOS releases at v5.3.21+rev4 or newer are based on L4T 36.3 - Jetpack 6
-- Flashing of the Orin NX module in a Xavier NX Devkit carrier board with a NVME attached can be done solely by using the Docker image inside the Orin_Flash folder. The Dockerfile and the scripts inside this folder are not used by jetson-flash and should be used as a stand-alone means for flashing BalenaOS on the Orin NX and the attached NVME.
-- Docker needs to be installed on the Host PC and the Docker image needs to be run as privileged
-- The balenaOS image downloaded from balena-cloud needs to be unpacked and copied on your Host PC inside the `~/images/` folder. This location will be bind mounted inside the running container.
+
 
 ### Orin NX Flashing steps:
 
@@ -151,12 +151,7 @@ root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<bale
 Important notes on AGX Orin Devkit 64GB provisioning:
 
 - By default, balenaOS is flashed on the Jetson AGX Orin 64GB Devkit's eMMC
-- The Docker image and the associated scripts require a Linux-based host and have been validated on a PC running Ubuntu 22.04. Other host operating systems or virtualised environments may also work, provided that the Nvidia BSP flashing tools are able to communicate with the Jetson device successfully over USB
-- We don't formally test Ubuntu 22.04 in VMWare virtual machines, but it seem to work. More specifically, with VMWare Fusion for Mac and VMWare Workstation for Windows. Note: when prompted by VMWare choose to automatically connect the NVIDIA Corp. APX USB device (i.e. the Orin device) to the VM rather than to the host.
 - balenaOS releases for this device type are based on L4T 36.3 - Jetpack 6
-- Flashing of the AGX Orin Devkit 64GB with a NVME attached can be done solely by using the Docker image inside the Orin_Flash folder. The Dockerfile and the scripts inside this folder are not used by jetson-flash and should be used as a stand-alone means for flashing BalenaOS on the AGX Orin Devkit 64GB and the attached NVME.
-- Docker needs to be installed on the Host PC and the Docker image needs to be run as privileged
-- The balenaOS image downloaded from balena-cloud needs to be unpacked and copied on your Host PC inside the `~/images/` folder. This location will be bind mounted inside the running container.
 
 ### AGX Orin Devkit 64GB flashing steps:
 
@@ -183,13 +178,8 @@ root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<bale
 
 Important notes on Orin Nano provisioning:
 
-- The Docker image and the associated scripts require a Linux-based host and have been validated on a PC running Ubuntu 22.04. Other host operating systems or virtualised environments may also work, provided that the Nvidia BSP flashing tools are able to communicate with the Jetson device successfully over USB
-- We don't formally test Ubuntu 22.04 in VMWare virtual machines, but it seem to work. More specifically, with VMWare Fusion for Mac and VMWare Workstation for Windows. Note: when prompted by VMWare choose to automatically connect the NVIDIA Corp. APX USB device (i.e. the Orin device) to the VM rather than to the host.
 - The latest Orin Nano balenaOS images v5.3.21, v5.3.21+rev1, v5.3.21+rev2 and v5.3.21+rev3 are based on L4T 35.5.0
 - Draft balenaOS releases at v5.3.21+rev4 or newer are based on L4T 36.3 - Jetpack 6
-- Flashing of the Orin Nano Devkit with a NVME attached can be done solely by using the Docker image inside the Orin_Flash folder. The Dockerfile and the scripts inside this folder are not used by jetson-flash and should be used as a stand-alone means for flashing BalenaOS on the Orin Nano and the attached NVME.
-- Docker needs to be installed on the Host PC and the Docker image needs to be run as privileged
-- The balenaOS image downloaded from balena-cloud needs to be unpacked and copied on your Host PC inside the `~/images/` folder. This location will be bind mounted inside the running container.
 
 ### Orin Nano Flashing steps:
 
@@ -210,11 +200,7 @@ root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<bale
 
 ## Seeed reComputer J3010 Flashing:
 
-- The Docker image and the associated scripts require a Linux-based host and have been validated on a PC running Ubuntu 24.04. Other host operating systems or virtualised environments may also work, provided that the Nvidia BSP flashing tools are able to communicate with the Jetson module successfuly over USB
-- The current Seeed reComputer J3010 image is based on L4T 35.5.0
-- Flashing of the Seeed reComputer J3010 with a NVME attached can be done solely by using the Docker image inside the Orin_Flash folder. The Dockerfile and the scripts inside this folder are not used by jetson-flash and should be used as a stand-alone means for flashing BalenaOS on the Seeed reComputer J3010 and the NVME attached to the carrier board.
-- Docker needs to be installed on the Host PC and the Docker image needs to be run as privileged
-- The balenaOS image downloaded from balena-cloud needs to be unpacked and copied on your Host PC inside the `~/images/` folder. This location will be bind mounted inside the running container.
+he current Seeed reComputer J3010 image is based on L4T 35.5.0
 
 ### Seeed reComputer J3010 Flashing steps:
 
@@ -235,12 +221,7 @@ root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<bale
 
 ## Seeed reComputer J4012 Flashing:
 
-- The Docker image and the associated scripts require a Linux-based host and have been validated on a PC running Ubuntu 22.04. Other host operating systems or virtualised environments may also work, provided that the Nvidia BSP flashing tools are able to communicate with the Jetson module successfully over USB
-- We don't formally test Ubuntu 22.04 in VMWare virtual machines, but it seem to work. More specifically, with VMWare Fusion for Mac and VMWare Workstation for Windows. Note: when prompted by VMWare choose to automatically connect the NVIDIA Corp. APX USB device (i.e. the Orin device) to the VM rather than to the host.
-- The current Seeed reComputer J4012 image is based on L4T 35.5.0
-- Flashing of the Seeed reComputer J4012 with a NVME attached can be done solely by using the Docker image inside the Orin_Flash folder. The Dockerfile and the scripts inside this folder are not used by jetson-flash and should be used as a stand-alone means for flashing BalenaOS on the Seeed reComputer J4012 and the NVME attached to the carrier board.
-- Docker needs to be installed on the Host PC and the Docker image needs to be run as privileged
-- The balenaOS image downloaded from balena-cloud needs to be unpacked and copied on your Host PC inside the `~/images/` folder. This location will be bind mounted inside the running container.
+The current Seeed reComputer J4012 image is based on L4T 35.5.0
 
 ### Seeed reComputer J4012 Flashing steps:
 
