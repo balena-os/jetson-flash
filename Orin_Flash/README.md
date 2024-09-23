@@ -200,7 +200,7 @@ root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<bale
 
 ## Seeed reComputer J3010 Flashing:
 
-he current Seeed reComputer J3010 image is based on L4T 35.5.0
+The current Seeed reComputer J3010 image is based on L4T 35.5.0
 
 ### Seeed reComputer J3010 Flashing steps:
 
