@@ -150,7 +150,7 @@ root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<bale
 
 Important notes on AGX Orin Devkit 64GB provisioning:
 
-- By default, balenaOS is flashed on the Jetson AGX Orin 64GB Devkit's eMMC
+- By default, balenaOS is flashed on the Jetson AGX Orin 64GB Devkit's eMMC. See steps below to modify this default.
 - balenaOS releases for this device type are based on L4T 36.3 - Jetpack 6
 
 ### AGX Orin Devkit 64GB flashing steps:
