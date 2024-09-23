@@ -9,7 +9,7 @@ For the Jetson Nano, TX2, and Xavier, see below...
 ## About
 Jetson Flash will extract the balenaOS image from a downloaded provisioned image (such as from balenaCloud) and then flashes that image to a Jetson board connected to a host PC via USB.
 
-This tool invokes NVIDIA’s proprietary software to properly partition the eMMC and place the required balenaOS software in the necessary location to make it bootable. Even on Jetson boards without eMMC, this tool may be necessary to initially flash balenaOS because of the way JetPack uses onboard QSPI flash memory for the bootloader. (In those cases, this tool can write to the QSPI so the device will be able to boot balenaOS from the SD card.)
+This tool invokes NVIDIA’s proprietary software to properly partition the boot media (such as eMMC) and place the required balenaOS software in the necessary location to make it bootable. Even on Jetson boards without eMMC, this tool may be necessary to initially flash balenaOS because of the way JetPack uses onboard QSPI flash memory for the bootloader. (In those cases, this tool can write to the QSPI so the device will be able to boot balenaOS from the SD card.)
 
 NOTES:
 - The USB flashing method for the Jetson TX2 is an alternative to SD-CARD provisioning, and can also be used to re-flash TX2s that cannot boot normally due to corrupt QSPI firmware.
