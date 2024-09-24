@@ -15,7 +15,6 @@ This tool invokes NVIDIA’s proprietary software to properly partition the boot
 
 NOTES:
 - Current BSP version used for flashing each device type is listed below. Please ensure the balenaOS version you are flashing uses the same L4T, by consulting the changelog available in the [BalenaOS Jetson repository](https://github.com/balena-os/balena-jetson/commits/master). 
-- Jetson Flash v0.5.10 should be used for flashing devices on L4T 32.4.4.
 - The L4T BSP archive is automatically downloaded by the tool during flashing and the L4T version is already updated to match the latest balena-cloud image version.
 - balenaOS images for Jetson Orin devices at v5.3.21, v5.3.21+rev1, v5.3.21+rev2 and v5.3.21+rev3 are based on L4T 35.5.0.
 - balenaOS images for Jetson Orin devices at versions greater than v5.3.23 are based on L4T 36.3 - Jetpack 6.
@@ -272,29 +271,6 @@ Other considerations:
 
 If you're having any problems, please [raise an issue](https://github.com/balena-os/jetson-flash/issues/new) on GitHub and the balena.io team will be happy to help.
 
-Submitting changes
-------------------
-
-Changes can be submitted in form of PRs to this repository, each PR may include multiple commits.
-
-The header of each commit must not exceed 72 characters in length and must be in 1 line only.
-
-The header and the subject of each commit must be separated by an empty line.
-
-The subject of each commit must not exceed 72 characters per line and can be wrapped to several lines.
-
-The subject and the footer of each commit must be separated by an empty line.
-
-Every pull request must contain at least one commit annotated with the Change-type footer, and all commits should include a Signed-off-by.
-
-An example of a valid commit is:
-
-```
-Update Xavier AGX to L4T 32.7.3
-
-Change-type: patch
-Signed-off-by: Your Name <user@email.com>
-```
 
 License
 -------
