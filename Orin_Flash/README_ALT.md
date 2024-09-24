@@ -44,63 +44,7 @@ Follow the steps below to flash your Jetson board
 
 ### Recovery mode
 
-Make sure that the Jetson board is plugged into your host via USB and is in recovery mode before issuing the flashing command. 
-
-**Jetson Orin Nano Devkit NVME :**
-
-1. Ensure the device is powered off and the power adapter disconnected. Enable Force Recovery mode by placing a jumper across the "FC REC" and "GND" pins located on the edge of the carrier board, under the Jetson Orin Nano module.
-2. Connect your host computer to the device's USB-C connector.
-3. Connect the power adapter to the Power Jack.
-4. The device will automatically power on in Force Recovery Mode.
-
-**Jetson AGX Orin 32GB Devkit:**
-
-- Make sure you connect the Type-C plug of the data cable to the USB Type-C port used for flashing, which is located next to 40-pin connector.
-- While holding the middle Force Recovery button, insert the USB Type-C power supply plug into the USB Type-C port above the DC jack.
-- This will turn on the Jetson dev kit in Force Recovery Mode.
-- HOLD DOWN UNTIL you hear the fan and get a usb connection popup on your connected PC
-
-**Jetson AGX Orin 64GB Devkit:**
-
-- Make sure you connect the Type-C plug of the data cable to the USB Type-C port used for flashing, which is located next to 40-pin connector.
-- While holding the middle Force Recovery button, insert the USB Type-C power supply plug into the USB Type-C port above the DC jack.
-- This will turn on the Jetson dev kit in Force Recovery Mode.
-- Release the middle Force Recovery button
-- Issuing `lsusb` on your PC should show the device in recovery mode, for example: `ID 0955:7023 NVIDIA Corp. APX`
-
-**Jetson Orin NX in Xavier NX Devkit:**
-
-1. Ensure the device is powered off and the power adapter disconnected.
-2. Place a jumper across the Force Recovery Mode pins. These are pins 9 ("GND") and 10 ("FC REC") of the Button Header (J14).
-3. Connect your host computer to the device's USB Micro-B connector.
-4. Connect the power adapter to the Power Jack [J16].
-5. The device will automatically power on in Force Recovery Mode.
-
-**Jetson Orin Nano 8GB (SD) Devkit NVME:**
-
-1. Ensure the device is powered off and the power adapter disconnected.
-2. Place a jumper across the Force Recovery Mode pins. These are pins ("GND") and ("FC REC") and are located on the carrier board, under the Orin Nano module.
-3. Connect your host computer to the device's USB-C connector.
-4. Connect the power adapter to the Power Jack.
-5. The device will automatically power on in Force Recovery Mode.
-
-**Seeed reComputer J3010:**
-
-1. Ensure the device is powered off and the power adapter disconnected.
-2. Open the top lid of the reComputer and place a jumper across the Force Recovery Mode pins. These are pins ("GND") and ("FC REC") and are located on the carrier board, under the Orin Nano module.
-3. Connect your host computer to the device's USB-C connector.
-4. Connect the power adapter to the Power Jack [J2].
-5. The device will automatically power on in Force Recovery Mode.
-
-**Seeed reComputer J4012 16GB:**
-
-1. Ensure the device is powered off and the power adapter disconnected.
-2. Open the top lid of the reComputer and place a jumper across the Force Recovery Mode pins. These are pins ("GND") and ("FC REC") and are located on the carrier board, under the Orin NX module.
-3. Connect your host computer to the device's USB-C connector.
-4. Connect the power adapter to the Power Jack [J2].
-5. The device will automatically power on in Force Recovery Mode.
-
-**Confirmation**
+Make sure that the Jetson board is plugged into your host via USB and is in recovery mode before issuing the flashing command. The instructions below for each device explain how to enter recovery mode.
 
 You can confirm your device is running in recovery mode by issuing the command `lsusb | grep NVIDIA` and examining the output.
 
@@ -119,8 +63,7 @@ Or
 Bus 001 Device 019: ID 0955:7c18 NVIDIA Corp. T186 [TX2 Tegra Parker] recovery mode
 ```
 
-
-## Orin NX Flashing:
+## Orin NX in Xavier NX Devkit Flashing:
 
 Important notes on Orin NX provisioning:
 
@@ -133,7 +76,12 @@ Important notes on Orin NX provisioning:
 - Attach a NVME drive to the Xavier NX Devkit
 - Download your balenaOS image from balena-cloud, unpack and write it to a USB stick. We recommend using <a href="https://www.balena.io/etcher">Etcher</a>.
 - Place the balenaOS unpacked image inside the folder ~/images on your HOST PC. This location will be automatically bind-mounted in the container image in the `/data/images/` folder
-- Put the Jetson Orin NX in Force Recovery mode
+- Put the Jetson Orin NX in Force Recovery mode:
+  1. Ensure the device is powered off and the power adapter disconnected.
+  2. Place a jumper across the Force Recovery Mode pins. These are pins 9 ("GND") and 10 ("FC REC") of the Button Header (J14).
+  3. Connect your host computer to the device's USB Micro-B connector.
+  4. Connect the power adapter to the Power Jack [J16].
+  5. The device will automatically power on in Force Recovery Mode.
 - Insert the USB stick created above in any of the 4 USB ports of the Xavier NX Devkit
 - Navigate to the `Orin_Flash` folder and run the Docker image by executing the `build_and_run.sh` script:
 ```
@@ -151,6 +99,7 @@ Important notes on AGX Orin Devkit 64GB provisioning:
 
 - By default, balenaOS is flashed on the Jetson AGX Orin 64GB Devkit's eMMC. See steps below to modify this default.
 - balenaOS releases for this device type are based on L4T 36.3 - Jetpack 6
+- The Orin NX 8GB and 16GB can be emulated during flashing of the Jetson AGX Orin Devkit - [see these instructions](agx_orin_emulation.md)
 
 ### AGX Orin Devkit 64GB flashing steps:
 
@@ -161,7 +110,12 @@ Important notes on AGX Orin Devkit 64GB provisioning:
   - Ensure the flash-rootA partition is unmounted before removing the USB key from your PC
   - IMPORTANT: Flashing balenaOS on the NVME will erase the contents of the device's eMMC as well. Please make sure to back-up your data
 - Place the balenaOS unpacked image inside the folder ~/images on your HOST PC. This location will be automatically bind-mounted in the container image in the `/data/images/` folder
-- Put the AGX Orin Devkit 64GB in Force Recovery mode
+- Put the AGX Orin Devkit 64GB in Force Recovery mode:
+  1. Make sure you connect the Type-C plug of the data cable to the USB Type-C port used for flashing, which is located next to 40-pin connector.
+  2. While holding the middle Force Recovery button, insert the USB Type-C power supply plug into the USB Type-C port above the DC jack.
+  3. This will turn on the Jetson dev kit in Force Recovery Mode.
+  4. Release the middle Force Recovery button
+  5. Issuing `lsusb` on your PC should show the device in recovery mode, for example: `ID 0955:7023 NVIDIA Corp. APX`
 - Insert the USB stick created above in the upper USB port located near the the display port of the AGX Orin Devkit 64GB
 - Navigate to the `Orin_Flash` folder and run the Docker image by executing the `build_and_run.sh` script:
 ```
@@ -185,7 +139,12 @@ Important notes on Orin Nano provisioning:
 - Attach a NVME drive to the Orin Nano Devkit
 - Download your balenaOS image from balena-cloud, unpack and write it to a USB stick. We recommend using <a href="https://www.balena.io/etcher">Etcher</a>.
 - Place the balenaOS unpacked image inside the folder ~/images on your HOST PC. This location will be automatically bind-mounted in the container image in the `/data/images/` folder
-- Put the Jetson Orin Nano in Force Recovery mode
+- Put the Jetson Orin Nano in Force Recovery mode:
+  1. Ensure the device is powered off and the power adapter disconnected. Enable Force Recovery mode by placing a jumper across the "FC REC" and "GND" pins located on the edge of the carrier board, under the Jetson Orin Nano module.
+  2. Connect your host computer to the device's USB-C connector.
+  3. Connect the power adapter to the Power Jack.
+  4. The device will automatically power on in Force Recovery Mode.
+
 - Insert the USB stick created above in the upper USB port located near the the display port of the Orin Nano Devkit
 - Navigate to the `Orin_Flash` folder and run the Docker image by executing the `build_and_run.sh` script:
 ```
@@ -206,7 +165,12 @@ The current Seeed reComputer J3010 image is based on L4T 35.5.0
 - Ensure a NVME drive is attached to the Seeed reComputer J3010
 - Download your balenaOS image from balena-cloud, unpack and write it to a USB stick. We recommend using <a href="https://www.balena.io/etcher">Etcher</a>.
 - Place the balenaOS unpacked image inside the folder ~/images on your HOST PC. This location will be automatically bind-mounted in the container image in the `/data/images/` folder
-- Put the Seeed reComputer J3010 in Force Recovery mode by connecting the FC REC and GND pins with a jumper cable. The pins are located on the carrier board, under the Jetson Orin NX module
+- Put the Seeed reComputer J3010 in Force Recovery mode:
+  1. Ensure the device is powered off and the power adapter disconnected.
+  2. Open the top lid of the reComputer and place a jumper across the Force Recovery Mode pins. These are pins ("GND") and ("FC REC") and are located on the carrier board, under the Orin Nano module.
+  3. Connect your host computer to the device's USB-C connector.
+  4. Connect the power adapter to the Power Jack [J2].
+  5. The device will automatically power on in Force Recovery Mode.
 - Insert the USB stick created above in any of the USB ports of the Seeed reComputer J3010 Flashing
 - Navigate to the `Orin_Flash` folder and run the Docker image by executing the `build_and_run.sh` script:
 ```
@@ -227,7 +191,12 @@ The current Seeed reComputer J4012 image is based on L4T 35.5.0
 - Ensure a NVME drive is attached to the Seeed reComputer J4012
 - Download your balenaOS image from balena-cloud, unpack and write it to a USB stick. We recommend using <a href="https://www.balena.io/etcher">Etcher</a>.
 - Place the balenaOS unpacked image inside the folder ~/images on your HOST PC. This location will be automatically bind-mounted in the container image in the `/data/images/` folder
-- Put the Seeed reComputer J4012 in Force Recovery mode by connecting the FC REC and GND pins with a jumper cable. The pins are located on the carrier board, under the Jetson Orin NX module
+- Put the Seeed reComputer J4012 in Force Recovery mode:
+  1. Ensure the device is powered off and the power adapter disconnected.
+  2. Open the top lid of the reComputer and place a jumper across the Force Recovery Mode pins. These are pins ("GND") and ("FC REC") and are located on the carrier board, under the Orin NX module.
+  3. Connect your host computer to the device's USB-C connector.
+  4. Connect the power adapter to the Power Jack [J2].
+  5. The device will automatically power on in Force Recovery Mode.
 - Insert the USB stick created above in any of the USB ports of the Seeed reComputer J4012 Flashing
 - Navigate to the `Orin_Flash` folder and run the Docker image by executing the `build_and_run.sh` script:
 ```
@@ -238,30 +207,6 @@ The current Seeed reComputer J4012 image is based on L4T 35.5.0
 ```
 root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<balena.img> -m jetson-orin-nx-seeed-j4012
 ```
-## Emulation with the Jetson AGX Orin Development Kit
-
-The Orin NX 8GB and 16GB can be emulated during flashing of the Jetson AGX Orin Devkit using this jetson-flash branch: [https://github.com/balena-os/jetson-flash/commits/orin_nx_emulation_on_agx_orin_devkit](https://github.com/balena-os/jetson-flash/commits/orin_nx_emulation_on_agx_orin_devkit)
-
-An example command for flashing the emulated configuration is:
-```
-sudo bin/cmd.js -m jetson-agx-orin-devkit-as-nx-16gb -f <jetson-agx-orin-devkit.img>
-```
-
-Important notes on Orin NX emulation:
-
-- The same Balena AGX Orin Devkit image is used while flashing an emulated Orin NX, thus the cloud will report a Jetson AGX Orin Devkit device type. However, lscpu will report different numbers of CPUs for the emulated devices. Similarly, `cat /proc/device-tree/nvidia,dtsfilename`  will report a different device-tree for each configuration.
-- For the Orin NX 8GB emulation, after flashing is completed, it's necessary to edit the file /mnt/sysroot/active/current/boot/extlinux/extlinux.conf and add "mem=8G" (unquoted) to the APPEND element, for example: " ... sdhci_tegra.en_boot_part_access=1 rootwait mem=8G". Once the extlinux.conf file is modified and saved, the device should be rebooted for the available RAM configuration to take effect.
-- The emulated configuration is used only during provisioning and is not preserved after a host operating system OTA update.
-- These configurations should be used for testing purposes only, and they should never be used to provision production devices
-- Cloud support for Orin NX machines can only be evaluated after the hardware is available and the upstream Yocto BSP (meta-tegra) adds support for them.
-
-Depending on the device used, the machine used will be one of:
-- jetson-agx-orin-devkit-64-nvme
-- jetson-orin-nx-xavier-nx-devkit
-- jetson-orin-nano-devkit-nvme
-- jetson-orin-nx-seeed-j4012
-- jetson-orin-nano-seeed-j3010
-
 
 Other considerations:
 - The flashing process takes around 5-10 minutes and once it completes, the board will power-off. The device can be taken out of recovery mode and the USB flasher stick can be unplugged.
