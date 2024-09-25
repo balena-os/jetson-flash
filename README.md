@@ -111,6 +111,13 @@ Then power on the device.
 4. Connect the power adapter to the Power Jack [J16].
 5. The device will automatically power on in Force Recovery Mode.
 
+**Jetson AGX Orin 32GB Devkit:**
+
+1. Make sure you connect the Type-C plug of the data cable to the USB Type-C port used for flashing, which is located next to 40-pin connector.
+2. While holding the middle Force Recovery button, insert the USB Type-C power supply plug into the USB Type-C port above the DC jack.
+3. This will turn on the Jetson dev kit in Force Recovery Mode.
+4. HOLD DOWN until you hear the fan and get a usb connection popup on your connected PC
+
 **Confirmation**
 
 You can confirm your device is running in recovery mode by issuing the command `lsusb | grep NVIDIA` and examining the output.
