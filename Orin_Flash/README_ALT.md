@@ -29,7 +29,7 @@ NOTES:
 |Seeed reComputer J3010 | jetson-orin-nano-seeed-j3010 | L4T 36.3 |
 |Seeed reComputer J4012 16GB | jetson-orin-nx-seeed-j4012 | L4T 36.3 |
 
-(For non-Orin devices, [see here](https://github.com/balena-os/jetson-flash/new/alanb-documentation)
+(For non-Orin devices, [see here](https://github.com/balena-os/jetson-flash/new/alanb-documentation))
 
 ## Requirements
 - Docker needs to be installed on the Host PC and the Docker image needs to be run as privileged
