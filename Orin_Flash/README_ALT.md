@@ -42,27 +42,6 @@ NOTES:
 
 Follow the steps below to flash your Jetson board
 
-### Recovery mode
-
-Make sure that the Jetson board is plugged into your host via USB and is in recovery mode before issuing the flashing command. The instructions below for each device explain how to enter recovery mode.
-
-You can confirm your device is running in recovery mode by issuing the command `lsusb | grep NVIDIA` and examining the output.
-
-You should see something similar to the below, depending on your board:
-
-```
-Bus 003 Device 005: ID 0955:7023 NVIDIA Corp. APX
-
-```
-
-(The `APX` is crucial to confirming recovery mode.) 
-
-Or
-
-```
-Bus 001 Device 019: ID 0955:7c18 NVIDIA Corp. T186 [TX2 Tegra Parker] recovery mode
-```
-
 ## Orin NX in Xavier NX Devkit Flashing:
 
 Important notes on Orin NX provisioning:
@@ -82,6 +61,7 @@ Important notes on Orin NX provisioning:
   3. Connect your host computer to the device's USB Micro-B connector.
   4. Connect the power adapter to the Power Jack [J16].
   5. The device will automatically power on in Force Recovery Mode.
+  6. Confirm your device is running in recovery mode by issuing the command `lsusb | grep NVIDIA` and you should see output similar to: `Bus 003 Device 005: ID 0955:7023 NVIDIA Corp. APX` (The APX is important)
 - Insert the USB stick created above in any of the 4 USB ports of the Xavier NX Devkit
 - Navigate to the `Orin_Flash` folder and run the Docker image by executing the `build_and_run.sh` script:
 ```
@@ -144,7 +124,7 @@ Important notes on Orin Nano provisioning:
   2. Connect your host computer to the device's USB-C connector.
   3. Connect the power adapter to the Power Jack.
   4. The device will automatically power on in Force Recovery Mode.
-
+  5. Confirm your device is running in recovery mode by issuing the command `lsusb | grep NVIDIA` and you should see output similar to: `Bus 003 Device 005: ID 0955:7023 NVIDIA Corp. APX` (The APX is important)
 - Insert the USB stick created above in the upper USB port located near the the display port of the Orin Nano Devkit
 - Navigate to the `Orin_Flash` folder and run the Docker image by executing the `build_and_run.sh` script:
 ```
@@ -171,6 +151,7 @@ The current Seeed reComputer J3010 image is based on L4T 35.5.0
   3. Connect your host computer to the device's USB-C connector.
   4. Connect the power adapter to the Power Jack [J2].
   5. The device will automatically power on in Force Recovery Mode.
+  6. Confirm your device is running in recovery mode by issuing the command `lsusb | grep NVIDIA` and you should see output similar to: `Bus 003 Device 005: ID 0955:7023 NVIDIA Corp. APX` (The APX is important)
 - Insert the USB stick created above in any of the USB ports of the Seeed reComputer J3010 Flashing
 - Navigate to the `Orin_Flash` folder and run the Docker image by executing the `build_and_run.sh` script:
 ```
@@ -197,6 +178,7 @@ The current Seeed reComputer J4012 image is based on L4T 35.5.0
   3. Connect your host computer to the device's USB-C connector.
   4. Connect the power adapter to the Power Jack [J2].
   5. The device will automatically power on in Force Recovery Mode.
+  6. Confirm your device is running in recovery mode by issuing the command `lsusb | grep NVIDIA` and you should see output similar to: `Bus 003 Device 005: ID 0955:7023 NVIDIA Corp. APX` (The APX is important)
 - Insert the USB stick created above in any of the USB ports of the Seeed reComputer J4012 Flashing
 - Navigate to the `Orin_Flash` folder and run the Docker image by executing the `build_and_run.sh` script:
 ```
