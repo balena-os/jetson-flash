@@ -11,7 +11,6 @@ The BSP version used by this flashing tool must match the BSP used in the versio
 | BSP version | Jetpack version | balenaOS version | Use this version of jetson-flash |
 |-------------|-----------------|------------------|----------------------------------|
 | 36.3        | 6.0             | 6.0 or later     | you are on the current version.     |
-| 36.3        | 6.0             | draft releases v5.3.23 or later  | [v0.5.73](https://github.com/balena-os/jetson-flash) or newer |
 | 35.5        | 5.x             | lower than 6.0   | [v0.5.72](https://github.com/balena-os/jetson-flash/commit/fc1904907391f4bb1a8599a477910bcaea932e5e) |
 
 
