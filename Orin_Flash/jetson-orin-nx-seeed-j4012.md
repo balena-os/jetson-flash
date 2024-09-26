@@ -1,6 +1,3 @@
-## jetson-flash
-
-This tool allows users to flash balenaOS on [supported Jetson devices](https://github.com/balena-os/jetson-flash).
 
 # Instructions for the Seeed reComputer J4012 16GB
 
@@ -11,38 +8,9 @@ The BSP version used by this flashing tool must match the BSP used in the versio
 | BSP version | Jetpack version | balenaOS version | Use this version of jetson-flash |
 |-------------|-----------------|------------------|----------------------------------|
 | 36.3        | 6.0             | 6.0 or later     | you are on the current version.     |
-| 36.3        | 6.0             | 5.3.23 or later  | you are on the current version. |
-| 35.5        | 5.x             | lower than 6.0   | [v0.5.72](https://github.com/balena-os/jetson-flash/commit/fc1904907391f4bb1a8599a477910bcaea932e5e) |
+| 36.3        | 6.0             | v5.3.21+rev4 or later  | you are on the current version. |
+| 35.5        | 5.x             | v5.3.21, v5.3.21+rev1, v5.3.21+rev2 and v5.3.21+rev3   | [v0.5.72](https://github.com/balena-os/jetson-flash/commit/fc1904907391f4bb1a8599a477910bcaea932e5e) |
 
-
-The BSP version used for this device is L4T 36.3 so you should make sure you are using the latest balenaOS version which is matched to this BSP, which is currently balenaOS 6.0.6 or later.
-
-If you are using an older version of balenaOS
-- For the latest Jetson Orin and Seeed reComputer production images older than balenaOS v6.0 downloaded from balena-cloud, please use Jetson Flash [v0.5.72](https://github.com/balena-os/jetson-flash/commit/fc1904907391f4bb1a8599a477910bcaea932e5e) for provisioning.
-- Production OS images for Jetson Orin and Seeed reComputer devices on versions lower than balenaOS v6.0 are based on L4T 35.5.0 - Jetpack 5. OS versions newer than v6.0 as well as draft releases starting with v5.3.23 are based on L4T 36.3 and should be flashed using this repository at [v0.5.73](https://github.com/balena-os/jetson-flash) or newer.
-
-## About
-Jetson Flash will extract the balenaOS image from a downloaded provisioned image (such as from balenaCloud) and then flashes that image to a Jetson board connected to a host PC via USB.
-
-This tool invokes NVIDIA’s proprietary software to properly partition the boot media (such as eMMC) and place the required balenaOS software in the necessary location to make it bootable. Even on Jetson boards without eMMC, this tool may be necessary to initially flash balenaOS because of the way JetPack uses onboard QSPI flash memory for the bootloader. (In those cases, this tool can write to the QSPI so the device will be able to boot balenaOS from the SD card.)
-
-NOTES:
-- Current BSP version used for flashing each device type is listed below. Please ensure the balenaOS version you are flashing uses the same L4T, by consulting the changelog available in the [BalenaOS Jetson repository](https://github.com/balena-os/balena-jetson/commits/master). 
-- The L4T BSP archive is automatically downloaded by the tool during flashing and the L4T version is already updated to match the latest balena-cloud image version.
-- balenaOS images for Jetson Orin devices at v5.3.21, v5.3.21+rev1, v5.3.21+rev2 and v5.3.21+rev3 are based on L4T 35.5.0.
-- balenaOS images for Jetson Orin devices at versions greater than v5.3.23 are based on L4T 36.3 - Jetpack 6.
-
-
-|Device | balena machine name | L4T version |
-|-------|---------------------|-------------|
-|Jetson AGX Orin Devkit 32GB | jetson-agx-orin-devkit | L4T 36.3 |
-|Jetson AGX Orin Devkit 64GB | jetson-agx-orin-devkit-64gb | L4T 36.3 |
-|Jetson Orin Nano 8GB (SD) Devkit NVME | jetson-orin-nano-devkit-nvme | L4T 36.3 |
-|Jetson Orin NX in Xavier NX Devkit NVME | jetson-orin-nx-xavier-nx-devkit | L4T 36.3 |
-|Seeed reComputer J3010 | jetson-orin-nano-seeed-j3010 | L4T 36.3 |
-|Seeed reComputer J4012 16GB | jetson-orin-nx-seeed-j4012 | L4T 36.3 |
-
-(For non-Orin devices, [see here](https://github.com/balena-os/jetson-flash/new/alanb-documentation))
 
 ## Requirements
 - Docker needs to be installed on the Host PC and the Docker image needs to be run as privileged
@@ -50,17 +18,6 @@ NOTES:
 - The Docker image and the associated scripts require a Linux-based host and have been validated on a PC running Ubuntu 22.04. Other host operating systems or virtualised environments may also work, provided that the Nvidia BSP flashing tools are able to communicate with the Jetson device successfully over USB
 - We don't formally test Ubuntu 22.04 in VMWare virtual machines, but it seem to work. More specifically, with VMWare Fusion for Mac and VMWare Workstation for Windows. Note: when prompted by VMWare choose to automatically connect the NVIDIA Corp. APX USB device (i.e. the Orin device) to the VM rather than to the host.
 - Flashing of Orin devices can be done solely by using the Docker image inside this folder (Orin_Flash). The Dockerfile and the scripts inside this folder are not used by jetson-flash and should be used as a stand-alone means for flashing BalenaOS on Orin devices.
-
-## How to use
-
-Follow the steps below to flash your Jetson board
-
-## Orin NX in Xavier NX Devkit Flashing:
-
-Important notes on Orin NX provisioning:
-
-- The current Orin NX balenaOS images v5.3.21, v5.3.21+rev1, v5.3.21+rev2 and v5.3.21+rev3 are based on L4T 35.5.0
-- Draft balenaOS releases at v5.3.21+rev4 or newer are based on L4T 36.3 - Jetpack 6
 
 
 ### Orin NX Flashing steps:
