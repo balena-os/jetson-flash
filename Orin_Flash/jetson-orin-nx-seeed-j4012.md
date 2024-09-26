@@ -1,7 +1,7 @@
 
 # Instructions for the Seeed reComputer J4012 16GB
 
-<img src="/images/jetson-orin-nx-seeed-j4012.png">
+<img src="images/jetson-orin-nx-seeed-j4012.png">
 
 ## L4T/balenaOS/jetson-flash compatibility
 
