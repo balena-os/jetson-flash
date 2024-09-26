@@ -1,7 +1,7 @@
 
-# jetson-flash Instructions for the Seeed reComputer J4012 16GB
+# Instructions for the Seeed reComputer J4012 16GB
 
-<img src="/images/etson-orin-nx-seeed-j4012.png">
+<img src="/images/jetson-orin-nx-seeed-j4012.png">
 
 ## L4T/balenaOS/jetson-flash compatibility
 
@@ -27,13 +27,13 @@ The BSP version used by this flashing tool must match the BSP used in the versio
 2. Download your balenaOS image from balena-cloud, unpack and write it to a USB stick. We recommend using <a href="https://www.balena.io/etcher">Etcher</a>.
 3. Place the balenaOS unpacked image inside the folder ~/images on your HOST PC. This location will be automatically bind-mounted in the container image in the `/data/images/` folder
 4. Put the Seeed reComputer J4012 in Force Recovery mode:
-  1. Ensure the device is powered off and the power adapter disconnected.
-  2. Open the top lid of the reComputer and place a jumper across the Force Recovery Mode pins. These are pins ("GND") and ("FC REC") and are located on the carrier board, under the Orin NX module.
-  <img src="/images/jetson-orin-nx-seeed-j4012_recovery.jpg">
-  4. Connect your host computer to the device's USB-C connector.
-  5. Connect the power adapter to the Power Jack [J2].
-  6. The device will automatically power on in Force Recovery Mode.
-  7. Confirm your device is running in recovery mode by issuing the command `lsusb | grep NVIDIA` and you should see output similar to: `Bus 003 Device 005: ID 0955:7023 NVIDIA Corp. APX` (The APX is important)
+   1. Ensure the device is powered off and the power adapter disconnected.
+   2. Open the top lid of the reComputer and place a jumper across the Force Recovery Mode pins. These are pins ("GND") and ("FC REC") and are located on the carrier board, under the Orin NX module.
+   <img src="images/jetson-orin-nx-seeed-j4012_recovery.jpg">
+   4. Connect your host computer to the device's USB-C connector.
+   5. Connect the power adapter to the Power Jack [J2].
+   6. The device will automatically power on in Force Recovery Mode.
+   7. Confirm your device is running in recovery mode by issuing the command `lsusb | grep NVIDIA` and you should see output similar to: `Bus 003 Device 005: ID 0955:7023 NVIDIA Corp. APX` (The APX is important)
 5. Insert the USB stick created above in any of the USB ports of the Seeed reComputer J4012 Flashing
 6. Navigate to the `Orin_Flash` folder and run the Docker image by executing the `build_and_run.sh` script:
 ```
