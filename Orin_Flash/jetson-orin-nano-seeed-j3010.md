@@ -1,6 +1,6 @@
 # Instructions for the Seeed reComputer J3010
 
-<img src="images/jetson-orin-nano-seeed-j3010.png">
+<img src="images/jetson-orin-nano-seeed-j3010.jpg">
 
 These are the flashing instructions for the [Seeed J3010](https://www.seeedstudio.com/reComputer-J3010-p-5589.html) Edge AI Computer with NVIDIA® Jetson™ Orin™ Nano 4GB. [See here](https://github.com/balena-os/jetson-flash/tree/alanb-documentation?tab=readme-ov-file#instructions) for the list of other supported Jetson devices. 
 
