@@ -6,6 +6,15 @@ This tool allows users to flash balenaOS on [supported Jetson devices](https://g
 
 ## L4T/balenaOS/jetson-flash compatibility
 
+The BSP version used by this flashing tool must match the BSP used in the version of balenaOS you're flashing. See the table below to determine which version of jetson-flash you should use:
+
+| BSP version | Jetpack version | balenaOS version | Use this version of jetson-flash |
+|-------------|-----------------|------------------|----------------------------------|
+| 36.3        | 6.0             | 6.0 or later     | you are on the current version.     |
+| 36.3        | 6.0             | 5.3.23 or later  | you are on the current version. |
+| 35.5        | 5.x             | lower than 6.0   | [v0.5.72](https://github.com/balena-os/jetson-flash/commit/fc1904907391f4bb1a8599a477910bcaea932e5e) |
+
+
 The BSP version used for this device is L4T 36.3 so you should make sure you are using the latest balenaOS version which is matched to this BSP, which is currently balenaOS 6.0.6 or later.
 
 If you are using an older version of balenaOS
