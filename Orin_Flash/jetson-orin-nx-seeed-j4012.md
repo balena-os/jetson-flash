@@ -28,8 +28,7 @@ The BSP version used by this flashing tool must match the BSP used in the versio
 3. Place the balenaOS unpacked image inside the folder ~/images on your HOST PC. This location will be automatically bind-mounted in the container image in the `/data/images/` folder
 4. Put the Seeed reComputer J4012 in Force Recovery mode:
    1. Ensure the device is powered off and the power adapter disconnected.
-   2. Open the top lid of the reComputer and place a jumper across the Force Recovery Mode pins. These are pins ("GND") and ("FC REC") and are located on the carrier board, under the Orin NX module.
-   <img src="images/jetson-orin-nx-seeed-j4012_recovery.jpg">
+   2. Open the top lid of the reComputer and place a jumper across the Force Recovery Mode pins. These are pins ("GND") and ("FC REC") and are located on the carrier board, under the Orin NX module. <img src="images/jetson-orin-nx-seeed-j4012_recovery.jpg">
    4. Connect your host computer to the device's USB-C connector.
    5. Connect the power adapter to the Power Jack [J2].
    6. The device will automatically power on in Force Recovery Mode.
