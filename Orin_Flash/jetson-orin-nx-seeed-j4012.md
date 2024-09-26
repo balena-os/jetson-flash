@@ -1,8 +1,8 @@
-# jetson-flash
+## jetson-flash
 
 This tool allows users to flash balenaOS on [supported Jetson devices](https://github.com/balena-os/jetson-flash).
 
-## Instructions for the Seeed reComputer J4012 16GB
+# Instructions for the Seeed reComputer J4012 16GB
 
 ## L4T/balenaOS/jetson-flash compatibility
 
