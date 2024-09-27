@@ -10,7 +10,6 @@ The BSP version used by this flashing tool must match the BSP used in the versio
 | BSP version | Jetpack version | balenaOS version | Use this version of jetson-flash |
 |-------------|-----------------|------------------|----------------------------------|
 | 36.3        | 6.0             | 6.0 or later     | you are on the current version.     |
-| 36.3        | 6.0             | draft releases v5.3.23 or later  | [v0.5.73](https://github.com/balena-os/jetson-flash) or newer |
 | 35.5        | 5.x             | lower than 6.0   | [v0.5.72](https://github.com/balena-os/jetson-flash/commit/fc1904907391f4bb1a8599a477910bcaea932e5e) |
 
 
@@ -29,10 +28,10 @@ The BSP version used by this flashing tool must match the BSP used in the versio
 4. Put the Seeed reComputer J4012 in Force Recovery mode:
    1. Ensure the device is powered off and the power adapter disconnected.
    2. Open the top lid of the reComputer and place a jumper across the Force Recovery Mode pins. These are pins ("GND") and ("FC REC") and are located on the carrier board, under the Orin NX module. <img src="images/jetson-orin-nx-seeed-j4012_recovery.jpg">
-   4. Connect your host computer to the device's USB-C connector.
-   5. Connect the power adapter to the Power Jack [J2].
-   6. The device will automatically power on in Force Recovery Mode.
-   7. Confirm your device is running in recovery mode by issuing the command `lsusb | grep NVIDIA` and you should see output similar to: `Bus 003 Device 005: ID 0955:7023 NVIDIA Corp. APX` (The APX is important)
+   3. Connect your host computer to the device's USB-C connector.
+   4. Connect the power adapter to the Power Jack [J2].
+   5. The device will automatically power on in Force Recovery Mode.
+   6. Confirm your device is running in recovery mode by issuing the command `lsusb | grep NVIDIA` and you should see output similar to: `Bus 003 Device 005: ID 0955:7023 NVIDIA Corp. APX` (The APX is important)
 5. Insert the USB stick created above in any of the USB ports of the Seeed reComputer J4012 Flashing
 6. Navigate to the `Orin_Flash` folder and run the Docker image by executing the `build_and_run.sh` script:
 ```
