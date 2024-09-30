@@ -7,7 +7,7 @@ These are the flashing instructions for the [Jetson AGX Orin Developer Kit 64GB]
 
 ## L4T/balenaOS/jetson-flash compatibility
 
-**Use the version of jetson-flash that corresponds to the version of balenaOS that you would like to provision:**
+**Use the version of jetson-flash that corresponds to the version of balenaOS that you would like to provision per the table below.**
 
 (Each version of jetson-flash uses a specific version of NVIDIA's L4T BSP to properly partition the Jetson's boot media. This BSP version must also match the BSP used in the version of balenaOS you're flashing)
 
