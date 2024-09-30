@@ -7,7 +7,8 @@ These are the flashing instructions for the [Jetson AGX Orin Developer Kit 64GB]
 
 ## L4T/balenaOS/jetson-flash compatibility
 
-Each version of this tool (jetson-flash) uses a specific version of NVIDIA's L4T BSP to properly partition the Jetson's boot media. This BSP version must also match the BSP used in the version of balenaOS you're flashing. See the table below to determine which version of jetson-flash you should use:
+**Use the version of jetson-flash that corresponds to the version of balenaOS that you would like to provision:**
+(Each version of jetson-flash uses a specific version of NVIDIA's L4T BSP to properly partition the Jetson's boot media. This BSP version must also match the BSP used in the version of balenaOS you're flashing)
 
 | balenaOS version | BSP version | Jetpack version | Use this version of jetson-flash |
 |------------------|-------------|-----------------|----------------------------------|
@@ -41,12 +42,13 @@ NOTE: By default, balenaOS is flashed on the Jetson AGX Orin 64GB Devkit's eMMC;
    4. Release the middle Force Recovery button
    5. Confirm your device is running in recovery mode by issuing the command `lsusb | grep NVIDIA` and you should see output similar to: `Bus 003 Device 005: ID 0955:7023 NVIDIA Corp. APX` (The APX is important)
 5. Insert the USB stick created above in the upper USB port located near the the display port of the AGX Orin Devkit 64GB.
-6. Navigate to the `Orin_Flash` folder and run the Docker image by executing the `build_and_run.sh` script:
+6. Clone this repo on your host PC.
+7. Navigate to the `Orin_Flash` folder and run the Docker image by executing the `build_and_run.sh` script:
 ```
 ~/jetson-flash$ cd Orin_Flash/
 ~/jetson-flash/Orin_Flash$ ./build_and_run.sh
 ```
-7. Once the docker image has been built and starts running, the balenaOS kernel and flasher image can be booted by executing the `flash_orin_nx.sh` script:
+8. Once the docker image has been built and starts running, the balenaOS kernel and flasher image can be booted by executing the `flash_orin_nx.sh` script:
 ```
 root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<balena.img> -m jetson-agx-orin-devkit-64gb
 ```
