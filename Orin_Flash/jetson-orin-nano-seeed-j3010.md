@@ -6,7 +6,9 @@ These are the flashing instructions for the [Seeed J3010](https://www.seeedstudi
 
 ## L4T/balenaOS/jetson-flash compatibility
 
-The BSP version used by this flashing tool must match the BSP used in the version of balenaOS you're flashing. See the table below to determine which version of jetson-flash you should use:
+**Use the version of jetson-flash that corresponds to the version of balenaOS that you would like to provision per the table below.**
+
+(Each version of jetson-flash uses a specific version of NVIDIA's L4T BSP to properly partition the Jetson's boot media. This BSP version must also match the BSP used in the version of balenaOS you're flashing)
 
 | BSP version | Jetpack version | balenaOS version | Use this version of jetson-flash |
 |-------------|-----------------|------------------|----------------------------------|
@@ -34,12 +36,13 @@ The BSP version used by this flashing tool must match the BSP used in the versio
    5. The device will automatically power on in Force Recovery Mode.
    6. Confirm your device is running in recovery mode by issuing the command `lsusb | grep NVIDIA` and you should see output similar to: `Bus 003 Device 005: ID 0955:7023 NVIDIA Corp. APX` (The APX is important)
 5. Insert the USB stick created above in any of the USB ports of the Seeed reComputer J3010 Flashing
-6. Navigate to the `Orin_Flash` folder and run the Docker image by executing the `build_and_run.sh` script:
+6. Clone this repo to your host PC.
+7. Navigate to the `Orin_Flash` folder and run the Docker image by executing the `build_and_run.sh` script:
 ```
 ~/jetson-flash$ cd Orin_Flash/
 ~/jetson-flash/Orin_Flash$ ./build_and_run.sh
 ```
-7. Once the docker image has been built and starts running, the balenaOS kernel and flasher image can be booted by executing the `flash_orin_nx.sh` script:
+8. Once the docker image has been built and starts running, the balenaOS kernel and flasher image can be booted by executing the `flash_orin_nx.sh` script:
 ```
 root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<balena.img> -m jetson-orin-nano-seeed-j3010
 ```
