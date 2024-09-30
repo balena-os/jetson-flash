@@ -14,9 +14,8 @@ Note that this is for the production Jetson Nano module without an SD card slot,
 
 | balenaOS version | BSP version | Jetpack version | Use this version of jetson-flash |
 |------------------|-------------|-----------------|----------------------------------|
-| 6.0 or later     | 36.3        | 6.0             | You are on the correct version.     |
-| lower than 6.0   | 35.5        | 5.x             | [v0.5.72](https://github.com/balena-os/jetson-flash/tree/v0.5.72) |
-|                  | 32.4.4      |                 | [v0.5.10](https://github.com/balena-os/jetson-flash/tree/v0.5.10) |
+| 2.108.9+rev1 or later     | 32.7.3      | 4.6.3            | You are on the correct version.     |
+| 2.67.2+rev1 - 2.82.11+rev1   | 32.4.4      | 4.4.1               | [v0.5.10](https://github.com/balena-os/jetson-flash/tree/v0.5.10) |
 
 
 ## Requirements
