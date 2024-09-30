@@ -5,7 +5,9 @@
 
 ## L4T/balenaOS/jetson-flash compatibility
 
-The BSP version used by this flashing tool must match the BSP used in the version of balenaOS you're flashing. See the table below to determine which version of jetson-flash you should use:
+**Use the version of jetson-flash that corresponds to the version of balenaOS that you would like to provision per the table below.**
+
+(Each version of jetson-flash uses a specific version of NVIDIA's L4T BSP to properly partition the Jetson's boot media. This BSP version must also match the BSP used in the version of balenaOS you're flashing)
 
 | BSP version | Jetpack version | balenaOS version | Use this version of jetson-flash |
 |-------------|-----------------|------------------|----------------------------------|
@@ -18,7 +20,6 @@ The BSP version used by this flashing tool must match the BSP used in the versio
 - The balenaOS image downloaded from balena-cloud needs to be unpacked and copied on your Host PC inside the `~/images/` folder. This location will be bind mounted inside the running container.
 - The Docker image and the associated scripts require a Linux-based host and have been validated on a PC running Ubuntu 22.04. Other host operating systems or virtualized environments may also work, provided that the Nvidia BSP flashing tools are able to communicate with the Jetson device successfully over USB
 - We don't formally test Ubuntu 22.04 in VMWare virtual machines, but it seem to work. More specifically, with VMWare Fusion for Mac and VMWare Workstation for Windows. Note: when prompted by VMWare choose to automatically connect the NVIDIA Corp. APX USB device (i.e. the Orin device) to the VM rather than to the host.
-- Flashing of Orin devices can be done solely by using the Docker image inside this folder (Orin_Flash). The Dockerfile and the scripts inside this folder are not used by jetson-flash and should be used as a stand-alone means for flashing BalenaOS on Orin devices.
 
 ### Jetson Orin Nano 8GB (SD) Devkit NVME Flashing steps:
 
@@ -32,12 +33,13 @@ The BSP version used by this flashing tool must match the BSP used in the versio
    4. The device will automatically power on in Force Recovery Mode.
    5. Confirm your device is running in recovery mode by issuing the command `lsusb | grep NVIDIA` and you should see output similar to: `Bus 003 Device 005: ID 0955:7023 NVIDIA Corp. APX` (The APX is important)
 5. Insert the USB stick created above in the upper USB port located near the the display port of the Orin Nano Devkit
-6. Navigate to the `Orin_Flash` folder and run the Docker image by executing the `build_and_run.sh` script:
+6. Clone this repo to your host PC.
+7. Navigate to the `Orin_Flash` folder and run the Docker image by executing the `build_and_run.sh` script:
 ```
 ~/jetson-flash$ cd Orin_Flash/
 ~/jetson-flash/Orin_Flash$ ./build_and_run.sh
 ```
-7. Once the docker image has been built and starts running, the balenaOS kernel and flasher image can be booted by executing the `flash_orin_nx.sh` script:
+8. Once the docker image has been built and starts running, the balenaOS kernel and flasher image can be booted by executing the `flash_orin_nx.sh` script:
 ```
 root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<balena.img> -m jetson-orin-nano-devkit-nvme
 ```
