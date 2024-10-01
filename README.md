@@ -15,7 +15,7 @@ Choose your device from the list below for step-by-step instructions:
 |Device | Current L4T version |
 |-------|---------------------|
 |[Jetson Nano eMMC](jetson-nano-emmc.md) | L4T 32.7.3 |
-|Jetson Nano SD-CARD Devkit | L4T 32.7.3 |
+|[Jetson Nano SD-CARD Devkit](jetson-nano.md) | L4T 32.7.3 |
 |Jetson Nano 2GB Devkit | L4T 32.7.1 |
 |Jetson TX2 | L4T 32.7.3 |
 |Jetson TX2 NX (in Jetson Xavier NX Devkit) | L4T 32.7.3 |
