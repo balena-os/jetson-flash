@@ -67,10 +67,11 @@ Make sure that the Jetson board is plugged into your host via USB and is in reco
 
 We only test jetson-flash on the reference NVIDIA carrier board. If your carrier board varies significantly from the Developer Kit you may need to contact the manufacturer for the proper recovery mode steps.
 
-1. Ensure the device is powered off and connect it to the host PC via USB.
-2. Press and hold down the Force Recovery button.
-3. Press and hold down the Power button.
-4. Release both buttons.
+1. Ensure the device is powered off and the power adapter disconnected.
+2. Place a jumper across the Force Recovery Mode pins. These are pins 9 ("GND") and 10 ("FC REC") of the Button Header (J14).
+3. Connect your host computer to the device's USB Micro-B connector.
+4. Connect the power adapter to the Power Jack [J16].
+5. The device will automatically power on in Force Recovery Mode.
 
 **Confirmation**
 
