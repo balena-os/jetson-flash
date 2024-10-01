@@ -61,7 +61,7 @@ Follow the steps below to flash your Jetson board
 
 Make sure that the Jetson board is plugged into your host via USB and is in recovery mode before issuing the flashing command. 
 
-Check with your carrier board manufacturer for the proper steps to enter recovery mode for your board. The instructions below are for the NVIDIA Jetson Nano Developer Kit which may or may not match the steps for your carrier board, and are included for convenience only!
+We only test jetson-flash on the reference NVIDIA carrier board. If your carrier board varies significantly from the NVIDIA Jetson Nano Developer Kit you may need to contact the manufacturer for the proper recovery mode steps.
 
 With power off, enable Force Recovery mode by placing a jumper across the "FRC" pins of the Button Header on the carrier board.
 
