@@ -88,7 +88,7 @@ $ ./bin/cmd.js -f <balena.img> -m jetson-nano-2gb-devkit
 For **Docker**, issue the following commands in the folder that has the Dockerfile to build the container (building may take a while and appear to hang, so be patient.) Create a folder named `images` in your home directory and place your balena image file there so it's available inside the container.
 
 ```sh
-./build.sh [-m <device_type]
+./build.sh [-m jetson-nano-2gb-devkit]
 ```
 
 You can then enter the container using:
