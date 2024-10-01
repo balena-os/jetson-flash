@@ -53,6 +53,13 @@ Prerequisites:
 - the Docker image should be run as privileged
 - `/dev/bus/usb` needs to be bind-mounted for the Tegra BSP tools to communicate with the device
 
+Installation:
+
+Clone this repository:
+```sh
+$ git clone https://github.com/balena-os/jetson-flash.git
+```
+
 ## How to use
 
 Follow the steps below to flash your Jetson board
@@ -78,7 +85,7 @@ For **non - Docker**, run the tool by specifying the path to the unzipped image 
 $ ./bin/cmd.js -f <balena.img> -m <device_type>
 ```
 
-For **Docker**, issue the following commands in the folder that has the Dockerfile to build the container(building may take a while and appear to hang, so be patient.) Create a folder named `images` in your home directory and place your balena image file there so it's available inside the container.
+For **Docker**, issue the following commands in the folder that has the Dockerfile to build the container (building may take a while and appear to hang, so be patient.) Create a folder named `images` in your home directory and place your balena image file there so it's available inside the container.
 
 ```sh
 ./build.sh [-m <device_type]
