@@ -77,6 +77,25 @@ With power off, enable Force Recovery mode by placing a jumper across the "FRC" 
 
 Then power on the device.
 
+**Confirmation**
+
+You can confirm your device is running in recovery mode by issuing the command `lsusb | grep NVIDIA` and examining the output.
+
+You should see something similar to the below, depending on your board:
+
+```
+Bus 003 Device 005: ID 0955:7023 NVIDIA Corp. APX
+
+```
+
+(The `APX` is crucial to confirming recovery mode.) 
+
+Or
+
+```
+Bus 001 Device 019: ID 0955:7c18 NVIDIA Corp. T186 [TX2 Tegra Parker] recovery mode
+```
+
 ### Run the tool
 
 For **non - Docker**, run the tool by specifying the path to the unzipped image (in place of "<balena.img>") and the device type as shown below:
