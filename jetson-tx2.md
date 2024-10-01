@@ -76,10 +76,29 @@ We only test jetson-flash on the reference NVIDIA carrier board. If your carrier
 1. Power down the device, removing the AC adapter.
 2. Connect the Micro-B plug on the USB cable to the Recovery (USB Micro-B) Port on the device and the other end to an available USB port on the host PC.
 3. Connect the power adapter to the device.
-4. 4. With the system powered on:
+4. With the system powered on:
    - Press and hold the RECOVERY FORCE button.
    - While depressing the RECOVERY FORCE button, press and release the RESET button.
    - Wait 2 seconds and release the RECOVERY FORCE button. <img src="images/jetson-tx2_rec.png">
+
+**Confirmation**
+
+You can confirm your device is running in recovery mode by issuing the command `lsusb | grep NVIDIA` and examining the output.
+
+You should see something similar to the below, depending on your board:
+
+```
+Bus 003 Device 005: ID 0955:7023 NVIDIA Corp. APX
+
+```
+
+(The `APX` is crucial to confirming recovery mode.) 
+
+Or
+
+```
+Bus 001 Device 019: ID 0955:7c18 NVIDIA Corp. T186 [TX2 Tegra Parker] recovery mode
+```
 
 ### Run the tool
 
