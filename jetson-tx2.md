@@ -14,7 +14,7 @@ These are the flashing instructions for the Jetson TX2. For the list of other ba
 |------------------|-------------|-----------------|----------------------------------|
 | 2.108.9+rev1 or later     | 32.7.3      | 4.6.3            | You are on the correct version.     |
 | 2.67.2+rev1 - 2.82.11+rev1   | 32.4.4      | 4.4.1               | [v0.5.10](https://github.com/balena-os/jetson-flash/tree/v0.5.10) |
-| Older than 2.47  | 28.3 | 28.3 | [v0.3.0](https://github.com/balena-os/jetson-flash/tree/v0.3.0) |
+| Older than 2.47  | 28.3 | 3.3 | [v0.3.0](https://github.com/balena-os/jetson-flash/tree/v0.3.0) |
 
 ## Requirements
 Jetson Flash requires a Linux-based host (or virtual machine) and has been tested on Ubuntu 22.04 (Focal).
