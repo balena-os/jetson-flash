@@ -1,6 +1,5 @@
 # Instructions for the Jetson Xavier NX Devkit eMMC
 
-<img src="images/jetson-xaviert.png">
 
 These are the flashing instructions for the Jetson Xavier NX Devkit eMMC. For the list of other balena-supported Jetson devices [See here](https://github.com/balena-os/jetson-flash/tree/alanb-documentation?tab=readme-ov-file#instructions). 
 
