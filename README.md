@@ -31,7 +31,7 @@ Choose your device from the list below for step-by-step instructions:
 
 **Don't see your device listed?**
 - Use the closest match above to your carrier board's Jetson module (for instance Jetson Orin Nano)
-- Reach out to us on the balena Forums
+- Reach out to us on the [balena Forums](https://forums.balena.io/c/share-questions-or-issues-about-balena-jetson-flash-which-is-a-tool-that-allows-users-to-flash-balenaos-on-nvidia-jetson-devices/95)
   
 License
 -------
