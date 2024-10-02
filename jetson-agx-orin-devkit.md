@@ -1,6 +1,6 @@
 # Instructions for the Jetson AGX Orin Devkit 32GB
 
-<img src="Orin_Flash/images/jetson-agx-orin-devkit-64gb.png">
+<img src="Orin_Flash/images/jetson-agx-orin-devkit-64gb.jpg">
 
 These are the flashing instructions for the Jetson AGX Orin Devkit 32GB. For the list of other balena-supported Jetson devices [See here](https://github.com/balena-os/jetson-flash/tree/alanb-documentation?tab=readme-ov-file#instructions). 
 
