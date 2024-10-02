@@ -29,6 +29,10 @@ Choose your device from the list below for step-by-step instructions:
 |[Seeed reComputer J3010](https://github.com/balena-os/jetson-flash/blob/alanb-documentation/Orin_Flash/jetson-orin-nano-seeed-j3010.md) | L4T 36.3 |
 |[Seeed reComputer J4012 16GB](https://github.com/balena-os/jetson-flash/blob/alanb-documentation/Orin_Flash/jetson-orin-nx-seeed-j4012.md) | L4T 36.3 |
 
+**Don't see your device listed?**
+- Use the closest match above to your carrier board's Jetson module (for instance Jetson Orin Nano)
+- Reach out to us on the balena Forums
+  
 License
 -------
 
