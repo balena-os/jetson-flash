@@ -30,7 +30,7 @@ Choose your device from the list below for step-by-step instructions:
 |[Seeed reComputer J4012 16GB](https://github.com/balena-os/jetson-flash/blob/alanb-documentation/Orin_Flash/jetson-orin-nx-seeed-j4012.md) | L4T 36.3 |
 
 **Don't see your device listed?**
-- Use the closest match above to your carrier board's Jetson module (for instance Jetson Orin Nano)
+- Use the closest match above to the Jetson module on your carrier board
 - Reach out to us on the [balena Forums](https://forums.balena.io/c/share-questions-or-issues-about-balena-jetson-flash-which-is-a-tool-that-allows-users-to-flash-balenaos-on-nvidia-jetson-devices/95)
   
 License
