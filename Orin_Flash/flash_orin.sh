@@ -119,6 +119,9 @@ function setup_orin_rcmboot() {
     echo " " > "${device_dir}${lt_dir}/rootfs/boot/extlinux/extlinux.conf"
     sed -i 's/console=tty0/root=LABEL=flash-rootA flasher rootdelay=1 debug loglevel=7 roottimeout=360 /g' "${device_dir}${lt_dir}/p3767.conf.common"
     sed -i 's/console=tty0/root=LABEL=flash-rootA flasher rootdelay=1 debug loglevel=7 roottimeout=360 /g' "${device_dir}${lt_dir}/p3701.conf.common"
+    # tegra234-mb2-bct-common.dtsi for AGX Orin and tegra234-mb2-bct-misc-p3767-0000.dts for Orin NX/Nano carrier boards which don't have eeproms
+    sed -i 's/cvb_eeprom_read_size = <0x100>/cvb_eeprom_read_size = <0x0>/g' "${device_dir}${lt_dir}/bootloader/tegra234-mb2-bct-common.dtsi"
+    sed -i 's/cvb_eeprom_read_size = <0x100>/cvb_eeprom_read_size = <0x0>/g' "${device_dir}${lt_dir}/bootloader/generic/BCT/tegra234-mb2-bct-misc-p3767-0000.dts"
 }
 
 trap cleanup EXIT SIGHUP SIGINT SIGTERM
