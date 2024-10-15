@@ -1,4 +1,17 @@
 - commits:
+    - subject: "Orin_Flash: Set cvb_eeprom_read_size to 0 prior rcm-boot"
+      hash: 257091bd15f53cef64754643860653dfeb58761d
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.79
+  title: ""
+  date: 2024-10-15T08:42:39.962Z
+- commits:
     - subject: Update README for non-Docker lz4 package requirement
       hash: b43a65a737cec7e62e66d7b82fb527dc0bf5a4b1
       body: ""
