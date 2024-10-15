@@ -90,7 +90,7 @@ Make sure that the Jetson board is plugged into your host via USB and is in reco
 With power off, enable Force Recovery mode by placing a jumper across the "FRC" pins of the Button Header on the carrier board.
 
 - For carrier board revision A02, these are pins 3 ("FC REC") and 4 ("GND") of Button Header J40 which is located near the camera header.
-- For carrier board revision B01, (and the Nano 2GB) these are pins 9 ("GND") and 10 ("FC REC") of Button Header J12, which is located on the edge of the carrier board under the Jetson module.
+- For carrier board revision B01, (and the Nano 2GB) these are pins 9 ("GND") and 10 ("FC REC") of Button Header **J50** , which is located on the edge of the carrier board and barely visible under the Jetson module.
 
 Then power on the device.
 
