@@ -1,5 +1,6 @@
 # Instructions for the Jetson AGX Xavier
 
+<img src="images/jetson-xavier.jpg">
 
 These are the flashing instructions for the Jetson AGX Xavier. For the list of other balena-supported Jetson devices [See here](https://github.com/balena-os/jetson-flash/tree/alanb-documentation?tab=readme-ov-file#instructions). 
 
@@ -19,7 +20,7 @@ These are the flashing instructions for the Jetson AGX Xavier. For the list of o
 | 2.67.2+rev1 - 2.82.11+rev1  | 32.4.4    | 4.4.1 | [v0.5.10](https://github.com/balena-os/jetson-flash/tree/v0.5.10) |
 
 ## Requirements
-Jetson Flash requires a Linux-based host (or virtual machine) and has been tested on Ubuntu 22.04 (Focal).
+Jetson Flash requires an x86 Linux-based host (or virtual machine) and has been tested on Ubuntu 22.04 (Focal).
 
 You can either install all the prerequisites listed below or run the provided Docker image (using Docker, not balenaOS) on the host.
 
@@ -141,8 +142,7 @@ Reset the board to boot from internal eMMC.
 ```
 ## Support
 
-If you're having any problems, please [raise an issue](https://github.com/balena-os/jetson-flash/issues/new) on GitHub and the balena.io team will be happy to help.
-
+If you're having any problems, please [raise an issue](https://github.com/balena-os/jetson-flash/issues/new) on GitHub or ask a question [in our forums](https://forums.balena.io/c/share-questions-or-issues-about-balena-jetson-flash-which-is-a-tool-that-allows-users-to-flash-balenaos-on-nvidia-jetson-devices/95) and the balena.io team will be happy to help.
 
 License
 -------

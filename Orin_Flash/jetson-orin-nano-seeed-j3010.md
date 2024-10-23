@@ -1,4 +1,4 @@
-# Instructions for the Seeed reComputer J3010
+# Instructions for the Seeed reComputer J3010 4GB
 
 <img src="images/jetson-orin-nano-seeed-j3010.jpg">
 
@@ -17,7 +17,7 @@ These are the flashing instructions for the [Seeed J3010](https://www.seeedstudi
 
 
 ## Requirements
-- Docker needs to be installed on the Host PC and the Docker image needs to be run as privileged
+- Docker needs to be installed on the x86 Host PC and the Docker image needs to be run as privileged
 - The balenaOS image downloaded from balena-cloud needs to be unpacked and copied on your Host PC inside the `~/images/` folder. This location will be bind mounted inside the running container.
 - The Docker image and the associated scripts require a Linux-based host and have been validated on a PC running Ubuntu 22.04. Other host operating systems or virtualized environments may also work, provided that the Nvidia BSP flashing tools are able to communicate with the Jetson device successfully over USB
 - We don't formally test Ubuntu 22.04 in VMWare virtual machines, but it seem to work. More specifically, with VMWare Fusion for Mac and VMWare Workstation for Windows. Note: when prompted by VMWare choose to automatically connect the NVIDIA Corp. APX USB device (i.e. the Orin device) to the VM rather than to the host.
@@ -52,7 +52,7 @@ Other considerations:
 
 ## Support
 
-If you're having any problems, please [raise an issue](https://github.com/balena-os/jetson-flash/issues/new) on GitHub and the balena.io team will be happy to help.
+If you're having any problems, please [raise an issue](https://github.com/balena-os/jetson-flash/issues/new) on GitHub or ask a question [in our forums](https://forums.balena.io/c/share-questions-or-issues-about-balena-jetson-flash-which-is-a-tool-that-allows-users-to-flash-balenaos-on-nvidia-jetson-devices/95) and the balena.io team will be happy to help.
 
 
 License

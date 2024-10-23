@@ -26,7 +26,7 @@ Choose your device from the list below for step-by-step instructions:
 |[Jetson AGX Orin Devkit 64GB](https://github.com/balena-os/jetson-flash/blob/alanb-documentation/Orin_Flash/jetson-agx-orin-devkit-64gb.md) | L4T 36.3 |
 |[Jetson Orin Nano 8GB (SD) Devkit NVME](https://github.com/balena-os/jetson-flash/blob/alanb-documentation/Orin_Flash/jetson-orin-nano-devkit-nvme.md) | L4T 36.3 |
 |[Jetson Orin NX in Xavier NX Devkit NVME](https://github.com/balena-os/jetson-flash/blob/alanb-documentation/Orin_Flash/jetson-orin-nx-xavier-nx-devkit.md) | L4T 36.3 |
-|[Seeed reComputer J3010](https://github.com/balena-os/jetson-flash/blob/alanb-documentation/Orin_Flash/jetson-orin-nano-seeed-j3010.md) | L4T 36.3 |
+|[Seeed reComputer J3010 4GB](https://github.com/balena-os/jetson-flash/blob/alanb-documentation/Orin_Flash/jetson-orin-nano-seeed-j3010.md) | L4T 36.3 |
 |[Seeed reComputer J4012 16GB](https://github.com/balena-os/jetson-flash/blob/alanb-documentation/Orin_Flash/jetson-orin-nx-seeed-j4012.md) | L4T 36.3 |
 
 **Don't see your device listed?**
