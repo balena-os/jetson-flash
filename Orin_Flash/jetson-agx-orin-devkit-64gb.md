@@ -54,7 +54,7 @@ root@03ce5cbcbb0d:/usr/src/app/orin-flash# ./flash_orin.sh -f /data/images/<bale
 Other considerations:
 - The flashing process takes around 5-10 minutes and once it completes, the board will power-off. The device can be taken out of recovery mode and the USB flasher stick can be unplugged.
 - Remove and reconnect power to the device.
-
+- The Orin NX 8GB and 16GB can be emulated during flashing of the Jetson AGX Orin Devkit - [more information here](https://github.com/balena-os/jetson-flash/blob/alanb128-patch-1/Orin_Flash/agx_orin_emulation.md).
 ## Support
 
 If you're having any problems, please [raise an issue](https://github.com/balena-os/jetson-flash/issues/new) on GitHub or ask a question [in our forums](https://forums.balena.io/c/share-questions-or-issues-about-balena-jetson-flash-which-is-a-tool-that-allows-users-to-flash-balenaos-on-nvidia-jetson-devices/95) and the balena.io team will be happy to help.
