@@ -2,7 +2,7 @@
 
 <img src="images/jetson-nano.png">
 
-These are the flashing instructions for the Jetson Nano SD-CARD Developers Kit. For the list of other balena-supported Jetson devices [See here](https://github.com/balena-os/jetson-flash/tree/alanb-documentation?tab=readme-ov-file#instructions). 
+These are the flashing instructions for the Jetson Nano SD-CARD Developers Kit. For the list of other balena-supported Jetson devices [See here](https://github.com/balena-os/jetson-flash?tab=readme-ov-file#instructions). 
 
 Note that this is for the Jetson Nano Developer Kit with an on-module SD card slot, **not** the [Jetson Nano eMMC](jetson-nano-emmc.md), which does not have an SD card slot on the module itself.
 
