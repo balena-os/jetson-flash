@@ -2,7 +2,7 @@
 
 <img src="images/jetson-nano-2gb-devkit.png">
 
-These are the flashing instructions for the Jetson Nano 2GB SD-CARD Developers Kit. For the list of other balena-supported Jetson devices [See here](https://github.com/balena-os/jetson-flash/tree/alanb-documentation?tab=readme-ov-file#instructions). 
+These are the flashing instructions for the Jetson Nano 2GB SD-CARD Developers Kit. For the list of other balena-supported Jetson devices [See here](https://github.com/balena-os/jetson-flash?tab=readme-ov-file#instructions). 
 
 Note that this is for the Jetson Nano Developer Kit 2GB RAM version with an on-module SD card slot.
 
