@@ -2,7 +2,7 @@
 
 <img src="images/jetson-xavier.jpg">
 
-These are the flashing instructions for the Jetson AGX Xavier. For the list of other balena-supported Jetson devices [See here](https://github.com/balena-os/jetson-flash/tree/alanb-documentation?tab=readme-ov-file#instructions). 
+These are the flashing instructions for the Jetson AGX Xavier. For the list of other balena-supported Jetson devices [See here](https://github.com/balena-os/jetson-flash?tab=readme-ov-file#instructions). 
 
 ## L4T/balenaOS/jetson-flash compatibility
 
