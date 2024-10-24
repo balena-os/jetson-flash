@@ -1,4 +1,19 @@
 - commits:
+    - subject: Create device type specific docs for jetson flash
+      hash: 6ebb4d5d5b7b91612b2df1fe6883362a0f020950
+      body: ""
+      footer:
+        Co-authored-by: Alan Boris <alan@balena.io>
+        co-authored-by: Alan Boris <alan@balena.io>
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        Change-type: patch
+        change-type: patch
+      author: Alan Boris
+  version: 0.5.80
+  title: ""
+  date: 2024-10-24T08:31:16.444Z
+- commits:
     - subject: "Orin_Flash: Set cvb_eeprom_read_size to 0 prior rcm-boot"
       hash: 257091bd15f53cef64754643860653dfeb58761d
       body: ""
