@@ -2,7 +2,7 @@
 
 <img src="images/jetson-tx2.png">
 
-These are the flashing instructions for the Jetson TX2. For the list of other balena-supported Jetson devices [See here](https://github.com/balena-os/jetson-flash/tree/alanb-documentation?tab=readme-ov-file#instructions). 
+These are the flashing instructions for the Jetson TX2. For the list of other balena-supported Jetson devices [See here](https://github.com/balena-os/jetson-flash?tab=readme-ov-file#instructions).
 
 ## L4T/balenaOS/jetson-flash compatibility
 

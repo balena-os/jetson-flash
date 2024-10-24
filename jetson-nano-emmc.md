@@ -2,7 +2,7 @@
 
 <img src="images/jetson-nano-emmc.jpg">
 
-These are the flashing instructions for the [Jetson Nano eMMC]([https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/](https://developer.nvidia.com/embedded/jetson-nano)). For the list of other balena-supported Jetson devices [See here](https://github.com/balena-os/jetson-flash/tree/alanb-documentation?tab=readme-ov-file#instructions). 
+These are the flashing instructions for the [Jetson Nano eMMC]([https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/](https://developer.nvidia.com/embedded/jetson-nano)). For the list of other balena-supported Jetson devices [See here](https://github.com/balena-os/jetson-flash?tab=readme-ov-file#instructions).
 
 Note that this is for the production Jetson Nano module without an SD card slot, **not** the [Jetson Nano SD Card Developer Kit](jetson-nano.md), which has an SD card slot on the module itself.
 
