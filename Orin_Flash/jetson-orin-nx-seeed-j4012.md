@@ -3,6 +3,8 @@
 
 <img src="images/jetson-orin-nx-seeed-j4012.png">
 
+These are the flashing instructions for the Seeed reComputer J4012 16GB. For the list of other balena-supported Jetson devices [See here](https://github.com/balena-os/jetson-flash?tab=readme-ov-file#instructions).
+
 ## L4T/balenaOS/jetson-flash compatibility
 
 **Use the version of jetson-flash that corresponds to the version of balenaOS that you would like to provision per the table below.**

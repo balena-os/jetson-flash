@@ -1,6 +1,7 @@
 
 # Instructions for the Jetson Orin Nano 8GB (SD) Devkit NVME
 
+These are the flashing instructions for the Jetson Orin Nano 8GB (SD) Devkit NVME. For the list of other balena-supported Jetson devices [See here](https://github.com/balena-os/jetson-flash?tab=readme-ov-file#instructions).
 
 ## L4T/balenaOS/jetson-flash compatibility
 
