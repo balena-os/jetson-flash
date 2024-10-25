@@ -3,7 +3,7 @@
 
 <img src="images/jetson-agx-orin-devkit-64gb.jpg">
 
-These are the flashing instructions for the [Jetson AGX Orin Developer Kit 64GB](https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/). For the list of other balena-supported Jetson devices [See here](https://github.com/balena-os/jetson-flash?tab=readme-ov-file#instructions).
+These are the flashing instructions for the [Jetson AGX Orin Developer Kit 64GB](https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/). For the list of other balena-supported Jetson devices [See here](../README.md#instructions).
 
 ## L4T/balenaOS/jetson-flash compatibility
 
