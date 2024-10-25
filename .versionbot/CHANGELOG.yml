@@ -1,4 +1,18 @@
 - commits:
+    - subject: Update Orin links in various pages
+      hash: 3cc412934f58de074778e5700f4455847636e1a2
+      body: |
+        Author: Alan Boris <alan@balena.io>
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alan Boris
+  version: 0.5.81
+  title: ""
+  date: 2024-10-25T07:01:32.806Z
+- commits:
     - subject: Create device type specific docs for jetson flash
       hash: 6ebb4d5d5b7b91612b2df1fe6883362a0f020950
       body: ""
