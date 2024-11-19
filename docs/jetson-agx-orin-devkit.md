@@ -1,8 +1,8 @@
 # Instructions for the Jetson AGX Orin Devkit 32GB
 
-<img src="Orin_Flash/images/jetson-agx-orin-devkit-64gb.jpg">
+<img src="images/jetson-agx-orin-devkit-64gb.jpg">
 
-These are the flashing instructions for the Jetson AGX Orin Devkit 32GB. For the list of other balena-supported Jetson devices [See here](./README.md#instructions).
+These are the flashing instructions for the Jetson AGX Orin Devkit 32GB. For the list of other balena-supported Jetson devices [See here](../README.md#instructions).
 
 ## L4T/balenaOS/jetson-flash compatibility
 
@@ -72,7 +72,7 @@ Make sure that the Jetson board is plugged into your host via USB and is in reco
 We only test jetson-flash on the reference NVIDIA carrier board. If your carrier board varies significantly from the Developer Kit you may need to contact the manufacturer for the proper recovery mode steps.
 
 1. Make sure you connect the Type-C plug of the data cable to the USB Type-C port used for flashing, which is located next to 40-pin connector.
-2. While holding the middle Force Recovery button, insert the USB Type-C power supply plug into the USB Type-C port above the DC jack. <img src="Orin_Flash/images/jetson-agx-orin-devkit-64gb_recovery.jpg">
+2. While holding the middle Force Recovery button, insert the USB Type-C power supply plug into the USB Type-C port above the DC jack. <img src="images/jetson-agx-orin-devkit-64gb_recovery.jpg">
 3. This will turn on the Jetson dev kit in Force Recovery Mode.
 4. HOLD DOWN UNTIL you hear the fan and get a usb connection popup on your connected PC
 

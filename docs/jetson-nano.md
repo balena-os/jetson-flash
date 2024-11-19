@@ -1,8 +1,10 @@
-# Instructions for the Jetson AGX Xavier
+# Instructions for the Jetson Nano Developers Kit (SD-CARD version)
 
-<img src="images/jetson-xavier.jpg">
+<img src="images/jetson-nano.png">
 
-These are the flashing instructions for the Jetson AGX Xavier. For the list of other balena-supported Jetson devices [See here](./README.md#instructions).
+These are the flashing instructions for the Jetson Nano SD-CARD Developers Kit. For the list of other balena-supported Jetson devices [See here](../README.md#instructions).
+
+Note that this is for the Jetson Nano Developer Kit with an on-module SD card slot, **not** the [Jetson Nano eMMC](jetson-nano-emmc.md), which does not have an SD card slot on the module itself.
 
 ## L4T/balenaOS/jetson-flash compatibility
 
@@ -12,12 +14,13 @@ These are the flashing instructions for the Jetson AGX Xavier. For the list of o
 
 | balenaOS version | BSP version | Jetpack version | Use this version of jetson-flash |
 |------------------|-------------|-----------------|----------------------------------|
-| 2.108.9+rev1 or later       | 32.7.3      | 4.6.3  | You are on the correct version. (v0.5.49 or later)    |
-|2.101.1 - 2.108.9            | 32.7.2      | 4.6.2           |    [v0.5.48](https://github.com/balena-os/jetson-flash/tree/v0.5.48)    |
-| 2.95.15+rev1 -  2.101.0     | 32.7.1  | 4.6.1   |   [v0.5.23](https://github.com/balena-os/jetson-flash/tree/v0.5.23)                 |
-| 2.87.1+rev1 - 2.95.14       | 32.6.1 | 4.6             |   [v0.5.22](https://github.com/balena-os/jetson-flash/tree/v0.5.22)               |
-|2.82.11+rev2 - 2.85.2+rev5   | 32.5.1 | 4.5.1      |   [v0.5.18](https://github.com/balena-os/jetson-flash/tree/v0.5.18)       |
-| 2.67.2+rev1 - 2.82.11+rev1  | 32.4.4    | 4.4.1 | [v0.5.10](https://github.com/balena-os/jetson-flash/tree/v0.5.10) |
+| 2.108.9+rev1 or later     | 32.7.3      | 4.6.3  | You are on the correct version. (v0.5.53 or later)    |
+|2.101.1 - 2.108.9 | 32.7.2      | 4.6.2           |    [v0.5.52](https://github.com/balena-os/jetson-flash/tree/v0.5.52)    |
+| 2.95.15+rev1 -  2.101.0      | 32.7.1  | 4.6.1   |   [v0.5.22](https://github.com/balena-os/jetson-flash/tree/v0.5.22)                 |
+| 2.87.1+rev1 - 2.95.14 | 32.6.1 | 4.6             |   [v0.5.21](https://github.com/balena-os/jetson-flash/tree/v0.5.21)               |
+|2.82.11+rev2 - 2.85.2+rev5  | 32.5.1 | 4.5.1      |   [v0.5.13](https://github.com/balena-os/jetson-flash/tree/v0.5.13)       |
+| 2.67.2+rev1 - 2.82.11+rev1   | 32.4.4    | 4.4.1 | [v0.5.10](https://github.com/balena-os/jetson-flash/tree/v0.5.10) |
+
 
 ## Requirements
 Jetson Flash requires an x86 Linux-based host (or virtual machine) and has been tested on Ubuntu 22.04 (Focal).
@@ -69,12 +72,14 @@ Follow the steps below to flash your Jetson board
 
 Make sure that the Jetson board is plugged into your host via USB and is in recovery mode before issuing the flashing command. 
 
-We only test jetson-flash on the reference NVIDIA carrier board. If your carrier board varies significantly from the Developer Kit you may need to contact the manufacturer for the proper recovery mode steps.
+We only test jetson-flash on the reference NVIDIA carrier board. If your carrier board varies significantly from the NVIDIA Jetson Nano Developer Kit you may need to contact the manufacturer for the proper recovery mode steps.
 
-1. Ensure the device is powered off and connect it to the host PC via USB.
-2. Press and hold down the Force Recovery button.
-3. Press and hold down the Power button.
-4. Release both buttons.
+With power off, enable Force Recovery mode by placing a jumper across the "FRC" pins of the Button Header on the carrier board.
+
+- For carrier board revision A02, these are pins 3 ("FC REC") and 4 ("GND") of Button Header J40 which is located near the camera header. <img src="images/jetson-nano_rec.png">
+- For carrier board revision B01, (and the Nano 2GB) these are pins 9 ("GND") and 10 ("FC REC") of Button Header J12, which is located on the edge of the carrier board under the Jetson module. <img src="images/jetson-nano-2gb-devkit_rec.png">
+
+Then power on the device.
 
 **Confirmation**
 
@@ -100,13 +105,13 @@ Bus 001 Device 019: ID 0955:7c18 NVIDIA Corp. T186 [TX2 Tegra Parker] recovery m
 For **non - Docker**, run the tool by specifying the path to the unzipped image (in place of "<balena.img>") and the device type as shown below:
 
 ```sh
-$ ./bin/cmd.js -f <balena.img> -m jetson-xavier
+$ ./bin/cmd.js -f <balena.img> -m jetson-nano
 ```
 
 For **Docker**, issue the following commands in the folder that has the Dockerfile to build the container (building may take a while and appear to hang, so be patient.) Create a folder named `images` in your home directory and place your balena image file there so it's available inside the container.
 
 ```sh
-./build.sh [-m jetson-xavier]
+./build.sh [-m jetson-nano]
 ```
 
 You can then enter the container using:
@@ -120,13 +125,13 @@ Alternatively, run the provided docker-compose file with `docker-compose up` and
 Once in the container, you can run jetson-flash by specifying the balena image in your host's `~/images/` folder (in place of "<balena.img>"):
 
 ```sh
-./bin/cmd.js -f /data/images/<balena.img> -m jetson-xavier --accept-license=yes -c /tmp/Linux_for_Tegra
+./bin/cmd.js -f /data/images/<balena.img> -m jetson-nano --accept-license=yes -c /tmp/Linux_for_Tegra
 ```
 
 You can alternatively just run the jetson-flash tool in a single command by running the container with this command:
 
 ```sh
-docker container run --rm -it --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/images:/data/images jetson-flash-image ./bin/cmd.js -f /data/images/<balena.img> -m jetson-xavier --accept-license=yes -c /tmp/Linux_for_Tegra
+docker container run --rm -it --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/images:/data/images jetson-flash-image ./bin/cmd.js -f /data/images/<balena.img> -m jetson-nano --accept-license=yes -c /tmp/Linux_for_Tegra
 ```
 
 It will exit upon completion. 

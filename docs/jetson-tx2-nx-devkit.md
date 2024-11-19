@@ -1,7 +1,8 @@
-# Instructions for the Jetson Xavier NX Devkit SD-CARD
+# Instructions for the Jetson TX2 NX (in Jetson Xavier NX Devkit)
 
+<img src="images/jetson-tx2-nx-devkit.png">
 
-These are the flashing instructions for the Jetson Xavier NX Devkit SD-CARD. For the list of other balena-supported Jetson devices [See here](./README.md#instructions).
+These are the flashing instructions for the Jetson TX2 NX (in Jetson Xavier NX Devkit). For the list of other balena-supported Jetson devices [See here](../README.md#instructions).
 
 ## L4T/balenaOS/jetson-flash compatibility
 
@@ -9,15 +10,14 @@ These are the flashing instructions for the Jetson Xavier NX Devkit SD-CARD. For
 
 (Each version of jetson-flash uses a specific version of NVIDIA's L4T BSP to properly partition the Jetson's boot media. This BSP version must also match the BSP used in the version of balenaOS you're flashing)
 
-
 | balenaOS version | BSP version | Jetpack version | Use this version of jetson-flash |
 |------------------|-------------|-----------------|----------------------------------|
-| 2.108.9+rev1 or later       | 32.7.3      | 4.6.3  | You are on the correct version. (v0.5.36 or later)    |
-|2.101.1 - 2.108.9            | 32.7.2      | 4.6.2           |    [v0.5.35](https://github.com/balena-os/jetson-flash/tree/v0.5.53)    |
-| 2.95.15+rev1 -  2.101.0     | 32.7.1  | 4.6.1   |   [v0.5.33](https://github.com/balena-os/jetson-flash/tree/v0.5.33)                 |
-| 2.87.1+rev1 - 2.95.14       | 32.6.1 | 4.6             |   [v0.5.23](https://github.com/balena-os/jetson-flash/tree/v0.5.23)               |
-|2.82.11+rev2 - 2.85.2+rev5   | 32.5.1 | 4.5.1      |   [v0.5.17](https://github.com/balena-os/jetson-flash/tree/v0.5.17)       |
-| 2.67.2+rev1 - 2.82.11+rev1  | 32.4.4    | 4.4.1 | [v0.5.3](https://github.com/balena-os/jetson-flash/tree/v0.5.3) |
+| 2.108.9+rev1 or later       | 32.7.3      | 4.6.3  | You are on the correct version. (v0.5.39 or later)    |
+|2.101.1 - 2.108.9            | 32.7.2      | 4.6.2           |    [v0.5.38](https://github.com/balena-os/jetson-flash/tree/v0.5.38)    |
+| 2.95.15+rev1 -  2.101.0     | 32.7.1  | 4.6.1   |   [v0.5.28](https://github.com/balena-os/jetson-flash/tree/v0.5.28)                 |
+| 2.87.1+rev1 - 2.95.14       | 32.6.1 | 4.6             |   [v0.5.21](https://github.com/balena-os/jetson-flash/tree/v0.5.21)               |
+|2.82.11+rev2 - 2.85.2+rev5   | 32.5.1 | 4.5.1      |   [v0.5.13](https://github.com/balena-os/jetson-flash/tree/v0.5.13)       |
+| 2.67.2+rev1 - 2.82.11+rev1  | 32.4.4    | 4.4.1 | [v0.5.10](https://github.com/balena-os/jetson-flash/tree/v0.5.10) |
 
 ## Requirements
 Jetson Flash requires an x86 Linux-based host (or virtual machine) and has been tested on Ubuntu 22.04 (Focal).
@@ -101,13 +101,13 @@ Bus 001 Device 019: ID 0955:7c18 NVIDIA Corp. T186 [TX2 Tegra Parker] recovery m
 For **non - Docker**, run the tool by specifying the path to the unzipped image (in place of "<balena.img>") and the device type as shown below:
 
 ```sh
-$ ./bin/cmd.js -f <balena.img> -m jetson-xavier-nx-devkit
+$ ./bin/cmd.js -f <balena.img> -m jetson-tx2-nx-devkit
 ```
 
 For **Docker**, issue the following commands in the folder that has the Dockerfile to build the container (building may take a while and appear to hang, so be patient.) Create a folder named `images` in your home directory and place your balena image file there so it's available inside the container.
 
 ```sh
-./build.sh [-m jetson-xavier-nx-devkit]
+./build.sh [-m jetson-tx2-nx-devkit]
 ```
 
 You can then enter the container using:
@@ -121,13 +121,13 @@ Alternatively, run the provided docker-compose file with `docker-compose up` and
 Once in the container, you can run jetson-flash by specifying the balena image in your host's `~/images/` folder (in place of "<balena.img>"):
 
 ```sh
-./bin/cmd.js -f /data/images/<balena.img> -m jetson-xavier-nx-devkit --accept-license=yes -c /tmp/Linux_for_Tegra
+./bin/cmd.js -f /data/images/<balena.img> -m jetson-tx2-nx-devkit --accept-license=yes -c /tmp/Linux_for_Tegra
 ```
 
 You can alternatively just run the jetson-flash tool in a single command by running the container with this command:
 
 ```sh
-docker container run --rm -it --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/images:/data/images jetson-flash-image ./bin/cmd.js -f /data/images/<balena.img> -m jetson-xavier-nx-devkit --accept-license=yes -c /tmp/Linux_for_Tegra
+docker container run --rm -it --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/images:/data/images jetson-flash-image ./bin/cmd.js -f /data/images/<balena.img> -m jetson-tx2-nx-devkit --accept-license=yes -c /tmp/Linux_for_Tegra
 ```
 
 It will exit upon completion. 

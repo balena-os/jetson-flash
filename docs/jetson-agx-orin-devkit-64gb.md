@@ -1,4 +1,3 @@
-
 # Instructions for the Jetson AGX Orin Devkit 64GB
 
 <img src="images/jetson-agx-orin-devkit-64gb.jpg">
