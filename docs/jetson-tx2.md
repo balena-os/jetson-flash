@@ -1,7 +1,8 @@
-# Instructions for the Jetson Xavier NX Devkit eMMC
+# Instructions for the Jetson TX2
 
+<img src="images/jetson-tx2.png">
 
-These are the flashing instructions for the Jetson Xavier NX Devkit eMMC. For the list of other balena-supported Jetson devices [See here](./README.md#instructions).
+These are the flashing instructions for the Jetson TX2. For the list of other balena-supported Jetson devices [See here](../README.md#instructions).
 
 ## L4T/balenaOS/jetson-flash compatibility
 
@@ -11,18 +12,28 @@ These are the flashing instructions for the Jetson Xavier NX Devkit eMMC. For th
 
 | balenaOS version | BSP version | Jetpack version | Use this version of jetson-flash |
 |------------------|-------------|-----------------|----------------------------------|
-| 2.108.9+rev1 or later       | 32.7.3      | 4.6.3  | You are on the correct version. (v0.5.54 or later)    |
-|2.101.1 - 2.108.9            | 32.7.2      | 4.6.2           |    [v0.5.53](https://github.com/balena-os/jetson-flash/tree/v0.5.53)    |
-| 2.95.15+rev1 -  2.101.0     | 32.7.1  | 4.6.1   |   [v0.5.33](https://github.com/balena-os/jetson-flash/tree/v0.5.33)                 |
-| 2.87.1+rev1 - 2.95.14       | 32.6.1 | 4.6             |   [v0.5.23](https://github.com/balena-os/jetson-flash/tree/v0.5.23)               |
-|2.82.11+rev2 - 2.85.2+rev5   | 32.5.1 | 4.5.1      |   [v0.5.17](https://github.com/balena-os/jetson-flash/tree/v0.5.17)       |
-| 2.67.2+rev1 - 2.82.11+rev1  | 32.4.4    | 4.4.1 | [v0.5.3](https://github.com/balena-os/jetson-flash/tree/v0.5.3) |
+| 2.108.9+rev1 or later       | 32.7.3      | 4.6.3  | You are on the correct version. (v0.5.35 or later)    |
+|2.101.1 - 2.108.9            | 32.7.2      | 4.6.2           |    [v0.5.34](https://github.com/balena-os/jetson-flash/tree/v0.5.34)    |
+| 2.95.15+rev1 -  2.101.0     | 32.7.1  | 4.6.1   |   [v0.5.32](https://github.com/balena-os/jetson-flash/tree/v0.5.32)                 |
+| 2.87.1+rev1 - 2.95.14       | 32.6.1 | 4.6             |   [v0.5.26](https://github.com/balena-os/jetson-flash/tree/v0.5.26)               |
+|2.82.11+rev2 - 2.85.2+rev5   | 32.5.1 | 4.5.1      |   [v0.5.19](https://github.com/balena-os/jetson-flash/tree/v0.5.19)       |
+| 2.67.2+rev1 - 2.82.11+rev1  | 32.4.4    | 4.4.1 | [v0.5.10](https://github.com/balena-os/jetson-flash/tree/v0.5.10) |
+| 2.50.1+rev1  - 2.60.1+rev2  | 32.4.3  | 4.4  |     [v0.5.5](https://github.com/balena-os/jetson-flash/tree/v0.5.5)                   |
+| 2.47.1+rev2 - 2.49.0+rev2   | 32.3.1   | 4.3  |      [v0.4.1](https://github.com/balena-os/jetson-flash/tree/v0.4.1)              |
+| 2.39.0+rev1  - 2.47.1+rev1  | 32.2.0   |  4.2 |      [v0.4.0](https://github.com/balena-os/jetson-flash/tree/v0.4.0)                                              |
+| Older than 2.47  | 28.3 | 3.3 | [v0.3.0](https://github.com/balena-os/jetson-flash/tree/v0.3.0) |
+
 
 
 ## Requirements
 Jetson Flash requires an x86 Linux-based host (or virtual machine) and has been tested on Ubuntu 22.04 (Focal).
 
 You can either install all the prerequisites listed below or run the provided Docker image (using Docker, not balenaOS) on the host.
+
+## TX2 Notes
+
+- The USB flashing method for the Jetson TX2 is an alternative to SD-CARD provisioning, and can also be used to re-flash TX2s that cannot boot normally due to corrupt QSPI firmware.
+- For the Jetson-TX2 flasher image only, the system-proxy directory entries are not copied over by jetson-flash.
 
 ### non-Docker
 
@@ -71,11 +82,13 @@ Make sure that the Jetson board is plugged into your host via USB and is in reco
 
 We only test jetson-flash on the reference NVIDIA carrier board. If your carrier board varies significantly from the Developer Kit you may need to contact the manufacturer for the proper recovery mode steps.
 
-1. Ensure the device is powered off and the power adapter disconnected.
-2. Place a jumper across the Force Recovery Mode pins. These are pins 9 ("GND") and 10 ("FC REC") of the Button Header (J14).
-3. Connect your host computer to the device's USB Micro-B connector.
-4. Connect the power adapter to the Power Jack [J16].
-5. The device will automatically power on in Force Recovery Mode.
+1. Power down the device, removing the AC adapter.
+2. Connect the Micro-B plug on the USB cable to the Recovery (USB Micro-B) Port on the device and the other end to an available USB port on the host PC.
+3. Connect the power adapter to the device.
+4. With the system powered on:
+   - Press and hold the RECOVERY FORCE button.
+   - While depressing the RECOVERY FORCE button, press and release the RESET button.
+   - Wait 2 seconds and release the RECOVERY FORCE button. <img src="images/jetson-tx2_rec.png">
 
 **Confirmation**
 
@@ -101,13 +114,13 @@ Bus 001 Device 019: ID 0955:7c18 NVIDIA Corp. T186 [TX2 Tegra Parker] recovery m
 For **non - Docker**, run the tool by specifying the path to the unzipped image (in place of "<balena.img>") and the device type as shown below:
 
 ```sh
-$ ./bin/cmd.js -f <balena.img> -m jetson-xavier-nx-devkit-emmc
+$ ./bin/cmd.js -f <balena.img> -m jetson-tx2
 ```
 
 For **Docker**, issue the following commands in the folder that has the Dockerfile to build the container (building may take a while and appear to hang, so be patient.) Create a folder named `images` in your home directory and place your balena image file there so it's available inside the container.
 
 ```sh
-./build.sh [-m jetson-xavier-nx-devkit-emmc]
+./build.sh [-m jetson-tx2]
 ```
 
 You can then enter the container using:
@@ -121,13 +134,13 @@ Alternatively, run the provided docker-compose file with `docker-compose up` and
 Once in the container, you can run jetson-flash by specifying the balena image in your host's `~/images/` folder (in place of "<balena.img>"):
 
 ```sh
-./bin/cmd.js -f /data/images/<balena.img> -m jetson-xavier-nx-devkit-emmc --accept-license=yes -c /tmp/Linux_for_Tegra
+./bin/cmd.js -f /data/images/<balena.img> -m jetson-tx2 --accept-license=yes -c /tmp/Linux_for_Tegra
 ```
 
 You can alternatively just run the jetson-flash tool in a single command by running the container with this command:
 
 ```sh
-docker container run --rm -it --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/images:/data/images jetson-flash-image ./bin/cmd.js -f /data/images/<balena.img> -m jetson-xavier-nx-devkit-emmc --accept-license=yes -c /tmp/Linux_for_Tegra
+docker container run --rm -it --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/images:/data/images jetson-flash-image ./bin/cmd.js -f /data/images/<balena.img> -m jetson-tx2 --accept-license=yes -c /tmp/Linux_for_Tegra
 ```
 
 It will exit upon completion. 
