@@ -1,4 +1,15 @@
 - commits:
+    - subject: "patch: Move all docs to a flat directory structure"
+      hash: 966b5cb2a1abb1d77ab6d9e37a7af2493b3f952a
+      body: ""
+      footer:
+        Signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+        signed-off-by: Vipul Gupta (@vipulgupta2048) <vipulgupta2048@gmail.com>
+      author: Vipul Gupta (@vipulgupta2048)
+  version: 0.5.83
+  title: ""
+  date: 2024-11-20T08:37:16.241Z
+- commits:
     - subject: "patch: Replace absolute README links with relative"
       hash: e207e898b050a4321e482895c1bac3436937b8d4
       body: ""
