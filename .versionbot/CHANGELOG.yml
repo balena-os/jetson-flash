@@ -1,4 +1,19 @@
 - commits:
+    - subject: "flash_orin: Add flag for QSPI direct writing"
+      hash: 2fdce4dfc1ab88dc4a8c49c16d8c85b939183a65
+      body: |
+        The resin-init-flasher-board script will provision the QSPI
+        directly when this parameter is found in the kernel cmdline.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru
+  version: 0.5.84
+  title: ""
+  date: 2024-12-02T12:04:41.382Z
+- commits:
     - subject: "patch: Move all docs to a flat directory structure"
       hash: 966b5cb2a1abb1d77ab6d9e37a7af2493b3f952a
       body: ""
