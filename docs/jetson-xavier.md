@@ -12,7 +12,8 @@ These are the flashing instructions for the Jetson AGX Xavier. For the list of o
 
 | balenaOS version | BSP version | Jetpack version | Use this version of jetson-flash |
 |------------------|-------------|-----------------|----------------------------------|
-| 2.108.9+rev1 or later       | 32.7.3      | 4.6.3  | You are on the correct version. (v0.5.49 or later)    |
+| 6.1.25 or later             | 35.4.1      | 5.1.2  | You are on the correct version. (v0.5.85 or later)      |
+| 2.108.9+rev1 - 6.0.13       | 32.7.3      | 4.6.3  | [v0.5.49](https://github.com/balena-os/jetson-flash/tree/v0.5.49)    |
 |2.101.1 - 2.108.9            | 32.7.2      | 4.6.2           |    [v0.5.48](https://github.com/balena-os/jetson-flash/tree/v0.5.48)    |
 | 2.95.15+rev1 -  2.101.0     | 32.7.1  | 4.6.1   |   [v0.5.23](https://github.com/balena-os/jetson-flash/tree/v0.5.23)                 |
 | 2.87.1+rev1 - 2.95.14       | 32.6.1 | 4.6             |   [v0.5.22](https://github.com/balena-os/jetson-flash/tree/v0.5.22)               |
