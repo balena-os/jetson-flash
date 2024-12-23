@@ -1,8 +1,8 @@
-# Instructions for the Jetson AGX Xavier
+# Instructions for the Jetson SRD3 Xavier AGX
 
 <img src="images/jetson-xavier.jpg">
 
-These are the flashing instructions for the Jetson AGX Xavier. For the list of other balena-supported Jetson devices [See here](../README.md#instructions).
+These are the flashing instructions for the Jetson SRD3 Xavier AGX. For the list of other balena-supported Jetson devices [See here](../README.md#instructions).
 
 ## L4T/balenaOS/jetson-flash compatibility
 
@@ -12,12 +12,8 @@ These are the flashing instructions for the Jetson AGX Xavier. For the list of o
 
 | balenaOS version | BSP version | Jetpack version | Use this version of jetson-flash |
 |------------------|-------------|-----------------|----------------------------------|
-| 2.108.9+rev1 or later       | 32.7.3      | 4.6.3  | You are on the correct version. (v0.5.49 or later)    |
-|2.101.1 - 2.108.9            | 32.7.2      | 4.6.2           |    [v0.5.48](https://github.com/balena-os/jetson-flash/tree/v0.5.48)    |
-| 2.95.15+rev1 -  2.101.0     | 32.7.1  | 4.6.1   |   [v0.5.23](https://github.com/balena-os/jetson-flash/tree/v0.5.23)                 |
-| 2.87.1+rev1 - 2.95.14       | 32.6.1 | 4.6             |   [v0.5.22](https://github.com/balena-os/jetson-flash/tree/v0.5.22)               |
-|2.82.11+rev2 - 2.85.2+rev5   | 32.5.1 | 4.5.1      |   [v0.5.18](https://github.com/balena-os/jetson-flash/tree/v0.5.18)       |
-| 2.67.2+rev1 - 2.82.11+rev1  | 32.4.4    | 4.4.1 | [v0.5.10](https://github.com/balena-os/jetson-flash/tree/v0.5.10) |
+| 6.2.4 or later       | 32.7.5      | 4.6.5  | You are on the correct version.   |
+
 
 ## Requirements
 Jetson Flash requires an x86 Linux-based host (or virtual machine) and has been tested on Ubuntu 22.04 (Focal).
