@@ -2,7 +2,7 @@
 
 # Most devices are on the same L4T BSP as the Jetson TX2
 DEVICE_TYPE="jetson-tx2"
-JETSON_FLASH_BSP_URL="https://developer.nvidia.com/embedded/l4t/r32_release_v6.1/t186/jetson_linux_r32.6.1_aarch64.tbz2"
+JETSON_FLASH_BSP_URL="https://developer.nvidia.com/downloads/remksjetpack-463r32releasev73t186jetsonlinur3273aarch64tbz2"
 
 function log {
 	case $1 in
@@ -66,8 +66,11 @@ case "${DEVICE_TYPE}" in
         jetson-nano-emmc)
             JETSON_FLASH_BSP_URL="https://developer.nvidia.com/downloads/remetpack-463r32releasev73t210jetson-210linur3273aarch64tbz2"
             ;;
+        jetson-xavier)
+            JETSON_FLASH_BSP_URL="https://developer.nvidia.com/downloads/embedded/l4t/r32_release_v7.5/t186/jetson_linux_r32.7.5_aarch64.tbz2"
+            ;;
         *)
-            echo $"Using default L4T 32.6.1 BSP ${JETSON_FLASH_BSP_URL}"
+            echo $"Using default L4T 32.7.3 BSP ${JETSON_FLASH_BSP_URL}"
 esac
 
 
