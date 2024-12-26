@@ -28,6 +28,7 @@ Choose your device from the list below for step-by-step instructions:
 |[Jetson Orin NX in Xavier NX Devkit NVME](./docs/jetson-orin-nx-xavier-nx-devkit.md) | L4T 36.3 |
 |[Seeed reComputer J3010 4GB](./docs/jetson-orin-nano-seeed-j3010.md) | L4T 36.3 |
 |[Seeed reComputer J4012 16GB](./docs/jetson-orin-nx-seeed-j4012.md) | L4T 36.3 |
+|[Forecr DSBOARD ORNX with Jetson Orin NX or Nano](./docs/forecr-dsb-ornx.md) | L4T 36.3 |
 
 **Don't see your device listed?**
 - Use the closest match above to the Jetson module on your carrier board
