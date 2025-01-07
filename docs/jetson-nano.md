@@ -4,7 +4,7 @@
 
 These are the flashing instructions for the Jetson Nano SD-CARD Developers Kit. For the list of other balena-supported Jetson devices [See here](../README.md#instructions).
 
-Note that this is for the Jetson Nano Developer Kit with an on-module SD card slot, **not** the [Jetson Nano eMMC](jetson-nano-emmc.md), which does not have an SD card slot on the module itself.
+Note that this is for the Jetson Nano Developer Kit with an on-module SD card slot and 4GB RAM, **not** the [Jetson Nano eMMC](jetson-nano-emmc.md), which does not have an SD card slot on the module itself.
 
 ## L4T/balenaOS/jetson-flash compatibility
 
@@ -105,13 +105,13 @@ Bus 001 Device 019: ID 0955:7c18 NVIDIA Corp. T186 [TX2 Tegra Parker] recovery m
 For **non - Docker**, run the tool by specifying the path to the unzipped image (in place of "<balena.img>") and the device type as shown below:
 
 ```sh
-$ ./bin/cmd.js -f <balena.img> -m jetson-nano
+$ ./bin/cmd.js -f <balena.img> -m jetson-nano-qspi-sd
 ```
 
 For **Docker**, issue the following commands in the folder that has the Dockerfile to build the container (building may take a while and appear to hang, so be patient.) Create a folder named `images` in your home directory and place your balena image file there so it's available inside the container.
 
 ```sh
-./build.sh [-m jetson-nano]
+./build.sh [-m jetson-nano-qspi-sd]
 ```
 
 You can then enter the container using:
@@ -125,13 +125,13 @@ Alternatively, run the provided docker-compose file with `docker-compose up` and
 Once in the container, you can run jetson-flash by specifying the balena image in your host's `~/images/` folder (in place of "<balena.img>"):
 
 ```sh
-./bin/cmd.js -f /data/images/<balena.img> -m jetson-nano --accept-license=yes -c /tmp/Linux_for_Tegra
+./bin/cmd.js -f /data/images/<balena.img> -m jetson-nano-qspi-sd --accept-license=yes -c /tmp/Linux_for_Tegra
 ```
 
 You can alternatively just run the jetson-flash tool in a single command by running the container with this command:
 
 ```sh
-docker container run --rm -it --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/images:/data/images jetson-flash-image ./bin/cmd.js -f /data/images/<balena.img> -m jetson-nano --accept-license=yes -c /tmp/Linux_for_Tegra
+docker container run --rm -it --privileged -v /dev/bus/usb:/dev/bus/usb -v ~/images:/data/images jetson-flash-image ./bin/cmd.js -f /data/images/<balena.img> -m jetson-nano-qspi-sd --accept-license=yes -c /tmp/Linux_for_Tegra
 ```
 
 It will exit upon completion. 
