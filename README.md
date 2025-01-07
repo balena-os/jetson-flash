@@ -14,6 +14,11 @@ Choose your device from the list below for step-by-step instructions:
 
 |Device | Current L4T version |
 |-------|---------------------|
+|[Auvidea CNX100 Xavier NX](./docs/cnx100-xavier-nx.md) | L4T 32.5.1 |
+|[Auvidea JN30B Nano](./docs/jn30b-nano.md) | L4T 32.7.2  |
+|[CTI Photon Nano](./docs/photon-nano.md) | L4T 32.7.3 |
+|[CTI Photon TX2 NX](./docs/photon-tx2-nx.md) | L4T 32.7.2 |
+|[CTI Photon Xavier NX](./docs/photon-xavier-nx.md) | L4T 32.7.3 |
 |[Jetson Nano eMMC](./docs/jetson-nano-emmc.md) | L4T 32.7.3 |
 |[Jetson Nano SD-CARD Devkit](./docs/jetson-nano.md) | L4T 32.7.3 |
 |[Jetson Nano 2GB Devkit](./docs/jetson-nano-2gb-devkit.md) | L4T 32.7.1 |
