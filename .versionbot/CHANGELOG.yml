@@ -1,4 +1,26 @@
 - commits:
+    - subject: "docs: Add flashing instructions for community supported boards"
+      hash: e6ee54993f8c88fd9803aae893e3627a3a90481d
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+    - subject: "jetson-nano: Fix BSP machine in docs"
+      hash: 47e127e7e5df1ac08b5074fb185802cada096f78
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.85
+  title: ""
+  date: 2025-01-13T08:29:01.482Z
+- commits:
     - subject: "flash_orin: Add flag for QSPI direct writing"
       hash: 2fdce4dfc1ab88dc4a8c49c16d8c85b939183a65
       body: |
