@@ -4,6 +4,7 @@
 DEVICE_TYPE="jetson-tx2"
 JETSON_FLASH_BSP_URL="https://developer.nvidia.com/downloads/embedded/l4t/r32_release_v7.6/t186/jetson_linux_r32.7.6_aarch64.tbz2"
 
+
 function log {
 	case $1 in
 		ERROR)
@@ -68,6 +69,7 @@ case "${DEVICE_TYPE}" in
             ;;
         *)
             echo $"Using default L4T 32.7.6 BSP for Jetson TX2 ${JETSON_FLASH_BSP_URL}"
+
 esac
 
 
