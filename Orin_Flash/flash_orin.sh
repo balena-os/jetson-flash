@@ -38,6 +38,9 @@ function help() {
     echo "    jetson-orin-nano-devkit-nvme"
     echo "    jetson-orin-nano-seeed-j3010"
     echo "    jetson-orin-nx-seeed-j4012"
+    echo "    forecr-dsb-ornx-lan-orin-nano-4gb"
+    echo "    forecr-dsb-ornx-lan-orin-nano-8gb"
+    echo "    forecr-dsb-ornx-lan-orin-nx-16gb"
 }
 
 # Parse arguments
@@ -85,6 +88,15 @@ if [[ $balena_device_name = "jetson-orin-nano-devkit-nvme" ]]; then
 elif [[ $balena_device_name = "jetson-orin-nano-seeed-j3010" ]]; then
 	device_type="jetson-orin-nano-devkit"
 	device_dtb="tegra234-p3768-0000+p3767-0004-nv.dtb"
+elif [[ $balena_device_name = "forecr-dsb-ornx-lan-orin-nano-4gb" ]]; then
+	device_type="jetson-orin-nano-devkit"
+	device_dtb="tegra234-p3768-0000+p3767-0004-nv.dtb"
+elif [[ $balena_device_name = "forecr-dsb-ornx-lan-orin-nano-8gb" ]]; then
+	device_type="jetson-orin-nano-devkit"
+	device_dtb="tegra234-p3768-0000+p3767-0003-nv.dtb"
+elif [[ $balena_device_name = "forecr-dsb-ornx-lan-orin-nx-16gb" ]]; then
+	device_type="jetson-orin-nano-devkit"
+	device_dtb="tegra234-p3768-0000+p3767-0000-nv.dtb"
 elif [[ $balena_device_name = "jetson-orin-nx-xavier-nx-devkit" ]] || [[ $balena_device_name = "jetson-orin-nx-seeed-j4012" ]]; then
 	device_type="p3509-a02-p3767-0000"
 	device_dtb="tegra234-p3768-0000+p3767-0000-nv.dtb"
