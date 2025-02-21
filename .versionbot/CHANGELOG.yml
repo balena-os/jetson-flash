@@ -1,4 +1,18 @@
 - commits:
+    - subject: "package: Bump ext2fs and balena-image-fs"
+      hash: ead37e9b6e9223165b227c2a3fcebae2193d19b0
+      body: |
+        ... to bring in fix for larger preloaded images
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.86
+  title: ""
+  date: 2025-02-21T10:52:54.267Z
+- commits:
     - subject: "docs: Add flashing instructions for community supported boards"
       hash: e6ee54993f8c88fd9803aae893e3627a3a90481d
       body: ""
