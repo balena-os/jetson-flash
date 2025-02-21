@@ -66,6 +66,15 @@ case "${DEVICE_TYPE}" in
         jetson-nano-emmc)
             JETSON_FLASH_BSP_URL="https://developer.nvidia.com/downloads/remetpack-463r32releasev73t210jetson-210linur3273aarch64tbz2"
             ;;
+        jetson-xavier)
+            JETSON_FLASH_BSP_URL="https://developer.nvidia.com/downloads/embedded/l4t/r35_release_v4.1/release/jetson_linux_r35.4.1_aarch64.tbz2"
+            ;;
+        jetson-xavier-nx-devkit-emmc)
+            JETSON_FLASH_BSP_URL="https://developer.nvidia.com/downloads/embedded/l4t/r35_release_v4.1/release/jetson_linux_r35.4.1_aarch64.tbz2"
+            ;;
+        jetson-xavier-nx-devkit)
+            JETSON_FLASH_BSP_URL="https://developer.nvidia.com/downloads/embedded/l4t/r35_release_v4.1/release/jetson_linux_r35.4.1_aarch64.tbz2"
+            ;;      
         *)
             echo $"Using default L4T 32.7.3 BSP ${JETSON_FLASH_BSP_URL}"
 esac

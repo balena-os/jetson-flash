@@ -12,7 +12,8 @@ These are the flashing instructions for the Jetson Xavier NX Devkit SD-CARD. For
 
 | balenaOS version | BSP version | Jetpack version | Use this version of jetson-flash |
 |------------------|-------------|-----------------|----------------------------------|
-| 2.108.9+rev1 or later       | 32.7.3      | 4.6.3  | You are on the correct version. (v0.5.36 or later)    |
+| 6.1.25 or later             | 35.4.1      | 5.1.2  | You are on the correct version. (v0.5.85 or later)      |
+| 2.108.9+rev1 - 208.19       | 32.7.3      | 4.6.3  | [v0.5.36](https://github.com/balena-os/jetson-flash/tree/v0.5.36)    |
 |2.101.1 - 2.108.9            | 32.7.2      | 4.6.2           |    [v0.5.35](https://github.com/balena-os/jetson-flash/tree/v0.5.53)    |
 | 2.95.15+rev1 -  2.101.0     | 32.7.1  | 4.6.1   |   [v0.5.33](https://github.com/balena-os/jetson-flash/tree/v0.5.33)                 |
 | 2.87.1+rev1 - 2.95.14       | 32.6.1 | 4.6             |   [v0.5.23](https://github.com/balena-os/jetson-flash/tree/v0.5.23)               |
