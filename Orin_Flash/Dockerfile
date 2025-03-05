@@ -10,7 +10,7 @@ RUN \
     pip3 install pyyaml
 
 # Unpack BSP archive used for balenaOS kernel rcmboot
-RUN echo "Downloading BSP archive" && mkdir orin && wget https://developer.nvidia.com/downloads/embedded/l4t/r36_release_v3.0/release/jetson_linux_r36.3.0_aarch64.tbz2 -O orin/jetson_linux_r36.3.0_aarch64.tbz2 && cd orin && tar xf jetson_linux_r36.3.0_aarch64.tbz2 && \
+RUN echo "Downloading BSP archive" && mkdir orin && wget https://developer.nvidia.com/downloads/embedded/l4t/r36_release_v4.3/release/Jetson_Linux_r36.4.3_aarch64.tbz2 -O orin/jetson_linux_r36.4.3_aarch64.tbz2 && cd orin && tar xf jetson_linux_r36.4.3_aarch64.tbz2 && \
     cd Linux_for_Tegra/ && ./tools/l4t_flash_prerequisites.sh
 
 COPY ./uefi/jetson-orin/uefi_jetson.bin /usr/src/app/orin-flash/orin/Linux_for_Tegra/bootloader/uefi_jetson.bin
