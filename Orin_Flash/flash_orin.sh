@@ -122,6 +122,9 @@ function setup_orin_rcmboot() {
     # tegra234-mb2-bct-common.dtsi for AGX Orin and tegra234-mb2-bct-misc-p3767-0000.dts for Orin NX/Nano carrier boards which don't have eeproms
     sed -i 's/cvb_eeprom_read_size = <0x100>/cvb_eeprom_read_size = <0x0>/g' "${device_dir}${lt_dir}/bootloader/tegra234-mb2-bct-common.dtsi"
     sed -i 's/cvb_eeprom_read_size = <0x100>/cvb_eeprom_read_size = <0x0>/g' "${device_dir}${lt_dir}/bootloader/generic/BCT/tegra234-mb2-bct-misc-p3767-0000.dts"
+    if [[ $balena_device_name = "jetson-orin-nx-xavier-nx-devkit" ]] || [[ $balena_device_name = "jetson-orin-nx-seeed-j4012" ]] || [[ $balena_device_name = "jetson-orin-nano-seeed-j3010" ]]; then
+        sed -i 's/flash_t234_qspi_sd.xml/flash_t234_qspi.xml/g' "${device_dir}${lt_dir}/p3768-0000-p3767-0000-a0.conf"
+    fi
 }
 
 trap cleanup EXIT SIGHUP SIGINT SIGTERM
