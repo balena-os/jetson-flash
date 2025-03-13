@@ -81,10 +81,10 @@ done
 
 if [[ $balena_device_name = "jetson-orin-nano-devkit-nvme" ]]; then
 	device_type="jetson-orin-nano-devkit"
-	device_dtb="tegra234-p3768-0000+p3767-0005-nv.dtb"
+	device_dtb="tegra234-p3768-0000+p3767-0005-nv-super.dtb"
 elif [[ $balena_device_name = "jetson-orin-nano-seeed-j3010" ]]; then
-	device_type="jetson-orin-nano-devkit"
-	device_dtb="tegra234-p3768-0000+p3767-0004-nv.dtb"
+	device_type="jetson-orin-nano-devkit-super"
+	device_dtb="tegra234-p3768-0000+p3767-0004-nv-super.dtb"
 elif [[ $balena_device_name = "jetson-orin-nx-xavier-nx-devkit" ]] || [[ $balena_device_name = "jetson-orin-nx-seeed-j4012" ]]; then
 	device_type="p3509-a02-p3767-0000"
 	device_dtb="tegra234-p3768-0000+p3767-0000-nv.dtb"
@@ -122,6 +122,9 @@ function setup_orin_rcmboot() {
     # tegra234-mb2-bct-common.dtsi for AGX Orin and tegra234-mb2-bct-misc-p3767-0000.dts for Orin NX/Nano carrier boards which don't have eeproms
     sed -i 's/cvb_eeprom_read_size = <0x100>/cvb_eeprom_read_size = <0x0>/g' "${device_dir}${lt_dir}/bootloader/tegra234-mb2-bct-common.dtsi"
     sed -i 's/cvb_eeprom_read_size = <0x100>/cvb_eeprom_read_size = <0x0>/g' "${device_dir}${lt_dir}/bootloader/generic/BCT/tegra234-mb2-bct-misc-p3767-0000.dts"
+    if [[ $balena_device_name = "jetson-orin-nx-xavier-nx-devkit" ]] || [[ $balena_device_name = "jetson-orin-nx-seeed-j4012" ]] || [[ $balena_device_name = "jetson-orin-nano-seeed-j3010" ]]; then
+        sed -i 's/flash_t234_qspi_sd.xml/flash_t234_qspi.xml/g' "${device_dir}${lt_dir}/p3768-0000-p3767-0000-a0.conf"
+    fi
 }
 
 trap cleanup EXIT SIGHUP SIGINT SIGTERM
@@ -132,7 +135,7 @@ if [ ! -d ${work_dir}/${device_dir}/${lt_dir} ]; then
 fi
 
 cat "${work_dir}/${device_dir}/${lt_dir}/Tegra_Software_License_Agreement-Tegra-Linux.txt"
-log "Above license agreement can be consulted at https://developer.download.nvidia.com/embedded/L4T/r36_Release_v3.0/release/Tegra_Software_License_Agreement-Tegra-Linux.txt?t=eyJscyI6ImdzZW8iLCJsc2QiOiJodHRwczovL3d3dy5nb29nbGUuY29tLyJ9"
+log "Above license agreement can be consulted at https://developer.download.nvidia.com/embedded/L4T/r36_Release_v4.3/release/Tegra_Software_License_Agreement-Tegra-Linux.txt?t=eyJscyI6ImdzZW8iLCJsc2QiOiJodHRwczovL3d3dy5nb29nbGUuY29tLyJ9"
 
 if [ "$accept_license" != "yes" ]; then
    echo "Accept the above License Agreement? Type yes/no:"

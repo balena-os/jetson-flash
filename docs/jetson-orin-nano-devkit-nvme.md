@@ -11,8 +11,9 @@ These are the flashing instructions for the Jetson Orin Nano 8GB (SD) Devkit NVM
 
 | balenaOS version | BSP version | Jetpack version | Use this version of jetson-flash |
 |------------------|-------------|-----------------|----------------------------------|
-| 5.3.22 or later     | 36.3        | 6.0             | You are on the correct version. (v0.5.73 or greater)      |
-| 5.3.12 - 5.3.21    | 35.5.0        | 5.1.3            | [v0.5.72](https://github.com/balena-os/jetson-flash/tree/v0.5.72) |
+| 6.4.0 or later   | 36.4.3      | 6.2             | You are on the correct version. (v0.5.86 or greater)              |
+| 5.3.22 - 6.3.6   | 36.3        | 6.0             | [v0.5.85](https://github.com/balena-os/jetson-flash/tree/v0.5.85) |
+| 5.3.12 - 5.3.21  | 35.5.0      | 5.1.3           | [v0.5.72](https://github.com/balena-os/jetson-flash/tree/v0.5.72) |
 | 4.1.5 - 5.3.10   | 35.4.1      | 5.1.2           | [v0.5.67](https://github.com/balena-os/jetson-flash/tree/v0.5.67) |
 | 2.115.18 - 4.1.2 | 35.3.1      | 5.1.1           | [v0.5.57](https://github.com/balena-os/jetson-flash/tree/v0.5.57) |
 

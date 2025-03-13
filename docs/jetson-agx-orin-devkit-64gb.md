@@ -12,7 +12,8 @@ These are the flashing instructions for the [Jetson AGX Orin Developer Kit 64GB]
 
 | balenaOS version | BSP version | Jetpack version | Use this version of jetson-flash |
 |------------------|-------------|-----------------|----------------------------------|
-| 6.0.6 or later     | 36.3        | 6.0             | You are on the correct version. (v0.5.77 or greater)      |
+| 6.4.0 or later   | 36.4.3      | 6.2             | You are on the correct version. (v0.5.86 or greater)              |
+| 6.0.6 - 6.3.6    | 36.3        | 6.0             | [v0.5.85](https://github.com/balena-os/jetson-flash/tree/v0.5.85) |
 
 
 ## Requirements
