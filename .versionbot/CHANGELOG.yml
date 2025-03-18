@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update all devices to L4T 36.4.3 - JP6
+      hash: 3c601444e68287b1a899d1e00965d42e3bfd9837
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.87
+  title: ""
+  date: 2025-03-18T19:55:54.416Z
+- commits:
     - subject: "package: Bump ext2fs and balena-image-fs"
       hash: ead37e9b6e9223165b227c2a3fcebae2193d19b0
       body: |
