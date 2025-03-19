@@ -110,6 +110,11 @@ function setup_orin_rcmboot() {
     mkdir -p "${device_dir}${lt_dir}/rootfs/boot/extlinux/"
     echo " " > "${device_dir}${lt_dir}/rootfs/boot/extlinux/extlinux.conf"
     sed -i 's/console=ttyAMA0,115200/ root=LABEL=flash-rootA flasher rootdelay=1 debug loglevel=7 roottimeout=120 debug loglevel=7 /g' "${device_dir}${lt_dir}/p3767.conf.common"
+
+    sed -i 's/tegra234-p3767-0000-p3509-a02.dtb/tegra234-p3767-0000-antmicro-job.dtb/g' "${device_dir}${lt_dir}/p3509-a02+p3767-0000.conf"
+    sed -i 's/flash_t234_qspi_sd.xml/flash_t234_qspi.xml/g' "${device_dir}${lt_dir}/p3509-a02+p3767-0000.conf"
+    sed -i 's/cvb_eeprom_i2c_slave_address = <0xae>/cvb_eeprom_i2c_slave_address = <0xa0>/g' "${device_dir}${lt_dir}/bootloader/t186ref/BCT/tegra234-mb2-bct-misc-p3767-0000.dts"
+    sed -i 's/cvb_eeprom_read_size = <0x100>/cvb_eeprom_read_size = <0x0>/g' "${device_dir}${lt_dir}/bootloader/t186ref/BCT/tegra234-mb2-bct-misc-p3767-0000.dts"
 }
 
 trap cleanup EXIT SIGHUP SIGINT SIGTERM

@@ -14,10 +14,6 @@ RUN mkdir orin_nx && wget https://developer.nvidia.com/downloads/jetson-linux-r3
     cd ../ && mkdir orin_nano && cp -r orin_nx/* orin_nano/ && \
     cd orin_nano/Linux_for_Tegra/ && ./tools/l4t_flash_prerequisites.sh
 
-RUN wget https://raw.githubusercontent.com/antmicro/jetson-orin-baseboard-bsp/a3f498d4e1d3de081f0fdac2e16b4ecd64595d40/bsp_overlay/antmicro-job%2Bp3767.conf -O /usr/src/app/orin-flash/orin_nx/Linux_for_Tegra/p3509-a02+p3767-0000.conf
-
-RUN wget https://raw.githubusercontent.com/antmicro/jetson-orin-baseboard-bsp/a3f498d4e1d3de081f0fdac2e16b4ecd64595d40/bsp_overlay/bootloader/t186ref/BCT/tegra234-mb2-bct-misc-p3767-0000-antmicro-job.dts -O /usr/src/app/orin-flash/orin_nx/Linux_for_Tegra//bootloader/t186ref/BCT/tegra234-mb2-bct-misc-p3767-0000-antmicro-job.dts
-
 COPY ./uefi/jetson-orin-nano-devkit-nvme/uefi_jetson.bin /usr/src/app/orin-flash/orin_nano/Linux_for_Tegra/bootloader/uefi_jetson.bin
 COPY ./uefi/jetson-orin-nx-xavier-nx-devkit/uefi_jetson.bin /usr/src/app/orin-flash/orin_nx/Linux_for_Tegra/bootloader/uefi_jetson.bin
 # Copy rcmboot script inside the Docker image
