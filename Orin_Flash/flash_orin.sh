@@ -2,10 +2,10 @@
 
 set -e
 
-balena_image_flasher_root_mnt="/tmp/flash-bootA"
+balena_image_flasher_root_mnt="/tmp/flash-rootA"
 balena_image_loop_dev=""
 lt_dir="Linux_for_Tegra"
-device_dir=""
+device_dir="orin/"
 work_dir="/usr/src/app/orin-flash/"
 accept_license=""
 
@@ -30,7 +30,14 @@ function log {
 }
 
 function help() {
-    echo "Provisioning can be started by typing:\n $ ./flash_orin.sh -f /data/images/<balenaOS.img> -m [jetson-orin-nx-antmicro-job|jetson-orin-nx-xavier-nx-devkit|jetson-orin-nano-devkit-nvme|jetson-orin-nx-seeed-j4012] --accept-license yes"
+    echo "Provisioning can be started by typing:"
+    echo " $ ./flash_orin.sh -f /data/images/<balenaOS.img> -m <device-type> --accept-license yes"
+    echo "where <device-type> can be one of"
+    echo "    jetson-agx-orin-devkit-64gb"
+    echo "    jetson-orin-nx-xavier-nx-devkit"
+    echo "    jetson-orin-nano-devkit-nvme"
+    echo "    jetson-orin-nano-seeed-j3010"
+    echo "    jetson-orin-nx-seeed-j4012"
 }
 
 # Parse arguments
@@ -71,18 +78,22 @@ while [[ $# -gt 0 ]]; do
 	shift
 done
 
+
 if [[ $balena_device_name = "jetson-orin-nano-devkit-nvme" ]]; then
 	device_type="jetson-orin-nano-devkit"
-	device_dir="orin_nano/"
-	device_dtb="tegra234-p3767-0003-p3768-0000-a0.dtb"
+	device_dtb="tegra234-p3768-0000+p3767-0005-nv-super.dtb"
+elif [[ $balena_device_name = "jetson-orin-nano-seeed-j3010" ]]; then
+	device_type="jetson-orin-nano-devkit-super"
+	device_dtb="tegra234-p3768-0000+p3767-0004-nv-super.dtb"
 elif [[ $balena_device_name = "jetson-orin-nx-xavier-nx-devkit" ]] || [[ $balena_device_name = "jetson-orin-nx-seeed-j4012" ]]; then
-	device_type="p3509-a02+p3767-0000"
-	device_dir="orin_nx/"
-	device_dtb="tegra234-p3767-0000-p3509-a02.dtb"
+	device_type="p3509-a02-p3767-0000"
+	device_dtb="tegra234-amjob-xv3+p3767-0000-nv.dtb"
+elif [[ $balena_device_name = "jetson-agx-orin-devkit-64gb" ]]; then
+	device_type="jetson-agx-orin-devkit"
+	device_dtb="tegra234-p3737-0000+p3701-0005.dtb"
 elif [[ $balena_device_name = "jetson-orin-nx-antmicro-job" ]]; then
-	device_type="p3509-a02+p3767-0000"
-	device_dir="orin_nx/"
-	device_dtb="tegra234-p3767-0000-antmicro-job.dtb"
+	device_type="p3509-a02-p3767-0000"
+	device_dtb="tegra234-amjob-xv3+p3767-0000-nv.dtb"
 else
 	log ERROR "Unknown or unspecified device-type!"
 fi
@@ -93,9 +104,9 @@ cleanup () {
 	losetup -d $balena_image_flasher_loop_dev > /dev/null 2>&1 || true
 	losetup -D
 	if [[ $exit_code -eq 0 ]]; then
-		log "Wait for the log 'Sleeping for 1 second(s) to wait root to settle...' to appear in the UART console before removing the programming cable and replacing it with the USB key."
-		log "The internal flashing process takes around 10 minutes as the internal QSPI memory is flashed, please wait for the device to finish provisioning and to power itself off."
-		log "Once the device has powered off, remove the USB key and power the device back on."
+		log "Once the device's fan starts spinning USB provisioning is started."
+		log "The internal flashing process takes around 5-10 minutes as the internal QSPI memory is flashed, please wait for the device to finish provisioning and to power itself off."
+		log "Once power LED turns off, remove the force recovery jumper if applicable as well as the provisioning USB KEY, then power on the device."
 	fi
 }
 
@@ -109,12 +120,17 @@ function setup_orin_rcmboot() {
     echo " " > "${device_dir}${lt_dir}/bootloader/recovery.img"
     mkdir -p "${device_dir}${lt_dir}/rootfs/boot/extlinux/"
     echo " " > "${device_dir}${lt_dir}/rootfs/boot/extlinux/extlinux.conf"
-    sed -i 's/console=ttyAMA0,115200/ root=LABEL=flash-rootA flasher rootdelay=1 debug loglevel=7 roottimeout=120 debug loglevel=7 /g' "${device_dir}${lt_dir}/p3767.conf.common"
-
-    sed -i 's/tegra234-p3767-0000-p3509-a02.dtb/tegra234-p3767-0000-antmicro-job.dtb/g' "${device_dir}${lt_dir}/p3509-a02+p3767-0000.conf"
-    sed -i 's/flash_t234_qspi_sd.xml/flash_t234_qspi.xml/g' "${device_dir}${lt_dir}/p3509-a02+p3767-0000.conf"
-    sed -i 's/cvb_eeprom_i2c_slave_address = <0xae>/cvb_eeprom_i2c_slave_address = <0xa0>/g' "${device_dir}${lt_dir}/bootloader/t186ref/BCT/tegra234-mb2-bct-misc-p3767-0000.dts"
-    sed -i 's/cvb_eeprom_read_size = <0x100>/cvb_eeprom_read_size = <0x0>/g' "${device_dir}${lt_dir}/bootloader/t186ref/BCT/tegra234-mb2-bct-misc-p3767-0000.dts"
+    sed -i 's/console=tty0/root=LABEL=flash-rootA flasher rootdelay=1 debug loglevel=7 roottimeout=360 jf_rcm_boot=1 /g' "${device_dir}${lt_dir}/p3767.conf.common"
+    sed -i 's/console=tty0/root=LABEL=flash-rootA flasher rootdelay=1 debug loglevel=7 roottimeout=360 jf_rcm_boot=1 /g' "${device_dir}${lt_dir}/p3701.conf.common"
+    # tegra234-mb2-bct-common.dtsi for AGX Orin and tegra234-mb2-bct-misc-p3767-0000.dts for Orin NX/Nano carrier boards which don't have eeproms
+    sed -i 's/cvb_eeprom_read_size = <0x100>/cvb_eeprom_read_size = <0x0>/g' "${device_dir}${lt_dir}/bootloader/tegra234-mb2-bct-common.dtsi"
+    sed -i 's/cvb_eeprom_read_size = <0x100>/cvb_eeprom_read_size = <0x0>/g' "${device_dir}${lt_dir}/bootloader/generic/BCT/tegra234-mb2-bct-misc-p3767-0000.dts"
+    if [[ $balena_device_name = "jetson-orin-nx-antmicro-job" ]]; then
+        sed -i 's/flash_t234_qspi_sd.xml/flash_t234_qspi.xml/g' "${device_dir}${lt_dir}/p3768-0000-p3767-0000-a0.conf"
+        sed -i 's/tegra234-p3768-0000+p3767-0000-nv.dtb/tegra234-amjob-xv3+p3767-0000-nv.dtb/g' "${device_dir}${lt_dir}/p3768-0000-p3767-0000-a0.conf"
+        sed -i 's/cvb_eeprom_i2c_slave_address = <0xae>/cvb_eeprom_i2c_slave_address = <0xa0>/g' "${device_dir}${lt_dir}/bootloader/generic/BCT/tegra234-mb2-bct-misc-p3767-0000.dts"
+        sed -i 's/cvb_eeprom_read_size = <0x100>/cvb_eeprom_read_size = <0x0>/g' "${device_dir}${lt_dir}/bootloader/generic/BCT/tegra234-mb2-bct-misc-p3767-0000.dts"
+    fi
 }
 
 trap cleanup EXIT SIGHUP SIGINT SIGTERM
@@ -124,8 +140,8 @@ if [ ! -d ${work_dir}/${device_dir}/${lt_dir} ]; then
     tar xf *.tbz2
 fi
 
-cat "${work_dir}/${device_dir}/${lt_dir}/nv_tegra/LICENSE"
-log "Above license agreement can be consulted at https://developer.download.nvidia.com/embedded/L4T/r35_Release_v4.1/release/Tegra_Software_License_Agreement-Tegra-Linux.txt"
+cat "${work_dir}/${device_dir}/${lt_dir}/Tegra_Software_License_Agreement-Tegra-Linux.txt"
+log "Above license agreement can be consulted at https://developer.download.nvidia.com/embedded/L4T/r36_Release_v4.3/release/Tegra_Software_License_Agreement-Tegra-Linux.txt?t=eyJscyI6ImdzZW8iLCJsc2QiOiJodHRwczovL3d3dy5nb29nbGUuY29tLyJ9"
 
 if [ "$accept_license" != "yes" ]; then
    echo "Accept the above License Agreement? Type yes/no:"
@@ -141,8 +157,10 @@ mkdir -p $balena_image_flasher_root_mnt > /dev/null 2>&1 || true
 mount "${balena_image_flasher_loop_dev}p2" "$balena_image_flasher_root_mnt" #> /dev/null 2>&1
 rm "${work_dir}/${device_dir}${lt_dir}/bootloader/boot0.img" || true
 cp "${balena_image_flasher_root_mnt}/boot/Image" "${device_dir}/${lt_dir}/kernel/Image"
-cp "${balena_image_flasher_root_mnt}/boot/${device_dtb}" "${device_dir}/${lt_dir}/kernel/dtb/${device_dtb}"
 log "Kernel image has been extracted and the BSP kernel has been replaced with the one in balenaOS"
+cp "${balena_image_flasher_root_mnt}/boot/${device_dtb}" "${device_dir}/${lt_dir}/kernel/dtb/"
+cp "${balena_image_flasher_root_mnt}/boot/${device_dtb}" "${device_dir}/${lt_dir}/bootloader/"
+log "Device dtb has been extracted and the BSP dtb has been replaced with the one in balenaOS"
 
 setup_orin_rcmboot
 
