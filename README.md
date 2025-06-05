@@ -22,7 +22,7 @@ Choose your device from the list below for step-by-step instructions:
 |[Jetson Nano eMMC](./docs/jetson-nano-emmc.md) | L4T 32.7.3 |
 |[Jetson Nano SD-CARD Devkit](./docs/jetson-nano.md) | L4T 32.7.3 |
 |[Jetson Nano 2GB Devkit](./docs/jetson-nano-2gb-devkit.md) | L4T 32.7.1 |
-|[Jetson TX2](./docs/jetson-tx2.md) | L4T 32.7.3 |
+|[Jetson TX2](./docs/jetson-tx2.md) | L4T 32.7.6 |
 |[Jetson TX2 NX (in Jetson Xavier NX Devkit)](./docs/jetson-tx2-nx-devkit.md) | L4T 32.7.3 |
 |[Jetson AGX Xavier](./docs/jetson-xavier.md) | L4T 32.7.3 |
 |[Jetson Xavier NX Devkit eMMC](./docs/jetson-xavier-nx-devkit-emmc.md) | L4T 32.7.3 |
