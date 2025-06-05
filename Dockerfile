@@ -29,5 +29,6 @@ COPY .  /usr/src/app/jetson-flash
 RUN npm install
 
 RUN wget "$bsp_url" -O "/tmp/Linux_for_Tegra.tbz2"  && tar -xvf "/tmp/Linux_for_Tegra.tbz2" -C "/tmp/" && rm /tmp/Linux_for_Tegra.tbz2
+RUN wget https://developer.nvidia.com/downloads/embedded/L4T/r32_Release_v7.5/overlay_32.7.5_PCN211181.tbz2 -O "/tmp/overlay_32.7.5_PCN211181.tbz2" && mkdir /tmp/overlay && tar xf /tmp/overlay_32.7.5_PCN211181.tbz2 -C /tmp/overlay/ && rm -rf /tmp/overlay_32.7.5_PCN211181.tbz2 && cp /tmp/overlay/Linux_for_Tegra/bootloader/t210ref/BCT/P3448_A00_lpddr4_204Mhz_P987.cfg /usr/src/app/jetson-flash/BCT_OVERLAY_CFG/ && rm -rf /tmp/overlay
 
 CMD ["./run_http_server.sh"]

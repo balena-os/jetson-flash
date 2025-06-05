@@ -13,7 +13,7 @@ These are the flashing instructions for the Jetson TX2. For the list of other ba
 | balenaOS version | BSP version | Jetpack version | Use this version of jetson-flash |
 |------------------|-------------|-----------------|----------------------------------|
 | 6.5.38 or later       | 32.7.6      | 4.6.6  | You are on the correct version. (v0.5.88 or later)    |
-| 2.108.9+rev1 or later       | 32.7.3      | 4.6.3  | You are on the correct version. (v0.5.35 or later)    |
+| 2.108.9+rev1 or later       | 32.7.3      | 4.6.3  | [v0.5.35](https://github.com/balena-os/jetson-flash/tree/v0.5.35)    |
 |2.101.1 - 2.108.9            | 32.7.2      | 4.6.2           |    [v0.5.34](https://github.com/balena-os/jetson-flash/tree/v0.5.34)    |
 | 2.95.15+rev1 -  2.101.0     | 32.7.1  | 4.6.1   |   [v0.5.32](https://github.com/balena-os/jetson-flash/tree/v0.5.32)                 |
 | 2.87.1+rev1 - 2.95.14       | 32.6.1 | 4.6             |   [v0.5.26](https://github.com/balena-os/jetson-flash/tree/v0.5.26)               |
