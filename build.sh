@@ -64,7 +64,7 @@ case "${DEVICE_TYPE}" in
             JETSON_FLASH_BSP_URL="https://developer.nvidia.com/embedded/l4t/r32_release_v7.1/t210/jetson-210_linux_r32.7.1_aarch64.tbz2"
             ;;
         jetson-nano-emmc)
-            JETSON_FLASH_BSP_URL="https://developer.nvidia.com/downloads/remetpack-463r32releasev73t210jetson-210linur3273aarch64tbz2"
+            JETSON_FLASH_BSP_URL="https://developer.nvidia.com/downloads/embedded/l4t/r32_release_v7.6/t210/jetson-210_linux_r32.7.6_aarch64.tbz2"
             ;;
         *)
             echo $"Using default L4T 32.7.6 BSP for Jetson TX2 ${JETSON_FLASH_BSP_URL}"
