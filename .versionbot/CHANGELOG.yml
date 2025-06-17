@@ -1,4 +1,17 @@
 - commits:
+    - subject: "lib/resin-jetson-flash: Update Jetson TX2 to L4T 32.7.6"
+      hash: 7a4de4b901bfda1f8331b2fa3995c58258abe01e
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.88
+  title: ""
+  date: 2025-06-17T07:49:03.542Z
+- commits:
     - subject: Update all devices to L4T 36.4.3 - JP6
       hash: 3c601444e68287b1a899d1e00965d42e3bfd9837
       body: ""
