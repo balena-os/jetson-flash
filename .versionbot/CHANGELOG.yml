@@ -1,4 +1,17 @@
 - commits:
+    - subject: speed up docker build when using cache
+      hash: 137580babdff201f7cca32a7a7fc33821d7b43b2
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Ryan Cooke <ryan@balena.io>
+        signed-off-by: Ryan Cooke <ryan@balena.io>
+      author: Ryan Cooke
+  version: 0.5.90
+  title: ""
+  date: 2025-07-17T10:00:25.174Z
+- commits:
     - subject: "lib/resin-jetson-flash: Update Nano eMMC and JN30B Nano to L4T 32.7.6"
       hash: 4a1a1ad0d4067faa5f58ff8d523fb28023e67fac
       body: ""
