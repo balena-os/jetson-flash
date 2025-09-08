@@ -165,7 +165,7 @@
             <file_system_attribute> 0 </file_system_attribute>
             <allocation_attribute> 0x8 </allocation_attribute>
             <percent_reserved> 0 </percent_reserved>
-            <filename> FILENAME </filename>
+            <filename> u-boot.bin.encrypt </filename>
         </partition>
 
         <partition name="DTB"  type="data">
@@ -199,6 +199,7 @@
             <percent_reserved> 0 </percent_reserved>
             <filename> bmp.blob </filename>
         </partition>
+                        <!--
         <partition  name="resin-boot" type="data">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
@@ -208,6 +209,7 @@
             <percent_reserved> 0 </percent_reserved>
             <filename> FILENAME </filename>
         </partition>
+
         <partition  name="resin-rootA" type="data">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
@@ -235,6 +237,7 @@
             <percent_reserved> 0 </percent_reserved>
             <filename> FILENAME </filename>
         </partition>
+
         <partition  name="resin-data" type="data">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
@@ -244,6 +247,7 @@
             <percent_reserved> 0 </percent_reserved>
             <filename> FILENAME </filename>
         </partition>
+        -->
         <partition  name="GPT" type="GPT">
             <allocation_policy> sequential </allocation_policy>
             <filesystem_type> basic </filesystem_type>
