@@ -1,4 +1,17 @@
 - commits:
+    - subject: Mark package as private to prevent npm publishing
+      hash: 66827eafdcf1dee08998e825303a0b50d59554cc
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+  version: 0.5.91
+  title: ""
+  date: 2026-02-24T14:15:50.983Z
+- commits:
     - subject: speed up docker build when using cache
       hash: 137580babdff201f7cca32a7a7fc33821d7b43b2
       body: ""
