@@ -13,7 +13,8 @@ These are the flashing instructions for the Jetson Orin NX in Xavier NX Devkit N
 
 | balenaOS version | BSP version | Jetpack version | Use this version of jetson-flash |
 |------------------|-------------|-----------------|----------------------------------|
-| 6.4.0 or later   | 36.4.3      | 6.2             | You are on the correct version. (v0.5.86 or greater)              | 
+| 6.12.3 or later  | 36.4.4      | 6.2.1           | You are on the correct version. (v0.5.92 or greater)              |
+| 6.4.0 - v6.12.2  | 36.4.3      | 6.2             | [v0.5.87](https://github.com/balena-os/jetson-flash/tree/v0.5.87) |
 | 5.3.22 - 6.3.6   | 36.3        | 6.0             | [v0.5.85](https://github.com/balena-os/jetson-flash/tree/v0.5.85) |
 | 5.3.12 - 5.3.21  | 35.5.0      | 5.1.3           | [v0.5.72](https://github.com/balena-os/jetson-flash/tree/v0.5.72) |
 | 4.1.5 - 5.3.10   | 35.4.1      | 5.1.2           | [v0.5.67](https://github.com/balena-os/jetson-flash/tree/v0.5.67) |
