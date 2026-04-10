@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update Orin Devices to L4T 36.4.4
+      hash: df36d43ce395f6b6f1bc9df2cadf777a93a05c96
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.92
+  title: ""
+  date: 2026-04-10T12:11:51.324Z
+- commits:
     - subject: Mark package as private to prevent npm publishing
       hash: 66827eafdcf1dee08998e825303a0b50d59554cc
       body: ""
