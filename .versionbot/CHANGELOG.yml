@@ -1,4 +1,19 @@
 - commits:
+    - subject: "Orin_Flash: Use non-SD qspi XML to allow rcm-boot on all Orin Nano
+        modules"
+      hash: cff6ab7355124901fab532963494e7bdfc083365
+      body: |
+        This works on 8GB modules, both with and without an SD-card.
+      footer:
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+        Change-type: patch
+        change-type: patch
+      author: Alexandru Costache
+  version: 0.5.93
+  title: ""
+  date: 2026-04-27T05:13:18.957Z
+- commits:
     - subject: Update Orin Devices to L4T 36.4.4
       hash: df36d43ce395f6b6f1bc9df2cadf777a93a05c96
       body: ""
