@@ -125,6 +125,9 @@ function setup_orin_rcmboot() {
     if [[ $balena_device_name = "jetson-orin-nx-xavier-nx-devkit" ]] || [[ $balena_device_name = "jetson-orin-nx-seeed-j4012" ]] || [[ $balena_device_name = "jetson-orin-nano-seeed-j3010" ]]; then
         sed -i 's/flash_t234_qspi_sd.xml/flash_t234_qspi.xml/g' "${device_dir}${lt_dir}/p3768-0000-p3767-0000-a0.conf"
     fi
+
+    # Allow both modules with and without SD card to enter rcm-boot mode, otherwise newer L4T BSPs will not proceed with booting.
+    sed -i 's/flash_t234_qspi_sd.xml/flash_t234_qspi.xml/g' "${device_dir}${lt_dir}/jetson-orin-nano-devkit.conf"
 }
 
 trap cleanup EXIT SIGHUP SIGINT SIGTERM
