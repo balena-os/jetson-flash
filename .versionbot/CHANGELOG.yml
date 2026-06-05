@@ -1,4 +1,17 @@
 - commits:
+    - subject: "docs: Update L4T release - OS mapping"
+      hash: 2265a90472ab7348022c7dbc6eb1b0b1f12b3e1c
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.95
+  title: ""
+  date: 2026-06-05T16:05:59.630Z
+- commits:
     - subject: Update Jetson Orin Devices to L4T 36.5.0
       hash: badfe45c42ca3dd360a6d3ffde47788024251b04
       body: ""
