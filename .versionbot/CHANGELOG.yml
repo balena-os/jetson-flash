@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update Jetson Orin Devices to L4T 36.5.0
+      hash: badfe45c42ca3dd360a6d3ffde47788024251b04
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.94
+  title: ""
+  date: 2026-06-05T08:50:01.640Z
+- commits:
     - subject: "Orin_Flash: Use non-SD qspi XML to allow rcm-boot on all Orin Nano
         modules"
       hash: cff6ab7355124901fab532963494e7bdfc083365
