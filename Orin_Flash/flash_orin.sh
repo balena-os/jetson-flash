@@ -113,22 +113,20 @@ fi
 # The balenaOS image being flashed remains the jetson-agx-orin-devkit-64gb
 # fake — this only affects the low-level RCM boot/flash configuration.
 function inject_avermedia_d315_bsp() {
-    local avermedia_bsp="/data/avermedia-bsp"
+	echo "Injection avermedia bsp"
+    local avermedia_bsp="${work_dir}avermedia-d315"
     if [ ! -d "${avermedia_bsp}" ]; then
-        log ERROR "AVerMedia BSP not found at ${avermedia_bsp}. Run the container with: -v /path/to/avermedia/JetPack_6.2_Linux_JETSON_desktop/Linux_for_Tegra:/data/avermedia-bsp:ro"
+        log ERROR "AVerMedia BSP not found at ${avermedia_bsp}"
     fi
     local l4t="${work_dir}/${device_dir}${lt_dir}"
 
     log "Injecting AVerMedia D315 BSP files into L4T BSP tree..."
 
-    # Carrier-board conf file (sourced by flash.sh via device_type=jetson-agx-orin-d315ao)
-    cp "${avermedia_bsp}/jetson-agx-orin-d315ao.conf" "${l4t}/"
-
-    # D315 DTBs
-    cp "${avermedia_bsp}/kernel/dtb/tegra234-p3737-0000+p3701-0000-nv-d315.dtb" "${l4t}/kernel/dtb/"
-    cp "${avermedia_bsp}/kernel/dtb/tegra234-p3737-0000+p3701-0004-nv-d315.dtb" "${l4t}/kernel/dtb/"
-    cp "${avermedia_bsp}/kernel/dtb/tegra234-p3737-0000+p3701-0005-nv-d315.dtb" "${l4t}/kernel/dtb/"
-    cp "${avermedia_bsp}/kernel/dtb/tegra234-p3737-0000+p3701-0008-nv-d315.dtb" "${l4t}/kernel/dtb/"
+	cp "${avermedia_bsp}/jetson-agx-orin-d315ao.conf" "${device_dir}${lt_dir}/"
+	cp "${avermedia_bsp}/p3701.conf.common" "${device_dir}${lt_dir}/"
+	cp "${avermedia_bsp}/${device_dtb}" "${device_dir}${lt_dir}/kernel/dtb/"
+	cp "${avermedia_bsp}/tegra234-mb1-bct-pinmux-p3701-0000-a04.dtsi" "${device_dir}${lt_dir}/bootloader/generic/BCT/"
+	cp "${avermedia_bsp}/tegra234-mb1-bct-gpio-p3701-0000-a04.dtsi" "${device_dir}${lt_dir}/bootloader/"
 
     log "AVerMedia D315 BSP injection complete."
 }

@@ -1,0 +1,246 @@
+# SPDX-FileCopyrightText: Copyright (c) 2021-2025 NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+# SPDX-License-Identifier: BSD-3-Clause
+#
+# Redistribution and use in source and binary forms, with or without
+# modification, are permitted provided that the following conditions are met:
+#
+# 1. Redistributions of source code must retain the above copyright notice, this
+# list of conditions and the following disclaimer.
+#
+# 2. Redistributions in binary form must reproduce the above copyright notice,
+# this list of conditions and the following disclaimer in the documentation
+# and/or other materials provided with the distribution.
+#
+# 3. Neither the name of the copyright holder nor the names of its
+# contributors may be used to endorse or promote products derived from
+# this software without specific prior written permission.
+#
+# THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+# AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+# IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+# DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+# FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+# DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+# SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+# CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+# OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+# OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+# p3701.conf.common: configuration for "P3701"
+
+sub_var_token()
+{
+	local var="$1";
+	local from="$2";
+	local to="$3";
+	if [ "${var}" != "" -a "${!var}" != "" ]; then
+		if [[ "${!var}" =~ "${from}" ]]; then
+			local val=`echo "${!var}" | sed -e s/${from}/${to}/`;
+			eval "${var}=${val}";
+		fi;
+	fi;
+}
+
+# process_chip_sku_version:
+#
+process_chip_sku_version()
+{
+	local chip_sku="${1}";
+	local chip_minor_revision_id="${2}";
+	local bootrom_revision_id="${3}";
+	local ramcode="${4}";
+	local fuselevel="${5}";
+	local board_FAB="${6}";
+	declare -A bpmp_fw_binary;
+	bpmp_fw_binary['90']="TE992M-A1";
+	bpmp_fw_binary['97']="TA990SA-A1";
+	bpmp_fw_binary['9E']="TA990SA-A1";
+	bpmp_fw_binary['D0']="TE990M-A1";
+	bpmp_fw_binary['D2']="TE990M-A1";
+
+	chip_sku="${chip_sku:-${DEFAULT_CHIP_SKU}}"
+
+	if [[ "${chip_sku}" =~ ":" ]]; then
+		chip_SKU=`echo "${chip_sku}" | awk -F ":" '{print $4}'`;
+	fi;
+
+	# do not override BPFFILE for INT SKU "00"
+	if [ "${chip_SKU}" != "00" ]; then
+		BPFFILE=`echo "${BPFFILE}" | sed "s|T.*-A1|${bpmp_fw_binary[${chip_SKU}]}|"`;
+	fi;
+
+	echo "Chip SKU(${chip_sku}) ramcode(${ramcode}) fuselevel(${fuselevel}) board_FAB(${board_FAB})"
+}
+
+# Process_board_version:
+# Trigger to read the board id and board version from EEPROM on main board.
+# undef for non eeprom boards.
+process_board_version()
+{
+	local board_id="${1}";
+	local board_version="${2}";
+	local board_sku="${3}";
+	local board_revision="${4}";
+	local chiprev="${5}";
+
+	if [ "${board_id}" = "3701" ] && [ "${board_version}" = "301" ]; then
+		# Concord P3701-0000-A01 uses RAMCODE 0
+		RAMCODE=0
+	fi;
+	echo "Board ID(${board_id}) version(${board_version}) sku(${board_sku}) revision(${board_revision})"
+
+	# Specify DRAM config.
+	# SKU0, SKU2, SKU4 modules uses the default.  Override for other SKUs.
+	if [ "${board_sku}" = "0005" ]; then
+		# p3701-0005 (64GB)
+		EMMC_BCT="tegra234-p3701-0005-sdram-l4t.dts";
+		WB0SDRAM_BCT="tegra234-p3701-0005-wb0sdram-l4t.dts";
+	elif [ "${board_sku}" = "0008" ]; then
+		# p3701-0008 (64GB)
+		EMMC_BCT="tegra234-p3701-0008-sdram-l4t.dts";
+		WB0SDRAM_BCT="tegra234-p3701-0008-wb0sdram-l4t.dts";
+	fi
+	if [ "${kdump_enable}" -eq 1 ]; then
+		cmdline+="crashkernel=384M-2G:64M,2G-:750M ";
+		ODMDATA="${ODMDATA},disable-tegra-wdt";
+	fi
+}
+
+# Process fuse version:
+#
+# Non-fused BS vs Production Fused BD
+#
+# $FILE_dev.bin  vs. $FILE_prod.bin
+#
+process_fuse_level()
+{
+	local fuselevel="${1}";
+	local srctoken="_dev";
+	local trgtoken="_prod";
+
+	# fuselevel:
+	#	"fuselevel_unknown"
+	#	"fuselevel_nofuse"
+	#	"fuselevel_production"
+	#
+	case ${fuselevel} in
+	fuselevel_unknown)
+		return;
+		;;
+	fuselevel_nofuse)
+		srctoken="_prod";
+		trgtoken="_dev";
+		;;
+	*)
+		;;
+	esac;
+	sub_var_token "MB1FILE"    "${srctoken}" "${trgtoken}";
+	sub_var_token "SOSFILE"    "${srctoken}" "${trgtoken}";
+	sub_var_token "NVHOSTNVDEC" "${srctoken}" "${trgtoken}";
+	sub_var_token "BPFFILE" "${srctoken}" "${trgtoken}";
+	sub_var_token "MTSMCEFILE" "${srctoken}" "${trgtoken}";
+	sub_var_token "PSCFW" "${srctoken}" "${trgtoken}";
+	sub_var_token "PSCBL1FILE" "${srctoken}" "${trgtoken}";
+	sub_var_token "WB0BOOT" "${srctoken}" "${trgtoken}";
+	sub_var_token "PSC_RF" "${srctoken}" "${trgtoken}";
+	sub_var_token "XUSBFILE" "${srctoken}" "${trgtoken}";
+	sub_var_token "READINFOFILE" "${srctoken}" "${trgtoken}";
+	sub_var_token "NVKEY_FILE" "${srctoken}" "${trgtoken}";
+	sub_var_token "NVENCRYPTKEY_FILE" "${srctoken}" "${trgtoken}";
+	sub_var_token "IST_UCODE"    "${srctoken}" "${trgtoken}";
+	sub_var_token "IST_BPMPFW"    "${srctoken}" "${trgtoken}";
+}
+
+# Common values and/or defaults across P3701:
+
+ODMDATA="gbe-uphy-config-22,hsstp-lane-map-3,nvhs-uphy-config-0,hsio-uphy-config-0,gbe0-enable-10g";
+CHIPID=0x23;
+ITS_FILE=;
+OVERLAY_DTB_FILE="L4TConfiguration.dtbo,tegra234-p3701-overlay.dtbo";
+CMDLINE_ADD="mminit_loglevel=4 console=ttyTCU0,115200 console=ttyAMA0,115200 firmware_class.path=/etc/firmware fbcon=map:0 video=efifb:off console=tty0"
+target_board="generic";
+ROOTFSSIZE=55GiB;
+ROOT_DEV="mmcblk0p1 ------------ internal eMMC.
+        sda1 ----------------- external USB devices. (USB memory stick, HDD)
+        eth0 ----------------- nfsroot via RJ45 Ethernet port.
+        eth1 ----------------- nfsroot via USB Ethernet interface.";
+TEGRABOOT="bootloader/mb2_t234.bin";
+BOOTLOADER="bootloader/mb2_t234.bin";
+UEFIBL="uefi_jetson_with_dtb.bin";
+RCM_UEFIBL="uefi_jetson_minimal_with_dtb.bin";
+TBCFILE="bootloader/uefi_jetson.bin";
+RCM_TBCFILE="bootloader/uefi_jetson_minimal.bin";
+BPFFILE="bootloader/bpmp_t234-TE990M-A1_prod.bin";
+TOSFILE="bootloader/tos_t234.img";
+EKSFILE="bootloader/eks_t234.img";
+PSCBL1FILE="bootloader/psc_bl1_t234_prod.bin";
+PSCFW="bootloader/pscfw_t234_prod.bin";
+TSECFW="bootloader/tsec_t234.bin";
+NVHOSTNVDEC="bootloader/nvdec_t234_prod.fw";
+DCE="bootloader/display-t234-dce.bin";
+MB1FILE="bootloader/mb1_t234_prod.bin";
+SOSFILE="bootloader/mb1_t234_prod.bin";
+MB2BLFILE="bootloader/mb2_t234.bin";
+SPEFILE="bootloader/spe_t234.bin";
+READINFOFILE="bootloader/readinfo_t234_min_prod.xml";
+CAMERAFW="bootloader/camera-rtcpu-t234-rce.img";
+EMCFUSE="fuse_t234.xml";
+NVKEY_FILE="bootloader/t234_rsa_prod.key";
+NVENCRYPTKEY_FILE="bootloader/t234_sbk_prod.key";
+MTSMCEFILE="bootloader/mce_flash_o10_cr_prod.bin";
+APPLET="bootloader/applet_t234.bin";
+APEFILE="bootloader/adsp-fw.bin";
+XUSBFILE="bootloader/xusb_t234_prod.bin";
+EMC_OPT_DISABLE_FUSE_OVERRIDE="1";
+WB0BOOT="bootloader/sc7_t234_prod.bin";
+MB2_RF="bootloader/mb2rf_t234.bin";
+PSC_RF="bootloader/psc_rf_t234_prod.bin";
+DFLT_CUSTOMER_INFO="bootloader/default_custinfo.bin"
+UEFI_OS_LAUNCHER=1;
+
+# BCT args:
+#
+BCT="--sdram_config";
+BINSARGS="--bins \"";
+EMMC_BCT="tegra234-p3701-0000-sdram-l4t.dts";
+WB0SDRAM_BCT="tegra234-p3701-0000-wb0sdram-l4t.dts";
+MISC_CONFIG="tegra234-mb1-bct-misc-p3701-0000.dts";
+DEV_PARAMS="tegra234-br-bct-p3701-0000.dts";
+# Booting from chain B
+DEV_PARAMS_B="tegra234-br-bct_b-p3701-0000.dts";
+EMC_FUSE_DEV_PARAMS="tegra234-br-bct-diag-boot.dts";
+SCR_CONFIG="tegra234-mb2-bct-scr-p3701-0000.dts";
+PINMUX_CONFIG="tegra234-mb1-bct-pinmux-p3701-0000-a04.dtsi";
+PMIC_CONFIG="tegra234-mb1-bct-pmic-p3701-0000.dts";
+PMC_CONFIG="tegra234-mb1-bct-padvoltage-p3701-0000-a04.dtsi";
+DEVICEPROD_CONFIG="tegra234-mb1-bct-cprod-p3701-0000.dts";
+PROD_CONFIG="tegra234-mb1-bct-prod-p3701-0000.dts";
+BOOTROM_CONFIG="tegra234-mb1-bct-reset-p3701-0000.dts";
+DEVICE_CONFIG="tegra234-mb1-bct-device-p3701-0000.dts";
+UPHYLANE_CONFIG="tegra234-mb1-bct-uphylane-si.dtsi"
+GPIOINT_CONFIG="tegra234-mb1-bct-gpioint-p3701-0000.dts";
+MB2_BCT="tegra234-mb2-bct-misc-p3701-0000.dts";
+INITRD_IN_BOOTIMG="yes";
+INITRD="bootloader/l4t_initrd.img";
+FBFILE="fuse_bypass_t234.xml";
+DEFAULT_CHIP_SKU="00:00:00:D0"
+PVAFILE="bootloader/nvpva_020.fw"
+
+# Default FAB: Force P3701 boards without properly programmed EEPROM.
+# Values: A00 ->
+#
+DEFAULT_FAB="A00";
+VERFILENAME="qspi_bootblob_ver.txt";
+OTA_BOOT_DEVICE="/dev/mtdblock0";
+OTA_GPT_DEVICE="/dev/mtdblock0";
+
+# Rollback protection
+MINRATCHET_CONFIG="tegra234-mb1-bct-ratchet-p3701-0000.dts";
+
+# Rootfs A/B:
+if [ "${ROOTFS_AB}" == 1 ]; then
+	rootfs_ab=1;
+	val=$(echo ${ROOTFSSIZE} | sed 's/GiB//g');
+	val=`expr ${val} / 2`;
+	ROOTFSSIZE="${val}GiB";
+fi;

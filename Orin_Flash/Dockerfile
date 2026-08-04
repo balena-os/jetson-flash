@@ -18,4 +18,6 @@ COPY ./uefi/jetson-orin/uefi_jetson.bin /usr/src/app/orin-flash/orin/Linux_for_T
 COPY ./flash_orin.sh /usr/src/app/orin-flash/
 RUN chmod +x /usr/src/app/orin-flash/flash_orin.sh
 
+COPY ./avermedia-d315/ /usr/src/app/orin-flash/avermedia-d315/
+
 CMD ["sleep", "infinity"]

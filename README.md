@@ -49,56 +49,43 @@ Choose your device from the list below for step-by-step instructions:
 The AVerMedia D315 uses an AGX Orin 64GB SoM (p3701) on a custom carrier board.
 It is flashed using the `avermedia-d315-agx-orin-64gb` machine name. The balenaOS
 image being flashed is built as `jetson-agx-orin-devkit-64gb` (the "fake devkit"
-pattern) — this is intentional and must be preserved.
+pattern) — this is intentional and must be preserved. The image includes the dtb 
+files for the avermedia and that's all that matters.
 
 ### What this tool does for the D315
 
 Before invoking NVIDIA's `flash.sh`, the tool injects D315-specific files from the
-AVerMedia BSP into the L4T tree:
-
-- `jetson-agx-orin-d315ao.conf` — the carrier-board flash configuration
-- D315 DTBs (`tegra234-p3737-0000+p3701-000{0,4,5,8}-nv-d315.dtb`)
-
-No custom pinmux, MB2 BCT or ODMDATA overrides are needed — the D315 uses the
-same values as the standard NVIDIA devkit.
+AVerMedia BSP into the L4T tree.
 
 ### Prerequisites
 
-1. A balenaOS flasher image built for `jetson-agx-orin-devkit-64gb`:
+1. A balenaOS image built for `jetson-agx-orin-devkit-64gb` (version >= 7):
 
    ```
    balena-image-flasher-jetson-agx-orin-devkit-64gb.balenaos-img
    ```
 
-2. The AVerMedia JetPack 6.2 BSP extracted on the host. You need the
-   `Linux_for_Tegra` directory:
-
-   ```
-   /path/to/avermedia/JetPack_6.2_Linux_JETSON_desktop/Linux_for_Tegra/
-   ```
-
-3. The D315 board in USB recovery mode (power off / micro-USB cable connected
+2. The D315 board in USB recovery mode (power off / micro-USB cable connected
    to the host / press factory reset button + power on).
+
+3. The USB stick with the image burnt on it (use `caligula burn <balena-image>.img`) plugged in.
+   Plug it in the USB 2.0 (NOT 3.0!) the closest from the board. Important to 
+   not use 3.0 as the 3.0 sometimes doesn't work.
 
 ### Flashing
 
 **On the host**, set the BSP path and start the container:
 
 ```bash
-export AVERMEDIA_BSP_PATH=/path/to/avermedia/JetPack_6.2_Linux_JETSON_desktop/Linux_for_Tegra
-
 cd Orin_Flash
 ./build_and_run.sh
 ```
-
-`build_and_run.sh` will automatically bind-mount the BSP directory into the
-container at `/data/avermedia-bsp` when `AVERMEDIA_BSP_PATH` is set.
 
 **Inside the container**, run the flash script:
 
 ```bash
 ./flash_orin.sh \
-    -f /data/images/balena-image-flasher-jetson-agx-orin-devkit-64gb.balenaos-img \
+    -f /data/images/<balena-image-name>img \
     -m avermedia-d315-agx-orin-64gb \
     --accept-license yes
 ```
