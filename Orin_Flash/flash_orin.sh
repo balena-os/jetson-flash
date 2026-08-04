@@ -125,6 +125,9 @@ function setup_orin_rcmboot() {
     if [[ $balena_device_name = "jetson-orin-nx-xavier-nx-devkit" ]] || [[ $balena_device_name = "jetson-orin-nx-seeed-j4012" ]] || [[ $balena_device_name = "jetson-orin-nano-seeed-j3010" ]]; then
         sed -i 's/flash_t234_qspi_sd.xml/flash_t234_qspi.xml/g' "${device_dir}${lt_dir}/p3768-0000-p3767-0000-a0.conf"
     fi
+
+    # Allow both modules with and without SD card to enter rcm-boot mode, otherwise newer L4T BSPs will not proceed with booting.
+    sed -i 's/flash_t234_qspi_sd.xml/flash_t234_qspi.xml/g' "${device_dir}${lt_dir}/jetson-orin-nano-devkit.conf"
 }
 
 trap cleanup EXIT SIGHUP SIGINT SIGTERM
@@ -135,7 +138,7 @@ if [ ! -d ${work_dir}/${device_dir}/${lt_dir} ]; then
 fi
 
 cat "${work_dir}/${device_dir}/${lt_dir}/Tegra_Software_License_Agreement-Tegra-Linux.txt"
-log "Above license agreement can be consulted at https://developer.download.nvidia.com/embedded/L4T/r36_Release_v4.3/release/Tegra_Software_License_Agreement-Tegra-Linux.txt?t=eyJscyI6ImdzZW8iLCJsc2QiOiJodHRwczovL3d3dy5nb29nbGUuY29tLyJ9"
+log "Above license agreement can be consulted at https://developer.download.nvidia.com/embedded/L4T/r36_Release_v5.0/release/Tegra_Software_License_Agreement-Tegra-Linux.txt?t=eyJscyI6ImdzZW8iLCJsc2QiOiJodHRwczovL3d3dy5nb29nbGUuY29tLyJ9"
 
 if [ "$accept_license" != "yes" ]; then
    echo "Accept the above License Agreement? Type yes/no:"
