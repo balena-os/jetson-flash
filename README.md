@@ -14,28 +14,28 @@ This tool invokes NVIDIA’s proprietary software to properly partition the boot
 
 Choose your device from the list below for step-by-step instructions:
 
-| Device                                                                               | Current L4T version |
-| ------------------------------------------------------------------------------------ | ------------------- |
-| [Auvidea CNX100 Xavier NX](./docs/cnx100-xavier-nx.md)                               | L4T 32.5.1          |
-| [Auvidea JN30B Nano](./docs/jn30b-nano.md)                                           | L4T 32.7.6          |
-| [CTI Photon Nano](./docs/photon-nano.md)                                             | L4T 32.7.3          |
-| [CTI Photon TX2 NX](./docs/photon-tx2-nx.md)                                         | L4T 32.7.2          |
-| [CTI Photon Xavier NX](./docs/photon-xavier-nx.md)                                   | L4T 32.7.3          |
-| [Jetson Nano eMMC](./docs/jetson-nano-emmc.md)                                       | L4T 32.7.6          |
-| [Jetson Nano SD-CARD Devkit](./docs/jetson-nano.md)                                  | L4T 32.7.3          |
-| [Jetson Nano 2GB Devkit](./docs/jetson-nano-2gb-devkit.md)                           | L4T 32.7.1          |
-| [Jetson TX2](./docs/jetson-tx2.md)                                                   | L4T 32.7.6          |
-| [Jetson TX2 NX (in Jetson Xavier NX Devkit)](./docs/jetson-tx2-nx-devkit.md)         | L4T 32.7.3          |
-| [Jetson AGX Xavier](./docs/jetson-xavier.md)                                         | L4T 32.7.3          |
-| [Jetson Xavier NX Devkit eMMC](./docs/jetson-xavier-nx-devkit-emmc.md)               | L4T 32.7.3          |
-| [Jetson Xavier NX Devkit SD-CARD](./docs/jetson-xavier-nx-devkit.md)                 | L4T 32.7.3          |
-| [Jetson AGX Orin Devkit 32GB](./docs/jetson-agx-orin-devkit.md)                      | L4T 36.4.3          |
-| [Jetson AGX Orin Devkit 64GB](./docs/jetson-agx-orin-devkit-64gb.md)                 | L4T 36.4.3          |
-| [AVerMedia D315 AGX Orin 64GB](#avermedia-d315-agx-orin-64gb)                        | L4T 36.4.3          |
-| [Jetson Orin Nano 8GB (SD) Devkit NVME](./docs/jetson-orin-nano-devkit-nvme.md)      | L4T 36.4.3          |
-| [Jetson Orin NX in Xavier NX Devkit NVME](./docs/jetson-orin-nx-xavier-nx-devkit.md) | L4T 36.4.3          |
-| [Seeed reComputer J3010 4GB](./docs/jetson-orin-nano-seeed-j3010.md)                 | L4T 36.4.3          |
-| [Seeed reComputer J4012 16GB](./docs/jetson-orin-nx-seeed-j4012.md)                  | L4T 36.4.3          |
+|Device | Current L4T version |
+|-------|---------------------|
+|[Auvidea CNX100 Xavier NX](./docs/cnx100-xavier-nx.md) | L4T 32.5.1 |
+|[Auvidea JN30B Nano](./docs/jn30b-nano.md) | L4T 32.7.6  |
+|[CTI Photon Nano](./docs/photon-nano.md) | L4T 32.7.3 |
+|[CTI Photon TX2 NX](./docs/photon-tx2-nx.md) | L4T 32.7.2 |
+|[CTI Photon Xavier NX](./docs/photon-xavier-nx.md) | L4T 32.7.3 |
+|[Jetson Nano eMMC](./docs/jetson-nano-emmc.md) | L4T 32.7.6 |
+|[Jetson Nano SD-CARD Devkit](./docs/jetson-nano.md) | L4T 32.7.3 |
+|[Jetson Nano 2GB Devkit](./docs/jetson-nano-2gb-devkit.md) | L4T 32.7.1 |
+|[Jetson TX2](./docs/jetson-tx2.md) | L4T 32.7.6 |
+|[Jetson TX2 NX (in Jetson Xavier NX Devkit)](./docs/jetson-tx2-nx-devkit.md) | L4T 32.7.3 |
+|[Jetson AGX Xavier](./docs/jetson-xavier.md) | L4T 32.7.3 |
+|[Jetson Xavier NX Devkit eMMC](./docs/jetson-xavier-nx-devkit-emmc.md) | L4T 32.7.3 |
+|[Jetson Xavier NX Devkit SD-CARD](./docs/jetson-xavier-nx-devkit.md) | L4T 32.7.3 |
+|[Jetson AGX Orin Devkit 32GB](./docs/jetson-agx-orin-devkit.md) | L4T 36.5.0 |
+|[Jetson AGX Orin Devkit 64GB](./docs/jetson-agx-orin-devkit-64gb.md) | L4T 36.5.0 |
+| [AVerMedia D315 AGX Orin 64GB](#avermedia-d315-agx-orin-64gb)                        | L4T 36.5.0          |
+|[Jetson Orin Nano 8GB (SD) Devkit NVME](./docs/jetson-orin-nano-devkit-nvme.md) | L4T 36.5.0 |
+|[Jetson Orin NX in Xavier NX Devkit NVME](./docs/jetson-orin-nx-xavier-nx-devkit.md) | L4T 36.5.0 |
+|[Seeed reComputer J3010 4GB](./docs/jetson-orin-nano-seeed-j3010.md) | L4T 36.5.0 |
+|[Seeed reComputer J4012 16GB](./docs/jetson-orin-nx-seeed-j4012.md) | L4T 36.5.0 |
 
 **Don't see your device listed?**
 
