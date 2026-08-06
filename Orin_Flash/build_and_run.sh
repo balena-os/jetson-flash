@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Build Dockerfile
-HOST_IMAGES_PATH="${HOST_IMAGES_PATH:'~/images'}"
+HOST_IMAGES_PATH="${HOST_IMAGES_PATH:-$HOME/images}"
 docker build -t orin-image .
 
 # Run resulting Docker image. The balenaOS image downloaded from balena-cloud is expected to exist in the HOST, inside ~/images. That directory will be bind-mounted inside the running container in /data/images/
