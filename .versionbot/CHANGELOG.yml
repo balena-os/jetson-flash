@@ -1,4 +1,26 @@
 - commits:
+    - subject: "AGX Orin 32GB: Update uefi_jetson.bin 36.5.0"
+      hash: e6d66daecefaabe41ca5c8fa58adfe2bd382cd0e
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+    - subject: "flash_orin.sh: Fix failure caused by dtb name change"
+      hash: b32b7cb8aa69bb91b2388d97fcba023d84f9be77
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alexandru Costache <alexandru@balena.io>
+        signed-off-by: Alexandru Costache <alexandru@balena.io>
+      author: Alexandru Costache
+  version: 0.5.96
+  title: ""
+  date: 2026-08-05T05:26:37.683Z
+- commits:
     - subject: "docs: Update L4T release - OS mapping"
       hash: 2265a90472ab7348022c7dbc6eb1b0b1f12b3e1c
       body: ""
