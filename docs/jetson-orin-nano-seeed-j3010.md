@@ -12,7 +12,8 @@ These are the flashing instructions for the [Seeed J3010](https://www.seeedstudi
 
 | balenaOS version | BSP version | Jetpack version | Use this version of jetson-flash |
 |------------------|-------------|-----------------|----------------------------------|
-| 7.0.5 or later   | 36.5.0      | 6.2.2           | You are on the correct version. (v0.5.94 or greater)              |
+| 8.0.0 or later   | 39.2.0      | 7.2             | You are on the correct version. (v0.5.97 or greater) |
+| 7.0.5 - 7.9.4+rev2 | 36.5.0      | 6.2.2         | [v0.5.96](https://github.com/balena-os/jetson-flash/tree/v0.5.96) |            |
 | 6.12.3 - 7.0.3   | 36.4.4      | 6.2.1           | [v0.5.93](https://github.com/balena-os/jetson-flash/tree/v0.5.93) |
 | 6.4.0 - 6.12.2   | 36.4.3      | 6.2             | [v0.5.87](https://github.com/balena-os/jetson-flash/tree/v0.5.87) |
 | 5.3.22 - 6.3.6   | 36.3        | 6.0             | [v0.5.85](https://github.com/balena-os/jetson-flash/tree/v0.5.85) |
