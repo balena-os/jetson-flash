@@ -1,4 +1,18 @@
 - commits:
+    - subject: Add Renovate config extending balena-io/renovate-config
+      hash: 688ed6c233b9244fca45ff35537e0fa4d6100768
+      body: |
+        Avoids enforcing Changelog-entry footers on this repo
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+  version: 0.5.98
+  title: ""
+  date: 2026-08-24T22:40:44.810Z
+- commits:
     - subject: "jetson-flash/Orin_Flash: Add L4T 39.2.0 updates"
       hash: 8ec28810a344d2bf5231cf7573991ed4b08cd48f
       body: ""
