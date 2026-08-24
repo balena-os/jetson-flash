@@ -117,7 +117,7 @@ function setup_orin_rcmboot() {
     echo " " > "${device_dir}${lt_dir}/bootloader/recovery.img"
     mkdir -p "${device_dir}${lt_dir}/rootfs/boot/extlinux/"
     echo " " > "${device_dir}${lt_dir}/rootfs/boot/extlinux/extlinux.conf"
-    sed -i 's/console=tty0/root=LABEL=flash-rootA flasher rootdelay=1 debug loglevel=7 roottimeout=360 jf_rcm_boot=1 /g' "${device_dir}${lt_dir}/p3767.conf.common"
+    sed -i 's/console=tty0/root=LABEL=flash-rootA flasher rootdelay=1 debug loglevel=7 roottimeout=360 jf_rcm_boot=1/g' "${device_dir}${lt_dir}/p3767.conf.common"
     sed -i 's/console=tty0/root=LABEL=flash-rootA flasher rootdelay=1 debug loglevel=7 roottimeout=360 jf_rcm_boot=1 /g' "${device_dir}${lt_dir}/p3701.conf.common"
     # tegra234-mb2-bct-common.dtsi for AGX Orin and tegra234-mb2-bct-misc-p3767-0000.dts for Orin NX/Nano carrier boards which don't have eeproms
     sed -i 's/cvb_eeprom_read_size = <0x100>/cvb_eeprom_read_size = <0x0>/g' "${device_dir}${lt_dir}/bootloader/tegra234-mb2-bct-common.dtsi"
@@ -128,6 +128,14 @@ function setup_orin_rcmboot() {
 
     # Allow both modules with and without SD card to enter rcm-boot mode, otherwise newer L4T BSPs will not proceed with booting.
     sed -i 's/flash_t234_qspi_sd.xml/flash_t234_qspi.xml/g' "${device_dir}${lt_dir}/jetson-orin-nano-devkit.conf"
+
+    sed -i \
+      -e '/CopyBaseInitrdToRootfs/s/^/#/' \
+      -e '/UpdateInitrd "${update_initrd_args}"/s/^/#/' \
+      "${device_dir}${lt_dir}/tools/l4t_update_initrd.sh"
+
+
+    sed -i 's/do_initrd_update="true"/do_initrd_update="false"/' "${device_dir}${lt_dir}/flash.sh"
 }
 
 trap cleanup EXIT SIGHUP SIGINT SIGTERM
@@ -161,5 +169,5 @@ setup_orin_rcmboot
 # Prepare boot binaries. We use mmcblk0p1 as a dummy root to make the flash.sh script happy. This argument is not used during actual flashing.
 # p3509-a02+p3767-0000 is the machine name used for the Orin NX in Xavier NX Devkit carrier board.
 cd "${work_dir}/${device_dir}${lt_dir}"
-sudo ./flash.sh --no-flash $device_type mmcblk0p1
-sudo ./flash.sh --rcm-boot $device_type mmcblk0p1
+sudo NO_ROOTFS=1 ./flash.sh --no-flash $device_type mmcblk0p1
+sudo NO_ROOTFS=1 ./flash.sh --rcm-boot $device_type mmcblk0p1
