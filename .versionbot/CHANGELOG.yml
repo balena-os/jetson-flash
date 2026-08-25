@@ -1,4 +1,16 @@
 - commits:
+    - subject: Update Pin dependencies
+      hash: 4096bdf42f181d514d0eb08d806fb5432b01ac72
+      body: |
+        Update balenalib/amd64-ubuntu
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+  version: 0.5.100
+  title: ""
+  date: 2026-08-25T14:53:27.264Z
+- commits:
     - subject: "renovate: Fix config file path"
       hash: 94804a038068f7648b45150d63f8ab094bdcb6ce
       body: ""
