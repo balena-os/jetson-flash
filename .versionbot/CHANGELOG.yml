@@ -1,4 +1,17 @@
 - commits:
+    - subject: "renovate: Fix config file path"
+      hash: 94804a038068f7648b45150d63f8ab094bdcb6ce
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+  version: 0.5.99
+  title: ""
+  date: 2026-08-25T13:50:05.868Z
+- commits:
     - subject: Add Renovate config extending balena-io/renovate-config
       hash: 688ed6c233b9244fca45ff35537e0fa4d6100768
       body: |
