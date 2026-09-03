@@ -24,7 +24,7 @@
   "dependencies": {
     "apply-patch": "^0.1.2",
     "balena-image-fs": "^7.4.1",
-    "balena-sdk": "^16.38.0",
+    "balena-sdk": "^19.0.0",
     "bluebird": "^3.7.2",
     "ext2fs": "^4.2.4",
     "file-disk": "^7.0.1",
