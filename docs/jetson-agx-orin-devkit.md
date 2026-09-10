@@ -23,6 +23,10 @@ These are the flashing instructions for the Jetson AGX Orin Devkit 32GB. For the
 | 2.113.32 - 2.115.13 | 35.2.1   | 5.1             | [0.5.48](https://github.com/balena-os/jetson-flash/tree/v0.5.48)  |
 | 2.105.11 - 2.113.31 | 35.1.0   | 5.0.2           | [0.5.43](https://github.com/balena-os/jetson-flash/tree/v0.5.43)  |
 
+## IMPORTANT
+
+The steps below should only be used for provisioning Jetson AGX Orin 32GB balenaOS images on Jetson AGX Orin 32GB hardware. Do not use the jetson-flash Node.js tool to provision Jetson AGX Orin 64GB hardware or Jetson AGX Orin 64GB device-type images. For the 64GB developer kit please refer to the [Jetson AGX Orin 64GB Developer Kit provisioning instructions](https://docs.balena.io/learn/develop/hardware/jetson-orin/jetson-agx-orin-devkit-64gb)
+
 ## Requirements
 Jetson Flash requires an x86 Linux-based host (or virtual machine) and has been tested on Ubuntu 22.04 (Focal).
 
